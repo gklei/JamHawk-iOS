@@ -7,32 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4F44A121372FBF6E435CBE374E1627 /* JSONEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1FC3DDA0FF9924565294F6FE0F9C /* JSONEncodingDetector.swift */; };
 		117B0BC95CA7741C24F7A4296EC138EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		12F17C0C2D12FD9A7D5EBD0F04BC56D3 /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E392FC8CB2F5FA3889D18E0BF370FD /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EB7C6F6CFFDBFCBACB700AF3929E1B0 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856499492CFE14A3D332C4A813EC37EC /* UINavigationBar+Extensions.swift */; };
-		2C301BE4E9C0AE6A37F7A64EF59AA74F /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AF7D07E98EAEDB905505AC46CF80F /* UITextField+Extensions.swift */; };
-		2E5F56EECD6CA317AC9C8CB84E995344 /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEDBCDDDAC6ACC259D862287D8A7AA9 /* NSBundle+Extensions.swift */; };
-		40051ECA956160565C5E1C02984586DD /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2D1AF1B34408A71FA0923E84DC0B /* UINavigationController+Extensions.swift */; };
-		417A335ABEC10255B4F5887B8E84011B /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF66DE5691692AD85CCA2DD10410607A /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52638E8493492D1D17B4FFA3CB15522C /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B938FCEF25E88AE88C37FAB9C958319 /* UIDevice+Extensions.swift */; };
-		58B886D8CDFFEAFB3E3F73554C6301E5 /* UIViewController+AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007AC5E8AF0F93F829D9D3A909591FF /* UIViewController+AlertPresenting.swift */; };
-		6B36C8C28D18B4A230537CBD1FECEEAF /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1ED492AC1C3C69F1AB6D6F8E7554 /* UICollectionView+Extensions.swift */; };
-		777C9455F7AD241CA269B8D8A42CAA1F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C494111EC18149C6FB9C73A565FEDD5 /* UIImage+Extensions.swift */; };
-		7B4002BC0CFE83D886410A516AF14230 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DF70F3A1385CD694EA45C0B635A66F /* String+Extensions.swift */; };
-		89D0C52C321061B5B212951B6818F455 /* NSIndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913D10BAC64250DB1F53D59C67B6E07 /* NSIndexPath+Extensions.swift */; };
-		8D4A4BA6D008E392C53967EBEAB329A1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A051DB4F2361B3480D9574AFA2E70C /* UIColor+Extensions.swift */; };
-		9522BBB73772DB73EE03A580B058856D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FF1C1FA50035B031ABBB8E93366279 /* UIViewController+Extensions.swift */; };
-		96499FCE22A667EB50D9D6F757A5EFA6 /* Pods-JamHawk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A136F808B7D0E88547B6A0241513E9AF /* Pods-JamHawk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */; };
-		A693535AB6474BB42F77821E6B8A41D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		D8AA32BFB942656ECAC59D2AE87A1FCD /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CAAF38DE9F3EC870555F757F105DC4 /* IncipiaKit-dummy.m */; };
-		DCB67678163770504E801DDB95511936 /* UIViewControllerContextTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58E7BBB78D7B9F36D30A32D3550B388 /* UIViewControllerContextTransitioning.swift */; };
-		F391180CAF3091E7DF8B2B37070C8EBA /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B2B955564EDB0CA1257A08ADF47C9D /* UIAlertController+Extensions.swift */; };
+		12F17C0C2D12FD9A7D5EBD0F04BC56D3 /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 54ED38FBE4E6101427EB36D030831DAB /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13574A840315A62E71E21D2618A79371 /* Pods-JamHawk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		163C56ADBD329A426F87B0E722888D28 /* Freddy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DC1FD3D4207505DC70088F47BB534A /* Freddy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C731A7E93B3EE736C2D238AF4AAA843 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		1EB7C6F6CFFDBFCBACB700AF3929E1B0 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A67FD8EE594D28DDAC62A7150F3EFA /* UINavigationBar+Extensions.swift */; };
+		2C301BE4E9C0AE6A37F7A64EF59AA74F /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7E8C03CFEBD3C529B5F98CEFBCB31 /* UITextField+Extensions.swift */; };
+		2E5F56EECD6CA317AC9C8CB84E995344 /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D19BBE241210AF0BFDBDA2FB6BBA7F /* NSBundle+Extensions.swift */; };
+		40051ECA956160565C5E1C02984586DD /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59CF203D2CE930102C3E0F27D3EAA22 /* UINavigationController+Extensions.swift */; };
+		417A335ABEC10255B4F5887B8E84011B /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3993D4752373F3C02CC9D59EEEEA2901 /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4476EEDB89BD2BBE269BA25D9D6869BA /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63E4E8C48FD1EA1DFA87EE629D742F7 /* JSONParsing.swift */; };
+		52638E8493492D1D17B4FFA3CB15522C /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054801D2F46DDA459E92828FDDFCDC85 /* UIDevice+Extensions.swift */; };
+		58B886D8CDFFEAFB3E3F73554C6301E5 /* UIViewController+AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BE98876EA19B0B04D90B8B6C331748 /* UIViewController+AlertPresenting.swift */; };
+		6400C65D7B17C5AF90708D0F8F6FCB63 /* JSONSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B49E5501F8FBAA3B926C19971DBA9D8 /* JSONSerializing.swift */; };
+		6B36C8C28D18B4A230537CBD1FECEEAF /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F12ADE404120DE7D821DE1A2B22D10 /* UICollectionView+Extensions.swift */; };
+		6CBE8C0FB2BB1BE7DEFB71188D5367AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		700BDCB998A8BB5B1CEC2DD2D2D5911F /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D653FDFE9D8C92615C3A34E08F1ED8 /* JSONParser.swift */; };
+		777C9455F7AD241CA269B8D8A42CAA1F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8B8430F75C57D6962DE5ADAC5995D2 /* UIImage+Extensions.swift */; };
+		7B4002BC0CFE83D886410A516AF14230 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4490C091500B46CE654FBBFC7443B3 /* String+Extensions.swift */; };
+		89D0C52C321061B5B212951B6818F455 /* NSIndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E93EBB1CB9873E19B61007560A7F81 /* NSIndexPath+Extensions.swift */; };
+		8D4A4BA6D008E392C53967EBEAB329A1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C811CEC265717C773B5E8A213D3427DF /* UIColor+Extensions.swift */; };
+		9522BBB73772DB73EE03A580B058856D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A1C23F93DA2F846F1B56AAC4B5338E /* UIViewController+Extensions.swift */; };
+		95C9F7D166D041482D8D330988C3A389 /* JSONSubscripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAF02FA1E18D79EC5F7FA6560A8F2D /* JSONSubscripting.swift */; };
+		99A312A29811B785F8F35EEAB3D615AE /* Freddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E66403057F6B101E47D712AF49FA6F /* Freddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DDD7E9CEA5A44B0BD55E0EAE62BE7EC /* JSONLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB736511970037F2632C8C80BEDD668 /* JSONLiteralConvertible.swift */; };
+		C0F3756C4C77EC31F50AF6E1F794B042 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD358EF28CCBF565484294F512A47ECF /* JSONDecodable.swift */; };
+		CC7F5D04E26E5E2117CBABA597225B59 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058047C4C70D37A467A48BED63A79BF7 /* JSON.swift */; };
+		D8AA32BFB942656ECAC59D2AE87A1FCD /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B2EBAE8B8E8D6166EC47FF77B4A7BB /* IncipiaKit-dummy.m */; };
+		DCB67678163770504E801DDB95511936 /* UIViewControllerContextTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476983D9680A1FB035EBCD820FF48563 /* UIViewControllerContextTransitioning.swift */; };
+		E597971E2E9FC8DAE78D697CBD10046D /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B4E0B849A65483E818E7A77BBDE2F /* JSONEncodable.swift */; };
+		F391180CAF3091E7DF8B2B37070C8EBA /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE024D21B0EE50B6BB37AC22822F1DA /* UIAlertController+Extensions.swift */; };
+		F6A471A3A8FFDDB380780FAA701EE821 /* Pods-JamHawk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */; };
 		FCEC2EB2D31D40665BCA9C00920BB8D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		FDB24A67301DAC22E84605827EDDBABB /* Freddy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E356DECC1A3742D7423CA3079D6908 /* Freddy-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BC9CD23E967CA6442D481A07348DA0D0 /* PBXContainerItemProxy */ = {
+		428D79DB8F793E93450F53F4F805FE06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE4BFE3AC283ECEA2CF60A4C399216A;
+			remoteInfo = Freddy;
+		};
+		D6C0A349D2E1187F5C7E91C49FF9E194 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -42,42 +62,59 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02E93EBB1CB9873E19B61007560A7F81 /* NSIndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/NSIndexPath+Extensions.swift"; sourceTree = "<group>"; };
+		0395927EDC23A5CD3B3D2697B4D5C2F4 /* Freddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Freddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		054801D2F46DDA459E92828FDDFCDC85 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		058047C4C70D37A467A48BED63A79BF7 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/JSON.swift; sourceTree = "<group>"; };
+		05F29B3A452ACFD8D9DD5C98604A9805 /* Freddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Freddy.xcconfig; sourceTree = "<group>"; };
 		090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JamHawk-dummy.m"; sourceTree = "<group>"; };
+		09BE98876EA19B0B04D90B8B6C331748 /* UIViewController+AlertPresenting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+AlertPresenting.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+AlertPresenting.swift"; sourceTree = "<group>"; };
+		0E4490C091500B46CE654FBBFC7443B3 /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
+		12E66403057F6B101E47D712AF49FA6F /* Freddy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Freddy.h; path = Sources/Freddy.h; sourceTree = "<group>"; };
+		1351A7C89014288C98F9847A3C3F3CF5 /* IncipiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IncipiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1753C39A5FF889404FBBD40D73599C9E /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
+		1AFDA497F5F2BFBCEECF9B62CC4B23C3 /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
 		1B788E0DEA0D09AE98E22BECE69CF06A /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
 		1FE76EC2C184516458480063541FFC13 /* Pods-JamHawk-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JamHawk-acknowledgements.plist"; sourceTree = "<group>"; };
-		2007AC5E8AF0F93F829D9D3A909591FF /* UIViewController+AlertPresenting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+AlertPresenting.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+AlertPresenting.swift"; sourceTree = "<group>"; };
-		202AEA3A19C7FFDF36EEB0A8001AC94C /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
+		20D653FDFE9D8C92615C3A34E08F1ED8 /* JSONParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = Sources/JSONParser.swift; sourceTree = "<group>"; };
+		20F12ADE404120DE7D821DE1A2B22D10 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		21B2EBAE8B8E8D6166EC47FF77B4A7BB /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
+		22FE1FC3DDA0FF9924565294F6FE0F9C /* JSONEncodingDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingDetector.swift; path = Sources/JSONEncodingDetector.swift; sourceTree = "<group>"; };
 		2AD4096A731B3C19CEEBA8E2A70E0F8A /* Pods-JamHawk-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JamHawk-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2B4AF7D07E98EAEDB905505AC46CF80F /* UITextField+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UITextField+Extensions.swift"; sourceTree = "<group>"; };
-		62333FE4B2DDD809622221C5DB21906A /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
-		6913D10BAC64250DB1F53D59C67B6E07 /* NSIndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/NSIndexPath+Extensions.swift"; sourceTree = "<group>"; };
-		6B938FCEF25E88AE88C37FAB9C958319 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
-		6C494111EC18149C6FB9C73A565FEDD5 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		2D8B8430F75C57D6962DE5ADAC5995D2 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		30FB66A53508EA04902F769BE77BFE39 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		310447E5415FD2FD78B9FA1FC34AE888 /* Freddy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-prefix.pch"; sourceTree = "<group>"; };
+		3993D4752373F3C02CC9D59EEEEA2901 /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
+		40DAF02FA1E18D79EC5F7FA6560A8F2D /* JSONSubscripting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSubscripting.swift; path = Sources/JSONSubscripting.swift; sourceTree = "<group>"; };
+		476983D9680A1FB035EBCD820FF48563 /* UIViewControllerContextTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerContextTransitioning.swift; path = "IncipiaKit/UIKit-Extensions/UIViewControllerContextTransitioning.swift"; sourceTree = "<group>"; };
+		49DAEFFD6FCD1FAAFBB4B3BC3D84CB41 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54ED38FBE4E6101427EB36D030831DAB /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
+		5EE024D21B0EE50B6BB37AC22822F1DA /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		6B49E5501F8FBAA3B926C19971DBA9D8 /* JSONSerializing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSerializing.swift; path = Sources/JSONSerializing.swift; sourceTree = "<group>"; };
 		6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
-		70B2B955564EDB0CA1257A08ADF47C9D /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
-		77182EBD15C9D28F84391C6F00E1963D /* IncipiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IncipiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A67FD8EE594D28DDAC62A7150F3EFA /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
 		803170CE347C6FC09C54373D9056BDD4 /* Pods-JamHawk-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-frameworks.sh"; sourceTree = "<group>"; };
 		8040AF05B5E2D7161515A581C0A464F7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		856499492CFE14A3D332C4A813EC37EC /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
-		859D2D1AF1B34408A71FA0923E84DC0B /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
-		87F004B9CE14E6DE4C28953E30AF1EE0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		894C9E802AA411DFF7FE4E3AB418EF09 /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
-		8EEDBCDDDAC6ACC259D862287D8A7AA9 /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
+		85C7E8C03CFEBD3C529B5F98CEFBCB31 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		89DC1FD3D4207505DC70088F47BB534A /* Freddy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DFAA30F99996CC963974D6B397D5CC1 /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A2DF70F3A1385CD694EA45C0B635A66F /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
-		AD8B03FB54A47A9EEA1295CE2B31462F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8A8CD2A244013C4187355CD8313FC4A /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD358EF28CCBF565484294F512A47ECF /* JSONDecodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/JSONDecodable.swift; sourceTree = "<group>"; };
 		ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JamHawk-umbrella.h"; sourceTree = "<group>"; };
+		B1355B3653EB44E6FFFC49E40E934F43 /* Freddy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Freddy.modulemap; sourceTree = "<group>"; };
 		BFFC0FF4652277782A1A076BC534AAAF /* Pods-JamHawk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JamHawk.modulemap"; sourceTree = "<group>"; };
-		C4A051DB4F2361B3480D9574AFA2E70C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		D58E7BBB78D7B9F36D30A32D3550B388 /* UIViewControllerContextTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerContextTransitioning.swift; path = "IncipiaKit/UIKit-Extensions/UIViewControllerContextTransitioning.swift"; sourceTree = "<group>"; };
+		C5D19BBE241210AF0BFDBDA2FB6BBA7F /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
+		C63E4E8C48FD1EA1DFA87EE629D742F7 /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParsing.swift; path = Sources/JSONParsing.swift; sourceTree = "<group>"; };
+		C811CEC265717C773B5E8A213D3427DF /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		C9E356DECC1A3742D7423CA3079D6908 /* Freddy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Freddy-dummy.m"; sourceTree = "<group>"; };
 		E5094C1FBA56A55ABF8DA7F6F92AF4BA /* Pods-JamHawk-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-resources.sh"; sourceTree = "<group>"; };
-		E5CAAF38DE9F3EC870555F757F105DC4 /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
+		E7A1C23F93DA2F846F1B56AAC4B5338E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EF66DE5691692AD85CCA2DD10410607A /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
-		F3FF1C1FA50035B031ABBB8E93366279 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		F4E392FC8CB2F5FA3889D18E0BF370FD /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
-		F96D1ED492AC1C3C69F1AB6D6F8E7554 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		F49B4E0B849A65483E818E7A77BBDE2F /* JSONEncodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodable.swift; path = Sources/JSONEncodable.swift; sourceTree = "<group>"; };
+		F59CF203D2CE930102C3E0F27D3EAA22 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		FAB736511970037F2632C8C80BEDD668 /* JSONLiteralConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONLiteralConvertible.swift; path = Sources/JSONLiteralConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,38 +127,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A6D52E5CA0D34682A4D344A836250D3C /* Frameworks */ = {
+		D55484C1E2899FCFEE4CC9D400257D87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A693535AB6474BB42F77821E6B8A41D8 /* Foundation.framework in Frameworks */,
+				6CBE8C0FB2BB1BE7DEFB71188D5367AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE7E943507D33406AEFE6D3C51B1BB82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C731A7E93B3EE736C2D238AF4AAA843 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0EBE3A1B100D84B761CFD050C28A1273 /* IncipiaKit */ = {
+		386C7D0AF9B5DF6C4971B72C1228FA3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4E392FC8CB2F5FA3889D18E0BF370FD /* IncipiaKit.h */,
-				8EEDBCDDDAC6ACC259D862287D8A7AA9 /* NSBundle+Extensions.swift */,
-				6913D10BAC64250DB1F53D59C67B6E07 /* NSIndexPath+Extensions.swift */,
-				A2DF70F3A1385CD694EA45C0B635A66F /* String+Extensions.swift */,
-				70B2B955564EDB0CA1257A08ADF47C9D /* UIAlertController+Extensions.swift */,
-				F96D1ED492AC1C3C69F1AB6D6F8E7554 /* UICollectionView+Extensions.swift */,
-				C4A051DB4F2361B3480D9574AFA2E70C /* UIColor+Extensions.swift */,
-				6B938FCEF25E88AE88C37FAB9C958319 /* UIDevice+Extensions.swift */,
-				6C494111EC18149C6FB9C73A565FEDD5 /* UIImage+Extensions.swift */,
-				856499492CFE14A3D332C4A813EC37EC /* UINavigationBar+Extensions.swift */,
-				859D2D1AF1B34408A71FA0923E84DC0B /* UINavigationController+Extensions.swift */,
-				2B4AF7D07E98EAEDB905505AC46CF80F /* UITextField+Extensions.swift */,
-				2007AC5E8AF0F93F829D9D3A909591FF /* UIViewController+AlertPresenting.swift */,
-				F3FF1C1FA50035B031ABBB8E93366279 /* UIViewController+Extensions.swift */,
-				D58E7BBB78D7B9F36D30A32D3550B388 /* UIViewControllerContextTransitioning.swift */,
-				A2D1EE03347E881ED27D31F911D0A663 /* Support Files */,
+				0395927EDC23A5CD3B3D2697B4D5C2F4 /* Freddy.framework */,
+				1351A7C89014288C98F9847A3C3F3CF5 /* IncipiaKit.framework */,
+				A8A8CD2A244013C4187355CD8313FC4A /* Pods_JamHawk.framework */,
 			);
-			path = IncipiaKit;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -158,38 +190,93 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		5F9619BF243A29F58EB513B4AF0972EF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AFDA497F5F2BFBCEECF9B62CC4B23C3 /* IncipiaKit.modulemap */,
+				9DFAA30F99996CC963974D6B397D5CC1 /* IncipiaKit.xcconfig */,
+				21B2EBAE8B8E8D6166EC47FF77B4A7BB /* IncipiaKit-dummy.m */,
+				1753C39A5FF889404FBBD40D73599C9E /* IncipiaKit-prefix.pch */,
+				3993D4752373F3C02CC9D59EEEEA2901 /* IncipiaKit-umbrella.h */,
+				30FB66A53508EA04902F769BE77BFE39 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IncipiaKit";
+			sourceTree = "<group>";
+		};
+		7B911EE3D9C7F257280D3C915C555E16 /* IncipiaKit */ = {
+			isa = PBXGroup;
+			children = (
+				54ED38FBE4E6101427EB36D030831DAB /* IncipiaKit.h */,
+				C5D19BBE241210AF0BFDBDA2FB6BBA7F /* NSBundle+Extensions.swift */,
+				02E93EBB1CB9873E19B61007560A7F81 /* NSIndexPath+Extensions.swift */,
+				0E4490C091500B46CE654FBBFC7443B3 /* String+Extensions.swift */,
+				5EE024D21B0EE50B6BB37AC22822F1DA /* UIAlertController+Extensions.swift */,
+				20F12ADE404120DE7D821DE1A2B22D10 /* UICollectionView+Extensions.swift */,
+				C811CEC265717C773B5E8A213D3427DF /* UIColor+Extensions.swift */,
+				054801D2F46DDA459E92828FDDFCDC85 /* UIDevice+Extensions.swift */,
+				2D8B8430F75C57D6962DE5ADAC5995D2 /* UIImage+Extensions.swift */,
+				76A67FD8EE594D28DDAC62A7150F3EFA /* UINavigationBar+Extensions.swift */,
+				F59CF203D2CE930102C3E0F27D3EAA22 /* UINavigationController+Extensions.swift */,
+				85C7E8C03CFEBD3C529B5F98CEFBCB31 /* UITextField+Extensions.swift */,
+				09BE98876EA19B0B04D90B8B6C331748 /* UIViewController+AlertPresenting.swift */,
+				E7A1C23F93DA2F846F1B56AAC4B5338E /* UIViewController+Extensions.swift */,
+				476983D9680A1FB035EBCD820FF48563 /* UIViewControllerContextTransitioning.swift */,
+				5F9619BF243A29F58EB513B4AF0972EF /* Support Files */,
+			);
+			path = IncipiaKit;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				F4C687B93BD14344B80EA3854A0AAD58 /* Pods */,
-				96E62BC1AB25B93393E46959369C6544 /* Products */,
+				7E6FC2BEB5AD1FA62D261859F28BFADA /* Pods */,
+				386C7D0AF9B5DF6C4971B72C1228FA3C /* Products */,
 				5532BD7A05EC542A088E7C240CEA3431 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		96E62BC1AB25B93393E46959369C6544 /* Products */ = {
+		7E6FC2BEB5AD1FA62D261859F28BFADA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				77182EBD15C9D28F84391C6F00E1963D /* IncipiaKit.framework */,
-				87F004B9CE14E6DE4C28953E30AF1EE0 /* Pods_JamHawk.framework */,
+				922CDD317A478CB1C0B97DCC2CD9A36E /* Freddy */,
+				7B911EE3D9C7F257280D3C915C555E16 /* IncipiaKit */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		A2D1EE03347E881ED27D31F911D0A663 /* Support Files */ = {
+		87988A4D5996389EB4E226F1A0048C4C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				202AEA3A19C7FFDF36EEB0A8001AC94C /* IncipiaKit.modulemap */,
-				62333FE4B2DDD809622221C5DB21906A /* IncipiaKit.xcconfig */,
-				E5CAAF38DE9F3EC870555F757F105DC4 /* IncipiaKit-dummy.m */,
-				894C9E802AA411DFF7FE4E3AB418EF09 /* IncipiaKit-prefix.pch */,
-				EF66DE5691692AD85CCA2DD10410607A /* IncipiaKit-umbrella.h */,
-				AD8B03FB54A47A9EEA1295CE2B31462F /* Info.plist */,
+				B1355B3653EB44E6FFFC49E40E934F43 /* Freddy.modulemap */,
+				05F29B3A452ACFD8D9DD5C98604A9805 /* Freddy.xcconfig */,
+				C9E356DECC1A3742D7423CA3079D6908 /* Freddy-dummy.m */,
+				310447E5415FD2FD78B9FA1FC34AE888 /* Freddy-prefix.pch */,
+				89DC1FD3D4207505DC70088F47BB534A /* Freddy-umbrella.h */,
+				49DAEFFD6FCD1FAAFBB4B3BC3D84CB41 /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/IncipiaKit";
+			path = "../Target Support Files/Freddy";
+			sourceTree = "<group>";
+		};
+		922CDD317A478CB1C0B97DCC2CD9A36E /* Freddy */ = {
+			isa = PBXGroup;
+			children = (
+				12E66403057F6B101E47D712AF49FA6F /* Freddy.h */,
+				058047C4C70D37A467A48BED63A79BF7 /* JSON.swift */,
+				AD358EF28CCBF565484294F512A47ECF /* JSONDecodable.swift */,
+				F49B4E0B849A65483E818E7A77BBDE2F /* JSONEncodable.swift */,
+				22FE1FC3DDA0FF9924565294F6FE0F9C /* JSONEncodingDetector.swift */,
+				FAB736511970037F2632C8C80BEDD668 /* JSONLiteralConvertible.swift */,
+				20D653FDFE9D8C92615C3A34E08F1ED8 /* JSONParser.swift */,
+				C63E4E8C48FD1EA1DFA87EE629D742F7 /* JSONParsing.swift */,
+				6B49E5501F8FBAA3B926C19971DBA9D8 /* JSONSerializing.swift */,
+				40DAF02FA1E18D79EC5F7FA6560A8F2D /* JSONSubscripting.swift */,
+				87988A4D5996389EB4E226F1A0048C4C /* Support Files */,
+			);
+			path = Freddy;
 			sourceTree = "<group>";
 		};
 		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
@@ -201,17 +288,17 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F4C687B93BD14344B80EA3854A0AAD58 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0EBE3A1B100D84B761CFD050C28A1273 /* IncipiaKit */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1C52452DD841F6027D1A168A8C7F1D66 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13574A840315A62E71E21D2618A79371 /* Pods-JamHawk-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70ACECFF341EEEFC3131B72273E40096 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,33 +308,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED53CF75CDF7628F9B1A2EC1435C0AF2 /* Headers */ = {
+		80D48E5B8F121CA7C8FFF184A057FD25 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96499FCE22A667EB50D9D6F757A5EFA6 /* Pods-JamHawk-umbrella.h in Headers */,
+				163C56ADBD329A426F87B0E722888D28 /* Freddy-umbrella.h in Headers */,
+				99A312A29811B785F8F35EEAB3D615AE /* Freddy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		508BDCF343804137AF8E0B4F5F89817A /* Pods-JamHawk */ = {
+		20DC02A7CBE3552032E5C301ADC01A2D /* Pods-JamHawk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 831B6114F87D43EEAE31E286C7B8FA1E /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */;
+			buildConfigurationList = 6C1C339355EF7B741A02CE89FB20C8DC /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */;
 			buildPhases = (
-				9B3D8CC69F710966D2BAB059398A299E /* Sources */,
-				A6D52E5CA0D34682A4D344A836250D3C /* Frameworks */,
-				ED53CF75CDF7628F9B1A2EC1435C0AF2 /* Headers */,
+				07D7878E98F82206246B9787195933AA /* Sources */,
+				D55484C1E2899FCFEE4CC9D400257D87 /* Frameworks */,
+				1C52452DD841F6027D1A168A8C7F1D66 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6942F89AB0D9AA26488C826A70110BF4 /* PBXTargetDependency */,
+				BBC6AFAE22A930E1B17AEEE851339D2D /* PBXTargetDependency */,
+				66D02DA08A12A45F45A25010B38E7745 /* PBXTargetDependency */,
 			);
 			name = "Pods-JamHawk";
 			productName = "Pods-JamHawk";
-			productReference = 87F004B9CE14E6DE4C28953E30AF1EE0 /* Pods_JamHawk.framework */;
+			productReference = A8A8CD2A244013C4187355CD8313FC4A /* Pods_JamHawk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C0EFAA9DEE6D77452BE83C509E581F7F /* IncipiaKit */ = {
@@ -264,7 +353,24 @@
 			);
 			name = IncipiaKit;
 			productName = IncipiaKit;
-			productReference = 77182EBD15C9D28F84391C6F00E1963D /* IncipiaKit.framework */;
+			productReference = 1351A7C89014288C98F9847A3C3F3CF5 /* IncipiaKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02922C482DB90A4A5B73DC03C370C8BD /* Build configuration list for PBXNativeTarget "Freddy" */;
+			buildPhases = (
+				98785E9CD4BE549E38F1FC0B92EBBB8E /* Sources */,
+				FE7E943507D33406AEFE6D3C51B1BB82 /* Frameworks */,
+				80D48E5B8F121CA7C8FFF184A057FD25 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Freddy;
+			productName = Freddy;
+			productReference = 0395927EDC23A5CD3B3D2697B4D5C2F4 /* Freddy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -284,22 +390,40 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 96E62BC1AB25B93393E46959369C6544 /* Products */;
+			productRefGroup = 386C7D0AF9B5DF6C4971B72C1228FA3C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */,
 				C0EFAA9DEE6D77452BE83C509E581F7F /* IncipiaKit */,
-				508BDCF343804137AF8E0B4F5F89817A /* Pods-JamHawk */,
+				20DC02A7CBE3552032E5C301ADC01A2D /* Pods-JamHawk */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9B3D8CC69F710966D2BAB059398A299E /* Sources */ = {
+		07D7878E98F82206246B9787195933AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A136F808B7D0E88547B6A0241513E9AF /* Pods-JamHawk-dummy.m in Sources */,
+				F6A471A3A8FFDDB380780FAA701EE821 /* Pods-JamHawk-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98785E9CD4BE549E38F1FC0B92EBBB8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB24A67301DAC22E84605827EDDBABB /* Freddy-dummy.m in Sources */,
+				CC7F5D04E26E5E2117CBABA597225B59 /* JSON.swift in Sources */,
+				C0F3756C4C77EC31F50AF6E1F794B042 /* JSONDecodable.swift in Sources */,
+				E597971E2E9FC8DAE78D697CBD10046D /* JSONEncodable.swift in Sources */,
+				0B4F44A121372FBF6E435CBE374E1627 /* JSONEncodingDetector.swift in Sources */,
+				9DDD7E9CEA5A44B0BD55E0EAE62BE7EC /* JSONLiteralConvertible.swift in Sources */,
+				700BDCB998A8BB5B1CEC2DD2D2D5911F /* JSONParser.swift in Sources */,
+				4476EEDB89BD2BBE269BA25D9D6869BA /* JSONParsing.swift in Sources */,
+				6400C65D7B17C5AF90708D0F8F6FCB63 /* JSONSerializing.swift in Sources */,
+				95C9F7D166D041482D8D330988C3A389 /* JSONSubscripting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,18 +452,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6942F89AB0D9AA26488C826A70110BF4 /* PBXTargetDependency */ = {
+		66D02DA08A12A45F45A25010B38E7745 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IncipiaKit;
 			target = C0EFAA9DEE6D77452BE83C509E581F7F /* IncipiaKit */;
-			targetProxy = BC9CD23E967CA6442D481A07348DA0D0 /* PBXContainerItemProxy */;
+			targetProxy = D6C0A349D2E1187F5C7E91C49FF9E194 /* PBXContainerItemProxy */;
+		};
+		BBC6AFAE22A930E1B17AEEE851339D2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Freddy;
+			target = EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */;
+			targetProxy = 428D79DB8F793E93450F53F4F805FE06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0781D81267ED93DDE4E56D306C251FC4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62333FE4B2DDD809622221C5DB21906A /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = 9DFAA30F99996CC963974D6B397D5CC1 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -365,6 +495,36 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		1529CF4BF002FA9ECE6E15CECCAB633A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05F29B3A452ACFD8D9DD5C98604A9805 /* Freddy.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Freddy/Freddy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Freddy/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Freddy/Freddy.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Freddy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		46EE69AF77A148AF92860F097B5698B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -408,6 +568,69 @@
 			};
 			name = Debug;
 		};
+		50881390E8C1F4BC6B094B8FF6F3C892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-JamHawk/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JamHawk/Pods-JamHawk.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JamHawk;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		758BCAAF6A5E859C9D4C25BE1D2F5CED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05F29B3A452ACFD8D9DD5C98604A9805 /* Freddy.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Freddy/Freddy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Freddy/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Freddy/Freddy.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Freddy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		7A156876A8824526ED495550DF098FA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -446,7 +669,37 @@
 			};
 			name = Release;
 		};
-		7C74A66E3253E72FC94EEB8064A77C70 /* Release */ = {
+		A8D8D2BB19F3C42867A9E669DBD6E414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DFAA30F99996CC963974D6B397D5CC1 /* IncipiaKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/IncipiaKit/IncipiaKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IncipiaKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IncipiaKit/IncipiaKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = IncipiaKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C04F6B1361FBEAD093A8A82002954932 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1B788E0DEA0D09AE98E22BECE69CF06A /* Pods-JamHawk.release.xcconfig */;
 			buildSettings = {
@@ -479,73 +732,18 @@
 			};
 			name = Release;
 		};
-		A8D8D2BB19F3C42867A9E669DBD6E414 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62333FE4B2DDD809622221C5DB21906A /* IncipiaKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/IncipiaKit/IncipiaKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/IncipiaKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/IncipiaKit/IncipiaKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = IncipiaKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F7DC2C43CB218316885DC41C1E1ED0E0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-JamHawk/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-JamHawk/Pods-JamHawk.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_JamHawk;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		02922C482DB90A4A5B73DC03C370C8BD /* Build configuration list for PBXNativeTarget "Freddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1529CF4BF002FA9ECE6E15CECCAB633A /* Debug */,
+				758BCAAF6A5E859C9D4C25BE1D2F5CED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -555,20 +753,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6C1C339355EF7B741A02CE89FB20C8DC /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50881390E8C1F4BC6B094B8FF6F3C892 /* Debug */,
+				C04F6B1361FBEAD093A8A82002954932 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7680F0C4A1CA3E9F376B7D8073735AA4 /* Build configuration list for PBXNativeTarget "IncipiaKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8D8D2BB19F3C42867A9E669DBD6E414 /* Debug */,
 				0781D81267ED93DDE4E56D306C251FC4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		831B6114F87D43EEAE31E286C7B8FA1E /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F7DC2C43CB218316885DC41C1E1ED0E0 /* Debug */,
-				7C74A66E3253E72FC94EEB8064A77C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

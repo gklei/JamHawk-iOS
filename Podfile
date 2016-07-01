@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'JamHawk' do
 
+  pod 'Freddy'
   pod 'IncipiaKit'
 
 end
