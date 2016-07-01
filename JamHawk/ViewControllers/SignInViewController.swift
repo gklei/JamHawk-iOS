@@ -16,6 +16,9 @@ class SignInViewController: UIViewController
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		_emailTextField.update(placeHolderColor: UIColor.whiteColor())
+		_passwordTextField.update(placeHolderColor: UIColor.whiteColor())
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
