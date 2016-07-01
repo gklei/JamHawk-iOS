@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UITextField
+public extension UITextField
 {
-	func update(placeHolderColor color: UIColor)
+	public func update(placeHolderColor color: UIColor)
 	{
 		let placeholderText = placeholder ?? ""
 		let placeholderFont = font ?? UIFont.systemFontOfSize(12)
