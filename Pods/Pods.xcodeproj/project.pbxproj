@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		025FE3CB80839BABCBFECDC50D9A4D77 /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CDAE96266A2ED6719BD81EEC793D241D /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		09DEFC4CC8EE764047D15D28BA20775F /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782C6FEB5F93D59CDFED79C52586F36 /* UIDevice+Extensions.swift */; };
-		1A1ECB8C849529676F3BF52545492562 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AD6C542D8612EBBE4C68DF77C62671 /* UIViewController+Extensions.swift */; };
-		1C957ED44266C78F6E552DE772DE4EE2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD56AA8449CB89043C818B66ADED72F /* UIColor+Extensions.swift */; };
-		20539A991039C7D97419440503FD80DB /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8C643CB1813B04771F1BEB5E696669 /* UIAlertController+Extensions.swift */; };
-		346FD4EC5F2B0302C49C11A628C159FA /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D463238EB37320703EAF406D3373ED /* NSBundle+Extensions.swift */; };
-		3C6052A89A6B876DF78C0E58128F9B6F /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EBF46579B4D92D1E1DD83FE21A0C203 /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C659941EC372F0DAAE29D95249E8A29 /* IndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FE61020FF6D749255C02326D686BD9 /* IndexPath+Extensions.swift */; };
-		6C018474EA2A7E4B1D9815B7559EEF57 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F6E14CC38AB6C75630B5519B2C8F /* UIImage+Extensions.swift */; };
+		025FE3CB80839BABCBFECDC50D9A4D77 /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C8DA4B4545E61C1EE5295560A28C286 /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AABD6380B1EC1248C2B0E125B6D7A30 /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D537A68BDDBDB7FFF93AA50CCE90AC /* IncipiaKit-dummy.m */; };
+		2A609B91C015CD6CF44A6CEF8AE2116E /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE30FBAE4A8B668606D3C4934610EC /* UINavigationController+Extensions.swift */; };
+		370F254C63749C9A8612FB4D7AFFCFBC /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC132DE26B20EDF5E33AC565F2D192 /* UIImage+Extensions.swift */; };
+		3AA9699C235CE8B52CAC420F5D1628BF /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FA4837F8D70021F7F62B7EE9516A95 /* UIAlertController+Extensions.swift */; };
+		3C6052A89A6B876DF78C0E58128F9B6F /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0286FF5BBF94D7C17AB84D0C7E7E0BB9 /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D777D0EABC87C95AA2377B59E490182 /* UIViewControllerContextTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8095CF2B5F7715B9295892B2F66A6E8 /* UIViewControllerContextTransitioning.swift */; };
 		95DD3D208FCBA5A47A6F94DA5FE2BE4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		96151929C9F654C8252C57019F854247 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86656EFB0414B61F546D946B585DF731 /* UINavigationBar+Extensions.swift */; };
 		96499FCE22A667EB50D9D6F757A5EFA6 /* Pods-JamHawk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		999EEEAA01AE03407C9FB3B4ECE55D8F /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271F40EF28F93597DF2CFEE896A2A8E /* UINavigationController+Extensions.swift */; };
-		A0927753EF83F666FCFA7A9DA78444A4 /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F20BCB9A8BE26639821C99E3181BAB /* IncipiaKit-dummy.m */; };
+		9E8EA67944A969FB6F0AD32DBD4564A2 /* NSIndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D26309EA33CCD9E2B5656B79B404D /* NSIndexPath+Extensions.swift */; };
 		A136F808B7D0E88547B6A0241513E9AF /* Pods-JamHawk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */; };
 		A693535AB6474BB42F77821E6B8A41D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		AD5AC368340FDFC89B33753BD26A29FA /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54B7F1A03C6F78A02F22D5832347C29 /* String+Extensions.swift */; };
-		C4A8755FCF62A1F981DD321BCBF059F0 /* UIViewControllerContextTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9538B4614225D72F5C0A52E6CA04EC7F /* UIViewControllerContextTransitioning.swift */; };
-		CFF7C01AB07E7BDEA1A9C0860D17346E /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F171434D5C7FCDAB27317973A6567EED /* UICollectionView+Extensions.swift */; };
+		B8679D2C675178F5E18D361D64ED4F7D /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930EEB11D929576861DE2EAB3886C6BF /* UIDevice+Extensions.swift */; };
+		CB0E7570A6E36CDA46B7DEAC52CEDF1C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BCAC943BF48C1F040476A4AA401E88 /* UIColor+Extensions.swift */; };
+		CEA1D02F7CE04B3BD2DC7CBC983AE3E5 /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E056AE00BBC2A323610A35E05947D2 /* NSBundle+Extensions.swift */; };
+		D196FC85CD4AD894B38EEF1FC9A00406 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DDA4631721200321B2405AC2815CA /* String+Extensions.swift */; };
 		D3070305D7112FC9E6AF556042C1EB37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		FA549410D81441727BEA73E0107B0E9B /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5A1265765A2CDA5356482A0EB92DA2 /* UINavigationBar+Extensions.swift */; };
+		E2B07B8B0E22D64F5B8A17A0C6B26B47 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B2C88C32BB86DCE50585447CEE786 /* UIViewController+Extensions.swift */; };
+		E31FBE50FE4B89A893CF973F4949B224 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172F7D1933B2716B379602326923164 /* UICollectionView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,40 +40,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01AE30FBAE4A8B668606D3C4934610EC /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		0286FF5BBF94D7C17AB84D0C7E7E0BB9 /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
+		05FC132DE26B20EDF5E33AC565F2D192 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JamHawk-dummy.m"; sourceTree = "<group>"; };
-		16D463238EB37320703EAF406D3373ED /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
+		17BCAC943BF48C1F040476A4AA401E88 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1B788E0DEA0D09AE98E22BECE69CF06A /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
 		1FE76EC2C184516458480063541FFC13 /* Pods-JamHawk-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JamHawk-acknowledgements.plist"; sourceTree = "<group>"; };
+		21E056AE00BBC2A323610A35E05947D2 /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
 		2AD4096A731B3C19CEEBA8E2A70E0F8A /* Pods-JamHawk-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JamHawk-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3C8C643CB1813B04771F1BEB5E696669 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
-		3EBF46579B4D92D1E1DD83FE21A0C203 /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
-		5C5F495F7CE88DE757A17D8E82845A44 /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
-		69C277817D36397CDB6128E707971E69 /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
+		356FD94F39BDEFBA9BBED8FEAB401818 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		472B2C88C32BB86DCE50585447CEE786 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		5C934895430254040A5C2224BFDE4981 /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
+		67B03CA284E412344EFF6460F0341FE3 /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
+		67D537A68BDDBDB7FFF93AA50CCE90AC /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
+		696DDA4631721200321B2405AC2815CA /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
 		6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
+		6D6D26309EA33CCD9E2B5656B79B404D /* NSIndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/NSIndexPath+Extensions.swift"; sourceTree = "<group>"; };
 		77182EBD15C9D28F84391C6F00E1963D /* IncipiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IncipiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A5A1265765A2CDA5356482A0EB92DA2 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
 		803170CE347C6FC09C54373D9056BDD4 /* Pods-JamHawk-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-frameworks.sh"; sourceTree = "<group>"; };
 		8040AF05B5E2D7161515A581C0A464F7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8563F6E14CC38AB6C75630B5519B2C8F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		86656EFB0414B61F546D946B585DF731 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
 		87F004B9CE14E6DE4C28953E30AF1EE0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B425946E4AB3E8A6AA0972241B46B76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C8DA4B4545E61C1EE5295560A28C286 /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
+		930EEB11D929576861DE2EAB3886C6BF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9538B4614225D72F5C0A52E6CA04EC7F /* UIViewControllerContextTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerContextTransitioning.swift; path = "IncipiaKit/UIKit-Extensions/UIViewControllerContextTransitioning.swift"; sourceTree = "<group>"; };
-		9782C6FEB5F93D59CDFED79C52586F36 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
-		97F20BCB9A8BE26639821C99E3181BAB /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
+		A172F7D1933B2716B379602326923164 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A5FE61020FF6D749255C02326D686BD9 /* IndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/IndexPath+Extensions.swift"; sourceTree = "<group>"; };
 		ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JamHawk-umbrella.h"; sourceTree = "<group>"; };
-		B54B7F1A03C6F78A02F22D5832347C29 /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
-		BCD56AA8449CB89043C818B66ADED72F /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		B4FA4837F8D70021F7F62B7EE9516A95 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		B8095CF2B5F7715B9295892B2F66A6E8 /* UIViewControllerContextTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerContextTransitioning.swift; path = "IncipiaKit/UIKit-Extensions/UIViewControllerContextTransitioning.swift"; sourceTree = "<group>"; };
 		BFFC0FF4652277782A1A076BC534AAAF /* Pods-JamHawk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JamHawk.modulemap"; sourceTree = "<group>"; };
-		C2AD6C542D8612EBBE4C68DF77C62671 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		CDAE96266A2ED6719BD81EEC793D241D /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
-		D271F40EF28F93597DF2CFEE896A2A8E /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		C5F07EA407D2B6EEE9BFC9B859C9BA1B /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
 		E5094C1FBA56A55ABF8DA7F6F92AF4BA /* Pods-JamHawk-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-resources.sh"; sourceTree = "<group>"; };
 		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F171434D5C7FCDAB27317973A6567EED /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
-		FF0D9637B3392FAED9D5C23B60B640C5 /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,15 +97,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05A913DECE4AAF10AA28BE869C0FC66E /* Support Files */ = {
+		11DECD791AD6FE2FD1F3944A6A762B89 /* IncipiaKit */ = {
 			isa = PBXGroup;
 			children = (
-				FF0D9637B3392FAED9D5C23B60B640C5 /* IncipiaKit.modulemap */,
-				69C277817D36397CDB6128E707971E69 /* IncipiaKit.xcconfig */,
-				97F20BCB9A8BE26639821C99E3181BAB /* IncipiaKit-dummy.m */,
-				5C5F495F7CE88DE757A17D8E82845A44 /* IncipiaKit-prefix.pch */,
-				3EBF46579B4D92D1E1DD83FE21A0C203 /* IncipiaKit-umbrella.h */,
-				8B425946E4AB3E8A6AA0972241B46B76 /* Info.plist */,
+				8C8DA4B4545E61C1EE5295560A28C286 /* IncipiaKit.h */,
+				21E056AE00BBC2A323610A35E05947D2 /* NSBundle+Extensions.swift */,
+				6D6D26309EA33CCD9E2B5656B79B404D /* NSIndexPath+Extensions.swift */,
+				696DDA4631721200321B2405AC2815CA /* String+Extensions.swift */,
+				B4FA4837F8D70021F7F62B7EE9516A95 /* UIAlertController+Extensions.swift */,
+				A172F7D1933B2716B379602326923164 /* UICollectionView+Extensions.swift */,
+				17BCAC943BF48C1F040476A4AA401E88 /* UIColor+Extensions.swift */,
+				930EEB11D929576861DE2EAB3886C6BF /* UIDevice+Extensions.swift */,
+				05FC132DE26B20EDF5E33AC565F2D192 /* UIImage+Extensions.swift */,
+				86656EFB0414B61F546D946B585DF731 /* UINavigationBar+Extensions.swift */,
+				01AE30FBAE4A8B668606D3C4934610EC /* UINavigationController+Extensions.swift */,
+				472B2C88C32BB86DCE50585447CEE786 /* UIViewController+Extensions.swift */,
+				B8095CF2B5F7715B9295892B2F66A6E8 /* UIViewControllerContextTransitioning.swift */,
+				24E3D1723C3323098C17E656AC695A8F /* Support Files */,
+			);
+			path = IncipiaKit;
+			sourceTree = "<group>";
+		};
+		24E3D1723C3323098C17E656AC695A8F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C934895430254040A5C2224BFDE4981 /* IncipiaKit.modulemap */,
+				67B03CA284E412344EFF6460F0341FE3 /* IncipiaKit.xcconfig */,
+				67D537A68BDDBDB7FFF93AA50CCE90AC /* IncipiaKit-dummy.m */,
+				C5F07EA407D2B6EEE9BFC9B859C9BA1B /* IncipiaKit-prefix.pch */,
+				0286FF5BBF94D7C17AB84D0C7E7E0BB9 /* IncipiaKit-umbrella.h */,
+				356FD94F39BDEFBA9BBED8FEAB401818 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/IncipiaKit";
@@ -148,7 +169,7 @@
 		72F4C9CBCFEFA5A2051D365535C139AE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A791041D4C1FEFD562D2AE2CCB96D332 /* IncipiaKit */,
+				11DECD791AD6FE2FD1F3944A6A762B89 /* IncipiaKit */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -171,27 +192,6 @@
 				87F004B9CE14E6DE4C28953E30AF1EE0 /* Pods_JamHawk.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A791041D4C1FEFD562D2AE2CCB96D332 /* IncipiaKit */ = {
-			isa = PBXGroup;
-			children = (
-				CDAE96266A2ED6719BD81EEC793D241D /* IncipiaKit.h */,
-				A5FE61020FF6D749255C02326D686BD9 /* IndexPath+Extensions.swift */,
-				16D463238EB37320703EAF406D3373ED /* NSBundle+Extensions.swift */,
-				B54B7F1A03C6F78A02F22D5832347C29 /* String+Extensions.swift */,
-				3C8C643CB1813B04771F1BEB5E696669 /* UIAlertController+Extensions.swift */,
-				F171434D5C7FCDAB27317973A6567EED /* UICollectionView+Extensions.swift */,
-				BCD56AA8449CB89043C818B66ADED72F /* UIColor+Extensions.swift */,
-				9782C6FEB5F93D59CDFED79C52586F36 /* UIDevice+Extensions.swift */,
-				8563F6E14CC38AB6C75630B5519B2C8F /* UIImage+Extensions.swift */,
-				7A5A1265765A2CDA5356482A0EB92DA2 /* UINavigationBar+Extensions.swift */,
-				D271F40EF28F93597DF2CFEE896A2A8E /* UINavigationController+Extensions.swift */,
-				C2AD6C542D8612EBBE4C68DF77C62671 /* UIViewController+Extensions.swift */,
-				9538B4614225D72F5C0A52E6CA04EC7F /* UIViewControllerContextTransitioning.swift */,
-				05A913DECE4AAF10AA28BE869C0FC66E /* Support Files */,
-			);
-			path = IncipiaKit;
 			sourceTree = "<group>";
 		};
 		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
@@ -248,7 +248,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 535A7A6163C7743755695CAE995C5349 /* Build configuration list for PBXNativeTarget "IncipiaKit" */;
 			buildPhases = (
-				5954A4B2220096C4CB4E8F4DD73F507D /* Sources */,
+				09F1A69866DE1ADDB0ED05CFED14ECAA /* Sources */,
 				89D0DF20EB9CA1774E49FAE70C635734 /* Frameworks */,
 				4F3DDD31177DFCF37492BCE4DBD8B39C /* Headers */,
 			);
@@ -289,23 +289,23 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5954A4B2220096C4CB4E8F4DD73F507D /* Sources */ = {
+		09F1A69866DE1ADDB0ED05CFED14ECAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0927753EF83F666FCFA7A9DA78444A4 /* IncipiaKit-dummy.m in Sources */,
-				5C659941EC372F0DAAE29D95249E8A29 /* IndexPath+Extensions.swift in Sources */,
-				346FD4EC5F2B0302C49C11A628C159FA /* NSBundle+Extensions.swift in Sources */,
-				AD5AC368340FDFC89B33753BD26A29FA /* String+Extensions.swift in Sources */,
-				20539A991039C7D97419440503FD80DB /* UIAlertController+Extensions.swift in Sources */,
-				CFF7C01AB07E7BDEA1A9C0860D17346E /* UICollectionView+Extensions.swift in Sources */,
-				1C957ED44266C78F6E552DE772DE4EE2 /* UIColor+Extensions.swift in Sources */,
-				09DEFC4CC8EE764047D15D28BA20775F /* UIDevice+Extensions.swift in Sources */,
-				6C018474EA2A7E4B1D9815B7559EEF57 /* UIImage+Extensions.swift in Sources */,
-				FA549410D81441727BEA73E0107B0E9B /* UINavigationBar+Extensions.swift in Sources */,
-				999EEEAA01AE03407C9FB3B4ECE55D8F /* UINavigationController+Extensions.swift in Sources */,
-				1A1ECB8C849529676F3BF52545492562 /* UIViewController+Extensions.swift in Sources */,
-				C4A8755FCF62A1F981DD321BCBF059F0 /* UIViewControllerContextTransitioning.swift in Sources */,
+				0AABD6380B1EC1248C2B0E125B6D7A30 /* IncipiaKit-dummy.m in Sources */,
+				CEA1D02F7CE04B3BD2DC7CBC983AE3E5 /* NSBundle+Extensions.swift in Sources */,
+				9E8EA67944A969FB6F0AD32DBD4564A2 /* NSIndexPath+Extensions.swift in Sources */,
+				D196FC85CD4AD894B38EEF1FC9A00406 /* String+Extensions.swift in Sources */,
+				3AA9699C235CE8B52CAC420F5D1628BF /* UIAlertController+Extensions.swift in Sources */,
+				E31FBE50FE4B89A893CF973F4949B224 /* UICollectionView+Extensions.swift in Sources */,
+				CB0E7570A6E36CDA46B7DEAC52CEDF1C /* UIColor+Extensions.swift in Sources */,
+				B8679D2C675178F5E18D361D64ED4F7D /* UIDevice+Extensions.swift in Sources */,
+				370F254C63749C9A8612FB4D7AFFCFBC /* UIImage+Extensions.swift in Sources */,
+				96151929C9F654C8252C57019F854247 /* UINavigationBar+Extensions.swift in Sources */,
+				2A609B91C015CD6CF44A6CEF8AE2116E /* UINavigationController+Extensions.swift in Sources */,
+				E2B07B8B0E22D64F5B8A17A0C6B26B47 /* UIViewController+Extensions.swift in Sources */,
+				3D777D0EABC87C95AA2377B59E490182 /* UIViewControllerContextTransitioning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +444,7 @@
 		};
 		C597163C3AA439322304A82A0C10EB09 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69C277817D36397CDB6128E707971E69 /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = 67B03CA284E412344EFF6460F0341FE3 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -473,7 +473,7 @@
 		};
 		C69301F7818936F9F6D1966EAB4696DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69C277817D36397CDB6128E707971E69 /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = 67B03CA284E412344EFF6460F0341FE3 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
