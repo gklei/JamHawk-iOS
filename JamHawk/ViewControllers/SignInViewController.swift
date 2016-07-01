@@ -9,7 +9,7 @@
 import UIKit
 import IncipiaKit
 
-class ViewController: UIViewController {
+class SignInViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -19,6 +19,10 @@ class ViewController: UIViewController {
 		
 		let color = UIColor(patternImage: bgImage)
 		view.backgroundColor = color
+	}
+	
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return .LightContent
 	}
 }
 

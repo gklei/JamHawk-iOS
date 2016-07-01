@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */; };
 		CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94861D26B67600B0F53D /* AppDelegate.swift */; };
-		CE9B94891D26B67600B0F53D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94881D26B67600B0F53D /* ViewController.swift */; };
-		CE9B948C1D26B67600B0F53D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948A1D26B67600B0F53D /* Main.storyboard */; };
+		CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948A1D26B67600B0F53D /* SignIn.storyboard */; };
 		CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948D1D26B67600B0F53D /* Assets.xcassets */; };
 		CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */; };
 		CE9B949C1D26B67700B0F53D /* JamHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */; };
+		CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC91F981D26D3330006B657 /* UIStoryboard+Extensions.swift */; };
+		CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */; };
+		CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E01D26D49B0083365F /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,14 +33,16 @@
 		B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94831D26B67600B0F53D /* JamHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94861D26B67600B0F53D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE9B94881D26B67600B0F53D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE9B948B1D26B67600B0F53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE9B948B1D26B67600B0F53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
 		CE9B948D1D26B67600B0F53D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE9B94901D26B67600B0F53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE9B94921D26B67600B0F53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9B94971D26B67700B0F53D /* JamHawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHawkTests.swift; sourceTree = "<group>"; };
 		CE9B949D1D26B67700B0F53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC91F981D26D3330006B657 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "JamHawk/Extensions/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "JamHawk/Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		CED404E01D26D49B0083365F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +77,9 @@
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
+				CED404DF1D26D45F0083365F /* View Controllers */,
+				CED404DE1D26D44B0083365F /* Storyboards */,
+				CEC91F971D26D3180006B657 /* Extensions */,
 				CE9B94851D26B67600B0F53D /* JamHawk */,
 				CE9B949A1D26B67700B0F53D /* JamHawkTests */,
 				CE9B94841D26B67600B0F53D /* Products */,
@@ -94,10 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9B94861D26B67600B0F53D /* AppDelegate.swift */,
-				CE9B94881D26B67600B0F53D /* ViewController.swift */,
-				CE9B948A1D26B67600B0F53D /* Main.storyboard */,
 				CE9B948D1D26B67600B0F53D /* Assets.xcassets */,
-				CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */,
 				CE9B94921D26B67600B0F53D /* Info.plist */,
 			);
 			path = JamHawk;
@@ -110,6 +114,32 @@
 				CE9B949D1D26B67700B0F53D /* Info.plist */,
 			);
 			path = JamHawkTests;
+			sourceTree = "<group>";
+		};
+		CEC91F971D26D3180006B657 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEC91F981D26D3330006B657 /* UIStoryboard+Extensions.swift */,
+				CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		CED404DE1D26D44B0083365F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CE9B948A1D26B67600B0F53D /* SignIn.storyboard */,
+				CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		CED404DF1D26D45F0083365F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CED404E01D26D49B0083365F /* SignInViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		E51EB60DCDCD65CE4B97C96B /* Frameworks */ = {
@@ -207,7 +237,7 @@
 			files = (
 				CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,
-				CE9B948C1D26B67600B0F53D /* Main.storyboard in Resources */,
+				CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +303,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9B94891D26B67600B0F53D /* ViewController.swift in Sources */,
+				CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */,
+				CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */,
+				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,12 +329,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE9B948A1D26B67600B0F53D /* Main.storyboard */ = {
+		CE9B948A1D26B67600B0F53D /* SignIn.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE9B948B1D26B67600B0F53D /* Base */,
 			);
-			name = Main.storyboard;
+			name = SignIn.storyboard;
+			path = JamHawk;
 			sourceTree = "<group>";
 		};
 		CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */ = {
@@ -311,6 +344,7 @@
 				CE9B94901D26B67600B0F53D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = JamHawk;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
