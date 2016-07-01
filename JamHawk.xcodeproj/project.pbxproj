@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */; };
 		CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94861D26B67600B0F53D /* AppDelegate.swift */; };
 		CE9B94891D26B67600B0F53D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94881D26B67600B0F53D /* ViewController.swift */; };
 		CE9B948C1D26B67600B0F53D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948A1D26B67600B0F53D /* Main.storyboard */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
+		B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94831D26B67600B0F53D /* JamHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94861D26B67600B0F53D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9B94881D26B67600B0F53D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		CE9B94971D26B67700B0F53D /* JamHawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHawkTests.swift; sourceTree = "<group>"; };
 		CE9B949D1D26B67700B0F53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0F71CD2A8DA061C8C833267 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */,
+				395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
 				CE9B94851D26B67600B0F53D /* JamHawk */,
 				CE9B949A1D26B67700B0F53D /* JamHawkTests */,
 				CE9B94841D26B67600B0F53D /* Products */,
+				B0F71CD2A8DA061C8C833267 /* Pods */,
+				E51EB60DCDCD65CE4B97C96B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +112,14 @@
 			path = JamHawkTests;
 			sourceTree = "<group>";
 		};
+		E51EB60DCDCD65CE4B97C96B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9B94A01D26B67700B0F53D /* Build configuration list for PBXNativeTarget "JamHawk" */;
 			buildPhases = (
+				1E621CACDE4E60C03F9C0360 /* 📦 Check Pods Manifest.lock */,
 				CE9B947F1D26B67600B0F53D /* Sources */,
 				CE9B94801D26B67600B0F53D /* Frameworks */,
 				CE9B94811D26B67600B0F53D /* Resources */,
+				9ECF74662A84D6615D573F2C /* 📦 Embed Pods Frameworks */,
+				34A1C19572DF12DD9CDB9474 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +219,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E621CACDE4E60C03F9C0360 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		34A1C19572DF12DD9CDB9474 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ECF74662A84D6615D573F2C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE9B947F1D26B67600B0F53D /* Sources */ = {
@@ -326,6 +401,7 @@
 		};
 		CE9B94A11D26B67700B0F53D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -338,6 +414,7 @@
 		};
 		CE9B94A21D26B67700B0F53D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -391,6 +468,7 @@
 				CE9B94A21D26B67700B0F53D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE9B94A31D26B67700B0F53D /* Build configuration list for PBXNativeTarget "JamHawkTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +477,7 @@
 				CE9B94A51D26B67700B0F53D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

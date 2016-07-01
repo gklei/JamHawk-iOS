@@ -7,19 +7,18 @@
 //
 
 import UIKit
+import IncipiaKit
 
 class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+		let bgImage = UIImage.convertGradientToImage([UIColor.blueColor(), UIColor.purpleColor()], frame: view.frame)
+		
+		let color = UIColor(patternImage: bgImage)
+		view.backgroundColor = color
 	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
-
 }
 
