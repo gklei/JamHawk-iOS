@@ -15,10 +15,10 @@ class SignInViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		let bgImage = UIImage.convertGradientToImage([UIColor.blueColor(), UIColor.purpleColor()], frame: view.frame)
-		
-		let color = UIColor(patternImage: bgImage)
-		view.backgroundColor = color
+//		let bgImage = UIImage.convertGradientToImage([UIColor.blueColor(), UIColor.purpleColor()], frame: view.frame)
+//		
+//		let color = UIColor(patternImage: bgImage)
+//		view.backgroundColor = color
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
