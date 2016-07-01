@@ -9,20 +9,21 @@
 import UIKit
 import IncipiaKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController
+{
+	@IBOutlet private var _emailTextField: BottomBorderTextField!
+	@IBOutlet private var _passwordTextField: BottomBorderTextField!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-		
-//		let bgImage = UIImage.convertGradientToImage([UIColor.blueColor(), UIColor.purpleColor()], frame: view.frame)
-//		
-//		let color = UIColor(patternImage: bgImage)
-//		view.backgroundColor = color
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
+	}
+	
+	@IBAction func _viewTapped(recognizer: UITapGestureRecognizer) {
+		view.endEditing(true)
 	}
 }
 

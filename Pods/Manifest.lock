@@ -1,11 +1,11 @@
 PODS:
-  - IncipiaKit (0.0.2)
+  - IncipiaKit (0.0.3)
 
 DEPENDENCIES:
   - IncipiaKit
 
 SPEC CHECKSUMS:
-  IncipiaKit: 2db3fbc084cb0daff4334faebfd42827a465c19c
+  IncipiaKit: 4fcfa23073ad3957f2e289ec67b225a4e117ebf2
 
 PODFILE CHECKSUM: 80465047d3f123421a950e1e9f152b9592ec22f9
 
