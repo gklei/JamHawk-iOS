@@ -8,15 +8,12 @@
 
 import UIKit
 
-enum StoryboardType: String
-{
+enum StoryboardType: String {
 	case LaunchScreen, SignIn, SignUp, Onboarding
 }
 
-extension UIStoryboard
-{
-	convenience init(type: StoryboardType)
-	{
+extension UIStoryboard {
+	convenience init(type: StoryboardType) {
 		self.init(name: type.rawValue, bundle: nil)
 	}
 }

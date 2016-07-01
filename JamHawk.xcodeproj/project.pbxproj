@@ -17,6 +17,7 @@
 		CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */; };
 		CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E01D26D49B0083365F /* SignInViewController.swift */; };
 		CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E31D26E6350083365F /* BottomBorderTextField.swift */; };
+		CED404EC1D26F20E0083365F /* BackendCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404EB1D26F20E0083365F /* BackendCommunicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "JamHawk/Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CED404E01D26D49B0083365F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CED404E31D26E6350083365F /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = JamHawk/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
+		CED404EB1D26F20E0083365F /* BackendCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendCommunicator.swift; path = JamHawk/Backend/BackendCommunicator.swift; sourceTree = "<group>"; };
 		E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,15 +81,17 @@
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
+				CED404EE1D26F7880083365F /* Operations */,
+				CED404ED1D26F7500083365F /* Backend */,
 				CED404E21D26E6210083365F /* Custom UI */,
-				CED404DF1D26D45F0083365F /* View Controllers */,
-				CED404DE1D26D44B0083365F /* Storyboards */,
 				CEC91F971D26D3180006B657 /* Extensions */,
+				E51EB60DCDCD65CE4B97C96B /* Frameworks */,
 				CE9B94851D26B67600B0F53D /* JamHawk */,
 				CE9B949A1D26B67700B0F53D /* JamHawkTests */,
-				CE9B94841D26B67600B0F53D /* Products */,
 				B0F71CD2A8DA061C8C833267 /* Pods */,
-				E51EB60DCDCD65CE4B97C96B /* Frameworks */,
+				CE9B94841D26B67600B0F53D /* Products */,
+				CED404DE1D26D44B0083365F /* Storyboards */,
+				CED404DF1D26D45F0083365F /* View Controllers */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +155,21 @@
 				CED404E31D26E6350083365F /* BottomBorderTextField.swift */,
 			);
 			name = "Custom UI";
+			sourceTree = "<group>";
+		};
+		CED404ED1D26F7500083365F /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				CED404EB1D26F20E0083365F /* BackendCommunicator.swift */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
+		CED404EE1D26F7880083365F /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 		E51EB60DCDCD65CE4B97C96B /* Frameworks */ = {
@@ -315,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
+				CED404EC1D26F20E0083365F /* BackendCommunicator.swift in Sources */,
 				CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */,
 				CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */,
 				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
