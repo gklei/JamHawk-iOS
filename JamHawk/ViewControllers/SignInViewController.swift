@@ -25,8 +25,15 @@ class SignInViewController: UIViewController
 		return .LightContent
 	}
 	
+	// MARK: - Actions
 	@IBAction func _viewTapped(recognizer: UITapGestureRecognizer) {
 		view.endEditing(true)
+	}
+	
+	@IBAction private func _signInButtonPressed() {
+	}
+	
+	@IBAction private func _signInWithTestAccountButtonPressed() {
 	}
 }
 
