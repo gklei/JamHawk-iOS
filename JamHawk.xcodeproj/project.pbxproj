@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */; };
+		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
+		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInput.swift */; };
+		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
+		CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2B69031D2C97EE00EAFF16 /* Player.storyboard */; };
+		CE4C48B61D2C5879000EBA35 /* PlayerInputSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerInputSchema.swift */; };
+		CE4C48B81D2C588D000EBA35 /* PlayerOutputSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B71D2C588D000EBA35 /* PlayerOutputSchema.swift */; };
 		CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94861D26B67600B0F53D /* AppDelegate.swift */; };
 		CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948A1D26B67600B0F53D /* SignIn.storyboard */; };
 		CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948D1D26B67600B0F53D /* Assets.xcassets */; };
@@ -33,6 +39,12 @@
 /* Begin PBXFileReference section */
 		395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
 		B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
+		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInput.swift; path = JamHawk/Models/UserAccessAPIInput.swift; sourceTree = "<group>"; };
+		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
+		CE2B69041D2C97EE00EAFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Player.storyboard; sourceTree = "<group>"; };
+		CE4C48B51D2C5879000EBA35 /* PlayerInputSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerInputSchema.swift; path = JamHawk/Models/PlayerInputSchema.swift; sourceTree = "<group>"; };
+		CE4C48B71D2C588D000EBA35 /* PlayerOutputSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerOutputSchema.swift; path = JamHawk/Models/PlayerOutputSchema.swift; sourceTree = "<group>"; };
 		CE9B94831D26B67600B0F53D /* JamHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94861D26B67600B0F53D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9B948B1D26B67600B0F53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
@@ -138,6 +150,7 @@
 			children = (
 				CE9B948A1D26B67600B0F53D /* SignIn.storyboard */,
 				CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */,
+				CE2B69031D2C97EE00EAFF16 /* Player.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -162,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				CED404EB1D26F20E0083365F /* JamHawkSession.swift */,
+				CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -176,6 +190,10 @@
 		CED404EF1D2713840083365F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE07AC7A1D2C3EA600524005 /* UserAccessAPIInput.swift */,
+				CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */,
+				CE4C48B51D2C5879000EBA35 /* PlayerInputSchema.swift */,
+				CE4C48B71D2C588D000EBA35 /* PlayerOutputSchema.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -274,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */,
+				CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,
 				CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */,
 			);
@@ -341,11 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4C48B61D2C5879000EBA35 /* PlayerInputSchema.swift in Sources */,
+				CE4C48B81D2C588D000EBA35 /* PlayerOutputSchema.swift in Sources */,
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
+				CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
 				CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */,
+				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
 				CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */,
 				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
+				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInput.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +393,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CE2B69031D2C97EE00EAFF16 /* Player.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE2B69041D2C97EE00EAFF16 /* Base */,
+			);
+			name = Player.storyboard;
+			sourceTree = "<group>";
+		};
 		CE9B948A1D26B67600B0F53D /* SignIn.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
