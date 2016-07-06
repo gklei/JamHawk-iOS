@@ -9,4 +9,17 @@
 import Foundation
 
 private let kUserAPIURLString = "https://feat3.clashauddevelop.com/clazha/access/api/user"
-private let kPlayerAPIURLString = 
+private let kPlayerAPIURLString = "https://feat3.clashauddevelop.com/clazha/player/media-list"
+
+class JamHawkAPIURLProvider
+{
+	static var user: NSURL {
+		guard let url = NSURL(string: kUserAPIURLString) else { fatalError("Couldn't generate user API URL") }
+		return url
+	}
+	
+	static var player: NSURL {
+		guard let url = NSURL(string: kPlayerAPIURLString) else { fatalError("Couldn't generate player API URL") }
+		return url
+	}
+}
