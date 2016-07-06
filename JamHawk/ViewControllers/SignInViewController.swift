@@ -11,9 +11,12 @@ import IncipiaKit
 
 class SignInViewController: UIViewController
 {
+	var session: JamHawkSession!
+	
 	@IBOutlet private var _emailTextField: BottomBorderTextField!
 	@IBOutlet private var _passwordTextField: BottomBorderTextField!
 
+	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -34,6 +37,15 @@ class SignInViewController: UIViewController
 	}
 	
 	@IBAction private func _signInWithTestAccountButtonPressed() {
+		session.signInWithTestCreds()
+	}
+	
+	@IBAction private func _signOutWithTestAccountButtonPressed() {
+		session.signOutWithTestCreds()
+	}
+	
+	@IBAction private func _instantiateTestPlayerButtonPressed() {
+		session.instantiateTestPlayer()
 	}
 }
 
