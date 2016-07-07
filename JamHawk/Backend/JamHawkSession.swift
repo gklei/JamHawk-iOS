@@ -34,14 +34,12 @@ class JamHawkSession
 	
 	// MARK: - Public
 	func signIn(email email: String, password: String, callback: SignInCallback? = nil) {
-		
-		let creds = UserInputCredentials(email: email, password: password)
+		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
 		guard let request = input.apiRequest() else { return }
 		
 		_signInDataTask?.cancel()
 		_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			
 			guard error == nil else {
 				print(error)
 				return
@@ -54,14 +52,12 @@ class JamHawkSession
 	}
 	
 	func signOut(email email: String, password: String, callback: SignInCallback? = nil) {
-		
-		let creds = UserInputCredentials(email: email, password: password)
+		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: kUserAccessTestToken)
 		guard let request = input.apiRequest() else { return }
 		
 		_signOutDataTask?.cancel()
 		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			
 			guard error == nil else {
 				print(error)
 				return
@@ -74,14 +70,12 @@ class JamHawkSession
 	}
 	
 	func signUp(email email: String, password: String, callback: SignUpCallback? = nil) {
-		
-		let creds = UserInputCredentials(email: email, password: password)
+		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken)
 		guard let request = input.apiRequest() else { return }
 		
 		_signUpDataTask?.cancel()
 		_signUpDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			
 			guard error == nil else {
 				print(error)
 				return

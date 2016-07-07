@@ -9,7 +9,7 @@
 import Foundation
 import Freddy
 
-struct UserInputCredentials: JSONEncodable {
+struct UserAccessCredentials: JSONEncodable {
 	let email: String
 	let password: String
 	
@@ -21,7 +21,7 @@ struct UserInputCredentials: JSONEncodable {
 	}
 }
 
-enum UserInputAction: JSONEncodable {
+enum UserAccessAction: JSONEncodable {
 	case SignUp, SignIn, SignOut
 	
 	private var textValue: String {
@@ -38,8 +38,8 @@ enum UserInputAction: JSONEncodable {
 }
 
 struct UserAccessAPIInput: JSONEncodable {
-	let credentials: UserInputCredentials
-	let action: UserInputAction
+	let credentials: UserAccessCredentials
+	let action: UserAccessAction
 	let token: String
 	
 	func toJSON() -> JSON {
@@ -67,7 +67,7 @@ struct UserAccessAPIInput: JSONEncodable {
 		request.addValue("application/json", forHTTPHeaderField: "Accept")
 		
 		guard let inputData = data else { return nil }
-		guard let inputString = NSString(data: inputData, encoding: NSUTF8StringEncoding) else { fatalError() }
+		guard let inputString = NSString(data: inputData, encoding: NSUTF8StringEncoding) else { return nil }
 		request.HTTPBody = "clazha_access=\(inputString)".dataUsingEncoding(NSUTF8StringEncoding)
 		
 		return request
