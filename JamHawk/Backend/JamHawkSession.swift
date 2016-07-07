@@ -35,34 +35,22 @@ class JamHawkSession
 	// MARK: - Public
 	func signIn(email email: String, password: String, callback: SignInCallback? = nil) {
 		
-		let request = NSMutableURLRequest(URL: JamHawkAPIURLProvider.user)
-		request.HTTPMethod = "POST"
-		request.addValue("application/json", forHTTPHeaderField: "Accept")
+		let creds = UserInputCredentials(email: email, password: password)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
+		guard let request = input.apiRequest() else { return }
 		
-		let input = UserAccessAPIInput(email: email, password: password, action: UserInputAction.SignIn, token: kUserAccessTestToken)
-		
-		do {
-			let inputData = try input.toJSON().serialize()
-			guard let inputString = NSString(data: inputData, encoding: NSUTF8StringEncoding) else { fatalError() }
-			let body = "clazha_access=\(inputString)".dataUsingEncoding(NSUTF8StringEncoding)
-			request.HTTPBody = body
-			
-			_session.dataTaskWithRequest(request) { (data, response, error) in
-				if let error = error {
-					print(error)
-				}
-				if let data = data {
-					let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-					print(contents)
-				}
-				if let response = response {
-					print(response)
-				}
+		_session.dataTaskWithRequest(request) { (data, response, error) in
+			if let error = error {
+				print(error)
+			}
+			if let data = data {
+				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
+				print(contents)
+			}
+			if let response = response {
+				print(response)
+			}
 			}.resume()
-			
-		} catch let error {
-			fatalError("\(error)")
-		}
 	}
 	
 	func signUp(email email: String, password: String, callback: SignUpCallback? = nil) {
@@ -71,75 +59,50 @@ class JamHawkSession
 	// MARK: - Testing
 	func signInWithTestCreds() {
 		
-		let request = NSMutableURLRequest(URL: JamHawkAPIURLProvider.user)
-		request.HTTPMethod = "POST"
-		request.addValue("application/json", forHTTPHeaderField: "Accept")
-		
-		let input = UserAccessAPIInput(email: kTestEmail, password: kTestPassword, action: UserInputAction.SignIn, token: kUserAccessTestToken)
-		
-		do {
-			let inputData = try input.toJSON().serialize()
-			guard let inputString = NSString(data: inputData, encoding: NSUTF8StringEncoding) else { fatalError() }
-			let body = "clazha_access=\(inputString)".dataUsingEncoding(NSUTF8StringEncoding)
-			request.HTTPBody = body
+		let creds = UserInputCredentials(email: kTestEmail, password: kTestPassword)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
+		guard let request = input.apiRequest() else { return }
 			
-			_signInDataTask?.cancel()
-			_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-				if let error = error {
-					print(error)
-				}
-				if let data = data {
-					let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-					print(contents)
-				}
-				if let response = response {
-					print(response)
-				}
+		_signInDataTask?.cancel()
+		_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			if let error = error {
+				print(error)
 			}
-			
-			_signInDataTask?.resume()
-			
-		} catch let error {
-			fatalError("\(error)")
+			if let data = data {
+				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
+				print(contents)
+			}
 		}
+		
+		_signInDataTask?.resume()
 	}
 	
 	func signOutWithTestCreds() {
 		
-		let request = NSMutableURLRequest(URL: JamHawkAPIURLProvider.user)
-		request.HTTPMethod = "POST"
-		request.addValue("application/json", forHTTPHeaderField: "Accept")
+		let creds = UserInputCredentials(email: kTestEmail, password: kTestPassword)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: kUserAccessTestToken)
+		guard let request = input.apiRequest() else { return }
 		
-		let input = UserAccessAPIInput(email: kTestEmail, password: kTestPassword, action: UserInputAction.SignOut, token: kUserAccessTestToken)
-		
-		do {
-			let inputData = try input.toJSON().serialize()
-			guard let inputString = NSString(data: inputData, encoding: NSUTF8StringEncoding) else { fatalError() }
-			let body = "clazha_access=\(inputString)".dataUsingEncoding(NSUTF8StringEncoding)
-			request.HTTPBody = body
-			
-			_signOutDataTask?.cancel()
-			_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-				if let error = error {
-					print(error)
-				}
-				if let data = data {
-					let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-					print(contents)
-				}
+		_signOutDataTask?.cancel()
+		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			if let error = error {
+				print(error)
 			}
-			_signOutDataTask?.resume()
-			
-		} catch let error {
-			fatalError("\(error)")
+			if let data = data {
+				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
+				print(contents)
+			}
 		}
+		_signOutDataTask?.resume()
 	}
 	
 	func instantiateTestPlayer() {
 		let playerRequest = NSMutableURLRequest(URL: JamHawkAPIURLProvider.player)
+		playerRequest.HTTPMethod = "POST"
+		playerRequest.addValue("application/json", forHTTPHeaderField: "Accept")
 		
 		let statusDict: [String: AnyObject] = ["playerID" : "", "requestID": 0, "needInstance": true, "needMedia":true, "needNext": false, "needFilters": false]
-		let instanceDict: [String: AnyObject] = ["token" : "apptesttoken", "needPlayerID" : true, "needOptions" : true]
+		let instanceDict: [String: AnyObject] = ["needPlayerID" : true, "needOptions" : true]
 		let playerParams = ["status" : statusDict, "instance" : instanceDict]
 		
 		do {
@@ -157,10 +120,6 @@ class JamHawkSession
 				if let data = data {
 					let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
 					print(contents)
-				}
-				
-				if let response = response {
-					print(response)
 				}
 			}
 			_playerDataTask?.resume()
