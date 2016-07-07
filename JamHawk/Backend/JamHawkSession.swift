@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Freddy
 
 private let kUserAccessTestToken = "apptesttoken"
 private let kTestEmail = "gregory@incipia.co"
@@ -31,6 +32,21 @@ class JamHawkSession {
 	private var _playerDataTask: NSURLSessionDataTask?
 	
 	// MARK: - Public
+	func signUp(email email: String, password: String, callback: UserAccessCallback? = nil) {
+		let creds = UserAccessCredentials(email: email, password: password)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken)
+		guard let request = input.generateRequest() else { return }
+		
+		_signUpDataTask?.cancel()
+		_signUpDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			let json = UserAccessAPIOutput(jsonData: data)
+			print(json)
+			callback?(error: error, success: json?.success ?? false, message: json?.message)
+		}
+		_signUpDataTask?.resume()
+	}
+	
 	func signIn(email email: String, password: String, callback: UserAccessCallback? = nil) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
@@ -40,6 +56,7 @@ class JamHawkSession {
 		_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let json = UserAccessAPIOutput(jsonData: data)
+			print(json)
 			callback?(error: error, success: json?.success ?? false, message: json?.message)
 		}
 		_signInDataTask?.resume()
@@ -54,28 +71,16 @@ class JamHawkSession {
 		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let json = UserAccessAPIOutput(jsonData: data)
+			print(json)
 			callback?(error: error, success: json?.success ?? false, message: json?.message)
 		}
 		_signOutDataTask?.resume()
 	}
 	
-	func signUp(email email: String, password: String, callback: UserAccessCallback? = nil) {
-		let creds = UserAccessCredentials(email: email, password: password)
-		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken)
-		guard let request = input.generateRequest() else { return }
-		
-		_signUpDataTask?.cancel()
-		_signUpDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			
-			let json = UserAccessAPIOutput(jsonData: data)
-			callback?(error: error, success: json?.success ?? false, message: json?.message)
-		}
-		_signUpDataTask?.resume()
-	}
-	
 	// MARK: - Testing
 	func signInWithTestCreds() {
-		signIn(email: kTestEmail, password: kTestPassword)
+		signIn(email: kTestEmail, password: kTestPassword) { (error, success, message) in
+		}
 	}
 	
 	func signOutWithTestCreds() {
@@ -83,35 +88,33 @@ class JamHawkSession {
 	}
 	
 	func instantiateTestPlayer() {
-		let playerRequest = NSMutableURLRequest(URL: JamHawkAPIURLProvider.player)
-		playerRequest.HTTPMethod = "POST"
-		playerRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+		let instanceInput = PlayerAPIInputInstance(token: nil, needPlayerID: true, needOptions: true, isMobile: true, preloadSync: nil)
+		let statusInput = PlayerAPIInputStatus.instanceRequestStatus()
+		let input = PlayerAPIInput(instance: instanceInput, status: statusInput)
+		guard let request = input.generateRequest() else { return }
 		
-		let statusDict: [String: AnyObject] = ["playerID" : "", "requestID": 0, "needInstance": true, "needMedia":true, "needNext": false, "needFilters": false]
-		let instanceDict: [String: AnyObject] = ["needPlayerID" : true, "needOptions" : true]
-		let playerParams = ["status" : statusDict, "instance" : instanceDict]
-		
-		do {
-			let playerParamsData = try NSJSONSerialization.dataWithJSONObject(playerParams, options: [])
-			guard let playerParamsString = NSString(data: playerParamsData, encoding: NSUTF8StringEncoding) else { fatalError() }
-
-			playerRequest.HTTPBody = "clazha_player=\(playerParamsString)".dataUsingEncoding(NSUTF8StringEncoding)
+		_playerDataTask?.cancel()
+		_playerDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			if let error = error {
+				print(error)
+			}
 			
-			_playerDataTask?.cancel()
-			_playerDataTask = _session.dataTaskWithRequest(playerRequest) { (data, response, error) in
-				if let error = error {
+			if let data = data {
+				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
+				print(contents)
+				print("\n\n\n -----------------------------")
+				
+				do {
+					let json = try JSON(data: data)
+					
+					let filters = try json.decode("filters", type: PlayerAPIOutputFilters.self)
+					print("ARTIST: \n---\n\(filters)")
+					
+				} catch let error {
 					print(error)
 				}
-				
-				if let data = data {
-					let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-					print(contents)
-				}
 			}
-			_playerDataTask?.resume()
-			
-		} catch let error {
-			print(error)
 		}
+		_playerDataTask?.resume()
 	}
 }

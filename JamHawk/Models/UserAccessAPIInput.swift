@@ -2,40 +2,12 @@
 //  UserAccessAPIInput.swift
 //  JamHawk
 //
-//  Created by Gregory Klein on 7/5/16.
+//  Created by Gregory Klein on 7/7/16.
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
 import Foundation
 import Freddy
-
-struct UserAccessCredentials: JSONEncodable {
-	let email: String
-	let password: String
-	
-	func toJSON() -> JSON {
-		return .Dictionary([
-			"email" : .String(email),
-			"pass" : .String(password)
-			])
-	}
-}
-
-enum UserAccessAction: JSONEncodable {
-	case SignUp, SignIn, SignOut
-	
-	private var textValue: String {
-		switch self {
-		case .SignUp: return "signup"
-		case .SignIn: return "signin"
-		case .SignOut: return "signout"
-		}
-	}
-	
-	func toJSON() -> JSON {
-		return .String(textValue)
-	}
-}
 
 struct UserAccessAPIInput {
 	let credentials: UserAccessCredentials
@@ -45,11 +17,12 @@ struct UserAccessAPIInput {
 
 extension UserAccessAPIInput: JSONEncodable {
 	func toJSON() -> JSON {
-		return .Dictionary([
+		let json = JSON.Dictionary([
 			"credentials" : credentials.toJSON(),
 			"action" : action.toJSON(),
 			"token" : .String(token)
 			])
+		return json
 	}
 }
 

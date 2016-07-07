@@ -9,19 +9,9 @@
 import Foundation
 import Freddy
 
-struct UserAccessAPIOutput {
+struct UserAccessAPIOutput: JamHawkJSONDecodable {
 	let success: Bool
 	let message: String?
-	
-	init?(jsonData: NSData?) {
-		guard let data = jsonData else { return nil }
-		do {
-			let json = try JSON(data: data)
-			try self.init(json: json)
-		} catch {
-			return nil
-		}
-	}
 }
 
 extension UserAccessAPIOutput: JSONDecodable {
