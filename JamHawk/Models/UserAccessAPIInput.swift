@@ -37,11 +37,13 @@ enum UserAccessAction: JSONEncodable {
 	}
 }
 
-struct UserAccessAPIInput: JSONEncodable {
+struct UserAccessAPIInput {
 	let credentials: UserAccessCredentials
 	let action: UserAccessAction
 	let token: String
-	
+}
+
+extension UserAccessAPIInput: JSONEncodable {
 	func toJSON() -> JSON {
 		return .Dictionary([
 			"credentials" : credentials.toJSON(),
@@ -49,24 +51,15 @@ struct UserAccessAPIInput: JSONEncodable {
 			"token" : .String(token)
 			])
 	}
-	
-	private var data: NSData? {
-		var data: NSData?
-		do {
-			data = try toJSON().serialize()
-		} catch let error {
-			print(error)
-		}
-		return data
-	}
-	
-	func apiRequest() -> NSURLRequest? {
-		
+}
+
+extension UserAccessAPIInput: APIRequestGeneration {
+	func generateRequest() -> NSURLRequest? {
 		let request = NSMutableURLRequest(URL: JamHawkAPIURLProvider.user)
 		request.HTTPMethod = "POST"
 		request.addValue("application/json", forHTTPHeaderField: "Accept")
 		
-		guard let inputData = data else { return nil }
+		guard let inputData = generateJSONData() else { return nil }
 		guard let inputString = NSString(data: inputData, encoding: NSUTF8StringEncoding) else { return nil }
 		request.HTTPBody = "clazha_access=\(inputString)".dataUsingEncoding(NSUTF8StringEncoding)
 		

@@ -12,11 +12,9 @@ private let kUserAccessTestToken = "apptesttoken"
 private let kTestEmail = "gregory@incipia.co"
 private let kTestPassword = "hello"
 
-typealias SignInCallback = (success: Bool, message: String?) -> Void
-typealias SignUpCallback = (success: Bool, message: String?) -> Void
+typealias UserAccessCallback = (error: NSError?, success: Bool, message: String?) -> Void
 
-class JamHawkSession
-{
+class JamHawkSession {
 	// MARK: - Properties
 	private lazy var _session: NSURLSession = {
 		let config = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -33,56 +31,44 @@ class JamHawkSession
 	private var _playerDataTask: NSURLSessionDataTask?
 	
 	// MARK: - Public
-	func signIn(email email: String, password: String, callback: SignInCallback? = nil) {
+	func signIn(email email: String, password: String, callback: UserAccessCallback? = nil) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
-		guard let request = input.apiRequest() else { return }
+		guard let request = input.generateRequest() else { return }
 		
 		_signInDataTask?.cancel()
 		_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			guard error == nil else {
-				print(error)
-				return
-			}
 			
-			guard let json = UserAccessAPIOutput(jsonData: data) else { return }
-			print(json)
+			let json = UserAccessAPIOutput(jsonData: data)
+			callback?(error: error, success: json?.success ?? false, message: json?.message)
 		}
 		_signInDataTask?.resume()
 	}
 	
-	func signOut(email email: String, password: String, callback: SignInCallback? = nil) {
+	func signOut(email email: String, password: String, callback: UserAccessCallback? = nil) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: kUserAccessTestToken)
-		guard let request = input.apiRequest() else { return }
+		guard let request = input.generateRequest() else { return }
 		
 		_signOutDataTask?.cancel()
 		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			guard error == nil else {
-				print(error)
-				return
-			}
 			
-			guard let json = UserAccessAPIOutput(jsonData: data) else { return }
-			print(json)
+			let json = UserAccessAPIOutput(jsonData: data)
+			callback?(error: error, success: json?.success ?? false, message: json?.message)
 		}
 		_signOutDataTask?.resume()
 	}
 	
-	func signUp(email email: String, password: String, callback: SignUpCallback? = nil) {
+	func signUp(email email: String, password: String, callback: UserAccessCallback? = nil) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken)
-		guard let request = input.apiRequest() else { return }
+		guard let request = input.generateRequest() else { return }
 		
 		_signUpDataTask?.cancel()
 		_signUpDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			guard error == nil else {
-				print(error)
-				return
-			}
 			
-			guard let json = UserAccessAPIOutput(jsonData: data) else { return }
-			print(json)
+			let json = UserAccessAPIOutput(jsonData: data)
+			callback?(error: error, success: json?.success ?? false, message: json?.message)
 		}
 		_signUpDataTask?.resume()
 	}

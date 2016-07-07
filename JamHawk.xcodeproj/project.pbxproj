@@ -12,6 +12,7 @@
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInput.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
 		CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2B69031D2C97EE00EAFF16 /* Player.storyboard */; };
+		CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */; };
 		CE4C48B61D2C5879000EBA35 /* PlayerInputSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerInputSchema.swift */; };
 		CE4C48B81D2C588D000EBA35 /* PlayerOutputSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B71D2C588D000EBA35 /* PlayerOutputSchema.swift */; };
 		CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94861D26B67600B0F53D /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInput.swift; path = JamHawk/Models/UserAccessAPIInput.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
 		CE2B69041D2C97EE00EAFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Player.storyboard; sourceTree = "<group>"; };
+		CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendProtocols.swift; path = JamHawk/Backend/BackendProtocols.swift; sourceTree = "<group>"; };
 		CE4C48B51D2C5879000EBA35 /* PlayerInputSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerInputSchema.swift; path = JamHawk/Models/PlayerInputSchema.swift; sourceTree = "<group>"; };
 		CE4C48B71D2C588D000EBA35 /* PlayerOutputSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerOutputSchema.swift; path = JamHawk/Models/PlayerOutputSchema.swift; sourceTree = "<group>"; };
 		CE9B94831D26B67600B0F53D /* JamHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 			children = (
 				CED404EB1D26F20E0083365F /* JamHawkSession.swift */,
 				CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */,
+				CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				CE4C48B61D2C5879000EBA35 /* PlayerInputSchema.swift in Sources */,
 				CE4C48B81D2C588D000EBA35 /* PlayerOutputSchema.swift in Sources */,
+				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
 				CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
