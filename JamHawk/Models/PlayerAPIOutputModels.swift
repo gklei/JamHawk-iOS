@@ -20,7 +20,7 @@ struct PlayerAPIOutputInstance: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	
 	func toJSON() -> JSON {
 		let json: JSONDictionaryType = [
-			"playerID" : playerID?.toJSON() ?? .Null,
+			"playerID" : playerID?.toJSON() ?? JSON.Null,
 //			"options" : options?.toJSON() ?? .Null -------------> TODO: figure out what to do with "options"
 		]
 		return JSON.withNullValuesRemoved(json)
@@ -43,9 +43,9 @@ struct PlayerAPIOutputMedia: JSONDecodable, JamHawkJSONDecodable, JSONEncodable 
 	func toJSON() -> JSON {
 		let json: JSONDictionaryType = [
 			"poster" : poster?.toJSON() ?? .Null,
-			"mp3" : mp3?.toJSON() ?? .Null,
-			"m4a" : m4a?.toJSON() ?? .Null,
-			"m4v" : m4v?.toJSON() ?? .Null
+			"mp3" : mp3?.toJSON() ?? JSON.Null,
+			"m4a" : m4a?.toJSON() ?? JSON.Null,
+			"m4v" : m4v?.toJSON() ?? JSON.Null
 		]
 		return JSON.withNullValuesRemoved(json)
 	}
@@ -64,9 +64,9 @@ struct PlayerAPIOutputArtist: JSONDecodable, JamHawkJSONDecodable, JSONEncodable
 	
 	func toJSON() -> JSON {
 		let json: JSONDictionaryType = [
-			"imageURL" : imageURL?.toJSON() ?? .Null,
-			"name" : name?.toJSON() ?? .Null,
-			"text" : text?.toJSON() ?? .Null
+			"imageURL" : imageURL?.toJSON() ?? JSON.Null,
+			"name" : name?.toJSON() ?? JSON.Null,
+			"text" : text?.toJSON() ?? JSON.Null
 		]
 		return JSON.withNullValuesRemoved(json)
 	}
@@ -97,15 +97,15 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	
 	func toJSON() -> JSON {
 		let json: JSONDictionaryType = [
-			"mid" : mid?.toJSON() ?? .Null,
-			"artist" : artist?.toJSON() ?? .Null,
-			"album" : album?.toJSON() ?? .Null,
-			"title" : title?.toJSON() ?? .Null,
-			"detailURL" : detailURL?.toJSON() ?? .Null,
-			"imageURL" : imageURL?.toJSON() ?? .Null,
-			"rating" : rating?.toJSON() ?? .Null,
-			"duration" : duration?.toJSON() ?? .Null,
-			"links" : links?.toJSON() ?? .Null
+			"mid" : mid?.toJSON() ?? JSON.Null,
+			"artist" : artist?.toJSON() ?? JSON.Null,
+			"album" : album?.toJSON() ?? JSON.Null,
+			"title" : title?.toJSON() ?? JSON.Null,
+			"detailURL" : detailURL?.toJSON() ?? JSON.Null,
+			"imageURL" : imageURL?.toJSON() ?? JSON.Null,
+			"rating" : rating?.toJSON() ?? JSON.Null,
+			"duration" : duration?.toJSON() ?? JSON.Null,
+			"links" : links?.toJSON() ?? JSON.Null
 		]
 		return JSON.withNullValuesRemoved(json)
 	}
