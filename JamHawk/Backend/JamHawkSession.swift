@@ -39,61 +39,67 @@ class JamHawkSession
 		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
 		guard let request = input.apiRequest() else { return }
 		
-		_session.dataTaskWithRequest(request) { (data, response, error) in
-			if let error = error {
-				print(error)
-			}
-			if let data = data {
-				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-				print(contents)
-			}
-			if let response = response {
-				print(response)
-			}
-			}.resume()
-	}
-	
-	func signUp(email email: String, password: String, callback: SignUpCallback? = nil) {
-	}
-	
-	// MARK: - Testing
-	func signInWithTestCreds() {
-		
-		let creds = UserInputCredentials(email: kTestEmail, password: kTestPassword)
-		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
-		guard let request = input.apiRequest() else { return }
-			
 		_signInDataTask?.cancel()
 		_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			if let error = error {
+			
+			guard error == nil else {
 				print(error)
+				return
 			}
-			if let data = data {
-				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-				print(contents)
-			}
+			
+			guard let json = UserAccessAPIOutput(jsonData: data) else { return }
+			print(json)
 		}
-		
 		_signInDataTask?.resume()
 	}
 	
-	func signOutWithTestCreds() {
+	func signOut(email email: String, password: String, callback: SignInCallback? = nil) {
 		
-		let creds = UserInputCredentials(email: kTestEmail, password: kTestPassword)
+		let creds = UserInputCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: kUserAccessTestToken)
 		guard let request = input.apiRequest() else { return }
 		
 		_signOutDataTask?.cancel()
 		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			if let error = error {
+			
+			guard error == nil else {
 				print(error)
+				return
 			}
-			if let data = data {
-				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-				print(contents)
-			}
+			
+			guard let json = UserAccessAPIOutput(jsonData: data) else { return }
+			print(json)
 		}
 		_signOutDataTask?.resume()
+	}
+	
+	func signUp(email email: String, password: String, callback: SignUpCallback? = nil) {
+		
+		let creds = UserInputCredentials(email: email, password: password)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken)
+		guard let request = input.apiRequest() else { return }
+		
+		_signUpDataTask?.cancel()
+		_signUpDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			guard error == nil else {
+				print(error)
+				return
+			}
+			
+			guard let json = UserAccessAPIOutput(jsonData: data) else { return }
+			print(json)
+		}
+		_signUpDataTask?.resume()
+	}
+	
+	// MARK: - Testing
+	func signInWithTestCreds() {
+		signIn(email: kTestEmail, password: kTestPassword)
+	}
+	
+	func signOutWithTestCreds() {
+		signOut(email: kTestEmail, password: kTestPassword)
 	}
 	
 	func instantiateTestPlayer() {
