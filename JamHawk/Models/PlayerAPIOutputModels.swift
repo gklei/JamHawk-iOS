@@ -19,7 +19,7 @@ struct PlayerAPIOutputInstance: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	}
 	
 	func toJSON() -> JSON {
-		let json: JSONDictionaryType = [
+		let json: [Swift.String : JSON] = [
 			"playerID" : playerID?.toJSON() ?? JSON.Null,
 //			"options" : options?.toJSON() ?? .Null -------------> TODO: figure out what to do with "options"
 		]
@@ -41,7 +41,7 @@ struct PlayerAPIOutputMedia: JSONDecodable, JamHawkJSONDecodable, JSONEncodable 
 	}
 	
 	func toJSON() -> JSON {
-		let json: JSONDictionaryType = [
+		let json: [Swift.String : JSON] = [
 			"poster" : poster?.toJSON() ?? .Null,
 			"mp3" : mp3?.toJSON() ?? JSON.Null,
 			"m4a" : m4a?.toJSON() ?? JSON.Null,
@@ -63,7 +63,7 @@ struct PlayerAPIOutputArtist: JSONDecodable, JamHawkJSONDecodable, JSONEncodable
 	}
 	
 	func toJSON() -> JSON {
-		let json: JSONDictionaryType = [
+		let json: [Swift.String : JSON] = [
 			"imageURL" : imageURL?.toJSON() ?? JSON.Null,
 			"name" : name?.toJSON() ?? JSON.Null,
 			"text" : text?.toJSON() ?? JSON.Null
@@ -96,7 +96,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	}
 	
 	func toJSON() -> JSON {
-		let json: JSONDictionaryType = [
+		let json: [Swift.String : JSON] = [
 			"mid" : mid?.toJSON() ?? JSON.Null,
 			"artist" : artist?.toJSON() ?? JSON.Null,
 			"album" : album?.toJSON() ?? JSON.Null,
@@ -111,7 +111,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	}
 }
 
-struct PlayerAPIOutputMessage: JSONDecodable, JamHawkJSONDecodable {
+struct PlayerAPIOutputMessage: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
 	let message: String?
 	let type: String?
 	
@@ -119,24 +119,48 @@ struct PlayerAPIOutputMessage: JSONDecodable, JamHawkJSONDecodable {
 		message = try json.string("message", alongPath: .MissingKeyBecomesNil)
 		type = try json.string("type", alongPath: .MissingKeyBecomesNil)
 	}
+	
+	func toJSON() -> JSON {
+		let json: [Swift.String : JSON] = [
+			"message" : message?.toJSON() ?? JSON.Null,
+			"type" : type?.toJSON() ?? JSON.Null
+		]
+		return JSON.withNullValuesRemoved(json)
+	}
 }
 
-struct PlayerAPIOutputCommand: JSONDecodable, JamHawkJSONDecodable {
+struct PlayerAPIOutputCommand: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
 	let name: PlayerAPICommandName
-	let parameters: [String]
+	let parameters: [String]?
 	
 	init(json: JSON) throws {
 		name = try json.decode("name", type: PlayerAPICommandName.self)
 		parameters = try json.arrayOf("parameters", type: String.self)
 	}
+	
+	func toJSON() -> JSON {
+		let json: [Swift.String : JSON] = [
+			"name" : name.toJSON(),
+			"parameters" : parameters?.toJSON() ?? JSON.Null
+		]
+		return JSON.withNullValuesRemoved(json)
+	}
 }
 
-struct PlayerAPIOutputFilters: JSONDecodable, JamHawkJSONDecodable {
+struct PlayerAPIOutputFilters: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
 	let available: [PlayerAPIFilter]?
 	let selected: [PlayerAPIFilterID]?
 	
 	init(json: JSON) throws {
 		available = try json.arrayOf("available", alongPath: .MissingKeyBecomesNil, type: PlayerAPIFilter.self)
 		selected = try json.arrayOf("selected",alongPath: .MissingKeyBecomesNil, type: PlayerAPIFilterID.self)
+	}
+	
+	func toJSON() -> JSON {
+		let json: [Swift.String : JSON] = [
+			"available" : available?.toJSON() ?? JSON.Null,
+			"selected" : selected?.toJSON() ?? JSON.Null
+		]
+		return JSON.withNullValuesRemoved(json)
 	}
 }

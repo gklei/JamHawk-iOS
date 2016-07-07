@@ -8,18 +8,16 @@
 
 import Freddy
 
-typealias JSONDictionaryType = Dictionary<String, JSON>
-
 extension JSON {
 	
-	private static func removeNullValues(inout dictionary: JSONDictionaryType) {
+	private static func removeNullValues(inout dictionary: [Swift.String : JSON]) {
 		let keysToRemove = dictionary.keys.filter { dictionary[$0]! == JSON.Null }
 		for key in keysToRemove {
 			dictionary.removeValueForKey(key)
 		}
 	}
 	
-	static func withNullValuesRemoved(dictionary: JSONDictionaryType) -> JSON {
+	static func withNullValuesRemoved(dictionary: [Swift.String : JSON]) -> JSON {
 		var copy = dictionary
 		removeNullValues(&copy)
 		return JSON(copy)

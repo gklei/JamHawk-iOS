@@ -17,6 +17,6 @@ struct UserAccessAPIOutput: JamHawkJSONDecodable {
 extension UserAccessAPIOutput: JSONDecodable {
 	init(json: JSON) throws {
 		success = try json.bool("success")
-		message = try json.string("message", alongPath: JSON.SubscriptingOptions.MissingKeyBecomesNil)
+		message = try json.string("message", alongPath: .MissingKeyBecomesNil)
 	}
 }

@@ -99,21 +99,8 @@ class JamHawkSession {
 				print(error)
 			}
 			
-			if let data = data {
-				let contents = NSString(data: data, encoding: NSUTF8StringEncoding)
-				print(contents)
-				print("\n\n\n -----------------------------")
-				
-				do {
-					let json = try JSON(data: data)
-					
-					let filters = try json.decode("filters", type: PlayerAPIOutputFilters.self)
-					print("ARTIST: \n---\n\(filters)")
-					
-				} catch let error {
-					print(error)
-				}
-			}
+			let json = PlayerAPIOutput(jsonData: data)
+			print(json)
 		}
 		_playerDataTask?.resume()
 	}
