@@ -11,7 +11,8 @@ import Freddy
 
 typealias PlayerAPIMediaID = Int
 typealias PlayerAPIFilterID = String
-typealias PlayerAPIFilterSelection = Dictionary<String, PlayerAPIFilterID>
+typealias PlayerAPIFilterSelection = Dictionary<PlayerAPIFilterID, PlayerAPIFilterID>
+typealias PlayerAPIMediaRatings = Dictionary<PlayerAPIMediaID, PlayerAPITrackRating>
 
 enum PlayerAPITrackRating: Int, JSONEncodable, JSONDecodable {
 	case Negative = -1, Neutral = 0, Positive = 1

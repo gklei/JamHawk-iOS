@@ -9,24 +9,18 @@
 import Foundation
 import Freddy
 
-enum PlayerAPIInputEventName: JSONEncodable {
-	case Play, Pause, Resume, End, Skip, PreloadedSkip, Error, Warning
-	
-	private var jsonValue: String {
-		switch self {
-		case .Play: return "play"
-		case .Pause: return "pause"
-		case .Resume: return "resume"
-		case .End: return "end"
-		case .Skip: return "skip"
-		case .PreloadedSkip: return "preloaded-skip"
-		case .Error: return "error"
-		case .Warning: return "warning"
-		}
-	}
+enum PlayerAPIInputEventName: String, JSONEncodable {
+	case Play = "play"
+	case Pause = "pause"
+	case Resume = "resume"
+	case End = "end"
+	case Skip = "skip"
+	case PreloadedSkip = "preloaded-skip"
+	case Error = "error"
+	case Warning = "warning"
 	
 	func toJSON() -> JSON {
-		return .String(jsonValue)
+		return .String(rawValue)
 	}
 }
 
@@ -37,14 +31,13 @@ struct PlayerAPIInputEvent: JSONEncodable {
 	let description: String?
 	
 	func toJSON() -> JSON {
-		let dictionary: [String : JSON] = [
+		let json: [String : JSON] = [
 			"name" : name.toJSON(),
-			"timestamp" : .Int(timestamp),
-			"mid" : mid != nil ? .Int(mid!) : .Null,
-			"description" : description != nil ? .String(description!) : .Null
+			"timestamp" : timestamp.toJSON(),
+			"mid" : mid?.toJSON() ?? JSON.Null,
+			"description" : description?.toJSON() ?? JSON.Null
 		]
-		
-		return JSON.withNullValuesRemoved(dictionary)
+		return JSON.withNullValuesRemoved(json)
 	}
 }
 
@@ -57,13 +50,12 @@ struct PlayerAPIInputInstance: JSONEncodable {
 	
 	func toJSON() -> JSON {
 		let dictionary: [String : JSON] = [
-			"token" : token != nil ? .String(token!) : .Null,
+			"token" : token != nil ? .String(token!) :JSON.Null,
 			"needPlayerID" : .Bool(needPlayerID),
 			"needOptions" : .Bool(needOptions),
-			"isMobile" : isMobile != nil ? .Bool(isMobile!) : .Null,
-			"preloadSync" : preloadSync != nil ? .Bool(preloadSync!) : .Null
+			"isMobile" : isMobile != nil ? .Bool(isMobile!) :JSON.Null,
+			"preloadSync" : preloadSync != nil ? .Bool(preloadSync!) :JSON.Null
 		]
-
 		return JSON.withNullValuesRemoved(dictionary)
 	}
 }
@@ -77,7 +69,7 @@ struct PlayerAPIInputStatus: JSONEncodable {
 	let needFilters: Bool
 	
 	static func instanceRequestStatus() -> PlayerAPIInputStatus {
-		return PlayerAPIInputStatus(playerID: "", requestID: 0, needInstance: true, needMedia: true, needNext: false, needFilters: true)
+		return PlayerAPIInputStatus(playerID: "", requestID: 0, needInstance: true, needMedia: true, needNext: true, needFilters: true)
 	}
 	
 	func toJSON() -> JSON {
@@ -92,9 +84,21 @@ struct PlayerAPIInputStatus: JSONEncodable {
 	}
 }
 
-struct PlayerAPIInputUpdates {
-	let abandonedRequests: [Int]
-	let canPlay: Bool
-	let filter: PlayerAPIFilterSelection
-	let select: Int
+struct PlayerAPIInputUpdates: JSONEncodable {
+	let abandonedRequests: [Int]?
+	let canPlay: Bool?
+	let filter: PlayerAPIFilterSelection?
+	let select: Int?
+	let ratings: PlayerAPIMediaRatings?
+	
+	func toJSON() -> JSON {
+		let json: [String : JSON] = [
+			"abandonedRequests" : abandonedRequests?.toJSON() ?? JSON.Null,
+			"canPlay" : canPlay?.toJSON() ?? JSON.Null,
+			"filter" : filter?.toJSON() ?? JSON.Null,
+			"select" : select?.toJSON() ?? JSON.Null,
+			"ratings" : ratings?.toJSON() ?? JSON.Null
+		]
+		return JSON.withNullValuesRemoved(json)
+	}
 }

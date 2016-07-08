@@ -21,7 +21,7 @@ struct PlayerAPIOutputInstance: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	func toJSON() -> JSON {
 		let json: [Swift.String : JSON] = [
 			"playerID" : playerID?.toJSON() ?? JSON.Null,
-//			"options" : options?.toJSON() ?? .Null -------------> TODO: figure out what to do with "options"
+//			"options" : options?.toJSON() ?? JSON.Null -------------> TODO: figure out options is
 		]
 		return JSON.withNullValuesRemoved(json)
 	}
@@ -42,7 +42,7 @@ struct PlayerAPIOutputMedia: JSONDecodable, JamHawkJSONDecodable, JSONEncodable 
 	
 	func toJSON() -> JSON {
 		let json: [Swift.String : JSON] = [
-			"poster" : poster?.toJSON() ?? .Null,
+			"poster" : poster?.toJSON() ?? JSON.Null,
 			"mp3" : mp3?.toJSON() ?? JSON.Null,
 			"m4a" : m4a?.toJSON() ?? JSON.Null,
 			"m4v" : m4v?.toJSON() ?? JSON.Null
@@ -96,7 +96,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	}
 	
 	func toJSON() -> JSON {
-		let json: [Swift.String : JSON] = [
+		let json: [String : JSON] = [
 			"mid" : mid?.toJSON() ?? JSON.Null,
 			"artist" : artist?.toJSON() ?? JSON.Null,
 			"album" : album?.toJSON() ?? JSON.Null,

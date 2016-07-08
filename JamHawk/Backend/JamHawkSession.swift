@@ -90,7 +90,7 @@ class JamHawkSession {
 	func instantiateTestPlayer() {
 		let instanceInput = PlayerAPIInputInstance(token: nil, needPlayerID: true, needOptions: true, isMobile: true, preloadSync: nil)
 		let statusInput = PlayerAPIInputStatus.instanceRequestStatus()
-		let input = PlayerAPIInput(instance: instanceInput, status: statusInput)
+		let input = PlayerAPIInput(instance: instanceInput, status: statusInput, updates: nil, events: nil)
 		guard let request = input.generateRequest() else { return }
 		
 		_playerDataTask?.cancel()

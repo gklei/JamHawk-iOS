@@ -12,15 +12,18 @@ import Freddy
 struct PlayerAPIInput {
 	let instance: PlayerAPIInputInstance?
 	let status: PlayerAPIInputStatus
+	let updates: PlayerAPIInputUpdates?
+	let events: [PlayerAPIInputEvent]?
 }
 
 extension PlayerAPIInput: JSONEncodable {
 	func toJSON() -> JSON {
 		let dictionary: [String : JSON] = [
-			"instance" : instance?.toJSON() ?? .Null,
-			"status" : status.toJSON()
+			"instance" : instance?.toJSON() ?? JSON.Null,
+			"status" : status.toJSON(),
+			"updates" : updates?.toJSON() ?? JSON.Null,
+			"events" : events?.toJSON() ?? JSON.Null
 		]
-		
 		return JSON.withNullValuesRemoved(dictionary)
 	}
 }
