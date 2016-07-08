@@ -14,7 +14,7 @@ class JamHawkNavigationController: UINavigationController {
 		super.viewDidLoad()
 		
 		makeNavBarTransparent()
-		navigationBar.shadowImage = UIImage()
+		makeNavBarShadowTransparent()
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {

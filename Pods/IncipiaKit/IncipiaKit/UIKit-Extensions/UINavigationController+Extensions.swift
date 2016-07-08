@@ -17,4 +17,8 @@ public extension UINavigationController
 	override public func resetNavBarTransparency() {
 		navigationBar.resetTransparency()
 	}
+	
+	override public func makeNavBarShadowTransparent() {
+		navigationBar.shadowImage = UIImage()
+	}
 }

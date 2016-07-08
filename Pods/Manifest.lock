@@ -1,6 +1,6 @@
 PODS:
   - Freddy (2.1.0)
-  - IncipiaKit (0.0.4)
+  - IncipiaKit (0.0.5)
 
 DEPENDENCIES:
   - Freddy
@@ -8,7 +8,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Freddy: bbdca013977db29638b24baf6572ce94452bec29
-  IncipiaKit: 98290ad48e190190b28b8fd6e710cf7ff19e6816
+  IncipiaKit: 72de009daba2c05050ecdaa1162f45dba312b218
 
 PODFILE CHECKSUM: 3600a6035bf61ec9cf328fa68559713572384cd4
 
