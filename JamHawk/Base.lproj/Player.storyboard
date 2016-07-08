@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Player View Controller-->
         <scene sceneID="xiB-Lx-30A">
             <objects>
-                <viewController id="eFK-hP-Wx9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPlayerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eFK-hP-Wx9" customClass="MainPlayerViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SJ7-tw-lQE"/>
                         <viewControllerLayoutGuide type="bottom" id="5JL-SW-YcI"/>
@@ -16,7 +16,19 @@
                     <view key="view" contentMode="scaleToFill" id="6qq-VQ-SyG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d75-Vt-uPM">
+                                <rect key="frame" x="167.5" y="266" width="265.5" height="67"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="56"/>
+                                <color key="textColor" red="0.16447375710000001" green="0.53145653010000005" blue="0.42417222259999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15585234440000001" green="0.81713434689999997" blue="0.66084594050000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="d75-Vt-uPM" firstAttribute="centerY" secondItem="6qq-VQ-SyG" secondAttribute="centerY" id="T5n-jn-L2k"/>
+                            <constraint firstItem="d75-Vt-uPM" firstAttribute="centerX" secondItem="6qq-VQ-SyG" secondAttribute="centerX" id="qO1-Rc-E5u"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WH-fG-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -22,8 +22,8 @@ class SignInViewController: UIViewController
 		return _passwordTextField.text ?? ""
 	}
 	
-	var signInButtonPressed: (email: String, password: String) -> Void = { _, _ in }
-	var signUpButtonPressed: (email: String, password: String) -> Void = { _, _ in }
+	var signInButtonPressed: (email: String, password: String, context: UIViewController) -> Void = { _, _, _ in }
+	var signUpButtonPressed: (email: String, password: String, context: UIViewController) -> Void = { _, _, _ in }
 
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -43,10 +43,10 @@ class SignInViewController: UIViewController
 	}
 	
 	@IBAction private func _signInButtonPressed() {
-		signInButtonPressed(email: emailText, password: passwordText)
+		signInButtonPressed(email: emailText, password: passwordText, context: self)
 	}
 	
 	@IBAction private func _signUpButtonPressed() {
-		signUpButtonPressed(email: emailText, password: passwordText)
+		signUpButtonPressed(email: emailText, password: passwordText, context: self)
 	}
 }

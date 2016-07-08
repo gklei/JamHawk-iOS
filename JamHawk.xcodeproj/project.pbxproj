@@ -32,6 +32,7 @@
 		CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404EB1D26F20E0083365F /* JamHawkSession.swift */; };
 		CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD86991D300F34005313AD /* AppRouter.swift */; };
 		CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */; };
+		CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		CED404EB1D26F20E0083365F /* JamHawkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkSession.swift; path = JamHawk/Backend/JamHawkSession.swift; sourceTree = "<group>"; };
 		CEFD86991D300F34005313AD /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkNavigationController.swift; path = JamHawk/CustomUI/JamHawkNavigationController.swift; sourceTree = "<group>"; };
+		CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPlayerViewController.swift; path = JamHawk/ViewControllers/MainPlayerViewController.swift; sourceTree = "<group>"; };
 		E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				CED404E01D26D49B0083365F /* SignInViewController.swift */,
+				CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			files = (
 				CE2B693F1D2EE04400EAFF16 /* PlayerAPIOutputModels.swift in Sources */,
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
+				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,

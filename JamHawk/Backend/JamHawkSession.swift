@@ -10,10 +10,11 @@ import Foundation
 import Freddy
 
 private let kUserAccessTestToken = "apptesttoken"
-private let kTestEmail = "gregory@incipia.co"
+private let kTestEmail = "hello@incipia.co"
 private let kTestPassword = "helloo"
 
-typealias UserAccessCallback = (error: NSError?, success: Bool, message: String?) -> Void
+typealias UserAccessCallback = (error: NSError?, output: UserAccessAPIOutput?) -> Void
+typealias PlayerInstantiationCallback = (error: NSError?, output: PlayerAPIOutput?) -> Void
 
 class JamHawkSession {
 	// MARK: - Properties
@@ -31,8 +32,8 @@ class JamHawkSession {
 	private var _signUpDataTask: NSURLSessionDataTask?
 	private var _playerDataTask: NSURLSessionDataTask?
 	
-	// MARK: - Public
-	func signUp(email email: String, password: String, callback: UserAccessCallback? = nil) {
+	// MARK: - Public: User Access
+	func signUp(email email: String, password: String, callback: UserAccessCallback) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken)
 		guard let request = input.generateRequest() else { return }
@@ -40,14 +41,13 @@ class JamHawkSession {
 		_signUpDataTask?.cancel()
 		_signUpDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
-			let json = UserAccessAPIOutput(jsonData: data)
-			print(json)
-			callback?(error: error, success: json?.success ?? false, message: json?.message)
+			let output = UserAccessAPIOutput(jsonData: data)
+			callback(error: error, output: output)
 		}
 		_signUpDataTask?.resume()
 	}
 	
-	func signIn(email email: String, password: String, callback: UserAccessCallback? = nil) {
+	func signIn(email email: String, password: String, callback: UserAccessCallback) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
 		guard let request = input.generateRequest() else { return }
@@ -55,14 +55,13 @@ class JamHawkSession {
 		_signInDataTask?.cancel()
 		_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
-			let json = UserAccessAPIOutput(jsonData: data)
-			print(json)
-			callback?(error: error, success: json?.success ?? false, message: json?.message)
+			let output = UserAccessAPIOutput(jsonData: data)
+			callback(error: error, output: output)
 		}
 		_signInDataTask?.resume()
 	}
 	
-	func signOut(email email: String, password: String, callback: UserAccessCallback? = nil) {
+	func signOut(email email: String, password: String, callback: UserAccessCallback) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: kUserAccessTestToken)
 		guard let request = input.generateRequest() else { return }
@@ -70,23 +69,14 @@ class JamHawkSession {
 		_signOutDataTask?.cancel()
 		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
-			let json = UserAccessAPIOutput(jsonData: data)
-			print(json)
-			callback?(error: error, success: json?.success ?? false, message: json?.message)
+			let output = UserAccessAPIOutput(jsonData: data)
+			callback(error: error, output: output)
 		}
 		_signOutDataTask?.resume()
 	}
 	
-	// MARK: - Testing
-	func signInWithTestCreds(callback: UserAccessCallback? = nil) {
-		signIn(email: kTestEmail, password: kTestPassword, callback: callback)
-	}
-	
-	func signOutWithTestCreds(callback: UserAccessCallback? = nil) {
-		signOut(email: kTestEmail, password: kTestPassword, callback: callback)
-	}
-	
-	func instantiateTestPlayer() {
+	// MARK: - Public: Player
+	func instantiatePlayer(callback: PlayerInstantiationCallback) {
 		let instanceInput = PlayerAPIInputInstance(token: nil, needPlayerID: true, needOptions: true, isMobile: true, preloadSync: nil)
 		let statusInput = PlayerAPIInputStatus.instanceRequestStatus()
 		let input = PlayerAPIInput(instance: instanceInput, status: statusInput, updates: nil, events: nil)
@@ -94,13 +84,19 @@ class JamHawkSession {
 		
 		_playerDataTask?.cancel()
 		_playerDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			if let error = error {
-				print(error)
-			}
 			
-			let json = PlayerAPIOutput(jsonData: data)
-			print(json)
+			let output = PlayerAPIOutput(jsonData: data)
+			callback(error: error, output: output)
 		}
 		_playerDataTask?.resume()
+	}
+	
+	// MARK: - Testing
+	func signInWithTestCreds(callback: UserAccessCallback) {
+		signIn(email: kTestEmail, password: kTestPassword, callback: callback)
+	}
+	
+	func signOutWithTestCreds(callback: UserAccessCallback) {
+		signOut(email: kTestEmail, password: kTestPassword, callback: callback)
 	}
 }
