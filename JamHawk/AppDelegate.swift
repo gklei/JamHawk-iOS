@@ -12,18 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
 	var window: UIWindow?
+	
+	var router: AppRouter?
 	let session = JamHawkSession()
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
 	{
-		// Override point for customization after application launch.
-		
-		let signInViewController = SignInViewController.instantiate(.SignIn)
-		signInViewController.session = session
-		
 		window = UIWindow()
-		window?.rootViewController = signInViewController
-		window?.makeKeyAndVisible()
+		router = AppRouter(window: window!, session: session)
 		
 		return true
 	}

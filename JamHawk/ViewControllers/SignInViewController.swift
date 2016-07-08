@@ -11,8 +11,6 @@ import IncipiaKit
 
 class SignInViewController: UIViewController
 {
-	var session: JamHawkSession!
-	
 	@IBOutlet private var _emailTextField: BottomBorderTextField!
 	@IBOutlet private var _passwordTextField: BottomBorderTextField!
 	
@@ -23,6 +21,9 @@ class SignInViewController: UIViewController
 	var passwordText: String {
 		return _passwordTextField.text ?? ""
 	}
+	
+	var signInButtonPressed: (email: String, password: String) -> Void = { _, _ in }
+	var signUpButtonPressed: (email: String, password: String) -> Void = { _, _ in }
 
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -42,19 +43,10 @@ class SignInViewController: UIViewController
 	}
 	
 	@IBAction private func _signInButtonPressed() {
-		session.signIn(email: emailText, password: passwordText)
+		signInButtonPressed(email: emailText, password: passwordText)
 	}
 	
-	@IBAction private func _signInWithTestAccountButtonPressed() {
-		session.signInWithTestCreds()
-	}
-	
-	@IBAction private func _signOutWithTestAccountButtonPressed() {
-		session.signOutWithTestCreds()
-	}
-	
-	@IBAction private func _instantiateTestPlayerButtonPressed() {
-		session.instantiateTestPlayer()
+	@IBAction private func _signUpButtonPressed() {
+		signUpButtonPressed(email: emailText, password: passwordText)
 	}
 }
-

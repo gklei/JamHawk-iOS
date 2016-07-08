@@ -11,7 +11,7 @@ import Freddy
 
 private let kUserAccessTestToken = "apptesttoken"
 private let kTestEmail = "gregory@incipia.co"
-private let kTestPassword = "hello"
+private let kTestPassword = "helloo"
 
 typealias UserAccessCallback = (error: NSError?, success: Bool, message: String?) -> Void
 
@@ -78,13 +78,12 @@ class JamHawkSession {
 	}
 	
 	// MARK: - Testing
-	func signInWithTestCreds() {
-		signIn(email: kTestEmail, password: kTestPassword) { (error, success, message) in
-		}
+	func signInWithTestCreds(callback: UserAccessCallback? = nil) {
+		signIn(email: kTestEmail, password: kTestPassword, callback: callback)
 	}
 	
-	func signOutWithTestCreds() {
-		signOut(email: kTestEmail, password: kTestPassword)
+	func signOutWithTestCreds(callback: UserAccessCallback? = nil) {
+		signOut(email: kTestEmail, password: kTestPassword, callback: callback)
 	}
 	
 	func instantiateTestPlayer() {
