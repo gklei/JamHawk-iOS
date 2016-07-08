@@ -9,6 +9,25 @@
 import Foundation
 import Freddy
 
+// MARK: - Enums
+enum PlayerAPIOutputCommandName: String, JSONEncodable, JSONDecodable {
+	case Wait = "wait", Deactivate = "deactivate", Request = "request", Redirect = "redirect"
+	
+	init(json: JSON) throws {
+		let name = try String(json: json)
+		if let _ = PlayerAPIOutputCommandName(rawValue: name) {
+			self.init(rawValue: name)!
+		} else {
+			throw JSON.Error.ValueNotConvertible(value: json, to: PlayerAPIOutputCommandName.self)
+		}
+	}
+	
+	func toJSON() -> JSON {
+		return .String(rawValue)
+	}
+}
+
+// MARK: - Structs
 struct PlayerAPIOutputInstance: JSONDecodable, JSONEncodable {
 	let playerID: String?
 	let options: [String : JSON]?
@@ -130,11 +149,11 @@ struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
 }
 
 struct PlayerAPIOutputCommand: JSONDecodable, JSONEncodable {
-	let name: PlayerAPICommandName
+	let name: PlayerAPIOutputCommandName
 	let parameters: [String]?
 	
 	init(json: JSON) throws {
-		name = try json.decode("name", type: PlayerAPICommandName.self)
+		name = try json.decode("name", type: PlayerAPIOutputCommandName.self)
 		parameters = try json.arrayOf("parameters", type: String.self)
 	}
 	

@@ -31,23 +31,6 @@ enum PlayerAPITrackRating: Int, JSONEncodable, JSONDecodable {
 	}
 }
 
-enum PlayerAPICommandName: String, JSONEncodable, JSONDecodable {
-	case Wait = "wait", Deactivate = "deactivate", Request = "request", Redirect = "redirect"
-	
-	init(json: JSON) throws {
-		let name = try String(json: json)
-		if let _ = PlayerAPICommandName(rawValue: name) {
-			self.init(rawValue: name)!
-		} else {
-			throw JSON.Error.ValueNotConvertible(value: json, to: PlayerAPICommandName.self)
-		}
-	}
-	
-	func toJSON() -> JSON {
-		return .String(rawValue)
-	}
-}
-
 struct PlayerAPIFilter: JSONEncodable, JSONDecodable {
 	let category: String
 	let label: String
