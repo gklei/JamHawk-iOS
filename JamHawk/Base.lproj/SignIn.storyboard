@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JamHawk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz6-u7-dv9">
-                                <rect key="frame" x="175" y="116" width="250" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jamhawk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz6-u7-dv9">
+                                <rect key="frame" x="179" y="116" width="242" height="67"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="56"/>
                                 <color key="textColor" red="0.62340277433395386" green="0.74512869119644165" blue="0.9159623384475708" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
