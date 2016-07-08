@@ -50,11 +50,11 @@ struct PlayerAPIInputInstance: JSONEncodable {
 	
 	func toJSON() -> JSON {
 		let dictionary: [String : JSON] = [
-			"token" : token != nil ? .String(token!) :JSON.Null,
-			"needPlayerID" : .Bool(needPlayerID),
-			"needOptions" : .Bool(needOptions),
-			"isMobile" : isMobile != nil ? .Bool(isMobile!) :JSON.Null,
-			"preloadSync" : preloadSync != nil ? .Bool(preloadSync!) :JSON.Null
+			"token" : token?.toJSON() ?? JSON.Null,
+			"needPlayerID" : needPlayerID.toJSON(),
+			"needOptions" : needOptions.toJSON(),
+			"isMobile" : isMobile?.toJSON() ?? JSON.Null,
+			"preloadSync" : preloadSync?.toJSON() ?? JSON.Null
 		]
 		return JSON.withNullValuesRemoved(dictionary)
 	}
@@ -74,12 +74,12 @@ struct PlayerAPIInputStatus: JSONEncodable {
 	
 	func toJSON() -> JSON {
 		return .Dictionary([
-			"playerID" : .String(playerID),
-			"requestID" : .Int(requestID),
-			"needInstance" : .Bool(needInstance),
-			"needMedia" : .Bool(needMedia),
-			"needNext" : .Bool(needNext),
-			"needFilters" : .Bool(needFilters)
+			"playerID" : playerID.toJSON(),
+			"requestID" : requestID.toJSON(),
+			"needInstance" : needInstance.toJSON(),
+			"needMedia" : needMedia.toJSON(),
+			"needNext" : needNext.toJSON(),
+			"needFilters" : needFilters.toJSON()
 			])
 	}
 }

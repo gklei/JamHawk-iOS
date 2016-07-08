@@ -9,7 +9,7 @@
 import Foundation
 import Freddy
 
-struct PlayerAPIOutputInstance: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
+struct PlayerAPIOutputInstance: JSONDecodable, JSONEncodable {
 	let playerID: String?
 	let options: [String : JSON]?
 	
@@ -27,7 +27,7 @@ struct PlayerAPIOutputInstance: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	}
 }
 
-struct PlayerAPIOutputMedia: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
+struct PlayerAPIOutputMedia: JSONDecodable, JSONEncodable {
 	let poster: String?
 	let mp3: String?
 	let m4a: String?
@@ -51,7 +51,7 @@ struct PlayerAPIOutputMedia: JSONDecodable, JamHawkJSONDecodable, JSONEncodable 
 	}
 }
 
-struct PlayerAPIOutputArtist: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
+struct PlayerAPIOutputArtist: JSONDecodable, JSONEncodable {
 	let imageURL: String?
 	let name: String?
 	let text: String?
@@ -72,7 +72,7 @@ struct PlayerAPIOutputArtist: JSONDecodable, JamHawkJSONDecodable, JSONEncodable
 	}
 }
 
-struct PlayerAPIOutputMetadata: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
+struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 	let mid: PlayerAPIMediaID?
 	let artist: String?
 	let album: String?
@@ -92,7 +92,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 		imageURL = try json.string("imageURL", alongPath: .MissingKeyBecomesNil)
 		rating = try json.decode("rating", alongPath: .MissingKeyBecomesNil, type: PlayerAPITrackRating.self)
 		duration = try json.int("duration", alongPath: .MissingKeyBecomesNil)
-		links = try json.array("links", alongPath: .MissingKeyBecomesNil)?.map(String.init)
+		links = try json.arrayOf("links", alongPath: .MissingKeyBecomesNil, type: String.self)
 	}
 	
 	func toJSON() -> JSON {
@@ -111,7 +111,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JamHawkJSONDecodable, JSONEncodab
 	}
 }
 
-struct PlayerAPIOutputMessage: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
+struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
 	let message: String?
 	let type: String?
 	
@@ -129,7 +129,7 @@ struct PlayerAPIOutputMessage: JSONDecodable, JamHawkJSONDecodable, JSONEncodabl
 	}
 }
 
-struct PlayerAPIOutputCommand: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
+struct PlayerAPIOutputCommand: JSONDecodable, JSONEncodable {
 	let name: PlayerAPICommandName
 	let parameters: [String]?
 	
@@ -147,7 +147,7 @@ struct PlayerAPIOutputCommand: JSONDecodable, JamHawkJSONDecodable, JSONEncodabl
 	}
 }
 
-struct PlayerAPIOutputFilters: JSONDecodable, JamHawkJSONDecodable, JSONEncodable {
+struct PlayerAPIOutputFilters: JSONDecodable, JSONEncodable {
 	let available: [PlayerAPIFilter]?
 	let selected: [PlayerAPIFilterID]?
 	
