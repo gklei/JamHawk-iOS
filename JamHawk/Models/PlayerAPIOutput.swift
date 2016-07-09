@@ -17,7 +17,6 @@ struct PlayerAPIOutput: JamHawkJSONDecodable {
 	let artist: PlayerAPIOutputArtist?
 	let track: PlayerAPIOutputMetadata?
 	let next: [PlayerAPIOutputMetadata]?
-//	let panels: [Swift.String : JSON]?
 	let messages: PlayerAPIOutputMessage?
 	let commands: [PlayerAPIOutputCommand]?
 	let denied: Bool?
@@ -32,7 +31,6 @@ extension PlayerAPIOutput: JSONDecodable {
 		artist = try json.decode("artist", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputArtist.self)
 		track = try json.decode("track", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputMetadata.self)
 		next = try json.arrayOf("next", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputMetadata.self)
-//		panels = try json.dictionary("panels", alongPath: .MissingKeyBecomesNil)
 		messages = try json.decode("messages", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputMessage.self)
 		commands = try json.arrayOf("commands", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputCommand.self)
 		denied = try json.bool("denied", alongPath: .MissingKeyBecomesNil)
@@ -49,7 +47,6 @@ extension PlayerAPIOutput: JSONEncodable {
 			"artist" : artist?.toJSON() ?? JSON.Null,
 			"track" : track?.toJSON() ?? JSON.Null,
 			"next" : next?.toJSON() ?? JSON.Null,
-//			"panels" : panels ?? JSON.Null,
 			"messages" : messages?.toJSON() ?? JSON.Null,
 			"commands" : commands?.toJSON() ?? JSON.Null,
 			"denied" : denied?.toJSON() ?? JSON.Null
