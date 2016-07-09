@@ -30,17 +30,14 @@ enum PlayerAPIOutputCommandName: String, JSONEncodable, JSONDecodable {
 // MARK: - Structs
 struct PlayerAPIOutputInstance: JSONDecodable, JSONEncodable {
 	let playerID: String?
-	let options: [String : JSON]?
 	
 	init(json: JSON) throws {
 		playerID = try json.string("playerID", alongPath: .MissingKeyBecomesNil)
-		options = try json.dictionary("options", alongPath: .MissingKeyBecomesNil)
 	}
 	
 	func toJSON() -> JSON {
 		let json: [Swift.String : JSON] = [
 			"playerID" : playerID?.toJSON() ?? JSON.Null,
-//			"options" : options?.toJSON() ?? JSON.Null -------------> TODO: figure out options is
 		]
 		return JSON.withNullValuesRemoved(json)
 	}

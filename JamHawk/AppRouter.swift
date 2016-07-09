@@ -25,7 +25,7 @@ class AppRouter {
 		_signInVC.signUpButtonPressed = _signUp
 		_signInVC.signInButtonPressed = _signIn
 		
-		_setupWindow(withRootVC: _signInVC)
+		_setupWindow(withRootVC: _mainPlayerVC)
 	}
 	
 	private func _setupWindow(withRootVC rootVC: UIViewController) {
