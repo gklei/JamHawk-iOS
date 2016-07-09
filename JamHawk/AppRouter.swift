@@ -15,8 +15,8 @@ class AppRouter {
 	
 	let rootNavController = JamHawkNavigationController()
 	
-	private let _signInVC = SignInViewController.instantiate(.SignIn)
-	private let _mainPlayerVC = MainPlayerViewController.instantiate(.Player)
+	private let _signInVC = SignInViewController.instantiate(fromStoryboard: "SignIn")
+	private let _mainPlayerVC = MainPlayerViewController.instantiate(fromStoryboard: "Player")
 	
 	init(window: UIWindow, session: JamHawkSession) {
 		self.window = window
