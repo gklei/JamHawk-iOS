@@ -6,5 +6,6 @@ target 'JamHawk' do
 
   pod 'Freddy'
   pod 'IncipiaKit'
+  pod 'AsyncImageView'
 
 end
