@@ -42,7 +42,9 @@ class JamHawkSession {
 		_signUpDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let output = UserAccessAPIOutput(jsonData: data)
-			callback(error: error, output: output)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
 		}
 		_signUpDataTask?.resume()
 	}
@@ -56,7 +58,9 @@ class JamHawkSession {
 		_signInDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let output = UserAccessAPIOutput(jsonData: data)
-			callback(error: error, output: output)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
 		}
 		_signInDataTask?.resume()
 	}
@@ -70,7 +74,9 @@ class JamHawkSession {
 		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let output = UserAccessAPIOutput(jsonData: data)
-			callback(error: error, output: output)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
 		}
 		_signOutDataTask?.resume()
 	}
@@ -86,7 +92,9 @@ class JamHawkSession {
 		_playerDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let output = PlayerAPIOutput(jsonData: data)
-			callback(error: error, output: output)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
 		}
 		_playerDataTask?.resume()
 	}
