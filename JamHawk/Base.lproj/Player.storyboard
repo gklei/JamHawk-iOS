@@ -23,9 +23,33 @@
                                 <color key="textColor" red="0.16447375710000001" green="0.53145653010000005" blue="0.42417222259999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem image="tabbar-user" id="hy1-1S-twN">
+                                        <color key="tintColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
+                                    <barButtonItem title="▶︎" id="4Ye-Pd-oXL">
+                                        <color key="tintColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HoP-Ov-kk5"/>
+                                    <barButtonItem title="➔" id="CGs-Hz-Lbk">
+                                        <color key="tintColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
+                                    <barButtonItem title="SOUND" id="duz-AP-gyL">
+                                        <color key="tintColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.15585234440000001" green="0.81713434689999997" blue="0.66084594050000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ovB-k7-kCm" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="EvS-Mc-uba"/>
+                            <constraint firstAttribute="trailing" secondItem="ovB-k7-kCm" secondAttribute="trailing" id="Mi5-Mp-Dpq"/>
+                            <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ovB-k7-kCm" secondAttribute="bottom" id="Q6n-CV-otx"/>
                             <constraint firstItem="d75-Vt-uPM" firstAttribute="centerY" secondItem="6qq-VQ-SyG" secondAttribute="centerY" id="T5n-jn-L2k"/>
                             <constraint firstItem="d75-Vt-uPM" firstAttribute="centerX" secondItem="6qq-VQ-SyG" secondAttribute="centerX" id="qO1-Rc-E5u"/>
                         </constraints>
@@ -33,7 +57,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WH-fG-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="567" y="319"/>
+            <point key="canvasLocation" x="219" y="251"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Z0N-bc-MGB">
+            <objects>
+                <viewController id="dcj-nL-Fvr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hFe-vZ-o5t"/>
+                        <viewControllerLayoutGuide type="bottom" id="6H9-cw-qhn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1dg-7a-PNt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCN-rS-if2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="269"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar-user" width="14" height="20"/>
+    </resources>
 </document>

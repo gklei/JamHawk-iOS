@@ -7,11 +7,29 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainPlayerViewController: UIViewController
 {
+	var player: AVPlayer?
+	
+	// MARK: - Properties
+	var playerAPIOutput: PlayerAPIOutput?
+	
 	// MARK: - Overridden
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
+	
+	// MARK: - Public
+	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
+		guard let url = output.mediaURL else { return }
+		
+		player = AVPlayer(URL: url)
+		player?.play()
 	}
 }

@@ -6,7 +6,6 @@
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class AppRouter {
@@ -26,6 +25,10 @@ class AppRouter {
 		_signInVC.signInButtonPressed = _signIn
 		
 		_setupWindow(withRootVC: _mainPlayerVC)
+		
+		session.instantiatePlayer { (error, output) in
+			self._handlePlayerInstantiationCallback(error, output: output, context: self._mainPlayerVC)
+		}
 	}
 	
 	private func _setupWindow(withRootVC rootVC: UIViewController) {
@@ -86,9 +89,7 @@ extension AppRouter {
 		}
 		
 		guard let output = output else { return }
-		_showMainPlayer()
-		print(output)
-		
+		_mainPlayerVC.update(withPlayerAPIOutput: output)
 	}
 	
 	private func _showMainPlayer() {
