@@ -7,70 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B4F44A121372FBF6E435CBE374E1627 /* JSONEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AAAF183F852E25C40425E003A503E /* JSONEncodingDetector.swift */; };
-		0BDF3F95C2ED4C9986070AD8A9E4161A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586720105C52CBAD48CB5D03BAE098D0 /* CoreGraphics.framework */; };
-		125B8A307D62333770A4E6D74BFDD8F0 /* UIViewController+BarButtonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775060B5931DF499B3419413EF86E5A1 /* UIViewController+BarButtonItems.swift */; };
-		163C56ADBD329A426F87B0E722888D28 /* Freddy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F881FB9BCC147F669AC0A59341B535 /* Freddy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C731A7E93B3EE736C2D238AF4AAA843 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E441391C86DD2FA6F08F63692DD3F149 /* Foundation.framework */; };
-		2874394F3F08C67F98B1D456DD6D2299 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868891127EC941E077DBFC1CDADB380F /* UIImage+Extensions.swift */; };
-		29439CC0C356BC20EC65868858355B86 /* Pods-JamHawk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */; };
-		2D78059FB37F22F5B9406CD0E0DBE370 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88861CBAE1E81BDAF35E1BE492D4A33B /* AsyncImageView.m */; };
-		3745638758317DE2A6B42A882E7132D8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B22D756FECB80DEDB3D91F1B0EB742D /* String+Extensions.swift */; };
-		3A1FC2F73F0F2D1046C8711D6B4E688F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A3C764AA9B1B34A0E886D5B5B23E07 /* MediaPlayer.framework */; };
-		40581AC462A32A38F14AEF43923862BE /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2672C350E55E8EDB011670709D230727 /* UIDevice+Extensions.swift */; };
-		408F6ADAADF6976CAF497EDDAC90B2CE /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A98B370C64694381488060D1C2C0B7D /* UINavigationController+Extensions.swift */; };
-		4476EEDB89BD2BBE269BA25D9D6869BA /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4187DA7E959212D5CE78F69FD71839 /* JSONParsing.swift */; };
-		474E0C3348B62B0297A00D8EC0520336 /* UIViewControllerContextTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF0069123414CA321E3504B99B9328 /* UIViewControllerContextTransitioning.swift */; };
-		5C56A4C23429C27A6FD234353D139CC5 /* AsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E83BF34D645E266F28269698C1CC6EB /* AsyncImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D35D0B1B5F38812D224E3B12591C250 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383D6806AE6C2BC240EB514C5D91058 /* AVFoundation.framework */; };
-		5D6FE1437378C7EABF6B95CC186FB4EE /* NSIndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C231E7B0BA42E81EDB50E2F2AF763FDD /* NSIndexPath+Extensions.swift */; };
-		5DBBD4A486F04BC774C5B6BD167F92A4 /* UIViewController+AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FDF3076E31DC8DFA97BB4F7E376D3B /* UIViewController+AlertPresenting.swift */; };
-		6400C65D7B17C5AF90708D0F8F6FCB63 /* JSONSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EA6D629FAD03490279FD4EBD464624 /* JSONSerializing.swift */; };
-		65CE67A99AB40E69035193AC76F83ECE /* IconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EE71B6292620CE85C2F1854469960 /* IconProvider.swift */; };
-		6A5FE75851467053BD02EF4D20D77002 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452502336C9702C7E7ADF0CF6F736BC /* UICollectionView+Extensions.swift */; };
-		700BDCB998A8BB5B1CEC2DD2D2D5911F /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277A64615440843688772D3A534C0FF /* JSONParser.swift */; };
-		7315285E2CD9EC6A5277C3087D93B405 /* FDWaveformView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B2A9C543943DCDF162186D7DF5604A /* FDWaveformView-dummy.m */; };
-		735FA391923FA1BF52321E91E22F103D /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A8FDC26E647568393ABBA81655921 /* NSBundle+Extensions.swift */; };
-		781B3A3019A79DF2D5076F76C99C1088 /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FDB9A0991EA93529DA18A71AE09235 /* IncipiaKit-dummy.m */; };
-		81BA4A73E37C47A8F350B465B27321BB /* FDWaveformView.h in Headers */ = {isa = PBXBuildFile; fileRef = F914C8FF2E30CA6229B2C2AE01B718B6 /* FDWaveformView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		840E0A072CB13DC82C6730CBBFBD84F5 /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D9A36F927D8B26620FA8FB9AB6F61FB3 /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		926968A2642BD4E3099D4AC618DF1C54 /* IncipiaKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A1D5DABEE466372D2A98FAFE1C1FB09 /* IncipiaKit.bundle */; };
-		92FED906D13DB333B83C61CE1C5F8F44 /* UIViewController+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A971C6CAF8A52CF6DE74FDCD9F64E9 /* UIViewController+Instantiate.swift */; };
-		9386776F2276FFCAEA1EEF0DF559E838 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E441391C86DD2FA6F08F63692DD3F149 /* Foundation.framework */; };
-		95C9F7D166D041482D8D330988C3A389 /* JSONSubscripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92082DFDD0E15B4863D5AD9AC7A0D9 /* JSONSubscripting.swift */; };
-		963775D0EACC3560A12BBE53DAEDC88D /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B4BBD37AC91E40B7649E56479171F7B2 /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		977DB5C890F1F95E92920C74C046295D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E441391C86DD2FA6F08F63692DD3F149 /* Foundation.framework */; };
-		99224826B5C84948A531D85F72BB6A1E /* FDWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E7178F178A36D6DF565E1E142D4FD /* FDWaveformView.m */; };
-		99A312A29811B785F8F35EEAB3D615AE /* Freddy.h in Headers */ = {isa = PBXBuildFile; fileRef = ED6A752EE1B02E318AF032800FCEED88 /* Freddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DDD7E9CEA5A44B0BD55E0EAE62BE7EC /* JSONLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9507F635DAF484A21C582AFBF12734B9 /* JSONLiteralConvertible.swift */; };
-		A4F447D20C806FE9F1256B7BCDB9412E /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF86E917D42141421AEBA2851F305F7 /* Icons.xcassets */; };
-		A8EF8EBED5A16E9375B5F4D1962133CE /* AsyncImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5AC7E60A5499723FCBC421FA6D19AC /* AsyncImageView-dummy.m */; };
-		BAE022E2DC981249588682A637BF401F /* AsyncImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FE510D19741F3EB919A2DF24415EC8 /* AsyncImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF89960C43F68B4A9E30457A7F00C812 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997944C818BC9FE5079214882DC70A6E /* UIViewController+Extensions.swift */; };
-		C0F3756C4C77EC31F50AF6E1F794B042 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C0E33842234793E0386478FBD2E32 /* JSONDecodable.swift */; };
-		C15B12CB63962C72AD0A5C4DB0FCCBB2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC2191636F52FAD90FD5560C543F9E2 /* UIColor+Extensions.swift */; };
-		CC7F5D04E26E5E2117CBABA597225B59 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8BA5E2EEEFBBEC2F9C06FE8F550B4 /* JSON.swift */; };
-		CD6B876159DE89C38FEA7E9BAB8DB757 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2937E9200E2AC136B300575D1569117 /* UITextField+Extensions.swift */; };
-		DA259073D34A48FFE6F57B510342C1A8 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCD145AAE8EF8DDCC9BC6B9EB7F1B6 /* UIAlertController+Extensions.swift */; };
-		DF84ABDAEDBE313A719BB93C54F44FC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E441391C86DD2FA6F08F63692DD3F149 /* Foundation.framework */; };
-		E18B648C104B81808B32CB8ACC43497E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F33FE95BAD4268F31741A40CB744BF9 /* UIKit.framework */; };
-		E2A567B370D32F74A320D5D3B4D554AD /* Pods-JamHawk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E597971E2E9FC8DAE78D697CBD10046D /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6478E52C158EF3F58B3E7D7831ECFF7 /* JSONEncodable.swift */; };
-		E72AFFF4BF94706C5995E3A17A536C2A /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45B63C001D2C2FAFEAA505AD0BC969 /* UIBarButtonItem+Extensions.swift */; };
-		EAC14EB30EB5E4751922D1701E7BD19A /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AA2BCDFB57E16D33B90D33A11A007 /* UINavigationBar+Extensions.swift */; };
-		F2CA1AD99C87C3587CFCCA0C697FBBA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E441391C86DD2FA6F08F63692DD3F149 /* Foundation.framework */; };
-		F57416D92396756D29F15A538431395A /* FDWaveformView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D79692C53819CCC3F7D9974D761FA9A /* FDWaveformView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FDB24A67301DAC22E84605827EDDBABB /* Freddy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6985B14F05FCC3390CED17BDC0A777 /* Freddy-dummy.m */; };
+		0B4F44A121372FBF6E435CBE374E1627 /* JSONEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF2F5C866C36B784D416014833FE043 /* JSONEncodingDetector.swift */; };
+		125B8A307D62333770A4E6D74BFDD8F0 /* UIViewController+BarButtonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0D6778A2C98F4CAA5A4B61FABC0E3 /* UIViewController+BarButtonItems.swift */; };
+		163C56ADBD329A426F87B0E722888D28 /* Freddy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 085C79F3048511EE1AF65B35D02B7F92 /* Freddy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		175F703F946951158B0EC21CCBBFB81C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		1C731A7E93B3EE736C2D238AF4AAA843 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		2874394F3F08C67F98B1D456DD6D2299 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E888DCCAF5573DC8CF415B9BA17A2 /* UIImage+Extensions.swift */; };
+		2D78059FB37F22F5B9406CD0E0DBE370 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3A94E6547CC5CB68D3E4CA6F0C5900 /* AsyncImageView.m */; };
+		3745638758317DE2A6B42A882E7132D8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4858FF80AF93669E62089C5E4062E49B /* String+Extensions.swift */; };
+		40581AC462A32A38F14AEF43923862BE /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61181DB5BCBC997BA621429281AB6C3 /* UIDevice+Extensions.swift */; };
+		408F6ADAADF6976CAF497EDDAC90B2CE /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A49E1BC3F6BF350CC8B78E94F4DE295 /* UINavigationController+Extensions.swift */; };
+		4476EEDB89BD2BBE269BA25D9D6869BA /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863B0148F5774D944364DAEC5D1687B3 /* JSONParsing.swift */; };
+		474E0C3348B62B0297A00D8EC0520336 /* UIViewControllerContextTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB31E81EAA0B34B11FC4B74C9D183D /* UIViewControllerContextTransitioning.swift */; };
+		5C56A4C23429C27A6FD234353D139CC5 /* AsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 78586A6DC747424D9F10FC18F946CFD5 /* AsyncImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D6FE1437378C7EABF6B95CC186FB4EE /* NSIndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5270CE76F4EE7158860AA031CF848CC /* NSIndexPath+Extensions.swift */; };
+		5DBBD4A486F04BC774C5B6BD167F92A4 /* UIViewController+AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B83856012C6D902848B8579EE4A1B /* UIViewController+AlertPresenting.swift */; };
+		6400C65D7B17C5AF90708D0F8F6FCB63 /* JSONSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41047DE068EF492441BDFC91DBA48392 /* JSONSerializing.swift */; };
+		65CE67A99AB40E69035193AC76F83ECE /* IconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FDCB98C5B12BD60711EE78CC6A8E59 /* IconProvider.swift */; };
+		6A5FE75851467053BD02EF4D20D77002 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3405A5B3AB38E347D985281034A1831 /* UICollectionView+Extensions.swift */; };
+		700BDCB998A8BB5B1CEC2DD2D2D5911F /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EE0F4954842C0783F6C497A5C8F290 /* JSONParser.swift */; };
+		735FA391923FA1BF52321E91E22F103D /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF3816FDA6237405CDF43A91659570 /* NSBundle+Extensions.swift */; };
+		781B3A3019A79DF2D5076F76C99C1088 /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB93E7F155C10A6817D476CA9EE7712 /* IncipiaKit-dummy.m */; };
+		840E0A072CB13DC82C6730CBBFBD84F5 /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 834D0CAC1B0573CC75CD74B29BF7A4C8 /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8EE2FCD0C813BEC9DBE7CDBDE8170C27 /* Pods-JamHawk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */; };
+		926968A2642BD4E3099D4AC618DF1C54 /* IncipiaKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06011E02421315971132DAD70F609D73 /* IncipiaKit.bundle */; };
+		92FED906D13DB333B83C61CE1C5F8F44 /* UIViewController+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02979947F2379D06BAE09F66E3171F1 /* UIViewController+Instantiate.swift */; };
+		9386776F2276FFCAEA1EEF0DF559E838 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		95C9F7D166D041482D8D330988C3A389 /* JSONSubscripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF2A24820E3FD1B504B7EDB57F2CAC /* JSONSubscripting.swift */; };
+		963775D0EACC3560A12BBE53DAEDC88D /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 73F2BEA42E1E0F06B199FB723DF47155 /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99A312A29811B785F8F35EEAB3D615AE /* Freddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 48830E3C67DAEE256E986DD95D8521C3 /* Freddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DDD7E9CEA5A44B0BD55E0EAE62BE7EC /* JSONLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470792600591A411F1D0310588CC6A6 /* JSONLiteralConvertible.swift */; };
+		A4F447D20C806FE9F1256B7BCDB9412E /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A13B595DDCC363C92F1DDE00FF775F5 /* Icons.xcassets */; };
+		A8EF8EBED5A16E9375B5F4D1962133CE /* AsyncImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41AEA811FC54BEAF60155FF75F2AF8 /* AsyncImageView-dummy.m */; };
+		BAE022E2DC981249588682A637BF401F /* AsyncImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E6B8FAC53783EE30C28AF9514A26E8 /* AsyncImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF89960C43F68B4A9E30457A7F00C812 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D8D476EA7D35E59BC9954907B89AF /* UIViewController+Extensions.swift */; };
+		C0F3756C4C77EC31F50AF6E1F794B042 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2664CA190576F0C5612A87B0BBC2CE22 /* JSONDecodable.swift */; };
+		C15B12CB63962C72AD0A5C4DB0FCCBB2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E002BA358B83E474EC5654BB1D8CADEF /* UIColor+Extensions.swift */; };
+		CC7F5D04E26E5E2117CBABA597225B59 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A3BC4A6B447D778D32CC50AF372F51 /* JSON.swift */; };
+		CD6B876159DE89C38FEA7E9BAB8DB757 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40A748645FF1196E48F79851498C140 /* UITextField+Extensions.swift */; };
+		DA259073D34A48FFE6F57B510342C1A8 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E93044C17E20A10AE7E59BB406490F8 /* UIAlertController+Extensions.swift */; };
+		E18B648C104B81808B32CB8ACC43497E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		E597971E2E9FC8DAE78D697CBD10046D /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F2FFADFA73DBB2C088BB4DDCAE9DB /* JSONEncodable.swift */; };
+		E72AFFF4BF94706C5995E3A17A536C2A /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47131FEE555DCA8972CE26A35739C13 /* UIBarButtonItem+Extensions.swift */; };
+		EAC14EB30EB5E4751922D1701E7BD19A /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D6D860990AAB3188B7F8874D687E0 /* UINavigationBar+Extensions.swift */; };
+		EB956BA30D29CC83AB5C1CA3F49D3FF2 /* Pods-JamHawk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2CA1AD99C87C3587CFCCA0C697FBBA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		FDB24A67301DAC22E84605827EDDBABB /* Freddy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 326BCA296D6C5CBDC608A69D2A3D2561 /* Freddy-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		01FD1A4B58BE833D13B2607F7034493D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 21E154417075D2644AEADB991F8ED343;
-			remoteInfo = FDWaveformView;
-		};
 		366C4DDCDEA3A6086A947DE0EFCA9770 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -78,111 +63,99 @@
 			remoteGlobalIDString = F162F149A30B6E36917E051939245EE7;
 			remoteInfo = "IncipiaKit-IncipiaKit";
 		};
-		403598B35553A2977C9EFD14265A78E0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 10F2A98565E4CB0A4354935364A3323C;
-			remoteInfo = AsyncImageView;
-		};
-		AA9016214AA404B4F25DDB91C99CB6AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EEE4BFE3AC283ECEA2CF60A4C399216A;
-			remoteInfo = Freddy;
-		};
-		CDDBBCCD9B74965FBEA998CF32037C3B /* PBXContainerItemProxy */ = {
+		BCB0B7571946924C0DFA8545735CBDE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7B8031973F3895BCE08EA5C7209DDC0A;
 			remoteInfo = IncipiaKit;
 		};
+		CF139B8E31A5590C8D00B63F427228AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10F2A98565E4CB0A4354935364A3323C;
+			remoteInfo = AsyncImageView;
+		};
+		DF4B33C06F8F0D23101281E954E3094D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE4BFE3AC283ECEA2CF60A4C399216A;
+			remoteInfo = Freddy;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0383D6806AE6C2BC240EB514C5D91058 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		025D6D860990AAB3188B7F8874D687E0 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
+		03EBC786484C5AC33FBA5B467F355613 /* ResourceBundle-IncipiaKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-IncipiaKit-Info.plist"; sourceTree = "<group>"; };
+		06011E02421315971132DAD70F609D73 /* IncipiaKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncipiaKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		078FD40BE2B90EEA9AA9E414FFA9366D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		085C79F3048511EE1AF65B35D02B7F92 /* Freddy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-umbrella.h"; sourceTree = "<group>"; };
 		090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JamHawk-dummy.m"; sourceTree = "<group>"; };
-		0B22D756FECB80DEDB3D91F1B0EB742D /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
-		0B9A8FDC26E647568393ABBA81655921 /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
-		0DC6496B80D7777E48F227BC4FDD949E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DF86E917D42141421AEBA2851F305F7 /* Icons.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = IncipiaKit/Resources/Icons.xcassets; sourceTree = "<group>"; };
-		0F33FE95BAD4268F31741A40CB744BF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		12E5504B869336BFC1F8B27A9B6DAA76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		192EE71B6292620CE85C2F1854469960 /* IconProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconProvider.swift; path = IncipiaKit/Private/IconProvider.swift; sourceTree = "<group>"; };
+		0A13B595DDCC363C92F1DDE00FF775F5 /* Icons.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = IncipiaKit/Resources/Icons.xcassets; sourceTree = "<group>"; };
+		0B3E0FEFF3973AF6F0B73DDF868EEB35 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B788E0DEA0D09AE98E22BECE69CF06A /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
-		1BE8BA5E2EEEFBBEC2F9C06FE8F550B4 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/JSON.swift; sourceTree = "<group>"; };
-		1D61E0400FD86A4427A2D4001AE4E71C /* FDWaveformView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDWaveformView.xcconfig; sourceTree = "<group>"; };
-		1D79692C53819CCC3F7D9974D761FA9A /* FDWaveformView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-umbrella.h"; sourceTree = "<group>"; };
 		1FE76EC2C184516458480063541FFC13 /* Pods-JamHawk-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JamHawk-acknowledgements.plist"; sourceTree = "<group>"; };
-		2452502336C9702C7E7ADF0CF6F736BC /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
-		2672C350E55E8EDB011670709D230727 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		24A3BC4A6B447D778D32CC50AF372F51 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/JSON.swift; sourceTree = "<group>"; };
+		2664CA190576F0C5612A87B0BBC2CE22 /* JSONDecodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/JSONDecodable.swift; sourceTree = "<group>"; };
+		26F92C73BD05BA9059FAF0D99A6FA97D /* Freddy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Freddy.modulemap; sourceTree = "<group>"; };
+		270B83856012C6D902848B8579EE4A1B /* UIViewController+AlertPresenting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+AlertPresenting.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+AlertPresenting.swift"; sourceTree = "<group>"; };
 		2AD4096A731B3C19CEEBA8E2A70E0F8A /* Pods-JamHawk-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JamHawk-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2C70CB37E5D2CDC6307B831CD30C9322 /* AsyncImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-prefix.pch"; sourceTree = "<group>"; };
-		38FDF3076E31DC8DFA97BB4F7E376D3B /* UIViewController+AlertPresenting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+AlertPresenting.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+AlertPresenting.swift"; sourceTree = "<group>"; };
-		410F5113A4B0F4ED7E2A1EDCB48062A1 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A1D5DABEE466372D2A98FAFE1C1FB09 /* IncipiaKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncipiaKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E1AA2BCDFB57E16D33B90D33A11A007 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
-		4F4703723D19B698F78738750EBB15CC /* AsyncImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51EA6D629FAD03490279FD4EBD464624 /* JSONSerializing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSerializing.swift; path = Sources/JSONSerializing.swift; sourceTree = "<group>"; };
-		5277A64615440843688772D3A534C0FF /* JSONParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = Sources/JSONParser.swift; sourceTree = "<group>"; };
-		586720105C52CBAD48CB5D03BAE098D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		59B2A9C543943DCDF162186D7DF5604A /* FDWaveformView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FDWaveformView-dummy.m"; sourceTree = "<group>"; };
-		5A6985B14F05FCC3390CED17BDC0A777 /* Freddy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Freddy-dummy.m"; sourceTree = "<group>"; };
-		5C7FF5AEDE85F5BCB626AA00F86393FF /* ResourceBundle-IncipiaKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-IncipiaKit-Info.plist"; sourceTree = "<group>"; };
-		5E83BF34D645E266F28269698C1CC6EB /* AsyncImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = AsyncImageView/AsyncImageView.h; sourceTree = "<group>"; };
-		601A916E574E7FDFF7EE9E7867B86F3A /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
-		6AC2191636F52FAD90FD5560C543F9E2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		2D9D8D476EA7D35E59BC9954907B89AF /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		321E888DCCAF5573DC8CF415B9BA17A2 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		326BCA296D6C5CBDC608A69D2A3D2561 /* Freddy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Freddy-dummy.m"; sourceTree = "<group>"; };
+		32AF3816FDA6237405CDF43A91659570 /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
+		3AFF2A24820E3FD1B504B7EDB57F2CAC /* JSONSubscripting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSubscripting.swift; path = Sources/JSONSubscripting.swift; sourceTree = "<group>"; };
+		41047DE068EF492441BDFC91DBA48392 /* JSONSerializing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSerializing.swift; path = Sources/JSONSerializing.swift; sourceTree = "<group>"; };
+		4858FF80AF93669E62089C5E4062E49B /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
+		48830E3C67DAEE256E986DD95D8521C3 /* Freddy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Freddy.h; path = Sources/Freddy.h; sourceTree = "<group>"; };
+		4AB57CCD0A907797C73E77F39E2D5D74 /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
+		51C53A49968641D7325923339AC48CDF /* Freddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Freddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		529B98361BBFD5A5C8276BC87777EF8B /* Freddy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-prefix.pch"; sourceTree = "<group>"; };
+		68EE0F4954842C0783F6C497A5C8F290 /* JSONParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = Sources/JSONParser.swift; sourceTree = "<group>"; };
+		6A49E1BC3F6BF350CC8B78E94F4DE295 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
-		775060B5931DF499B3419413EF86E5A1 /* UIViewController+BarButtonItems.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+BarButtonItems.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+BarButtonItems.swift"; sourceTree = "<group>"; };
-		7D2E7178F178A36D6DF565E1E142D4FD /* FDWaveformView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FDWaveformView.m; path = Pod/Classes/FDWaveformView.m; sourceTree = "<group>"; };
-		7F45B63C001D2C2FAFEAA505AD0BC969 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		6E93044C17E20A10AE7E59BB406490F8 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		73F2BEA42E1E0F06B199FB723DF47155 /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
+		73F610B9A6F6B194C51EA4EC7F9B6471 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78586A6DC747424D9F10FC18F946CFD5 /* AsyncImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = AsyncImageView/AsyncImageView.h; sourceTree = "<group>"; };
 		803170CE347C6FC09C54373D9056BDD4 /* Pods-JamHawk-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-frameworks.sh"; sourceTree = "<group>"; };
 		8040AF05B5E2D7161515A581C0A464F7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81378D5A0D2E8CA5B08FEF5E867D6199 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81573A0BC8111044E9D07C1FAFEFBC70 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CCD145AAE8EF8DDCC9BC6B9EB7F1B6 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
-		868891127EC941E077DBFC1CDADB380F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		88861CBAE1E81BDAF35E1BE492D4A33B /* AsyncImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = AsyncImageView/AsyncImageView.m; sourceTree = "<group>"; };
-		8A98B370C64694381488060D1C2C0B7D /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		834D0CAC1B0573CC75CD74B29BF7A4C8 /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
+		83DD91C217500E338DF72119F901B63F /* Freddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Freddy.xcconfig; sourceTree = "<group>"; };
+		8470792600591A411F1D0310588CC6A6 /* JSONLiteralConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONLiteralConvertible.swift; path = Sources/JSONLiteralConvertible.swift; sourceTree = "<group>"; };
+		863B0148F5774D944364DAEC5D1687B3 /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParsing.swift; path = Sources/JSONParsing.swift; sourceTree = "<group>"; };
+		876B659213FB0B6A0E47B8ECB04D9577 /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
+		8976D967FEA6D9D0BF5D8992E278875B /* IncipiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IncipiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F3A94E6547CC5CB68D3E4CA6F0C5900 /* AsyncImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = AsyncImageView/AsyncImageView.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9507F635DAF484A21C582AFBF12734B9 /* JSONLiteralConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONLiteralConvertible.swift; path = Sources/JSONLiteralConvertible.swift; sourceTree = "<group>"; };
-		997944C818BC9FE5079214882DC70A6E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		9E1B8B0FC3AA10CD7C4955BAF28FC859 /* FDWaveformView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-prefix.pch"; sourceTree = "<group>"; };
-		9F5D36EAEE49C90294AA06899D6916DD /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
-		A0480E9335E298BE10193EE00BC62B2F /* Freddy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Freddy.modulemap; sourceTree = "<group>"; };
-		A2F881FB9BCC147F669AC0A59341B535 /* Freddy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-umbrella.h"; sourceTree = "<group>"; };
-		A41AAAF183F852E25C40425E003A503E /* JSONEncodingDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingDetector.swift; path = Sources/JSONEncodingDetector.swift; sourceTree = "<group>"; };
-		AB78EE1FE3BBC2DB73A472A513D457B5 /* Freddy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-prefix.pch"; sourceTree = "<group>"; };
-		AB980608A642CA83C761CFAEF2B4657D /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
+		93D6B1CF436A1B9CF81269BBF630B8FA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98BB31E81EAA0B34B11FC4B74C9D183D /* UIViewControllerContextTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerContextTransitioning.swift; path = "IncipiaKit/UIKit-Extensions/UIViewControllerContextTransitioning.swift"; sourceTree = "<group>"; };
+		9A1870EE9B6F604678A32A429C85CDF1 /* AsyncImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AsyncImageView.modulemap; sourceTree = "<group>"; };
+		9B41AEA811FC54BEAF60155FF75F2AF8 /* AsyncImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AsyncImageView-dummy.m"; sourceTree = "<group>"; };
+		A02979947F2379D06BAE09F66E3171F1 /* UIViewController+Instantiate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Instantiate.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Instantiate.swift"; sourceTree = "<group>"; };
+		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JamHawk-umbrella.h"; sourceTree = "<group>"; };
-		B38C0E33842234793E0386478FBD2E32 /* JSONDecodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/JSONDecodable.swift; sourceTree = "<group>"; };
-		B4BBD37AC91E40B7649E56479171F7B2 /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
-		B9CBF3E211B836EF3E3BBB37710F1B23 /* Freddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Freddy.xcconfig; sourceTree = "<group>"; };
+		AE502C8A18FC9EEE3AFF5DA9B904BB55 /* AsyncImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-prefix.pch"; sourceTree = "<group>"; };
+		B8DD9D19B306CE54B81B56B28FA3128E /* AsyncImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AsyncImageView.xcconfig; sourceTree = "<group>"; };
+		BED0D6778A2C98F4CAA5A4B61FABC0E3 /* UIViewController+BarButtonItems.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+BarButtonItems.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+BarButtonItems.swift"; sourceTree = "<group>"; };
 		BFFC0FF4652277782A1A076BC534AAAF /* Pods-JamHawk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JamHawk.modulemap"; sourceTree = "<group>"; };
-		C231E7B0BA42E81EDB50E2F2AF763FDD /* NSIndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/NSIndexPath+Extensions.swift"; sourceTree = "<group>"; };
-		C2A3C764AA9B1B34A0E886D5B5B23E07 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
-		C6478E52C158EF3F58B3E7D7831ECFF7 /* JSONEncodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodable.swift; path = Sources/JSONEncodable.swift; sourceTree = "<group>"; };
-		C67761616BEA4490EE68A90D1CA62C60 /* FDWaveformView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FDWaveformView.modulemap; sourceTree = "<group>"; };
-		CC00946E2427E09BE91F2991A54A6D53 /* Freddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Freddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDC46FB0D3A41DBCFD55E620E2B2CF50 /* FDWaveformView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDWaveformView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2937E9200E2AC136B300575D1569117 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UITextField+Extensions.swift"; sourceTree = "<group>"; };
-		D3FE510D19741F3EB919A2DF24415EC8 /* AsyncImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-umbrella.h"; sourceTree = "<group>"; };
-		D7EF0069123414CA321E3504B99B9328 /* UIViewControllerContextTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerContextTransitioning.swift; path = "IncipiaKit/UIKit-Extensions/UIViewControllerContextTransitioning.swift"; sourceTree = "<group>"; };
-		D9A36F927D8B26620FA8FB9AB6F61FB3 /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
-		E441391C86DD2FA6F08F63692DD3F149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C3405A5B3AB38E347D985281034A1831 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		C44F2FFADFA73DBB2C088BB4DDCAE9DB /* JSONEncodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodable.swift; path = Sources/JSONEncodable.swift; sourceTree = "<group>"; };
+		C47131FEE555DCA8972CE26A35739C13 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		C5270CE76F4EE7158860AA031CF848CC /* NSIndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/NSIndexPath+Extensions.swift"; sourceTree = "<group>"; };
+		C61181DB5BCBC997BA621429281AB6C3 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		C6FDCB98C5B12BD60711EE78CC6A8E59 /* IconProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconProvider.swift; path = IncipiaKit/Private/IconProvider.swift; sourceTree = "<group>"; };
+		C9A72330F23B50D1A1ADD8C50B85EF39 /* AsyncImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB93E7F155C10A6817D476CA9EE7712 /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
+		D121439F157A454A49216B4FC50766B7 /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
+		DDF2F5C866C36B784D416014833FE043 /* JSONEncodingDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingDetector.swift; path = Sources/JSONEncodingDetector.swift; sourceTree = "<group>"; };
+		E002BA358B83E474EC5654BB1D8CADEF /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		E5094C1FBA56A55ABF8DA7F6F92AF4BA /* Pods-JamHawk-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-resources.sh"; sourceTree = "<group>"; };
-		E779FD3CABC4BDC7D9FC9F4BED0589C8 /* AsyncImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AsyncImageView.modulemap; sourceTree = "<group>"; };
-		EC5AC7E60A5499723FCBC421FA6D19AC /* AsyncImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AsyncImageView-dummy.m"; sourceTree = "<group>"; };
-		ED6A752EE1B02E318AF032800FCEED88 /* Freddy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Freddy.h; path = Sources/Freddy.h; sourceTree = "<group>"; };
-		ED92082DFDD0E15B4863D5AD9AC7A0D9 /* JSONSubscripting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSubscripting.swift; path = Sources/JSONSubscripting.swift; sourceTree = "<group>"; };
-		EE4187DA7E959212D5CE78F69FD71839 /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParsing.swift; path = Sources/JSONParsing.swift; sourceTree = "<group>"; };
-		F4FDB9A0991EA93529DA18A71AE09235 /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
-		F5A971C6CAF8A52CF6DE74FDCD9F64E9 /* UIViewController+Instantiate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Instantiate.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Instantiate.swift"; sourceTree = "<group>"; };
-		F914C8FF2E30CA6229B2C2AE01B718B6 /* FDWaveformView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FDWaveformView.h; path = Pod/Classes/FDWaveformView.h; sourceTree = "<group>"; };
-		FB02C7B3F4B0F8C770A35134F0565FEB /* IncipiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IncipiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB7631F65FDD921846ABB0D20FAE0C9D /* AsyncImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AsyncImageView.xcconfig; sourceTree = "<group>"; };
+		E5E6B8FAC53783EE30C28AF9514A26E8 /* AsyncImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-umbrella.h"; sourceTree = "<group>"; };
+		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F40A748645FF1196E48F79851498C140 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UITextField+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,14 +176,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61C7D812B543C8EFE291CF5BAD5C4DAA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DF84ABDAEDBE313A719BB93C54F44FC0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ADB4524846499A8C9B5D577E70FB26B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,14 +183,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB3FA9B87402A42C6135815920675182 /* Frameworks */ = {
+		C3517D3122E8D26691C511707D79A967 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D35D0B1B5F38812D224E3B12591C250 /* AVFoundation.framework in Frameworks */,
-				0BDF3F95C2ED4C9986070AD8A9E4161A /* CoreGraphics.framework in Frameworks */,
-				977DB5C890F1F95E92920C74C046295D /* Foundation.framework in Frameworks */,
-				3A1FC2F73F0F2D1046C8711D6B4E688F /* MediaPlayer.framework in Frameworks */,
+				175F703F946951158B0EC21CCBBFB81C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,22 +202,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20B56609144CE204DFA8221F742B2D76 /* Frameworks */ = {
+		30F3B5CF17DBC77C943416127F06FFAD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7FD6F68FFAE1E48C0AB90BF568D5C1ED /* iOS */,
+				9A1870EE9B6F604678A32A429C85CDF1 /* AsyncImageView.modulemap */,
+				B8DD9D19B306CE54B81B56B28FA3128E /* AsyncImageView.xcconfig */,
+				9B41AEA811FC54BEAF60155FF75F2AF8 /* AsyncImageView-dummy.m */,
+				AE502C8A18FC9EEE3AFF5DA9B904BB55 /* AsyncImageView-prefix.pch */,
+				E5E6B8FAC53783EE30C28AF9514A26E8 /* AsyncImageView-umbrella.h */,
+				078FD40BE2B90EEA9AA9E414FFA9366D /* Info.plist */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/AsyncImageView";
 			sourceTree = "<group>";
 		};
-		2EB2025C9D71A141F246C21B439D6191 /* AsyncImageView */ = {
+		3C60A692499F73FCAFC01E97DE7ACBFA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5E83BF34D645E266F28269698C1CC6EB /* AsyncImageView.h */,
-				88861CBAE1E81BDAF35E1BE492D4A33B /* AsyncImageView.m */,
-				8831FD550550E8B130C2ED57468B0FF2 /* Support Files */,
+				F3512AF91AB5F688F7F8DB168B450C31 /* AsyncImageView */,
+				B9C829C73506F63A427F86DBD18CD761 /* Freddy */,
+				E71566A264E450652487DEC7E8C4EE75 /* IncipiaKit */,
 			);
-			path = AsyncImageView;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		49040A8E84B75AD69D30AA128EB6BAB2 /* Pods-JamHawk */ = {
@@ -276,40 +252,12 @@
 			path = "Target Support Files/Pods-JamHawk";
 			sourceTree = "<group>";
 		};
-		4BAB785FA434AC42BB30E948FE222540 /* Resources */ = {
+		4A7BA2DC070B279879B022F8F1FC365D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0DF86E917D42141421AEBA2851F305F7 /* Icons.xcassets */,
+				0A13B595DDCC363C92F1DDE00FF775F5 /* Icons.xcassets */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		4DA26CD8E27147B2C49FA3739A29694F /* IncipiaKit */ = {
-			isa = PBXGroup;
-			children = (
-				192EE71B6292620CE85C2F1854469960 /* IconProvider.swift */,
-				B4BBD37AC91E40B7649E56479171F7B2 /* IncipiaKit.h */,
-				0B9A8FDC26E647568393ABBA81655921 /* NSBundle+Extensions.swift */,
-				C231E7B0BA42E81EDB50E2F2AF763FDD /* NSIndexPath+Extensions.swift */,
-				0B22D756FECB80DEDB3D91F1B0EB742D /* String+Extensions.swift */,
-				84CCD145AAE8EF8DDCC9BC6B9EB7F1B6 /* UIAlertController+Extensions.swift */,
-				7F45B63C001D2C2FAFEAA505AD0BC969 /* UIBarButtonItem+Extensions.swift */,
-				2452502336C9702C7E7ADF0CF6F736BC /* UICollectionView+Extensions.swift */,
-				6AC2191636F52FAD90FD5560C543F9E2 /* UIColor+Extensions.swift */,
-				2672C350E55E8EDB011670709D230727 /* UIDevice+Extensions.swift */,
-				868891127EC941E077DBFC1CDADB380F /* UIImage+Extensions.swift */,
-				4E1AA2BCDFB57E16D33B90D33A11A007 /* UINavigationBar+Extensions.swift */,
-				8A98B370C64694381488060D1C2C0B7D /* UINavigationController+Extensions.swift */,
-				D2937E9200E2AC136B300575D1569117 /* UITextField+Extensions.swift */,
-				38FDF3076E31DC8DFA97BB4F7E376D3B /* UIViewController+AlertPresenting.swift */,
-				775060B5931DF499B3419413EF86E5A1 /* UIViewController+BarButtonItems.swift */,
-				997944C818BC9FE5079214882DC70A6E /* UIViewController+Extensions.swift */,
-				F5A971C6CAF8A52CF6DE74FDCD9F64E9 /* UIViewController+Instantiate.swift */,
-				D7EF0069123414CA321E3504B99B9328 /* UIViewControllerContextTransitioning.swift */,
-				4BAB785FA434AC42BB30E948FE222540 /* Resources */,
-				909180C0FEFED22074A75FA1D0A09D27 /* Support Files */,
-			);
-			path = IncipiaKit;
 			sourceTree = "<group>";
 		};
 		5532BD7A05EC542A088E7C240CEA3431 /* Targets Support Files */ = {
@@ -320,136 +268,121 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6CA21197F1E6960FD42405EEC6C43943 /* Support Files */ = {
+		657DC9CC1C51F8E353AA197A9D72D3A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0480E9335E298BE10193EE00BC62B2F /* Freddy.modulemap */,
-				B9CBF3E211B836EF3E3BBB37710F1B23 /* Freddy.xcconfig */,
-				5A6985B14F05FCC3390CED17BDC0A777 /* Freddy-dummy.m */,
-				AB78EE1FE3BBC2DB73A472A513D457B5 /* Freddy-prefix.pch */,
-				A2F881FB9BCC147F669AC0A59341B535 /* Freddy-umbrella.h */,
-				12E5504B869336BFC1F8B27A9B6DAA76 /* Info.plist */,
+				C9A72330F23B50D1A1ADD8C50B85EF39 /* AsyncImageView.framework */,
+				51C53A49968641D7325923339AC48CDF /* Freddy.framework */,
+				06011E02421315971132DAD70F609D73 /* IncipiaKit.bundle */,
+				8976D967FEA6D9D0BF5D8992E278875B /* IncipiaKit.framework */,
+				0B3E0FEFF3973AF6F0B73DDF868EEB35 /* Pods_JamHawk.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Freddy";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				20B56609144CE204DFA8221F742B2D76 /* Frameworks */,
-				872E86D11FAE825E3F63B7ADB7CA803B /* Pods */,
-				B4204190CB1FAA160104A77BB8061BB9 /* Products */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				3C60A692499F73FCAFC01E97DE7ACBFA /* Pods */,
+				657DC9CC1C51F8E353AA197A9D72D3A6 /* Products */,
 				5532BD7A05EC542A088E7C240CEA3431 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		7FD6F68FFAE1E48C0AB90BF568D5C1ED /* iOS */ = {
+		8F2858F0EB0DC68E2249DA7FB1B46338 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0383D6806AE6C2BC240EB514C5D91058 /* AVFoundation.framework */,
-				586720105C52CBAD48CB5D03BAE098D0 /* CoreGraphics.framework */,
-				E441391C86DD2FA6F08F63692DD3F149 /* Foundation.framework */,
-				C2A3C764AA9B1B34A0E886D5B5B23E07 /* MediaPlayer.framework */,
-				0F33FE95BAD4268F31741A40CB744BF9 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		872E86D11FAE825E3F63B7ADB7CA803B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2EB2025C9D71A141F246C21B439D6191 /* AsyncImageView */,
-				8CA57CB5B8DDB6C8EE50AF4C9D273236 /* FDWaveformView */,
-				DCC4C1BD34F369FBDAEC920FDB149632 /* Freddy */,
-				4DA26CD8E27147B2C49FA3739A29694F /* IncipiaKit */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8831FD550550E8B130C2ED57468B0FF2 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E779FD3CABC4BDC7D9FC9F4BED0589C8 /* AsyncImageView.modulemap */,
-				FB7631F65FDD921846ABB0D20FAE0C9D /* AsyncImageView.xcconfig */,
-				EC5AC7E60A5499723FCBC421FA6D19AC /* AsyncImageView-dummy.m */,
-				2C70CB37E5D2CDC6307B831CD30C9322 /* AsyncImageView-prefix.pch */,
-				D3FE510D19741F3EB919A2DF24415EC8 /* AsyncImageView-umbrella.h */,
-				81573A0BC8111044E9D07C1FAFEFBC70 /* Info.plist */,
+				26F92C73BD05BA9059FAF0D99A6FA97D /* Freddy.modulemap */,
+				83DD91C217500E338DF72119F901B63F /* Freddy.xcconfig */,
+				326BCA296D6C5CBDC608A69D2A3D2561 /* Freddy-dummy.m */,
+				529B98361BBFD5A5C8276BC87777EF8B /* Freddy-prefix.pch */,
+				085C79F3048511EE1AF65B35D02B7F92 /* Freddy-umbrella.h */,
+				73F610B9A6F6B194C51EA4EC7F9B6471 /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/AsyncImageView";
+			path = "../Target Support Files/Freddy";
 			sourceTree = "<group>";
 		};
-		8CA57CB5B8DDB6C8EE50AF4C9D273236 /* FDWaveformView */ = {
+		B9C829C73506F63A427F86DBD18CD761 /* Freddy */ = {
 			isa = PBXGroup;
 			children = (
-				F914C8FF2E30CA6229B2C2AE01B718B6 /* FDWaveformView.h */,
-				7D2E7178F178A36D6DF565E1E142D4FD /* FDWaveformView.m */,
-				E01DE95BC0F0F6F5F819019C640CDE11 /* Support Files */,
+				48830E3C67DAEE256E986DD95D8521C3 /* Freddy.h */,
+				24A3BC4A6B447D778D32CC50AF372F51 /* JSON.swift */,
+				2664CA190576F0C5612A87B0BBC2CE22 /* JSONDecodable.swift */,
+				C44F2FFADFA73DBB2C088BB4DDCAE9DB /* JSONEncodable.swift */,
+				DDF2F5C866C36B784D416014833FE043 /* JSONEncodingDetector.swift */,
+				8470792600591A411F1D0310588CC6A6 /* JSONLiteralConvertible.swift */,
+				68EE0F4954842C0783F6C497A5C8F290 /* JSONParser.swift */,
+				863B0148F5774D944364DAEC5D1687B3 /* JSONParsing.swift */,
+				41047DE068EF492441BDFC91DBA48392 /* JSONSerializing.swift */,
+				3AFF2A24820E3FD1B504B7EDB57F2CAC /* JSONSubscripting.swift */,
+				8F2858F0EB0DC68E2249DA7FB1B46338 /* Support Files */,
 			);
-			path = FDWaveformView;
+			path = Freddy;
 			sourceTree = "<group>";
 		};
-		909180C0FEFED22074A75FA1D0A09D27 /* Support Files */ = {
+		D19684DF0A9B52DF3D47C69CC1BF085E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB980608A642CA83C761CFAEF2B4657D /* IncipiaKit.modulemap */,
-				601A916E574E7FDFF7EE9E7867B86F3A /* IncipiaKit.xcconfig */,
-				F4FDB9A0991EA93529DA18A71AE09235 /* IncipiaKit-dummy.m */,
-				9F5D36EAEE49C90294AA06899D6916DD /* IncipiaKit-prefix.pch */,
-				D9A36F927D8B26620FA8FB9AB6F61FB3 /* IncipiaKit-umbrella.h */,
-				0DC6496B80D7777E48F227BC4FDD949E /* Info.plist */,
-				5C7FF5AEDE85F5BCB626AA00F86393FF /* ResourceBundle-IncipiaKit-Info.plist */,
+				4AB57CCD0A907797C73E77F39E2D5D74 /* IncipiaKit.modulemap */,
+				876B659213FB0B6A0E47B8ECB04D9577 /* IncipiaKit.xcconfig */,
+				CBB93E7F155C10A6817D476CA9EE7712 /* IncipiaKit-dummy.m */,
+				D121439F157A454A49216B4FC50766B7 /* IncipiaKit-prefix.pch */,
+				834D0CAC1B0573CC75CD74B29BF7A4C8 /* IncipiaKit-umbrella.h */,
+				93D6B1CF436A1B9CF81269BBF630B8FA /* Info.plist */,
+				03EBC786484C5AC33FBA5B467F355613 /* ResourceBundle-IncipiaKit-Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/IncipiaKit";
 			sourceTree = "<group>";
 		};
-		B4204190CB1FAA160104A77BB8061BB9 /* Products */ = {
+		E71566A264E450652487DEC7E8C4EE75 /* IncipiaKit */ = {
 			isa = PBXGroup;
 			children = (
-				4F4703723D19B698F78738750EBB15CC /* AsyncImageView.framework */,
-				CDC46FB0D3A41DBCFD55E620E2B2CF50 /* FDWaveformView.framework */,
-				CC00946E2427E09BE91F2991A54A6D53 /* Freddy.framework */,
-				4A1D5DABEE466372D2A98FAFE1C1FB09 /* IncipiaKit.bundle */,
-				FB02C7B3F4B0F8C770A35134F0565FEB /* IncipiaKit.framework */,
-				410F5113A4B0F4ED7E2A1EDCB48062A1 /* Pods_JamHawk.framework */,
+				C6FDCB98C5B12BD60711EE78CC6A8E59 /* IconProvider.swift */,
+				73F2BEA42E1E0F06B199FB723DF47155 /* IncipiaKit.h */,
+				32AF3816FDA6237405CDF43A91659570 /* NSBundle+Extensions.swift */,
+				C5270CE76F4EE7158860AA031CF848CC /* NSIndexPath+Extensions.swift */,
+				4858FF80AF93669E62089C5E4062E49B /* String+Extensions.swift */,
+				6E93044C17E20A10AE7E59BB406490F8 /* UIAlertController+Extensions.swift */,
+				C47131FEE555DCA8972CE26A35739C13 /* UIBarButtonItem+Extensions.swift */,
+				C3405A5B3AB38E347D985281034A1831 /* UICollectionView+Extensions.swift */,
+				E002BA358B83E474EC5654BB1D8CADEF /* UIColor+Extensions.swift */,
+				C61181DB5BCBC997BA621429281AB6C3 /* UIDevice+Extensions.swift */,
+				321E888DCCAF5573DC8CF415B9BA17A2 /* UIImage+Extensions.swift */,
+				025D6D860990AAB3188B7F8874D687E0 /* UINavigationBar+Extensions.swift */,
+				6A49E1BC3F6BF350CC8B78E94F4DE295 /* UINavigationController+Extensions.swift */,
+				F40A748645FF1196E48F79851498C140 /* UITextField+Extensions.swift */,
+				270B83856012C6D902848B8579EE4A1B /* UIViewController+AlertPresenting.swift */,
+				BED0D6778A2C98F4CAA5A4B61FABC0E3 /* UIViewController+BarButtonItems.swift */,
+				2D9D8D476EA7D35E59BC9954907B89AF /* UIViewController+Extensions.swift */,
+				A02979947F2379D06BAE09F66E3171F1 /* UIViewController+Instantiate.swift */,
+				98BB31E81EAA0B34B11FC4B74C9D183D /* UIViewControllerContextTransitioning.swift */,
+				4A7BA2DC070B279879B022F8F1FC365D /* Resources */,
+				D19684DF0A9B52DF3D47C69CC1BF085E /* Support Files */,
 			);
-			name = Products;
+			path = IncipiaKit;
 			sourceTree = "<group>";
 		};
-		DCC4C1BD34F369FBDAEC920FDB149632 /* Freddy */ = {
+		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				ED6A752EE1B02E318AF032800FCEED88 /* Freddy.h */,
-				1BE8BA5E2EEEFBBEC2F9C06FE8F550B4 /* JSON.swift */,
-				B38C0E33842234793E0386478FBD2E32 /* JSONDecodable.swift */,
-				C6478E52C158EF3F58B3E7D7831ECFF7 /* JSONEncodable.swift */,
-				A41AAAF183F852E25C40425E003A503E /* JSONEncodingDetector.swift */,
-				9507F635DAF484A21C582AFBF12734B9 /* JSONLiteralConvertible.swift */,
-				5277A64615440843688772D3A534C0FF /* JSONParser.swift */,
-				EE4187DA7E959212D5CE78F69FD71839 /* JSONParsing.swift */,
-				51EA6D629FAD03490279FD4EBD464624 /* JSONSerializing.swift */,
-				ED92082DFDD0E15B4863D5AD9AC7A0D9 /* JSONSubscripting.swift */,
-				6CA21197F1E6960FD42405EEC6C43943 /* Support Files */,
+				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
+				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
 			);
-			path = Freddy;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		E01DE95BC0F0F6F5F819019C640CDE11 /* Support Files */ = {
+		F3512AF91AB5F688F7F8DB168B450C31 /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
-				C67761616BEA4490EE68A90D1CA62C60 /* FDWaveformView.modulemap */,
-				1D61E0400FD86A4427A2D4001AE4E71C /* FDWaveformView.xcconfig */,
-				59B2A9C543943DCDF162186D7DF5604A /* FDWaveformView-dummy.m */,
-				9E1B8B0FC3AA10CD7C4955BAF28FC859 /* FDWaveformView-prefix.pch */,
-				1D79692C53819CCC3F7D9974D761FA9A /* FDWaveformView-umbrella.h */,
-				81378D5A0D2E8CA5B08FEF5E867D6199 /* Info.plist */,
+				78586A6DC747424D9F10FC18F946CFD5 /* AsyncImageView.h */,
+				8F3A94E6547CC5CB68D3E4CA6F0C5900 /* AsyncImageView.m */,
+				30F3B5CF17DBC77C943416127F06FFAD /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/FDWaveformView";
+			path = AsyncImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,11 +397,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6A0D146C61E6E6232AB86890A18115C9 /* Headers */ = {
+		5EC6EAE02F83B7CD4E8B3617C0E7E173 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2A567B370D32F74A320D5D3B4D554AD /* Pods-JamHawk-umbrella.h in Headers */,
+				EB956BA30D29CC83AB5C1CA3F49D3FF2 /* Pods-JamHawk-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,15 +423,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D558B3293F22A0B7A7D8D2928DC39B11 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F57416D92396756D29F15A538431395A /* FDWaveformView-umbrella.h in Headers */,
-				81BA4A73E37C47A8F350B465B27321BB /* FDWaveformView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -516,45 +440,27 @@
 			);
 			name = AsyncImageView;
 			productName = AsyncImageView;
-			productReference = 4F4703723D19B698F78738750EBB15CC /* AsyncImageView.framework */;
+			productReference = C9A72330F23B50D1A1ADD8C50B85EF39 /* AsyncImageView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		21E154417075D2644AEADB991F8ED343 /* FDWaveformView */ = {
+		4095FF81F75984F6195092D3A9FCF485 /* Pods-JamHawk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FD11F7ACDF0F425933A47F4A52571B3 /* Build configuration list for PBXNativeTarget "FDWaveformView" */;
+			buildConfigurationList = 26B8B8B102B87EB038CDD04576F33C15 /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */;
 			buildPhases = (
-				32A01860A8719EC096342C216E21CDA3 /* Sources */,
-				BB3FA9B87402A42C6135815920675182 /* Frameworks */,
-				D558B3293F22A0B7A7D8D2928DC39B11 /* Headers */,
+				5EC1629C63D151FB94A9340C31CAEF11 /* Sources */,
+				C3517D3122E8D26691C511707D79A967 /* Frameworks */,
+				5EC6EAE02F83B7CD4E8B3617C0E7E173 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = FDWaveformView;
-			productName = FDWaveformView;
-			productReference = CDC46FB0D3A41DBCFD55E620E2B2CF50 /* FDWaveformView.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5AEAC2612FC8BA85D7AF186475926C05 /* Pods-JamHawk */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA71998C42E759594944987948994DC7 /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */;
-			buildPhases = (
-				D9F13440E6224E3C20851F6A9BBB2C2F /* Sources */,
-				61C7D812B543C8EFE291CF5BAD5C4DAA /* Frameworks */,
-				6A0D146C61E6E6232AB86890A18115C9 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C46F71214418EC56B94C95B653CAD47A /* PBXTargetDependency */,
-				D18A6EF1366E94EF50F322ED1FB5FF2D /* PBXTargetDependency */,
-				94A486372BD5F459CAACAFA188FC63A7 /* PBXTargetDependency */,
-				F65F7EA97AD1E827ED83F71F13704678 /* PBXTargetDependency */,
+				C86D600A501DCDC5ADE39DC817D70941 /* PBXTargetDependency */,
+				A55709A8AE78C9B43788141941875F42 /* PBXTargetDependency */,
+				96F8A0733D5E1D0AF0A6EB19AEB129FD /* PBXTargetDependency */,
 			);
 			name = "Pods-JamHawk";
 			productName = "Pods-JamHawk";
-			productReference = 410F5113A4B0F4ED7E2A1EDCB48062A1 /* Pods_JamHawk.framework */;
+			productReference = 0B3E0FEFF3973AF6F0B73DDF868EEB35 /* Pods_JamHawk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7B8031973F3895BCE08EA5C7209DDC0A /* IncipiaKit */ = {
@@ -573,7 +479,7 @@
 			);
 			name = IncipiaKit;
 			productName = IncipiaKit;
-			productReference = FB02C7B3F4B0F8C770A35134F0565FEB /* IncipiaKit.framework */;
+			productReference = 8976D967FEA6D9D0BF5D8992E278875B /* IncipiaKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */ = {
@@ -590,7 +496,7 @@
 			);
 			name = Freddy;
 			productName = Freddy;
-			productReference = CC00946E2427E09BE91F2991A54A6D53 /* Freddy.framework */;
+			productReference = 51C53A49968641D7325923339AC48CDF /* Freddy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F162F149A30B6E36917E051939245EE7 /* IncipiaKit-IncipiaKit */ = {
@@ -607,7 +513,7 @@
 			);
 			name = "IncipiaKit-IncipiaKit";
 			productName = "IncipiaKit-IncipiaKit";
-			productReference = 4A1D5DABEE466372D2A98FAFE1C1FB09 /* IncipiaKit.bundle */;
+			productReference = 06011E02421315971132DAD70F609D73 /* IncipiaKit.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -627,16 +533,15 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B4204190CB1FAA160104A77BB8061BB9 /* Products */;
+			productRefGroup = 657DC9CC1C51F8E353AA197A9D72D3A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				10F2A98565E4CB0A4354935364A3323C /* AsyncImageView */,
-				21E154417075D2644AEADB991F8ED343 /* FDWaveformView */,
 				EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */,
 				7B8031973F3895BCE08EA5C7209DDC0A /* IncipiaKit */,
 				F162F149A30B6E36917E051939245EE7 /* IncipiaKit-IncipiaKit */,
-				5AEAC2612FC8BA85D7AF186475926C05 /* Pods-JamHawk */,
+				4095FF81F75984F6195092D3A9FCF485 /* Pods-JamHawk */,
 			);
 		};
 /* End PBXProject section */
@@ -668,21 +573,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		32A01860A8719EC096342C216E21CDA3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7315285E2CD9EC6A5277C3087D93B405 /* FDWaveformView-dummy.m in Sources */,
-				99224826B5C84948A531D85F72BB6A1E /* FDWaveformView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		423BE0A90ED1CAD6B72679356B672FD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A8EF8EBED5A16E9375B5F4D1962133CE /* AsyncImageView-dummy.m in Sources */,
 				2D78059FB37F22F5B9406CD0E0DBE370 /* AsyncImageView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EC1629C63D151FB94A9340C31CAEF11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EE2FCD0C813BEC9DBE7CDBDE8170C27 /* Pods-JamHawk-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,14 +633,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9F13440E6224E3C20851F6A9BBB2C2F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29439CC0C356BC20EC65868858355B86 /* Pods-JamHawk-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -746,36 +642,30 @@
 			target = F162F149A30B6E36917E051939245EE7 /* IncipiaKit-IncipiaKit */;
 			targetProxy = 366C4DDCDEA3A6086A947DE0EFCA9770 /* PBXContainerItemProxy */;
 		};
-		94A486372BD5F459CAACAFA188FC63A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Freddy;
-			target = EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */;
-			targetProxy = AA9016214AA404B4F25DDB91C99CB6AC /* PBXContainerItemProxy */;
-		};
-		C46F71214418EC56B94C95B653CAD47A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AsyncImageView;
-			target = 10F2A98565E4CB0A4354935364A3323C /* AsyncImageView */;
-			targetProxy = 403598B35553A2977C9EFD14265A78E0 /* PBXContainerItemProxy */;
-		};
-		D18A6EF1366E94EF50F322ED1FB5FF2D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FDWaveformView;
-			target = 21E154417075D2644AEADB991F8ED343 /* FDWaveformView */;
-			targetProxy = 01FD1A4B58BE833D13B2607F7034493D /* PBXContainerItemProxy */;
-		};
-		F65F7EA97AD1E827ED83F71F13704678 /* PBXTargetDependency */ = {
+		96F8A0733D5E1D0AF0A6EB19AEB129FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IncipiaKit;
 			target = 7B8031973F3895BCE08EA5C7209DDC0A /* IncipiaKit */;
-			targetProxy = CDDBBCCD9B74965FBEA998CF32037C3B /* PBXContainerItemProxy */;
+			targetProxy = BCB0B7571946924C0DFA8545735CBDE9 /* PBXContainerItemProxy */;
+		};
+		A55709A8AE78C9B43788141941875F42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Freddy;
+			target = EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */;
+			targetProxy = DF4B33C06F8F0D23101281E954E3094D /* PBXContainerItemProxy */;
+		};
+		C86D600A501DCDC5ADE39DC817D70941 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AsyncImageView;
+			target = 10F2A98565E4CB0A4354935364A3323C /* AsyncImageView */;
+			targetProxy = CF139B8E31A5590C8D00B63F427228AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		085DB27016A2249AF89DB8314DDBF962 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB7631F65FDD921846ABB0D20FAE0C9D /* AsyncImageView.xcconfig */;
+			baseConfigurationReference = B8DD9D19B306CE54B81B56B28FA3128E /* AsyncImageView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -804,7 +694,7 @@
 		};
 		1529CF4BF002FA9ECE6E15CECCAB633A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9CBF3E211B836EF3E3BBB37710F1B23 /* Freddy.xcconfig */;
+			baseConfigurationReference = 83DD91C217500E338DF72119F901B63F /* Freddy.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -834,7 +724,7 @@
 		};
 		1EDBFFBA8C81DCAA8F0E88AA12A57ADF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 601A916E574E7FDFF7EE9E7867B86F3A /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = 876B659213FB0B6A0E47B8ECB04D9577 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -861,13 +751,13 @@
 			};
 			name = Release;
 		};
-		322490CE8917EC7140AE39FD67ED0EF1 /* Debug */ = {
+		263CFFF2F4BB18150E07E528F57E042D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */;
+			baseConfigurationReference = 1B788E0DEA0D09AE98E22BECE69CF06A /* Pods-JamHawk.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -880,42 +770,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-JamHawk/Pods-JamHawk.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_JamHawk;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		363EA729928A803526A53F649790B47A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D61E0400FD86A4427A2D4001AE4E71C /* FDWaveformView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FDWaveformView/FDWaveformView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FDWaveformView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FDWaveformView/FDWaveformView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = FDWaveformView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -968,7 +828,7 @@
 		};
 		659E01D7605D22C0CA500D94D5B60538 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB7631F65FDD921846ABB0D20FAE0C9D /* AsyncImageView.xcconfig */;
+			baseConfigurationReference = B8DD9D19B306CE54B81B56B28FA3128E /* AsyncImageView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -995,9 +855,43 @@
 			};
 			name = Release;
 		};
+		71B4254E788C580A9D7E51E0B3AAF7DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-JamHawk/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JamHawk/Pods-JamHawk.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JamHawk;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		758BCAAF6A5E859C9D4C25BE1D2F5CED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9CBF3E211B836EF3E3BBB37710F1B23 /* Freddy.xcconfig */;
+			baseConfigurationReference = 83DD91C217500E338DF72119F901B63F /* Freddy.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1026,7 +920,7 @@
 		};
 		77A05CAE044C9E123A8C71819302107F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 601A916E574E7FDFF7EE9E7867B86F3A /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = 876B659213FB0B6A0E47B8ECB04D9577 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/IncipiaKit";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1081,7 +975,7 @@
 		};
 		A08F68593E009EC44DEDAFC4764471E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 601A916E574E7FDFF7EE9E7867B86F3A /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = 876B659213FB0B6A0E47B8ECB04D9577 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1109,38 +1003,9 @@
 			};
 			name = Debug;
 		};
-		AA4789F33E65F6D1E2D4D9510B258DD5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D61E0400FD86A4427A2D4001AE4E71C /* FDWaveformView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FDWaveformView/FDWaveformView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FDWaveformView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FDWaveformView/FDWaveformView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = FDWaveformView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		D0310E52C4B77E796DB9C78429A8E938 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 601A916E574E7FDFF7EE9E7867B86F3A /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = 876B659213FB0B6A0E47B8ECB04D9577 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/IncipiaKit";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1154,39 +1019,6 @@
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
-		};
-		EE3B19AF241D7FF93A66C3836231FF32 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B788E0DEA0D09AE98E22BECE69CF06A /* Pods-JamHawk.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-JamHawk/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-JamHawk/Pods-JamHawk.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_JamHawk;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1218,6 +1050,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		26B8B8B102B87EB038CDD04576F33C15 /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71B4254E788C580A9D7E51E0B3AAF7DB /* Debug */,
+				263CFFF2F4BB18150E07E528F57E042D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1227,29 +1068,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FD11F7ACDF0F425933A47F4A52571B3 /* Build configuration list for PBXNativeTarget "FDWaveformView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AA4789F33E65F6D1E2D4D9510B258DD5 /* Debug */,
-				363EA729928A803526A53F649790B47A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		9587AD528AD636BEFB883CF330B5ED99 /* Build configuration list for PBXNativeTarget "AsyncImageView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				085DB27016A2249AF89DB8314DDBF962 /* Debug */,
 				659E01D7605D22C0CA500D94D5B60538 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA71998C42E759594944987948994DC7 /* Build configuration list for PBXNativeTarget "Pods-JamHawk" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				322490CE8917EC7140AE39FD67ED0EF1 /* Debug */,
-				EE3B19AF241D7FF93A66C3836231FF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

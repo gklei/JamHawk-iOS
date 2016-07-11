@@ -7,6 +7,5 @@ target 'JamHawk' do
   pod 'Freddy'
   pod 'IncipiaKit'
   pod 'AsyncImageView'
-  pod 'FDWaveformView'
 
 end

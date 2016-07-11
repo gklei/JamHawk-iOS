@@ -17,7 +17,8 @@ class MainPlayerViewController: UIViewController
 	@IBOutlet private var _songLabel: UILabel!
 	@IBOutlet private var _artistLabel: UILabel!
 	@IBOutlet private var _albumLabel: UILabel!
-	@IBOutlet private var _backgroundImageView: AsyncImageView!
+	
+	@IBOutlet private var _waveformView: UIView!
 	
 	var player: AVPlayer?
 	
@@ -43,7 +44,6 @@ class MainPlayerViewController: UIViewController
 		
 		_posterImageView.showActivityIndicator = true
 		_posterImageView.imageURL = media.posterURL
-		_backgroundImageView.imageURL = media.posterURL
 		
 		guard let metadata = output.track else { return }
 		_songLabel.text = metadata.title
