@@ -23,6 +23,10 @@
 		CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */; };
 		CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */; };
 		CE7B0FF91D340846003CC52A /* NextAvailableMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7B0FF71D340846003CC52A /* NextAvailableMediaCell.xib */; };
+		CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E682D1D34251400516570 /* UserAccessSession.swift */; };
+		CE7E68301D3427E000516570 /* PlayerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E682F1D3427E000516570 /* PlayerSession.swift */; };
+		CE7E68321D342EB900516570 /* PlayerAPIInputStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E68311D342EB900516570 /* PlayerAPIInputStatus.swift */; };
+		CE7E68361D342F3300516570 /* PlayerAPIInputUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E68351D342F3300516570 /* PlayerAPIInputUpdates.swift */; };
 		CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94861D26B67600B0F53D /* AppDelegate.swift */; };
 		CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948A1D26B67600B0F53D /* SignIn.storyboard */; };
 		CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948D1D26B67600B0F53D /* Assets.xcassets */; };
@@ -67,6 +71,10 @@
 		CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemporaryInitialViewController.swift; path = JamHawk/ViewControllers/TemporaryInitialViewController.swift; sourceTree = "<group>"; };
 		CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaCell.swift; path = JamHawk/CustomUI/NextAvailableMediaCell.swift; sourceTree = "<group>"; };
 		CE7B0FF71D340846003CC52A /* NextAvailableMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NextAvailableMediaCell.xib; path = JamHawk/CustomUI/NextAvailableMediaCell.xib; sourceTree = "<group>"; };
+		CE7E682D1D34251400516570 /* UserAccessSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessSession.swift; path = JamHawk/Backend/UserAccessSession.swift; sourceTree = "<group>"; };
+		CE7E682F1D3427E000516570 /* PlayerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSession.swift; path = JamHawk/Backend/PlayerSession.swift; sourceTree = "<group>"; };
+		CE7E68311D342EB900516570 /* PlayerAPIInputStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputStatus.swift; path = JamHawk/Models/PlayerAPIInputStatus.swift; sourceTree = "<group>"; };
+		CE7E68351D342F3300516570 /* PlayerAPIInputUpdates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputUpdates.swift; path = JamHawk/Models/PlayerAPIInputUpdates.swift; sourceTree = "<group>"; };
 		CE9B94831D26B67600B0F53D /* JamHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94861D26B67600B0F53D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9B948B1D26B67600B0F53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
@@ -129,11 +137,9 @@
 		CE2B693D1D2EE02A00EAFF16 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				CE2B693A1D2EC92700EAFF16 /* PlayerAPIInput.swift */,
-				CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */,
-				CE2B693E1D2EE04400EAFF16 /* PlayerAPIOutputModels.swift */,
+				CE7E68331D342EC000516570 /* Input */,
+				CE7E68341D342ECB00516570 /* Output */,
 				CE2B69401D2EE1FD00EAFF16 /* PlayerAPITypes.swift */,
-				CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -153,6 +159,26 @@
 				CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */,
 			);
 			name = UIKit;
+			sourceTree = "<group>";
+		};
+		CE7E68331D342EC000516570 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B693A1D2EC92700EAFF16 /* PlayerAPIInput.swift */,
+				CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */,
+				CE7E68311D342EB900516570 /* PlayerAPIInputStatus.swift */,
+				CE7E68351D342F3300516570 /* PlayerAPIInputUpdates.swift */,
+			);
+			name = Input;
+			sourceTree = "<group>";
+		};
+		CE7E68341D342ECB00516570 /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B693E1D2EE04400EAFF16 /* PlayerAPIOutputModels.swift */,
+				CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */,
+			);
+			name = Output;
 			sourceTree = "<group>";
 		};
 		CE9B947A1D26B67600B0F53D = {
@@ -249,6 +275,8 @@
 				CED404EB1D26F20E0083365F /* JamHawkSession.swift */,
 				CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */,
 				CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */,
+				CE7E682D1D34251400516570 /* UserAccessSession.swift */,
+				CE7E682F1D3427E000516570 /* PlayerSession.swift */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -441,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2B693F1D2EE04400EAFF16 /* PlayerAPIOutputModels.swift in Sources */,
+				CE7E68301D3427E000516570 /* PlayerSession.swift in Sources */,
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
 				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
@@ -448,6 +477,7 @@
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
 				CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */,
+				CE7E68361D342F3300516570 /* PlayerAPIInputUpdates.swift in Sources */,
 				CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */,
 				CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
@@ -455,6 +485,7 @@
 				CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */,
 				CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */,
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
+				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
 				CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
@@ -462,6 +493,7 @@
 				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */,
 				CE2B693B1D2EC92700EAFF16 /* PlayerAPIInput.swift in Sources */,
 				CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */,
+				CE7E68321D342EB900516570 /* PlayerAPIInputStatus.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

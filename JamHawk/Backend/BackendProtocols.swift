@@ -10,7 +10,6 @@ import Foundation
 import Freddy
 
 protocol APIRequestGeneration {
-
 	func generateJSONData() -> NSData?
 	func generateRequest() -> NSURLRequest?
 }
@@ -20,7 +19,6 @@ protocol JamHawkJSONDecodable {
 }
 
 extension JamHawkJSONDecodable where Self: JSONDecodable {
-	
 	init?(jsonData: NSData?) {
 		guard let data = jsonData else { return nil }
 		do {
@@ -34,7 +32,6 @@ extension JamHawkJSONDecodable where Self: JSONDecodable {
 }
 
 extension APIRequestGeneration where Self: JSONEncodable {
-	
 	func generateJSONData() -> NSData? {
 		var data: NSData?
 		do {

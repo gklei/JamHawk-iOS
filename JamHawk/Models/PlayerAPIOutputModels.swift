@@ -88,6 +88,23 @@ struct PlayerAPIOutputArtist: JSONDecodable, JSONEncodable {
 	}
 }
 
+enum PlayerAPIOutputTrackRating: Int, JSONEncodable, JSONDecodable {
+	case Negative = -1, Neutral = 0, Positive = 1
+	
+	init(json: JSON) throws {
+		let raw = try Int(json: json)
+		if let _ = PlayerAPIOutputTrackRating(rawValue: raw) {
+			self.init(rawValue: raw)!
+		} else {
+			throw JSON.Error.ValueNotConvertible(value: json, to: PlayerAPIOutputTrackRating.self)
+		}
+	}
+	
+	func toJSON() -> JSON {
+		return .Int(rawValue)
+	}
+}
+
 struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 	let mid: PlayerAPIMediaID?
 	let artist: String?
@@ -95,7 +112,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 	let title: String?
 	let detailURL: String?
 	let imageURL: String?
-	let rating: PlayerAPITrackRating?
+	let rating: PlayerAPIOutputTrackRating?
 	let duration: Int?
 	let links: [String]?
 	
@@ -106,7 +123,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 		title = try json.string("title", alongPath: .MissingKeyBecomesNil)
 		detailURL = try json.string("detailURL", alongPath: .MissingKeyBecomesNil)
 		imageURL = try json.string("imageURL", alongPath: .MissingKeyBecomesNil)
-		rating = try json.decode("rating", alongPath: .MissingKeyBecomesNil, type: PlayerAPITrackRating.self)
+		rating = try json.decode("rating", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputTrackRating.self)
 		duration = try json.int("duration", alongPath: .MissingKeyBecomesNil)
 		links = try json.arrayOf("links", alongPath: .MissingKeyBecomesNil, type: String.self)
 	}
@@ -145,6 +162,31 @@ struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
 	}
 }
 
+
+
+struct PlayerAPIOutputFilter: JSONEncodable, JSONDecodable {
+	let category: String
+	let label: String
+	let filterNames: [String]
+	let filterIDs: [PlayerAPIFilterID]
+	
+	init(json: JSON) throws {
+		category = try json.string("category")
+		label = try json.string("label")
+		filterNames = try json.arrayOf("filterNames", type: String.self)
+		filterIDs = try json.arrayOf("filterIDs", type: PlayerAPIFilterID.self)
+	}
+	
+	func toJSON() -> JSON {
+		return .Dictionary([
+			"category" : .String(category),
+			"label" : .String(label),
+			"filterNames" : filterNames.toJSON(),
+			"filterIDs" : filterIDs.toJSON()
+			])
+	}
+}
+
 struct PlayerAPIOutputCommand: JSONDecodable, JSONEncodable {
 	let name: PlayerAPIOutputCommandName
 	let parameters: [String]?
@@ -164,11 +206,11 @@ struct PlayerAPIOutputCommand: JSONDecodable, JSONEncodable {
 }
 
 struct PlayerAPIOutputFilters: JSONDecodable, JSONEncodable {
-	let available: [PlayerAPIFilter]?
+	let available: [PlayerAPIOutputFilter]?
 	let selected: [PlayerAPIFilterID]?
 	
 	init(json: JSON) throws {
-		available = try json.arrayOf("available", alongPath: .MissingKeyBecomesNil, type: PlayerAPIFilter.self)
+		available = try json.arrayOf("available", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputFilter.self)
 		selected = try json.arrayOf("selected",alongPath: .MissingKeyBecomesNil, type: PlayerAPIFilterID.self)
 	}
 	
