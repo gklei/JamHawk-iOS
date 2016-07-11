@@ -140,9 +140,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signin in with test account..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-XR-Cuq">
-                                <rect key="frame" x="20" y="232.5" width="560" height="134"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signing in with test account..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-XR-Cuq">
+                                <rect key="frame" x="20" y="246" width="560" height="107.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="45"/>
                                 <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

@@ -21,6 +21,8 @@
 		CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */; };
 		CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */; };
 		CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */; };
+		CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */; };
+		CE7B0FF91D340846003CC52A /* NextAvailableMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7B0FF71D340846003CC52A /* NextAvailableMediaCell.xib */; };
 		CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94861D26B67600B0F53D /* AppDelegate.swift */; };
 		CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948A1D26B67600B0F53D /* SignIn.storyboard */; };
 		CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948D1D26B67600B0F53D /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIOutput.swift; path = JamHawk/Models/PlayerAPIOutput.swift; sourceTree = "<group>"; };
 		CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputModels.swift; path = JamHawk/Models/PlayerAPIInputModels.swift; sourceTree = "<group>"; };
 		CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemporaryInitialViewController.swift; path = JamHawk/ViewControllers/TemporaryInitialViewController.swift; sourceTree = "<group>"; };
+		CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaCell.swift; path = JamHawk/CustomUI/NextAvailableMediaCell.swift; sourceTree = "<group>"; };
+		CE7B0FF71D340846003CC52A /* NextAvailableMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NextAvailableMediaCell.xib; path = JamHawk/CustomUI/NextAvailableMediaCell.xib; sourceTree = "<group>"; };
 		CE9B94831D26B67600B0F53D /* JamHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94861D26B67600B0F53D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9B948B1D26B67600B0F53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 			children = (
 				CED404E31D26E6350083365F /* BottomBorderTextField.swift */,
 				CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */,
+				CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */,
+				CE7B0FF71D340846003CC52A /* NextAvailableMediaCell.xib */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 			files = (
 				CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */,
 				CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */,
+				CE7B0FF91D340846003CC52A /* NextAvailableMediaCell.xib in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,
 				CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */,
 			);
@@ -454,6 +461,7 @@
 				CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */,
 				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */,
 				CE2B693B1D2EC92700EAFF16 /* PlayerAPIInput.swift in Sources */,
+				CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
