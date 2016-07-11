@@ -126,7 +126,42 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="303" y="286"/>
+            <point key="canvasLocation" x="60" y="302"/>
+        </scene>
+        <!--Temporary Initial View Controller-->
+        <scene sceneID="lgb-LI-ofs">
+            <objects>
+                <viewController storyboardIdentifier="TemporaryInitialViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pC0-Us-GSz" customClass="TemporaryInitialViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E3Z-pU-xRI"/>
+                        <viewControllerLayoutGuide type="bottom" id="v48-oF-0hX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R7h-Bt-rIv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signin in with test account..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-XR-Cuq">
+                                <rect key="frame" x="20" y="232.5" width="560" height="134"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
+                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cxk-XR-Cuq" firstAttribute="centerY" secondItem="R7h-Bt-rIv" secondAttribute="centerY" id="3eE-6C-3YH"/>
+                            <constraint firstItem="cxk-XR-Cuq" firstAttribute="centerX" secondItem="R7h-Bt-rIv" secondAttribute="centerX" id="4Bo-Z2-BtZ"/>
+                            <constraint firstItem="cxk-XR-Cuq" firstAttribute="leading" secondItem="R7h-Bt-rIv" secondAttribute="leading" constant="20" id="M9f-t4-t2f"/>
+                            <constraint firstAttribute="trailing" secondItem="cxk-XR-Cuq" secondAttribute="trailing" constant="20" id="Mob-cI-hBi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="_mainLabel" destination="cxk-XR-Cuq" id="aZx-gx-jrm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5PD-g4-MmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695" y="302"/>
         </scene>
     </scenes>
 </document>

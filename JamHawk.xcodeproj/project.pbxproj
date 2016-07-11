@@ -20,6 +20,7 @@
 		CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69451D2EF05500EAFF16 /* Freddy+Extensions.swift */; };
 		CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */; };
 		CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */; };
+		CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */; };
 		CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B94861D26B67600B0F53D /* AppDelegate.swift */; };
 		CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948A1D26B67600B0F53D /* SignIn.storyboard */; };
 		CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948D1D26B67600B0F53D /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		CE2B69451D2EF05500EAFF16 /* Freddy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Freddy+Extensions.swift"; path = "JamHawk/Extensions/Freddy+Extensions.swift"; sourceTree = "<group>"; };
 		CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIOutput.swift; path = JamHawk/Models/PlayerAPIOutput.swift; sourceTree = "<group>"; };
 		CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputModels.swift; path = JamHawk/Models/PlayerAPIInputModels.swift; sourceTree = "<group>"; };
+		CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemporaryInitialViewController.swift; path = JamHawk/ViewControllers/TemporaryInitialViewController.swift; sourceTree = "<group>"; };
 		CE9B94831D26B67600B0F53D /* JamHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B94861D26B67600B0F53D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9B948B1D26B67600B0F53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				CED404E01D26D49B0083365F /* SignInViewController.swift */,
 				CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */,
+				CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
 				CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */,
 				CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */,
+				CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
 				CE2B69411D2EE1FD00EAFF16 /* PlayerAPITypes.swift in Sources */,
 				CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */,

@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AsyncImageView
+import IncipiaKit
 
 class MainPlayerViewController: UIViewController
 {
@@ -22,16 +23,14 @@ class MainPlayerViewController: UIViewController
 	
 	var player: AVPlayer?
 	
-	// MARK: - Properties
-	var playerAPIOutput: PlayerAPIOutput?
-	
 	// MARK: - Overridden
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .Default
 	}
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		removeLeftBarItem()
 	}
 	
 	// MARK: - Public

@@ -14,6 +14,7 @@ class AppRouter {
 	
 	let rootNavController = JamHawkNavigationController()
 	
+	private let _tempInitialVC = TemporaryInitialViewController.instantiate(fromStoryboard: "SignIn")
 	private let _signInVC = SignInViewController.instantiate(fromStoryboard: "SignIn")
 	private let _mainPlayerVC = MainPlayerViewController.instantiate(fromStoryboard: "Player")
 	
@@ -21,13 +22,17 @@ class AppRouter {
 		self.window = window
 		self.session = session
 		
+		_setupWindow(withRootVC: _tempInitialVC)
+		
 		_signInVC.signUpButtonPressed = _signUp
 		_signInVC.signInButtonPressed = _signIn
 		
-		_setupWindow(withRootVC: _mainPlayerVC)
+		let _ = _tempInitialVC.view
+		_tempInitialVC.update(.SigningIn)
 		
-		session.instantiatePlayer { (error, output) in
-			self._handlePlayerInstantiationCallback(error, output: output, context: self._mainPlayerVC)
+		session.signInWithTestCreds { (error, output) in
+			self._tempInitialVC.update(.InstantiatingPlayer)
+			self._handleUserAccessCallback(error, output: output, context: self._tempInitialVC)
 		}
 	}
 	
@@ -89,7 +94,10 @@ extension AppRouter {
 		}
 		
 		guard let output = output else { return }
+		
+		let _ = _mainPlayerVC.view
 		_mainPlayerVC.update(withPlayerAPIOutput: output)
+		_showMainPlayer()
 	}
 	
 	private func _showMainPlayer() {
