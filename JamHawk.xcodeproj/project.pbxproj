@@ -40,7 +40,8 @@
 		CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD86991D300F34005313AD /* AppRouter.swift */; };
 		CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */; };
 		CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */; };
-		CEFD86C81D32E219005313AD /* PlayerAPIOutput+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD86C71D32E219005313AD /* PlayerAPIOutput+Extensions.swift */; };
+		CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */; };
+		CEFFF7981D358F8D00D083F1 /* UIToolbar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +93,8 @@
 		CEFD86991D300F34005313AD /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkNavigationController.swift; path = JamHawk/CustomUI/JamHawkNavigationController.swift; sourceTree = "<group>"; };
 		CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPlayerViewController.swift; path = JamHawk/ViewControllers/MainPlayerViewController.swift; sourceTree = "<group>"; };
-		CEFD86C71D32E219005313AD /* PlayerAPIOutput+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PlayerAPIOutput+Extensions.swift"; path = "JamHawk/Extensions/PlayerAPIOutput+Extensions.swift"; sourceTree = "<group>"; };
+		CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIOutputViewModel.swift; path = JamHawk/ViewModels/PlayerAPIOutputViewModel.swift; sourceTree = "<group>"; };
+		CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIToolbar+Extensions.swift"; path = "JamHawk/Extensions/UIToolbar+Extensions.swift"; sourceTree = "<group>"; };
 		E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 			children = (
 				CEC91F981D26D3330006B657 /* UIStoryboard+Extensions.swift */,
 				CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */,
+				CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
+				CEFFF7941D358D8800D083F1 /* View Models */,
 				CED404EF1D2713840083365F /* Models */,
 				CED404EE1D26F7880083365F /* Operations */,
 				CED404ED1D26F7500083365F /* Backend */,
@@ -300,9 +304,16 @@
 		CEFD86C91D32E21F005313AD /* Jamhawk */ = {
 			isa = PBXGroup;
 			children = (
-				CEFD86C71D32E219005313AD /* PlayerAPIOutput+Extensions.swift */,
 			);
 			name = Jamhawk;
+			sourceTree = "<group>";
+		};
+		CEFFF7941D358D8800D083F1 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */,
+			);
+			name = "View Models";
 			sourceTree = "<group>";
 		};
 		E51EB60DCDCD65CE4B97C96B /* Frameworks */ = {
@@ -473,7 +484,6 @@
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
 				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
-				CEFD86C81D32E219005313AD /* PlayerAPIOutput+Extensions.swift in Sources */,
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
 				CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */,
@@ -485,7 +495,9 @@
 				CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */,
 				CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */,
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
+				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
+				CEFFF7981D358F8D00D083F1 /* UIToolbar+Extensions.swift in Sources */,
 				CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,

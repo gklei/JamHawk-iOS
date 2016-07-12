@@ -20,46 +20,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ffU-sH-OeD" customClass="AsyncImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxW-hw-h8B">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="v3t-Aj-TM0">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="extraLight"/>
-                            </visualEffectView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem image="tabbar-user" id="hy1-1S-twN">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
-                                    <barButtonItem title="▶︎" id="4Ye-Pd-oXL">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HoP-Ov-kk5"/>
-                                    <barButtonItem title="➔" id="CGs-Hz-Lbk">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
-                                    <barButtonItem title="SOUND" id="duz-AP-gyL">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0m-nn-nGP">
-                                <rect key="frame" x="20" y="562" width="49" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92c-RY-dzP">
-                                <rect key="frame" x="20" y="513" width="50" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Ti-99-eEH">
                                 <rect key="frame" x="0.0" y="602" width="414" height="90"/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.0" colorSpace="deviceRGB"/>
@@ -88,100 +48,47 @@
                                     <outlet property="delegate" destination="eFK-hP-Wx9" id="7H2-5o-Aae"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Z81-Vr-zeC">
-                                <rect key="frame" x="20" y="20" width="374" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKV-TG-gG8">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="40"/>
-                                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="Genre">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0b-kT-h36">
-                                        <rect key="frame" x="126" y="0.0" width="121" height="40"/>
-                                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="Sub-Genre">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UT-Io-gI4">
-                                        <rect key="frame" x="252" y="0.0" width="121.5" height="40"/>
-                                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="Popularity">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="P1D-9d-wzu"/>
-                                </constraints>
-                            </stackView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4e-li-1t0">
-                                <rect key="frame" x="20" y="68" width="374" height="437"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EJz-8j-IV8" customClass="AsyncImageView">
-                                        <rect key="frame" x="70" y="101" width="234.5" height="234.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="234.5" id="5QV-Nk-LZS"/>
-                                            <constraint firstAttribute="width" constant="234.5" id="Pia-fw-1c8"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="EJz-8j-IV8" firstAttribute="centerX" secondItem="Q4e-li-1t0" secondAttribute="centerX" id="BBQ-em-SAn"/>
-                                    <constraint firstItem="EJz-8j-IV8" firstAttribute="centerY" secondItem="Q4e-li-1t0" secondAttribute="centerY" id="M23-6y-L3M"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-iq-CvN">
-                                <rect key="frame" x="20" y="539" width="47.5" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem image="tabbar-user" id="hy1-1S-twN">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
+                                    <barButtonItem title="▶︎" id="4Ye-Pd-oXL">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HoP-Ov-kk5"/>
+                                    <barButtonItem title="➔" id="CGs-Hz-Lbk">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
+                                    <barButtonItem title="SOUND" id="duz-AP-gyL">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Q4e-li-1t0" secondAttribute="trailing" constant="20" id="0u8-WX-NkQ"/>
-                            <constraint firstItem="lxW-hw-h8B" firstAttribute="height" secondItem="ffU-sH-OeD" secondAttribute="height" id="19b-e8-GKt"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="3n1-JI-LHa"/>
-                            <constraint firstItem="lxW-hw-h8B" firstAttribute="centerX" secondItem="ffU-sH-OeD" secondAttribute="centerX" id="4Xa-mT-ZTf"/>
-                            <constraint firstItem="Z81-Vr-zeC" firstAttribute="top" secondItem="SJ7-tw-lQE" secondAttribute="bottom" id="67A-rt-pGD"/>
                             <constraint firstItem="2Ti-99-eEH" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="6Xf-re-pUC"/>
-                            <constraint firstItem="92c-RY-dzP" firstAttribute="top" secondItem="Q4e-li-1t0" secondAttribute="bottom" constant="8" id="7A2-az-V24"/>
-                            <constraint firstItem="Q4e-li-1t0" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" constant="20" id="Cqk-R4-agW"/>
                             <constraint firstItem="ovB-k7-kCm" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="EvS-Mc-uba"/>
-                            <constraint firstItem="Q4e-li-1t0" firstAttribute="top" secondItem="Z81-Vr-zeC" secondAttribute="bottom" constant="8" id="Maq-AX-Pfx"/>
                             <constraint firstAttribute="trailing" secondItem="ovB-k7-kCm" secondAttribute="trailing" id="Mi5-Mp-Dpq"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ovB-k7-kCm" secondAttribute="bottom" id="Q6n-CV-otx"/>
                             <constraint firstAttribute="trailing" secondItem="2Ti-99-eEH" secondAttribute="trailing" id="TGP-de-CZs"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ffU-sH-OeD" secondAttribute="bottom" id="Tms-aM-h5d"/>
-                            <constraint firstItem="lxW-hw-h8B" firstAttribute="width" secondItem="ffU-sH-OeD" secondAttribute="width" id="VOo-20-gVr"/>
-                            <constraint firstItem="9cn-iq-CvN" firstAttribute="top" secondItem="92c-RY-dzP" secondAttribute="bottom" constant="2" id="Zh8-u1-mxA"/>
-                            <constraint firstItem="Z81-Vr-zeC" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" constant="20" id="dT3-03-7xT"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="top" secondItem="6qq-VQ-SyG" secondAttribute="top" id="fUf-va-Wgo"/>
-                            <constraint firstItem="lxW-hw-h8B" firstAttribute="centerY" secondItem="ffU-sH-OeD" secondAttribute="centerY" id="hzu-Ka-JRG"/>
                             <constraint firstItem="ovB-k7-kCm" firstAttribute="top" secondItem="2Ti-99-eEH" secondAttribute="bottom" id="iGd-Az-HLf"/>
-                            <constraint firstItem="K0m-nn-nGP" firstAttribute="top" secondItem="9cn-iq-CvN" secondAttribute="bottom" constant="2" id="jaa-PP-on3"/>
                             <constraint firstAttribute="trailing" secondItem="ffU-sH-OeD" secondAttribute="trailing" id="k46-pI-Efb"/>
-                            <constraint firstItem="2Ti-99-eEH" firstAttribute="top" secondItem="K0m-nn-nGP" secondAttribute="bottom" constant="20" id="kRG-Kg-cST"/>
-                            <constraint firstItem="92c-RY-dzP" firstAttribute="leading" secondItem="9cn-iq-CvN" secondAttribute="leading" id="oa1-b2-Yis"/>
-                            <constraint firstAttribute="trailing" secondItem="Z81-Vr-zeC" secondAttribute="trailing" constant="20" id="rA2-hy-omF"/>
-                            <constraint firstItem="K0m-nn-nGP" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" constant="20" id="rgf-Vt-f3b"/>
-                            <constraint firstItem="9cn-iq-CvN" firstAttribute="leading" secondItem="K0m-nn-nGP" secondAttribute="leading" id="sU0-Rw-c4N"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="_albumLabel" destination="K0m-nn-nGP" id="ioj-j6-xtn"/>
-                        <outlet property="_artistLabel" destination="9cn-iq-CvN" id="MS0-xR-kwE"/>
                         <outlet property="_backgroundImageView" destination="ffU-sH-OeD" id="E0G-jS-GQQ"/>
                         <outlet property="_nextAvailableCollectionView" destination="2Ti-99-eEH" id="HUh-KU-dZB"/>
-                        <outlet property="_posterImageView" destination="EJz-8j-IV8" id="0Id-0Z-hwk"/>
-                        <outlet property="_songLabel" destination="92c-RY-dzP" id="Poh-kt-44l"/>
+                        <outlet property="_playbackControlsToolbar" destination="ovB-k7-kCm" id="6LY-UE-aFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WH-fG-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,11 +14,7 @@ import IncipiaKit
 class MainPlayerViewController: UIViewController
 {
 	// MARK: - Outlets
-	@IBOutlet private var _posterImageView: AsyncImageView!
-	@IBOutlet private var _songLabel: UILabel!
-	@IBOutlet private var _artistLabel: UILabel!
-	@IBOutlet private var _albumLabel: UILabel!
-	
+	@IBOutlet private var _playbackControlsToolbar: UIToolbar!
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
 	@IBOutlet private var _nextAvailableCollectionView: UICollectionView!
 	
@@ -35,6 +31,8 @@ class MainPlayerViewController: UIViewController
 		
 		let nib = UINib(nibName: "NextAvailableMediaCell", bundle: nil)
 		_nextAvailableCollectionView.registerNib(nib, forCellWithReuseIdentifier: "NextAvailableMediaCell")
+		
+		_playbackControlsToolbar.update(backgroundColor: .whiteColor())
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -45,25 +43,20 @@ class MainPlayerViewController: UIViewController
 	// MARK: - Public
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
+		let viewModel = PlayerAPIOutputViewModel(output: output)
 		
-		guard let media = output.media else { return }
-		guard let url = media.trackURL else { return }
+		if let url = viewModel.trackURL {
+			player = AVPlayer(URL: url)
+			player?.play()
+		}
 		
-		player = AVPlayer(URL: url)
-		player?.play()
-		
-		_posterImageView.showActivityIndicator = true
-		_posterImageView.imageURL = media.posterURL
-		_backgroundImageView.imageURL = media.posterURL
-		
-		guard let metadata = output.track else { return }
-		_songLabel.text = metadata.title
-		_artistLabel.text = metadata.artist
-		_albumLabel.text = metadata.album
-		
-		title = metadata.title
-		
+		_updateUI(withViewModel: viewModel)
 		_nextAvailableCollectionView.reloadData()
+	}
+	
+	// MARK: - Private
+	private func _updateUI(withViewModel model: PlayerAPIOutputViewModel) {
+		_backgroundImageView.imageURL = model.posterURL
 	}
 }
 
@@ -73,16 +66,17 @@ extension MainPlayerViewController: UICollectionViewDataSource, UICollectionView
 	}
 	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 4
+		return output?.next?.count ?? 0
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("NextAvailableMediaCell", forIndexPath: indexPath) as! NextAvailableMediaCell
 		
-		if let next = output?.next where next.count > indexPath.row {
+		if let next = output?.next {
 			let metadata = next[indexPath.row]
 			cell.update(withMetatdata: metadata)
 		}
+		
 		return cell
 	}
 	
