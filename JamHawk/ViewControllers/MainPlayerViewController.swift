@@ -18,8 +18,11 @@ class MainPlayerViewController: UIViewController
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
 	@IBOutlet private var _nextAvailableCollectionView: UICollectionView!
 	
+	// MARK: - Properties
 	var output: PlayerAPIOutput?
 	var player: AVPlayer?
+	
+	var _playerProgressViewController: PlayerProgressViewController?
 	
 	// MARK: - Overridden
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -40,23 +43,36 @@ class MainPlayerViewController: UIViewController
 		removeLeftBarItem()
 	}
 	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if let playerProgressVC = segue.destinationViewController as? PlayerProgressViewController {
+			_playerProgressViewController = playerProgressVC
+		}
+	}
+	
 	// MARK: - Public
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
-		let viewModel = PlayerAPIOutputViewModel(output: output)
 		
-		if let url = viewModel.trackURL {
-			player = AVPlayer(URL: url)
-			player?.play()
-		}
+		_playerProgressViewController?.update(withPlayerAPIOutput: output)
+		_updatePlayer(withOutput: output)
+		_updateUI(withOutput: output)
 		
-		_updateUI(withViewModel: viewModel)
 		_nextAvailableCollectionView.reloadData()
 	}
 	
 	// MARK: - Private
-	private func _updateUI(withViewModel model: PlayerAPIOutputViewModel) {
-		_backgroundImageView.imageURL = model.posterURL
+	private func _updatePlayer(withOutput output: PlayerAPIOutput) {
+		player = AVPlayer(output: output)
+		let interval = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
+		player?.addPeriodicTimeObserverForInterval(interval, queue: nil, usingBlock: { [weak self] time in
+			self?._playerProgressViewController?.updateProgress(withTime: time)
+			})
+		player?.play()
+	}
+	
+	private func _updateUI(withOutput output: PlayerAPIOutput) {
+		let viewModel = PlayerAPIOutputViewModel(output: output)
+		_backgroundImageView.imageURL = viewModel.posterURL
 	}
 }
 

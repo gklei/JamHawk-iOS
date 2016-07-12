@@ -20,8 +20,38 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ffU-sH-OeD" customClass="AsyncImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem image="tabbar-user" id="hy1-1S-twN">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
+                                    <barButtonItem title="▶︎" id="4Ye-Pd-oXL">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HoP-Ov-kk5"/>
+                                    <barButtonItem title="➔" id="CGs-Hz-Lbk">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
+                                    <barButtonItem title="SOUND" id="duz-AP-gyL">
+                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaJ-Ai-Z7h">
+                                <rect key="frame" x="0.0" y="654" width="414" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="kPh-x2-EuS"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="9EW-Pu-hpM" kind="embed" id="YIM-VB-5kh"/>
+                                </connections>
+                            </containerView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Ti-99-eEH">
-                                <rect key="frame" x="0.0" y="602" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="564" width="414" height="90"/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.0" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="kMD-zM-Yg1"/>
@@ -48,41 +78,29 @@
                                     <outlet property="delegate" destination="eFK-hP-Wx9" id="7H2-5o-Aae"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem image="tabbar-user" id="hy1-1S-twN">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
-                                    <barButtonItem title="▶︎" id="4Ye-Pd-oXL">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HoP-Ov-kk5"/>
-                                    <barButtonItem title="➔" id="CGs-Hz-Lbk">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
-                                    <barButtonItem title="SOUND" id="duz-AP-gyL">
-                                        <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gaJ-Ai-Z7h" firstAttribute="top" secondItem="2Ti-99-eEH" secondAttribute="bottom" id="0FN-xA-rSZ"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="3n1-JI-LHa"/>
                             <constraint firstItem="2Ti-99-eEH" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="6Xf-re-pUC"/>
                             <constraint firstItem="ovB-k7-kCm" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="EvS-Mc-uba"/>
+                            <constraint firstItem="gaJ-Ai-Z7h" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="IVw-hP-y3o"/>
                             <constraint firstAttribute="trailing" secondItem="ovB-k7-kCm" secondAttribute="trailing" id="Mi5-Mp-Dpq"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ovB-k7-kCm" secondAttribute="bottom" id="Q6n-CV-otx"/>
                             <constraint firstAttribute="trailing" secondItem="2Ti-99-eEH" secondAttribute="trailing" id="TGP-de-CZs"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ffU-sH-OeD" secondAttribute="bottom" id="Tms-aM-h5d"/>
+                            <constraint firstAttribute="trailing" secondItem="gaJ-Ai-Z7h" secondAttribute="trailing" id="aLy-Fx-uUU"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="top" secondItem="6qq-VQ-SyG" secondAttribute="top" id="fUf-va-Wgo"/>
                             <constraint firstItem="ovB-k7-kCm" firstAttribute="top" secondItem="2Ti-99-eEH" secondAttribute="bottom" id="iGd-Az-HLf"/>
                             <constraint firstAttribute="trailing" secondItem="ffU-sH-OeD" secondAttribute="trailing" id="k46-pI-Efb"/>
+                            <constraint firstItem="ovB-k7-kCm" firstAttribute="top" secondItem="gaJ-Ai-Z7h" secondAttribute="bottom" id="zLj-dE-ph6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="iGd-Az-HLf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -95,26 +113,34 @@
             </objects>
             <point key="canvasLocation" x="219" y="251"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Z0N-bc-MGB">
+        <!--Player Progress View Controller-->
+        <scene sceneID="umN-24-4Ca">
             <objects>
-                <viewController id="dcj-nL-Fvr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hFe-vZ-o5t"/>
-                        <viewControllerLayoutGuide type="bottom" id="6H9-cw-qhn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1dg-7a-PNt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                <viewController id="9EW-Pu-hpM" customClass="PlayerProgressViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YIy-Pu-u7h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U89-Ok-Edb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
+                                <color key="backgroundColor" red="0.50145617949999999" green="1" blue="0.72768762659999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="U89-Ok-Edb" secondAttribute="bottom" id="75S-Tj-XQ1"/>
+                            <constraint firstItem="U89-Ok-Edb" firstAttribute="top" secondItem="YIy-Pu-u7h" secondAttribute="top" id="Gzq-9J-mcH"/>
+                            <constraint firstAttribute="trailing" secondItem="U89-Ok-Edb" secondAttribute="trailing" id="T2D-pv-hnl"/>
+                            <constraint firstItem="U89-Ok-Edb" firstAttribute="leading" secondItem="YIy-Pu-u7h" secondAttribute="leading" id="hr4-6l-eEz"/>
+                        </constraints>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="200"/>
+                    <connections>
+                        <outlet property="_trailingSpaceProgressConstraint" destination="T2D-pv-hnl" id="Fpv-XY-GpN"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MCN-rS-if2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVc-EO-YAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="269"/>
+            <point key="canvasLocation" x="219" y="761"/>
         </scene>
     </scenes>
     <resources>
