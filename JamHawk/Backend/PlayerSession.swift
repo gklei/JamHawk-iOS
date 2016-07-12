@@ -39,6 +39,4 @@ class PlayerSession {
 		}
 		_playerDataTask?.resume()
 	}
-	
-	
 }
