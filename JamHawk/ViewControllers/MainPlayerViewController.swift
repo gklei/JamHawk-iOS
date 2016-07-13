@@ -18,6 +18,9 @@ class MainPlayerViewController: UIViewController
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
 	@IBOutlet private var _nextAvailableCollectionView: UICollectionView!
 	
+	@IBOutlet private var _playPauseItem: UIBarButtonItem!
+	@IBOutlet private var _toggleMuteItem: UIBarButtonItem!
+	
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
 	
@@ -76,10 +79,54 @@ class MainPlayerViewController: UIViewController
 		_player.replaceCurrentItemWithPlayerItem(updatedItem)
 		_player.seekToTime(kCMTimeZero)
 		_player.play()
+		
+		_updateBarButtonItems()
 	}
 	
 	private func _updateUI(withOutput output: PlayerAPIOutput) {
 		let viewModel = PlayerAPIOutputViewModel(output: output)
 		_backgroundImageView.imageURL = viewModel.posterURL
+	}
+	
+	private func _updateBarButtonItems() {
+		let playPauseImageName = _player.paused ? "play" : "pause"
+		let toggleMuteImageName = _player.muted ? "mute" : "low_volume"
+		
+		_playPauseItem.image = UIImage(named: playPauseImageName)
+		_toggleMuteItem.image = UIImage(named: toggleMuteImageName)
+	}
+	
+	// MARK: - Actions
+	@IBAction private func _userProfileButtonPressed() {
+	}
+	
+	@IBAction private func _playPauseButtonPressed() {
+		_togglePlayPause()
+		_updateBarButtonItems()
+	}
+	
+	@IBAction private func _nextTrackButtonPressed() {
+		print("NEXT TRACK!")
+	}
+	
+	@IBAction private func _toggleMuteButtonPressed() {
+		_toggleMute()
+		_updateBarButtonItems()
+	}
+}
+
+// MARK: - AVPlayer Controls
+extension MainPlayerViewController {
+	private func _togglePlayPause() {
+		if _player.paused {
+			_player.play()
+		} else {
+			_player.pause()
+		}
+	}
+	
+	private func _toggleMute() {
+		let volume: Float = _player.muted ? 1.0 : 0.0
+		_player.volume = volume
 	}
 }

@@ -80,7 +80,7 @@ extension AppRouter {
 		}
 		if output.success {
 			self.session.instantiatePlayer({ (error, playerOutput) in
-				self._handlePlayerAPICallback(error, output: playerOutput, context: context)
+				self._handlePlayerInstantiationCallback(error, output: playerOutput, context: context)
 			})
 		}
 	}
@@ -88,7 +88,7 @@ extension AppRouter {
 
 // MARK: - Main Player
 extension AppRouter {
-	private func _handlePlayerAPICallback(error: NSError?, output: PlayerAPIOutput?, context: UIViewController) {
+	private func _handlePlayerInstantiationCallback(error: NSError?, output: PlayerAPIOutput?, context: UIViewController) {
 		if let error = error {
 			context.present(error)
 		}
@@ -97,12 +97,6 @@ extension AppRouter {
 		
 		let _ = _mainPlayerVC.view
 		_mainPlayerVC.update(withPlayerAPIOutput: output)
-		_showMainPlayer()
-	}
-	
-	private func _showMainPlayer() {
-		dispatch_async(dispatch_get_main_queue()) {
-			self.rootNavController.pushViewController(self._mainPlayerVC, animated: true)
-		}
+		self.rootNavController.pushViewController(self._mainPlayerVC, animated: true)
 	}
 }

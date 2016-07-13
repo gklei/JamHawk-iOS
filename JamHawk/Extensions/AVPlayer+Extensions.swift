@@ -26,3 +26,13 @@ extension AVPlayerItem {
 		self.init(URL: url)
 	}
 }
+
+extension AVPlayer {
+	var paused: Bool {
+		return rate == 0
+	}
+	
+	var muted: Bool {
+		return volume == 0
+	}
+}
