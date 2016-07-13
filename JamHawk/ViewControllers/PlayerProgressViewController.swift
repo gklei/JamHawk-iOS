@@ -15,28 +15,40 @@ class PlayerProgressViewController: UIViewController {
 	
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
+	private var _timeObserver: AnyObject?
 	
 	// MARK: - Overridden
-	
-	// MARK: - Public
-	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
-		self.output = output
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		_resetProgressBar()
 	}
 	
-	func updateProgress(withTime time: CMTime) {
+	// MARK: - Public
+	func startObserving(player player: AVPlayer?) {
+		let interval = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
+		_timeObserver = player?.addPeriodicTimeObserverForInterval(interval, queue: nil) { [weak self] time in
+			self?._updateProgress(withCurrentTime: time)
+		}
+	}
+	
+	func stopObserving(player player: AVPlayer?) {
+		guard let timeObserver = _timeObserver else { return }
+		player?.removeTimeObserver(timeObserver)
+	}
+	
+	// MARK: - Private
+	private func _updateProgress(withCurrentTime time: CMTime) {
 		let seconds = CMTimeGetSeconds(time)
 		guard let totalDuration = output?.track?.duration else { return }
 		let progress = CGFloat(seconds) / CGFloat(totalDuration)
-		
-		let progressWidth = view.bounds.width - (view.bounds.width * progress)
+		let progressWidth = view.bounds.width * (1 - progress)
 		
 		dispatch_async(dispatch_get_main_queue()) {
 			self._trailingSpaceProgressConstraint.constant = progressWidth
 		}
 	}
 	
-	// MARK: - Private
 	private func _resetProgressBar() {
-		_trailingSpaceProgressConstraint.constant = view.bounds.width
+		self._trailingSpaceProgressConstraint.constant = self.view.bounds.width
 	}
 }

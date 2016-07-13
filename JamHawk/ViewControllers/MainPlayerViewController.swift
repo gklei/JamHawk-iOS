@@ -24,6 +24,8 @@ class MainPlayerViewController: UIViewController
 	
 	var _playerProgressViewController: PlayerProgressViewController?
 	
+	private var _timeObserver: AnyObject?
+	
 	// MARK: - Overridden
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .Default
@@ -53,7 +55,8 @@ class MainPlayerViewController: UIViewController
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
 		
-		_playerProgressViewController?.update(withPlayerAPIOutput: output)
+		_playerProgressViewController?.output = output
+		
 		_updatePlayer(withOutput: output)
 		_updateUI(withOutput: output)
 		
@@ -62,11 +65,12 @@ class MainPlayerViewController: UIViewController
 	
 	// MARK: - Private
 	private func _updatePlayer(withOutput output: PlayerAPIOutput) {
-		player = AVPlayer(output: output)
-		let interval = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
-		player?.addPeriodicTimeObserverForInterval(interval, queue: nil, usingBlock: { [weak self] time in
-			self?._playerProgressViewController?.updateProgress(withTime: time)
-			})
+		guard let updatedPlayer = AVPlayer(output: output) else { return }
+		
+		_playerProgressViewController?.stopObserving(player: player)
+		_playerProgressViewController?.startObserving(player: updatedPlayer)
+		
+		player = updatedPlayer
 		player?.play()
 	}
 	

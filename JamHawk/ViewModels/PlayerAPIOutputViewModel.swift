@@ -15,18 +15,4 @@ struct PlayerAPIOutputViewModel {
 		guard let poster = output.media?.poster else { return nil }
 		return NSURL(string: poster)
 	}
-	
-	var trackURL: NSURL? {
-		var urlString: String?
-		if let mp3 = output.media?.mp3 {
-			urlString = mp3
-		}
-		else if let m4v = output.media?.m4v {
-			urlString = m4v
-		}
-		else if let m4a = output.media?.m4a {
-			urlString = m4a
-		}
-		return urlString != nil ? NSURL(string: urlString!) : nil
-	}
 }
