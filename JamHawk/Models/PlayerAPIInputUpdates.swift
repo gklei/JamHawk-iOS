@@ -13,7 +13,7 @@ struct PlayerAPIInputUpdates: JSONEncodable {
 	let abandonedRequests: [Int]?
 	let canPlay: Bool?
 	let filter: PlayerAPIFilterSelection?
-	let select: Int?
+	let select: PlayerAPIMediaID?
 	let ratings: PlayerAPIMediaRatings?
 	
 	func toJSON() -> JSON {
