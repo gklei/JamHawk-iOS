@@ -8,7 +8,7 @@
 
 import AVFoundation
 
-extension AVPlayer {
+extension AVPlayerItem {
 	convenience init?(output: PlayerAPIOutput) {
 		var urlString: String?
 		if let mp3 = output.media?.mp3 {

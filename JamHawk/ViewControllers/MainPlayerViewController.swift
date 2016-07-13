@@ -20,10 +20,11 @@ class MainPlayerViewController: UIViewController
 	
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
-	var player: AVPlayer?
 	
-	var _playerProgressViewController: PlayerProgressViewController?
+	private var _playerProgressVC: PlayerProgressViewController?
+	private var _nextAvailableMediaDS: NextAvailableMediaDataSource?
 	
+	private var _player = AVPlayer()
 	private var _timeObserver: AnyObject?
 	
 	// MARK: - Overridden
@@ -34,9 +35,10 @@ class MainPlayerViewController: UIViewController
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let nib = UINib(nibName: "NextAvailableMediaCell", bundle: nil)
-		_nextAvailableCollectionView.registerNib(nib, forCellWithReuseIdentifier: "NextAvailableMediaCell")
+		let nib = UINib(nibName: NextAvailableMediaCell.xibName, bundle: nil)
+		_nextAvailableCollectionView.registerNib(nib, forCellWithReuseIdentifier: NextAvailableMediaCell.reuseID)
 		
+		_nextAvailableMediaDS = NextAvailableMediaDataSource(collectionView: _nextAvailableCollectionView)
 		_playbackControlsToolbar.update(backgroundColor: .whiteColor())
 	}
 	
@@ -46,8 +48,11 @@ class MainPlayerViewController: UIViewController
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if let playerProgressVC = segue.destinationViewController as? PlayerProgressViewController {
-			_playerProgressViewController = playerProgressVC
+		switch segue.destinationViewController {
+		case is PlayerProgressViewController:
+			_playerProgressVC = segue.destinationViewController as? PlayerProgressViewController
+			_playerProgressVC?.startObserving(player: _player)
+		default: break
 		}
 	}
 	
@@ -55,7 +60,8 @@ class MainPlayerViewController: UIViewController
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
 		
-		_playerProgressViewController?.output = output
+		_playerProgressVC?.output = output
+		_nextAvailableMediaDS?.output = output
 		
 		_updatePlayer(withOutput: output)
 		_updateUI(withOutput: output)
@@ -65,53 +71,15 @@ class MainPlayerViewController: UIViewController
 	
 	// MARK: - Private
 	private func _updatePlayer(withOutput output: PlayerAPIOutput) {
-		guard let updatedPlayer = AVPlayer(output: output) else { return }
+		guard let updatedItem = AVPlayerItem(output: output) else { return }
 		
-		_playerProgressViewController?.stopObserving(player: player)
-		_playerProgressViewController?.startObserving(player: updatedPlayer)
-		
-		player = updatedPlayer
-		player?.play()
+		_player.replaceCurrentItemWithPlayerItem(updatedItem)
+		_player.seekToTime(kCMTimeZero)
+		_player.play()
 	}
 	
 	private func _updateUI(withOutput output: PlayerAPIOutput) {
 		let viewModel = PlayerAPIOutputViewModel(output: output)
 		_backgroundImageView.imageURL = viewModel.posterURL
-	}
-}
-
-extension MainPlayerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-	func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-		return 1
-	}
-	
-	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return output?.next?.count ?? 0
-	}
-	
-	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("NextAvailableMediaCell", forIndexPath: indexPath) as! NextAvailableMediaCell
-		
-		if let next = output?.next {
-			let metadata = next[indexPath.row]
-			cell.update(withMetatdata: metadata)
-		}
-		
-		return cell
-	}
-	
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
-	{
-		let cellWidth: CGFloat = 80
-		let numberOfCells: CGFloat = 4.0
-		let cellSpacing: CGFloat = 5
-		
-		let viewWidth = UIScreen.mainScreen().bounds.width
-		let totalContentWidth = numberOfCells * cellWidth + ((numberOfCells - 1) * cellSpacing)
-		
-		var leftEdgeInset = (viewWidth - totalContentWidth) * 0.5
-		leftEdgeInset = max(leftEdgeInset, 0)
-		
-		return UIEdgeInsets(top: 5, left: leftEdgeInset, bottom: 5, right: leftEdgeInset)
 	}
 }

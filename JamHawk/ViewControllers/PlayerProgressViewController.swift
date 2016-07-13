@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
+
 class PlayerProgressViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet private var _trailingSpaceProgressConstraint: NSLayoutConstraint!
@@ -24,16 +26,16 @@ class PlayerProgressViewController: UIViewController {
 	}
 	
 	// MARK: - Public
-	func startObserving(player player: AVPlayer?) {
-		let interval = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
-		_timeObserver = player?.addPeriodicTimeObserverForInterval(interval, queue: nil) { [weak self] time in
+	func startObserving(player player: AVPlayer) {
+		_timeObserver = player.addPeriodicTimeObserverForInterval(k60FramesPerSec, queue: nil) {
+			[weak self] time in
 			self?._updateProgress(withCurrentTime: time)
 		}
 	}
 	
-	func stopObserving(player player: AVPlayer?) {
+	func stopObserving(player player: AVPlayer) {
 		guard let timeObserver = _timeObserver else { return }
-		player?.removeTimeObserver(timeObserver)
+		player.removeTimeObserver(timeObserver)
 	}
 	
 	// MARK: - Private

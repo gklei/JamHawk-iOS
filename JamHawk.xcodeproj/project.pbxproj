@@ -44,6 +44,7 @@
 		CEFFF7981D358F8D00D083F1 /* UIToolbar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */; };
 		CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */; };
 		CEFFF79C1D359A1500D083F1 /* AVPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */; };
+		CEFFF79E1D369B0400D083F1 /* NextAvailableMediaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIToolbar+Extensions.swift"; path = "JamHawk/Extensions/UIToolbar+Extensions.swift"; sourceTree = "<group>"; };
 		CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerProgressViewController.swift; path = JamHawk/ViewControllers/PlayerProgressViewController.swift; sourceTree = "<group>"; };
 		CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AVPlayer+Extensions.swift"; path = "JamHawk/Extensions/AVPlayer+Extensions.swift"; sourceTree = "<group>"; };
+		CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaDataSource.swift; path = JamHawk/DataSources/NextAvailableMediaDataSource.swift; sourceTree = "<group>"; };
 		E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +266,7 @@
 				CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */,
 				CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */,
 				CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */,
+				CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */,
 				CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */,
 				CE7E68321D342EB900516570 /* PlayerAPIInputStatus.swift in Sources */,
+				CEFFF79E1D369B0400D083F1 /* NextAvailableMediaDataSource.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
