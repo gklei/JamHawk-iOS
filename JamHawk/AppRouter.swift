@@ -27,6 +27,8 @@ class AppRouter {
 		_signInVC.signUpButtonPressed = _signUp
 		_signInVC.signInButtonPressed = _signIn
 		
+		_mainPlayerVC.nextTrackButtonPressed = _getNextTrack
+		
 		let _ = _tempInitialVC.view
 		_tempInitialVC.update(.SigningIn)
 		
@@ -88,6 +90,12 @@ extension AppRouter {
 
 // MARK: - Main Player
 extension AppRouter {
+	private func _getNextTrack() {
+		session.requestNextTrack { (error, output) in
+			self._handlePlayerAPICallback(error, output: output, context: self._mainPlayerVC)
+		}
+	}
+	
 	private func _handlePlayerInstantiationCallback(error: NSError?, output: PlayerAPIOutput?, context: UIViewController) {
 		if let error = error {
 			context.present(error)
@@ -95,8 +103,17 @@ extension AppRouter {
 		
 		guard let output = output else { return }
 		
-		let _ = _mainPlayerVC.view
+		let _ = _mainPlayerVC.view // load the view
 		_mainPlayerVC.update(withPlayerAPIOutput: output)
-		self.rootNavController.pushViewController(self._mainPlayerVC, animated: true)
+		rootNavController.pushViewController(_mainPlayerVC, animated: true)
+	}
+	
+	private func _handlePlayerAPICallback(error: NSError?, output: PlayerAPIOutput?, context: UIViewController) {
+		if let error = error {
+			context.present(error)
+		}
+		
+		guard let output = output else { return }
+		_mainPlayerVC.update(withPlayerAPIOutput: output)
 	}
 }
