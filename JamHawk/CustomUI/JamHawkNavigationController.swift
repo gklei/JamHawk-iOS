@@ -15,6 +15,8 @@ class JamHawkNavigationController: UINavigationController {
 		
 		makeNavBarTransparent()
 		makeNavBarShadowTransparent()
+		
+		navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
