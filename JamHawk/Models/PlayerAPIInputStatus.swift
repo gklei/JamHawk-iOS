@@ -21,6 +21,11 @@ struct PlayerAPIInputStatus: JSONEncodable {
 		return PlayerAPIInputStatus(playerID: "", requestID: 0, needInstance: true, needMedia: true, needNext: true, needFilters: true)
 	}
 	
+	// MARK: - Testing
+	static func requestNextTrackStatus(playerID: String) -> PlayerAPIInputStatus {
+		return PlayerAPIInputStatus(playerID: playerID, requestID: 0, needInstance: false, needMedia: true, needNext: true, needFilters: true)
+	}
+	
 	func toJSON() -> JSON {
 		return .Dictionary([
 			"playerID" : playerID.toJSON(),
