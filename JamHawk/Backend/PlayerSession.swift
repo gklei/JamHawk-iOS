@@ -39,4 +39,22 @@ class PlayerSession {
 		}
 		_playerDataTask?.resume()
 	}
+	
+	func requestNextTrack(callback: PlayerAPICallback) {
+		guard let id = _playerID else { return }
+		let statusInput = PlayerAPIInputStatus.requestNextTrackStatus(id)
+		let input = PlayerAPIInput(instance: nil, status: statusInput, updates: nil, events: nil)
+		guard let request = input.generateRequest() else { return }
+		
+		_playerDataTask?.cancel()
+		_playerDataTask = _session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+			
+			let output = PlayerAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				
+				callback(error: error, output: output)
+			}
+		})
+		_playerDataTask?.resume()
+	}
 }

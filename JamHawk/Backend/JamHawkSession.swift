@@ -51,4 +51,8 @@ class JamHawkSession {
 	func instantiatePlayer(callback: PlayerAPICallback) {
 		_playerSession.instantiatePlayer(callback)
 	}
+	
+	func requestNextTrack(callback: PlayerAPICallback) {
+		_playerSession.requestNextTrack(callback)
+	}
 }
