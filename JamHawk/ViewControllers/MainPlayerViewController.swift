@@ -30,9 +30,11 @@ class MainPlayerViewController: UIViewController
 	private var _player = AVPlayer()
 	private var _timeObserver: AnyObject?
 	
+	var nextTrackButtonPressed: () -> Void = {}
+	
 	// MARK: - Overridden
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .Default
+		return .LightContent
 	}
 	
 	override func viewDidLoad() {
@@ -106,7 +108,7 @@ class MainPlayerViewController: UIViewController
 	}
 	
 	@IBAction private func _nextTrackButtonPressed() {
-		print("NEXT TRACK!")
+		nextTrackButtonPressed()
 	}
 	
 	@IBAction private func _toggleMuteButtonPressed() {
