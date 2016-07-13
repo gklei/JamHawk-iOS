@@ -194,19 +194,20 @@
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
-				CEFFF7941D358D8800D083F1 /* View Models */,
-				CED404EF1D2713840083365F /* Models */,
-				CED404EE1D26F7880083365F /* Operations */,
 				CED404ED1D26F7500083365F /* Backend */,
 				CED404E21D26E6210083365F /* Custom UI */,
+				CEFFF79F1D36E34200D083F1 /* Data Sources */,
 				CEC91F971D26D3180006B657 /* Extensions */,
 				E51EB60DCDCD65CE4B97C96B /* Frameworks */,
 				CE9B94851D26B67600B0F53D /* JamHawk */,
 				CE9B949A1D26B67700B0F53D /* JamHawkTests */,
+				CED404EF1D2713840083365F /* Models */,
+				CED404EE1D26F7880083365F /* Operations */,
 				B0F71CD2A8DA061C8C833267 /* Pods */,
 				CE9B94841D26B67600B0F53D /* Products */,
 				CED404DE1D26D44B0083365F /* Storyboards */,
 				CED404DF1D26D45F0083365F /* View Controllers */,
+				CEFFF7941D358D8800D083F1 /* View Models */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,7 +267,6 @@
 				CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */,
 				CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */,
 				CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */,
-				CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -323,6 +323,14 @@
 				CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */,
 			);
 			name = "View Models";
+			sourceTree = "<group>";
+		};
+		CEFFF79F1D36E34200D083F1 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */,
+			);
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 		E51EB60DCDCD65CE4B97C96B /* Frameworks */ = {
