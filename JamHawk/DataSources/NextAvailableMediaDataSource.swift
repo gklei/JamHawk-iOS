@@ -54,9 +54,9 @@ extension NextAvailableMediaDataSource: UICollectionViewDataSource {
 extension NextAvailableMediaDataSource: UICollectionViewDelegate {
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
 	{
-		let cellWidth: CGFloat = 80
-		let numberOfCells: CGFloat = 4.0
-		let cellSpacing: CGFloat = 5
+		let cellWidth: CGFloat = 70
+		let numberOfCells: CGFloat = CGFloat(output?.next?.count ?? 0)
+		let cellSpacing: CGFloat = 10
 		
 		let viewWidth = UIScreen.mainScreen().bounds.width
 		let totalContentWidth = numberOfCells * cellWidth + ((numberOfCells - 1) * cellSpacing)
@@ -64,7 +64,7 @@ extension NextAvailableMediaDataSource: UICollectionViewDelegate {
 		var leftEdgeInset = (viewWidth - totalContentWidth) * 0.5
 		leftEdgeInset = max(leftEdgeInset, 0)
 		
-		return UIEdgeInsets(top: 5, left: leftEdgeInset, bottom: 5, right: leftEdgeInset)
+		return UIEdgeInsets(top: 10, left: leftEdgeInset, bottom: 10, right: leftEdgeInset)
 	}
 
 }

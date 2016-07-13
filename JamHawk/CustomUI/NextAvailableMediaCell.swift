@@ -20,6 +20,7 @@ class NextAvailableMediaCell: UICollectionViewCell {
 	// MARK: - Overridden
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		layer.cornerRadius = 3.0
 	}
 	
 	// MARK: - Public
