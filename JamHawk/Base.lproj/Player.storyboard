@@ -63,7 +63,7 @@
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HoP-Ov-kk5"/>
                                     <barButtonItem image="next_track" id="CGs-Hz-Lbk">
-                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="tintColor" red="0.59274327973235119" green="0.60835423453571469" blue="0.63793599174358984" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_nextTrackButtonPressed" destination="eFK-hP-Wx9" id="f8j-Wd-1gj"/>
                                         </connections>
