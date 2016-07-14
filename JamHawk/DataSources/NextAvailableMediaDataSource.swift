@@ -14,11 +14,6 @@ class NextAvailableMediaDataSource: NSObject {
 	private let _collectionView: UICollectionView
 	private var _output: PlayerAPIOutput?
 	
-	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
-		_output = output
-		_collectionView.reloadData()
-	}
-	
 	init(collectionView: UICollectionView) {
 		_collectionView = collectionView
 		super.init()
@@ -26,14 +21,14 @@ class NextAvailableMediaDataSource: NSObject {
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
 	}
+	
+	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
+		_output = output
+		_collectionView.reloadData()
+	}
 }
 
 extension NextAvailableMediaDataSource: UICollectionViewDataSource {
-	
-	func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-		return 1
-	}
-	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return _output?.next?.count ?? 0
 	}
@@ -55,9 +50,9 @@ extension NextAvailableMediaDataSource: UICollectionViewDataSource {
 extension NextAvailableMediaDataSource: UICollectionViewDelegate {
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
 	{
-		let cellWidth: CGFloat = 70
+		let cellWidth: CGFloat = 48
 		let numberOfCells: CGFloat = CGFloat(_output?.next?.count ?? 0)
-		let cellSpacing: CGFloat = 10
+		let cellSpacing: CGFloat = 11
 		
 		let viewWidth = UIScreen.mainScreen().bounds.width
 		let totalContentWidth = numberOfCells * cellWidth + ((numberOfCells - 1) * cellSpacing)
@@ -65,7 +60,7 @@ extension NextAvailableMediaDataSource: UICollectionViewDelegate {
 		var leftEdgeInset = (viewWidth - totalContentWidth) * 0.5
 		leftEdgeInset = max(leftEdgeInset, 0)
 		
-		return UIEdgeInsets(top: 10, left: leftEdgeInset, bottom: 10, right: leftEdgeInset)
+		return UIEdgeInsets(top: 0, left: leftEdgeInset, bottom: 0, right: leftEdgeInset)
 	}
 
 }

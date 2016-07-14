@@ -11,17 +11,18 @@ import AVFoundation
 import AsyncImageView
 import IncipiaKit
 
-class MainPlayerViewController: UIViewController
-{
+class MainPlayerViewController: UIViewController {
+	
 	// MARK: - Outlets
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
-	@IBOutlet private var _nextAvailableCollectionView: UICollectionView!
 	
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
 	
-	private var _nextAvailableMediaDS: NextAvailableMediaDataSource?
 	private let _jamhawkTitleViewController = JamhawkTitleViewController()
+	
+	private var _playerFiltersVC: PlayerFiltersViewController?
+	private var _nextAvailableMediaVC: NextAvailableMediaViewController?
 	private var _playerControlsVC: PlayerControlsViewController?
 	
 	var nextTrackButtonPressed: () -> Void = {}
@@ -30,15 +31,14 @@ class MainPlayerViewController: UIViewController
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let nib = UINib(nibName: NextAvailableMediaCell.xibName, bundle: nil)
-		_nextAvailableCollectionView.registerNib(nib, forCellWithReuseIdentifier: NextAvailableMediaCell.reuseID)
-		
-		_nextAvailableMediaDS = NextAvailableMediaDataSource(collectionView: _nextAvailableCollectionView)
-		
 		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
 		let titleView = _jamhawkTitleViewController.view
 		titleView.frame = titleViewFrame
 		navigationItem.titleView = titleView
+	}
+	
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return .LightContent
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -49,18 +49,21 @@ class MainPlayerViewController: UIViewController
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-		resetNavBarTransparency()
-	}
-	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
+		let color = UIColor(white: 0, alpha: 0.3)
+		navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color), forBarMetrics: .Default)
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		switch segue.destinationViewController {
+		
+		let destinationVC = segue.destinationViewController
+		switch destinationVC {
 		case is PlayerControlsViewController:
-			_playerControlsVC = segue.destinationViewController as? PlayerControlsViewController
+			_playerControlsVC = destinationVC as? PlayerControlsViewController
 			_playerControlsVC?.delegate = self
+		case is NextAvailableMediaViewController:
+			_nextAvailableMediaVC = destinationVC as? NextAvailableMediaViewController
+		case is PlayerFiltersViewController:
+			_playerFiltersVC = destinationVC as? PlayerFiltersViewController
 		default: break
 		}
 	}
@@ -69,8 +72,9 @@ class MainPlayerViewController: UIViewController
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
 		
+		_playerFiltersVC?.update(withPlayerAPIOutput: output)
+		_nextAvailableMediaVC?.update(withPlayerAPIOutput: output)
 		_playerControlsVC?.update(withPlayerAPIOutput: output)
-		_nextAvailableMediaDS?.update(withPlayerAPIOutput: output)
 		
 		_updateUI(withOutput: output)
 	}
