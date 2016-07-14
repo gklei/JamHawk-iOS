@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -45,39 +45,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem image="tabbar-user" id="hy1-1S-twN">
-                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <connections>
-                                            <action selector="_userProfileButtonPressed" destination="eFK-hP-Wx9" id="0cT-uE-ugR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
-                                    <barButtonItem image="pause" id="4Ye-Pd-oXL">
-                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <connections>
-                                            <action selector="_playPauseButtonPressed" destination="eFK-hP-Wx9" id="WMB-Un-TZn"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HoP-Ov-kk5"/>
-                                    <barButtonItem image="next_track" id="CGs-Hz-Lbk">
-                                        <color key="tintColor" red="0.59274327973235119" green="0.60835423453571469" blue="0.63793599174358984" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="_nextTrackButtonPressed" destination="eFK-hP-Wx9" id="f8j-Wd-1gj"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
-                                    <barButtonItem image="low_volume" id="duz-AP-gyL">
-                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <connections>
-                                            <action selector="_toggleMuteButtonPressed" destination="eFK-hP-Wx9" id="SFq-pt-C6s"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaJ-Ai-Z7h">
                                 <rect key="frame" x="0.0" y="616" width="414" height="75"/>
                                 <constraints>
@@ -94,6 +61,41 @@
                                     <constraint firstAttribute="height" constant="1" id="EDp-Yu-Ncp"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem image="tabbar-user" width="24" id="hy1-1S-twN">
+                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="_userProfileButtonPressed" destination="eFK-hP-Wx9" id="0cT-uE-ugR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kIQ-W5-BKV"/>
+                                    <barButtonItem width="28" style="plain" systemItem="fixedSpace" id="9yj-uK-1Pp"/>
+                                    <barButtonItem image="pause" width="24" id="4Ye-Pd-oXL">
+                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="_playPauseButtonPressed" destination="eFK-hP-Wx9" id="WMB-Un-TZn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OQf-cE-jDb"/>
+                                    <barButtonItem image="next_track" width="24" id="CGs-Hz-Lbk">
+                                        <color key="tintColor" red="0.59274327973235119" green="0.60835423453571469" blue="0.63793599174358984" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="_nextTrackButtonPressed" destination="eFK-hP-Wx9" id="f8j-Wd-1gj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
+                                    <barButtonItem image="low_volume" width="24" id="duz-AP-gyL">
+                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="_toggleMuteButtonPressed" destination="eFK-hP-Wx9" id="SFq-pt-C6s"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
