@@ -18,16 +18,19 @@ protocol PlayerControlsViewControllerDelegate: class {
 }
 
 class PlayerControlsViewController: UIViewController {
-	// MARK: - Properties
-	weak var delegate: PlayerControlsViewControllerDelegate?
 	
-	private var _playerProgressVC: PlayerProgressViewController?
-	private let _player = AVPlayer()
-	
+	// MARK: - Outlets
 	@IBOutlet private var _playPauseItem: UIBarButtonItem!
 	@IBOutlet private var _toggleMuteItem: UIBarButtonItem!
 	@IBOutlet private var _profileItem: UIBarButtonItem!
 	
+	// MARK: - Properties
+	weak var delegate: PlayerControlsViewControllerDelegate?
+	
+	private var _playerProgressVC: PlayerProgressViewController?
+	private let _player = AVPlayer() // TODO: Take player out of here...
+	
+	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		_setupProfileBarButtonItem()
@@ -42,15 +45,11 @@ class PlayerControlsViewController: UIViewController {
 		}
 	}
 	
+	// MARK: - Private
 	private func _setupProfileBarButtonItem() {
 		let selector: Selector = #selector(PlayerControlsViewController._userProfileButtonPressed)
 		let profileButton = UIButton.jamhawkUserProfileButton(withTarget: self, selector: selector)
 		_profileItem.customView = profileButton
-	}
-	
-	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
-		_playerProgressVC?.output = output
-		_updatePlayer(withOutput: output)
 	}
 	
 	private func _updatePlayer(withOutput output: PlayerAPIOutput) {
@@ -93,5 +92,11 @@ class PlayerControlsViewController: UIViewController {
 		
 		_playPauseItem.image = UIImage(named: playPauseImageName)
 		_toggleMuteItem.image = UIImage(named: toggleMuteImageName)
+	}
+	
+	// MARK: - Public
+	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
+		_playerProgressVC?.output = output
+		_updatePlayer(withOutput: output)
 	}
 }

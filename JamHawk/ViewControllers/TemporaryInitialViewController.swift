@@ -14,9 +14,11 @@ enum TemporaryInitialState: String {
 }
 
 class TemporaryInitialViewController: UIViewController {
+	
 	// MARK: - Outlets
 	@IBOutlet private var _mainLabel: UILabel!
 	
+	// MARK: - Overridden
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		makeNavBarTransparent()

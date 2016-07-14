@@ -9,6 +9,7 @@
 import UIKit
 
 class NextAvailableMediaViewController: UIViewController {
+	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!
 	private var _nextAvailableMediaDS: NextAvailableMediaDataSource?

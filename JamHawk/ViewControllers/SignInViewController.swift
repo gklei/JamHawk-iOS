@@ -11,6 +11,7 @@ import IncipiaKit
 
 class SignInViewController: UIViewController
 {
+	// MARK: - Outlets
 	@IBOutlet private var _emailTextField: BottomBorderTextField!
 	@IBOutlet private var _passwordTextField: BottomBorderTextField!
 	

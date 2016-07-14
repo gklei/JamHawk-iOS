@@ -12,6 +12,7 @@ import AVFoundation
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
 class PlayerProgressViewController: UIViewController {
+	
 	// MARK: - Outlets
 	@IBOutlet private var _trailingSpaceProgressConstraint: NSLayoutConstraint!
 	
