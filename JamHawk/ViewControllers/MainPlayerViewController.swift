@@ -19,8 +19,6 @@ class MainPlayerViewController: UIViewController {
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
 	
-	private let _jamhawkTitleViewController = JamhawkTitleViewController()
-	
 	private var _playerFiltersVC: PlayerFiltersViewController?
 	private var _nextAvailableMediaVC: NextAvailableMediaViewController?
 	private var _playerControlsVC: PlayerControlsViewController?
@@ -32,7 +30,7 @@ class MainPlayerViewController: UIViewController {
 		super.viewDidLoad()
 		
 		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
-		let titleView = _jamhawkTitleViewController.view
+		let titleView = JamhawkTitleViewController().view
 		titleView.frame = titleViewFrame
 		navigationItem.titleView = titleView
 	}
