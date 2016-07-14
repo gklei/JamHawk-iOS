@@ -18,6 +18,7 @@ class MainPlayerViewController: UIViewController
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
 	@IBOutlet private var _nextAvailableCollectionView: UICollectionView!
 	
+	@IBOutlet private var _profileItem: UIBarButtonItem!
 	@IBOutlet private var _playPauseItem: UIBarButtonItem!
 	@IBOutlet private var _toggleMuteItem: UIBarButtonItem!
 	
@@ -29,6 +30,7 @@ class MainPlayerViewController: UIViewController
 	
 	private var _player = AVPlayer()
 	private var _timeObserver: AnyObject?
+	private let _jamhawkTitleViewController = JamhawkTitleViewController()
 	
 	var nextTrackButtonPressed: () -> Void = {}
 	
@@ -44,12 +46,34 @@ class MainPlayerViewController: UIViewController
 		_nextAvailableCollectionView.registerNib(nib, forCellWithReuseIdentifier: NextAvailableMediaCell.reuseID)
 		
 		_nextAvailableMediaDS = NextAvailableMediaDataSource(collectionView: _nextAvailableCollectionView)
+		
 		_playbackControlsToolbar.update(backgroundColor: .whiteColor())
+		_playbackControlsToolbar.makeShadowTransparent()
+		
+		let profileButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+		profileButton.setImage(UIImage(named: "headphones"), forState: .Normal)
+		profileButton.backgroundColor = UIColor.orangeColor()
+		profileButton.tintColor = UIColor.whiteColor()
+		profileButton.layer.cornerRadius = 12.0
+		profileButton.layer.borderColor = UIColor.jmhLightGrayColor().CGColor
+		profileButton.layer.borderWidth = 2
+		
+		let selector: Selector = #selector(MainPlayerViewController._userProfileButtonPressed)
+		profileButton.addTarget(self, action: selector, forControlEvents: .TouchUpInside)
+		
+		_profileItem.customView = profileButton
+		
+		
+		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
+		let titleView = _jamhawkTitleViewController.view
+		titleView.frame = titleViewFrame
+		navigationItem.titleView = titleView
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
+		removeRightBarItem()
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -99,7 +123,7 @@ class MainPlayerViewController: UIViewController
 	}
 	
 	// MARK: - Actions
-	@IBAction private func _userProfileButtonPressed() {
+	@objc @IBAction private func _userProfileButtonPressed() {
 	}
 	
 	@IBAction private func _playPauseButtonPressed() {

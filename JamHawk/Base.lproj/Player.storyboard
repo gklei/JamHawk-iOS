@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -22,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Ti-99-eEH">
-                                <rect key="frame" x="0.0" y="526" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="573" width="414" height="90"/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.0" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="kMD-zM-Yg1"/>
@@ -46,26 +45,20 @@
                                 </cells>
                             </collectionView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaJ-Ai-Z7h">
-                                <rect key="frame" x="0.0" y="616" width="414" height="75"/>
+                                <rect key="frame" x="0.0" y="663" width="414" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="kPh-x2-EuS"/>
+                                    <constraint firstAttribute="height" constant="25" id="kPh-x2-EuS"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="9EW-Pu-hpM" kind="embed" id="YIM-VB-5kh"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m24-5d-pOF" userLabel="Border View">
-                                <rect key="frame" x="0.0" y="691" width="414" height="1"/>
-                                <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="EDp-Yu-Ncp"/>
-                                </constraints>
-                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-k7-kCm">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="688" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem image="tabbar-user" width="24" id="hy1-1S-twN">
-                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <barButtonItem image="headphones" width="24" id="hy1-1S-twN">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
+                                        <color key="tintColor" red="0.16447375710000001" green="0.53145653010000005" blue="0.42417222259999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_userProfileButtonPressed" destination="eFK-hP-Wx9" id="0cT-uE-ugR"/>
                                         </connections>
@@ -73,48 +66,57 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="viX-Pa-ekI"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kIQ-W5-BKV"/>
                                     <barButtonItem width="28" style="plain" systemItem="fixedSpace" id="9yj-uK-1Pp"/>
-                                    <barButtonItem image="pause" width="24" id="4Ye-Pd-oXL">
-                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <barButtonItem image="play" style="plain" id="4Ye-Pd-oXL">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
+                                        <color key="tintColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_playPauseButtonPressed" destination="eFK-hP-Wx9" id="WMB-Un-TZn"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="OQf-cE-jDb"/>
-                                    <barButtonItem image="next_track" width="24" id="CGs-Hz-Lbk">
-                                        <color key="tintColor" red="0.59274327973235119" green="0.60835423453571469" blue="0.63793599174358984" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="next_track" id="CGs-Hz-Lbk">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
+                                        <color key="tintColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_nextTrackButtonPressed" destination="eFK-hP-Wx9" id="f8j-Wd-1gj"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qOG-Dc-UQD"/>
                                     <barButtonItem image="low_volume" width="24" id="duz-AP-gyL">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
                                         <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <action selector="_toggleMuteButtonPressed" destination="eFK-hP-Wx9" id="SFq-pt-C6s"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vB4-QW-Prx" userLabel="Bottom Padding View">
+                                <rect key="frame" x="0.0" y="732" width="414" height="4"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="jAD-tE-ea0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gaJ-Ai-Z7h" firstAttribute="top" secondItem="2Ti-99-eEH" secondAttribute="bottom" id="0FN-xA-rSZ"/>
-                            <constraint firstItem="m24-5d-pOF" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="2N9-Dc-Udq"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="3n1-JI-LHa"/>
                             <constraint firstItem="2Ti-99-eEH" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="6Xf-re-pUC"/>
                             <constraint firstItem="ovB-k7-kCm" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="EvS-Mc-uba"/>
                             <constraint firstItem="gaJ-Ai-Z7h" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="IVw-hP-y3o"/>
+                            <constraint firstItem="vB4-QW-Prx" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="MZo-pk-GGe"/>
                             <constraint firstAttribute="trailing" secondItem="ovB-k7-kCm" secondAttribute="trailing" id="Mi5-Mp-Dpq"/>
-                            <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ovB-k7-kCm" secondAttribute="bottom" id="Q6n-CV-otx"/>
-                            <constraint firstItem="ovB-k7-kCm" firstAttribute="top" secondItem="m24-5d-pOF" secondAttribute="bottom" id="Sos-Lh-W7d"/>
                             <constraint firstAttribute="trailing" secondItem="2Ti-99-eEH" secondAttribute="trailing" id="TGP-de-CZs"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ffU-sH-OeD" secondAttribute="bottom" id="Tms-aM-h5d"/>
+                            <constraint firstAttribute="trailing" secondItem="vB4-QW-Prx" secondAttribute="trailing" id="WSQ-YM-asF"/>
                             <constraint firstAttribute="trailing" secondItem="gaJ-Ai-Z7h" secondAttribute="trailing" id="aLy-Fx-uUU"/>
-                            <constraint firstItem="m24-5d-pOF" firstAttribute="top" secondItem="gaJ-Ai-Z7h" secondAttribute="bottom" id="car-8S-7xa"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="top" secondItem="6qq-VQ-SyG" secondAttribute="top" id="fUf-va-Wgo"/>
                             <constraint firstAttribute="trailing" secondItem="ffU-sH-OeD" secondAttribute="trailing" id="k46-pI-Efb"/>
-                            <constraint firstAttribute="trailing" secondItem="m24-5d-pOF" secondAttribute="trailing" id="v6b-rj-Ekj"/>
+                            <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="vB4-QW-Prx" secondAttribute="bottom" id="qmA-xe-RMm"/>
+                            <constraint firstItem="ovB-k7-kCm" firstAttribute="top" secondItem="gaJ-Ai-Z7h" secondAttribute="bottom" id="yu9-Ls-96r"/>
+                            <constraint firstItem="vB4-QW-Prx" firstAttribute="top" secondItem="ovB-k7-kCm" secondAttribute="bottom" id="zuq-tf-CnF"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -123,12 +125,34 @@
                         <outlet property="_nextAvailableCollectionView" destination="2Ti-99-eEH" id="HUh-KU-dZB"/>
                         <outlet property="_playPauseItem" destination="4Ye-Pd-oXL" id="f5V-78-hOe"/>
                         <outlet property="_playbackControlsToolbar" destination="ovB-k7-kCm" id="6LY-UE-aFe"/>
+                        <outlet property="_profileItem" destination="hy1-1S-twN" id="tkI-1u-Kao"/>
                         <outlet property="_toggleMuteItem" destination="duz-AP-gyL" id="h2s-sa-kfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WH-fG-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="219" y="251"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h63-B4-F2v">
+            <objects>
+                <viewController id="eYF-eb-H3C" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Omf-Ye-HEv"/>
+                        <viewControllerLayoutGuide type="bottom" id="vNR-GO-xBC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fAT-Su-jaK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="100"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agT-e7-aDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="369"/>
         </scene>
         <!--Player Progress View Controller-->
         <scene sceneID="umN-24-4Ca">
@@ -139,39 +163,35 @@
                         <viewControllerLayoutGuide type="bottom" id="rex-ak-8tG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YIy-Pu-u7h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RX-IW-4Mu">
-                                <rect key="frame" x="0.0" y="41" width="414" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+                                <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U89-Ok-Edb">
-                                <rect key="frame" x="0.0" y="41" width="314" height="34"/>
+                                <rect key="frame" x="0.0" y="0.0" width="314" height="25"/>
                                 <color key="backgroundColor" red="0.15585234440000001" green="0.81713434689999997" blue="0.66084594050000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khj-Od-IA8" customClass="PlayheadView" customModule="JamHawk" customModuleProvider="target">
-                                <rect key="frame" x="309" y="33" width="10" height="5"/>
-                                <color key="backgroundColor" red="0.98190045250000002" green="0.1069980281" blue="0.1649238002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="10" id="5VC-VI-ral"/>
-                                    <constraint firstAttribute="height" constant="5" id="X87-xm-eE4"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U89-Ok-Edb" firstAttribute="top" secondItem="khj-Od-IA8" secondAttribute="bottom" constant="3" id="6bw-Gy-iuK"/>
                             <constraint firstAttribute="bottom" secondItem="U89-Ok-Edb" secondAttribute="bottom" id="75S-Tj-XQ1"/>
                             <constraint firstItem="1RX-IW-4Mu" firstAttribute="leading" secondItem="YIy-Pu-u7h" secondAttribute="leading" id="Ekf-Ju-zAI"/>
+                            <constraint firstItem="1RX-IW-4Mu" firstAttribute="height" secondItem="YIy-Pu-u7h" secondAttribute="height" id="L7f-wg-6MX"/>
                             <constraint firstItem="U89-Ok-Edb" firstAttribute="height" secondItem="1RX-IW-4Mu" secondAttribute="height" id="N5R-MR-3CN"/>
                             <constraint firstAttribute="trailing" secondItem="U89-Ok-Edb" secondAttribute="trailing" constant="100" id="T2D-pv-hnl"/>
                             <constraint firstAttribute="trailing" secondItem="1RX-IW-4Mu" secondAttribute="trailing" id="Wps-ZT-lRj"/>
-                            <constraint firstItem="1RX-IW-4Mu" firstAttribute="height" secondItem="YIy-Pu-u7h" secondAttribute="height" multiplier="0.45" id="bSV-gY-F0G"/>
+                            <constraint firstItem="1RX-IW-4Mu" firstAttribute="height" secondItem="YIy-Pu-u7h" secondAttribute="height" id="bSV-gY-F0G"/>
                             <constraint firstItem="U89-Ok-Edb" firstAttribute="leading" secondItem="YIy-Pu-u7h" secondAttribute="leading" id="hr4-6l-eEz"/>
                             <constraint firstAttribute="bottom" secondItem="1RX-IW-4Mu" secondAttribute="bottom" id="m3m-BB-3wM"/>
-                            <constraint firstItem="khj-Od-IA8" firstAttribute="trailing" secondItem="U89-Ok-Edb" secondAttribute="trailing" constant="5" id="sjS-Ln-rXx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bSV-gY-F0G"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="_trailingSpaceProgressConstraint" destination="T2D-pv-hnl" id="Fpv-XY-GpN"/>
@@ -183,9 +203,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="headphones" width="10" height="10"/>
         <image name="low_volume" width="18" height="18"/>
-        <image name="next_track" width="17" height="17"/>
-        <image name="pause" width="9" height="17"/>
-        <image name="tabbar-user" width="14" height="20"/>
+        <image name="next_track" width="26" height="16"/>
+        <image name="play" width="13" height="16"/>
     </resources>
 </document>

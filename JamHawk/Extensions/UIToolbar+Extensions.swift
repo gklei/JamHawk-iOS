@@ -13,4 +13,8 @@ extension UIToolbar {
 		let image = UIImage.imageWithColor(color)
 		setBackgroundImage(image, forToolbarPosition: .Any, barMetrics: .Default)
 	}
+	
+	func makeShadowTransparent() {
+		setShadowImage(UIImage(), forToolbarPosition: .Any)
+	}
 }
