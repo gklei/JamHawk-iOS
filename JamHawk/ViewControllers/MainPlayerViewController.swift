@@ -26,15 +26,6 @@ class MainPlayerViewController: UIViewController {
 	var nextTrackButtonPressed: () -> Void = {}
 	
 	// MARK: - Overridden
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
-		let titleView = JamhawkTitleViewController().view
-		titleView.frame = titleViewFrame
-		navigationItem.titleView = titleView
-	}
-	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
 	}
@@ -43,6 +34,7 @@ class MainPlayerViewController: UIViewController {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
 		removeRightBarItem()
+		_setupTitleView()
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -52,7 +44,6 @@ class MainPlayerViewController: UIViewController {
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		
 		let destinationVC = segue.destinationViewController
 		switch destinationVC {
 		case is PlayerControlsViewController:
@@ -81,6 +72,13 @@ class MainPlayerViewController: UIViewController {
 	private func _updateUI(withOutput output: PlayerAPIOutput) {
 		let viewModel = PlayerAPIOutputViewModel(output: output)
 		_backgroundImageView.imageURL = viewModel.posterURL
+	}
+	
+	private func _setupTitleView() {
+		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
+		let titleView = JamhawkTitleViewController().view
+		titleView.frame = titleViewFrame
+		navigationItem.titleView = titleView
 	}
 }
 
