@@ -12,10 +12,11 @@ class NextAvailableMediaDataSource: NSObject {
 	
 	// MARK: - Properties
 	private let _collectionView: UICollectionView
-	var output: PlayerAPIOutput? {
-		didSet {
-			_collectionView.reloadData()
-		}
+	private var _output: PlayerAPIOutput?
+	
+	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
+		_output = output
+		_collectionView.reloadData()
 	}
 	
 	init(collectionView: UICollectionView) {
@@ -34,7 +35,7 @@ extension NextAvailableMediaDataSource: UICollectionViewDataSource {
 	}
 	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return output?.next?.count ?? 0
+		return _output?.next?.count ?? 0
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -42,7 +43,7 @@ extension NextAvailableMediaDataSource: UICollectionViewDataSource {
 		let cellID = NextAvailableMediaCell.reuseID
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellID, forIndexPath: indexPath) as! NextAvailableMediaCell
 		
-		if let next = output?.next {
+		if let next = _output?.next {
 			let metadata = next[indexPath.row]
 			cell.update(withMetatdata: metadata)
 		}
@@ -55,7 +56,7 @@ extension NextAvailableMediaDataSource: UICollectionViewDelegate {
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
 	{
 		let cellWidth: CGFloat = 70
-		let numberOfCells: CGFloat = CGFloat(output?.next?.count ?? 0)
+		let numberOfCells: CGFloat = CGFloat(_output?.next?.count ?? 0)
 		let cellSpacing: CGFloat = 10
 		
 		let viewWidth = UIScreen.mainScreen().bounds.width

@@ -14,6 +14,7 @@
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
 		CE10F1281D3816F500D69682 /* JamhawkTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10F1261D3816F500D69682 /* JamhawkTitleViewController.swift */; };
 		CE10F1291D3816F500D69682 /* JamhawkTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE10F1271D3816F500D69682 /* JamhawkTitleViewController.xib */; };
+		CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */; };
 		CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2B69031D2C97EE00EAFF16 /* Player.storyboard */; };
 		CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */; };
 		CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69381D2EC39C00EAFF16 /* UserAccessAPIInput.swift */; };
@@ -70,6 +71,7 @@
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
 		CE10F1261D3816F500D69682 /* JamhawkTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamhawkTitleViewController.swift; path = JamHawk/ViewControllers/JamhawkTitleViewController.swift; sourceTree = "<group>"; };
 		CE10F1271D3816F500D69682 /* JamhawkTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JamhawkTitleViewController.xib; path = JamHawk/ViewControllers/JamhawkTitleViewController.xib; sourceTree = "<group>"; };
+		CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsViewController.swift; path = JamHawk/ViewControllers/PlayerControlsViewController.swift; sourceTree = "<group>"; };
 		CE2B69041D2C97EE00EAFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Player.storyboard; sourceTree = "<group>"; };
 		CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendProtocols.swift; path = JamHawk/Backend/BackendProtocols.swift; sourceTree = "<group>"; };
 		CE2B69381D2EC39C00EAFF16 /* UserAccessAPIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInput.swift; path = JamHawk/Models/UserAccessAPIInput.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */,
 				CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */,
 				CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */,
+				CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */,
 				C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */,
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
+				CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */,
 				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
 				CEFFF7981D358F8D00D083F1 /* UIToolbar+Extensions.swift in Sources */,

@@ -35,4 +35,16 @@ extension AVPlayer {
 	var muted: Bool {
 		return volume == 0
 	}
+	
+	func togglePlayPause() {
+		if paused {
+			play()
+		} else {
+			pause()
+		}
+	}
+	
+	func toggleMute() {
+		volume = muted ? 1.0 : 0.0
+	}
 }
