@@ -30,7 +30,7 @@ class PlayerControlsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		_setupProfileItem()
+		_setupProfileBarButtonItem()
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -42,18 +42,9 @@ class PlayerControlsViewController: UIViewController {
 		}
 	}
 	
-	private func _setupProfileItem() {
-		let profileButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-		profileButton.setImage(UIImage(named: "headphones"), forState: .Normal)
-		profileButton.backgroundColor = UIColor.orangeColor()
-		profileButton.tintColor = UIColor.whiteColor()
-		profileButton.layer.cornerRadius = 12.0
-		profileButton.layer.borderColor = UIColor.jmhLightGrayColor().CGColor
-		profileButton.layer.borderWidth = 2
-		
+	private func _setupProfileBarButtonItem() {
 		let selector: Selector = #selector(PlayerControlsViewController._userProfileButtonPressed)
-		profileButton.addTarget(self, action: selector, forControlEvents: .TouchUpInside)
-		
+		let profileButton = UIButton.jamhawkUserProfileButton(withTarget: self, selector: selector)
 		_profileItem.customView = profileButton
 	}
 	

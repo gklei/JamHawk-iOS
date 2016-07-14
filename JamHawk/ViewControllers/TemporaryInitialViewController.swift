@@ -17,6 +17,11 @@ class TemporaryInitialViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet private var _mainLabel: UILabel!
 	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		makeNavBarTransparent()
+	}
+	
 	// MARK: - Public
 	func update(state: TemporaryInitialState) {
 		_mainLabel.text = state.rawValue

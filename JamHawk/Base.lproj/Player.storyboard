@@ -121,7 +121,7 @@
                                     <constraint firstAttribute="height" constant="4" id="7tO-H3-kMb"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqZ-6e-fc9">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqZ-6e-fc9" customClass="PlayerControlsToolbar" customModule="JamHawk" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="12" width="600" height="44"/>
                                 <items>
                                     <barButtonItem image="headphones" width="24" id="Y2Q-2q-P4a">
@@ -134,7 +134,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="S5L-a8-NUa"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IHj-sg-oS5"/>
                                     <barButtonItem width="28" style="plain" systemItem="fixedSpace" id="h5t-Vd-6ek"/>
-                                    <barButtonItem image="play" style="plain" id="uuE-hq-KTO">
+                                    <barButtonItem image="play" width="20" style="plain" id="uuE-hq-KTO">
                                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
                                         <color key="tintColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -201,11 +201,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RX-IW-4Mu">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.89411765336990356" green="0.89411765336990356" blue="0.89019608497619629" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U89-Ok-Edb">
                                 <rect key="frame" x="0.0" y="0.0" width="500" height="50"/>
-                                <color key="backgroundColor" red="0.15585234440000001" green="0.81713434689999997" blue="0.66084594050000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>

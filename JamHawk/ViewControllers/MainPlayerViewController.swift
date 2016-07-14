@@ -47,6 +47,11 @@ class MainPlayerViewController: UIViewController
 		removeRightBarItem()
 	}
 	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		resetNavBarTransparency()
+	}
+	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
 	}
