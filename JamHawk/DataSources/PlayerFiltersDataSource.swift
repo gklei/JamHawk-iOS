@@ -35,7 +35,7 @@ extension PlayerFiltersDataSource: UICollectionViewDataSource {
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ParentFilterCell", forIndexPath: indexPath)
-		cell.contentView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+		cell.contentView.backgroundColor = UIColor(white: 0, alpha: 0.7)
 		return cell
 	}
 }
