@@ -8,15 +8,6 @@
 
 import Foundation
 
-struct PlayerAPIOutputViewModel {
-	let output: PlayerAPIOutput
-	
-	var posterURL: NSURL? {
-		guard let poster = output.media?.poster else { return nil }
-		return NSURL(string: poster)
-	}
-}
-
 struct PlayerAPIOutputMediaViewModel {
 	let media: PlayerAPIOutputMedia
 	
