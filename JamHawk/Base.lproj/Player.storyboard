@@ -32,16 +32,16 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ww-DI-mLh">
-                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="683" width="414" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="EWV-0X-QHY"/>
+                                    <constraint firstAttribute="height" constant="53" id="EWV-0X-QHY"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="eYF-eb-H3C" kind="embed" id="VUf-be-xXk"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-ve-drH">
-                                <rect key="frame" x="0.0" y="552" width="414" height="124"/>
+                                <rect key="frame" x="0.0" y="559" width="414" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="1K6-M2-aqZ"/>
                                 </constraints>
@@ -168,14 +168,6 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2b-eF-0AV" userLabel="Progress Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="12"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="5" id="bEC-50-bAU"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="bEC-50-bAU"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <segue destination="9EW-Pu-hpM" kind="embed" id="PAf-fT-etr"/>
                                 </connections>

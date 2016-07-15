@@ -37,12 +37,6 @@ class MainPlayerViewController: UIViewController {
 		_setupTitleView()
 	}
 	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		let color = UIColor(white: 0, alpha: 0.3)
-		navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color), forBarMetrics: .Default)
-	}
-	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		let destinationVC = segue.destinationViewController
 		switch destinationVC {
