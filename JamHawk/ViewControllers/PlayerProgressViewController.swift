@@ -41,12 +41,13 @@ class PlayerProgressViewController: UIViewController {
 	
 	// MARK: - Private
 	private func _updateProgress(withCurrentTime time: CMTime) {
-		let seconds = CMTimeGetSeconds(time)
 		guard let totalDuration = output?.track?.duration else { return }
-		let progress = CGFloat(seconds) / CGFloat(totalDuration)
-		let progressWidth = view.bounds.width * (1 - progress)
 		
-		_trailingSpaceProgressConstraint.constant = progressWidth
+		let seconds = CMTimeGetSeconds(time)
+		let progress = CGFloat(seconds) / CGFloat(totalDuration)
+		let trailingSpaceConstant = view.bounds.width * (1 - progress)
+		
+		_trailingSpaceProgressConstraint.constant = trailingSpaceConstant
 	}
 	
 	private func _resetProgressBar() {
