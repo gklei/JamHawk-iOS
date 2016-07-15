@@ -41,7 +41,8 @@ extension PlayerFiltersDataSource: UICollectionViewDataSource {
 		
 		if let available = _output?.filters?.available {
 			let filter = available[indexPath.row]
-			cell.update(withFilter: filter)
+			let vm = PlayerAPIOutputFilterViewModel(filter: filter)
+			cell.update(withViewModel: vm)
 		}
 		return cell
 	}
@@ -51,7 +52,8 @@ extension PlayerFiltersDataSource: UICollectionViewDelegate {
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		if let available = _output?.filters?.available {
 			let filter = available[indexPath.row]
-			print("Options for \(filter.label): \(filter.filterNames)")
+			let vm = PlayerAPIOutputFilterViewModel(filter: filter)
+			print("Options for \(filter.label): \(vm.subFilterNames)")
 		}
 	}
 }

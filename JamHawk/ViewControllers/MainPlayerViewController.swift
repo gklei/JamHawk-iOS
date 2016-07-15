@@ -64,8 +64,10 @@ class MainPlayerViewController: UIViewController {
 	
 	// MARK: - Private
 	private func _updateUI(withOutput output: PlayerAPIOutput) {
-		let viewModel = PlayerAPIOutputViewModel(output: output)
-		_backgroundImageView.imageURL = viewModel.posterURL
+		guard let media = output.media else { return }
+		
+		let vm = PlayerAPIOutputMediaViewModel(media: media)
+		_backgroundImageView.imageURL = vm.posterURL
 	}
 	
 	private func _setupTitleView() {

@@ -40,7 +40,8 @@ extension NextAvailableMediaDataSource: UICollectionViewDataSource {
 		
 		if let next = _output?.next {
 			let metadata = next[indexPath.row]
-			cell.update(withMetatdata: metadata)
+			let vm = PlayerAPIOutputMetadataViewModel(metatdata: metadata)
+			cell.update(withViewModel: vm)
 		}
 		
 		return cell

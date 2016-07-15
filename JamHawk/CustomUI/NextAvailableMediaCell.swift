@@ -24,8 +24,7 @@ class NextAvailableMediaCell: UICollectionViewCell {
 	}
 	
 	// MARK: - Public
-	func update(withMetatdata metatdata: PlayerAPIOutputMetadata) {
-		guard let imageURL = NSURL(string: metatdata.imageURL ?? "") else { return }
-		_backgroundImageView.imageURL = imageURL
+	func update(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
+		_backgroundImageView.imageURL = vm.albumArtworkURL
 	}
 }

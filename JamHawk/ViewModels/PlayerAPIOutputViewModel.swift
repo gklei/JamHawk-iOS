@@ -16,3 +16,33 @@ struct PlayerAPIOutputViewModel {
 		return NSURL(string: poster)
 	}
 }
+
+struct PlayerAPIOutputMediaViewModel {
+	let media: PlayerAPIOutputMedia
+	
+	var posterURL: NSURL? {
+		guard let posterURLString = media.poster else { return nil }
+		return NSURL(string: posterURLString)
+	}
+}
+
+struct PlayerAPIOutputFilterViewModel {
+	let filter: PlayerAPIOutputFilter
+	
+	var filterName: String {
+		return filter.label
+	}
+	
+	var subFilterNames: [String] {
+		return filter.filterNames
+	}
+}
+
+struct PlayerAPIOutputMetadataViewModel {
+	let metatdata: PlayerAPIOutputMetadata
+	
+	var albumArtworkURL: NSURL? {
+		guard let imageURLString = metatdata.imageURL else { return nil }
+		return NSURL(string: imageURLString)
+	}
+}

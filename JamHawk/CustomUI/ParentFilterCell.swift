@@ -25,8 +25,8 @@ class ParentFilterCell: UICollectionViewCell {
 	}
 	
 	// MARK: - Public
-	func update(withFilter filter: PlayerAPIOutputFilter) {
-		_filterNameLabel.text = filter.label
+	func update(withViewModel vm: PlayerAPIOutputFilterViewModel) {
+		_filterNameLabel.text = vm.filterName
 		_filterSelectionLabel.text = "No Selection"
 	}
 }
