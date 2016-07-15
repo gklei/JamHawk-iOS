@@ -36,4 +36,28 @@ struct PlayerAPIOutputMetadataViewModel {
 		guard let imageURLString = metatdata.imageURL else { return nil }
 		return NSURL(string: imageURLString)
 	}
+	
+	var songTitle: String? {
+		return metatdata.title
+	}
+	
+	var artistName: String? {
+		return metatdata.artist
+	}
+	
+	var albumTitle: String? {
+		return metatdata.album
+	}
+}
+
+struct PlayerAPIOutputArtistViewModel {
+	let artist: PlayerAPIOutputArtist
+	
+	var name: String? {
+		return artist.name
+	}
+	
+	var text: String? {
+		return artist.text
+	}
 }

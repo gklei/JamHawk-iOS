@@ -63,5 +63,4 @@ extension NextAvailableMediaDataSource: UICollectionViewDelegate {
 		
 		return UIEdgeInsets(top: 0, left: leftEdgeInset, bottom: 0, right: leftEdgeInset)
 	}
-
 }

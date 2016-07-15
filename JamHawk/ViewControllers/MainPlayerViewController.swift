@@ -20,6 +20,7 @@ class MainPlayerViewController: UIViewController {
 	var output: PlayerAPIOutput?
 	
 	private var _playerFiltersVC: PlayerFiltersViewController?
+	private var _currentTrackVotingVC: CurrentTrackVotingViewController?
 	private var _nextAvailableMediaVC: NextAvailableMediaViewController?
 	private var _playerControlsVC: PlayerControlsViewController?
 	
@@ -47,6 +48,8 @@ class MainPlayerViewController: UIViewController {
 			_nextAvailableMediaVC = destinationVC as? NextAvailableMediaViewController
 		case is PlayerFiltersViewController:
 			_playerFiltersVC = destinationVC as? PlayerFiltersViewController
+		case is CurrentTrackVotingViewController:
+			_currentTrackVotingVC = destinationVC as? CurrentTrackVotingViewController
 		default: break
 		}
 	}
@@ -56,6 +59,7 @@ class MainPlayerViewController: UIViewController {
 		self.output = output
 		
 		_playerFiltersVC?.update(withPlayerAPIOutput: output)
+		_currentTrackVotingVC?.update(withPlayerAPIOutput: output)
 		_nextAvailableMediaVC?.update(withPlayerAPIOutput: output)
 		_playerControlsVC?.update(withPlayerAPIOutput: output)
 		
