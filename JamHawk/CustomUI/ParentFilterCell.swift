@@ -21,8 +21,6 @@ class ParentFilterCell: UICollectionViewCell {
 	// MARK: - Overridden
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		// Initialization code
-		
 		backgroundColor = UIColor(white: 0, alpha: 0.5)
 	}
 	
