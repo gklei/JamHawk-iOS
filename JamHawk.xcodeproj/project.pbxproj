@@ -43,8 +43,6 @@
 		CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948D1D26B67600B0F53D /* Assets.xcassets */; };
 		CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */; };
 		CE9B949C1D26B67700B0F53D /* JamHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */; };
-		CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC91F981D26D3330006B657 /* UIStoryboard+Extensions.swift */; };
-		CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */; };
 		CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E01D26D49B0083365F /* SignInViewController.swift */; };
 		CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E31D26E6350083365F /* BottomBorderTextField.swift */; };
 		CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404EB1D26F20E0083365F /* JamHawkSession.swift */; };
@@ -110,8 +108,6 @@
 		CE9B94971D26B67700B0F53D /* JamHawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHawkTests.swift; sourceTree = "<group>"; };
 		CE9B949D1D26B67700B0F53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEC91F981D26D3330006B657 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "JamHawk/Extensions/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
-		CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "JamHawk/Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CED404E01D26D49B0083365F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CED404E31D26E6350083365F /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = JamHawk/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
 		CED404EB1D26F20E0083365F /* JamHawkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkSession.swift; path = JamHawk/Backend/JamHawkSession.swift; sourceTree = "<group>"; };
@@ -185,8 +181,6 @@
 		CE2B69471D2EF07000EAFF16 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEC91F981D26D3330006B657 /* UIStoryboard+Extensions.swift */,
-				CEC91F9A1D26D3580006B657 /* UIViewController+Extensions.swift */,
 				CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */,
 				CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */,
 				CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */,
@@ -548,7 +542,6 @@
 				CE747BFE1D3839E50006D1B6 /* PlayerFiltersDataSource.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
 				CE2B69411D2EE1FD00EAFF16 /* PlayerAPITypes.swift in Sources */,
-				CEC91F9B1D26D3580006B657 /* UIViewController+Extensions.swift in Sources */,
 				CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */,
 				C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */,
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
@@ -557,7 +550,6 @@
 				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
 				CEFFF7981D358F8D00D083F1 /* UIToolbar+Extensions.swift in Sources */,
-				CEC91F991D26D3330006B657 /* UIStoryboard+Extensions.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CE10F1281D3816F500D69682 /* JamhawkTitleViewController.swift in Sources */,
 				CE747BF81D382B0F0006D1B6 /* PlayerControlsToolbar.swift in Sources */,

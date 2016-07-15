@@ -36,7 +36,6 @@ extension UIColor {
 
 extension UIButton {
 	class func jamhawkUserProfileButton(withTarget target: AnyObject?, selector: Selector) -> UIButton {
-		
 		let profileButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
 		profileButton.setImage(UIImage(named: "headphones"), forState: .Normal)
 		profileButton.backgroundColor = UIColor.jmhTurquoiseColor()
