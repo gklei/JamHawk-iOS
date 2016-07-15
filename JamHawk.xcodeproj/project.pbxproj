@@ -30,6 +30,8 @@
 		CE747BFE1D3839E50006D1B6 /* PlayerFiltersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BFD1D3839E50006D1B6 /* PlayerFiltersDataSource.swift */; };
 		CE747C011D3885150006D1B6 /* JamhawkTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747BFF1D3885150006D1B6 /* JamhawkTitleViewController.xib */; };
 		CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */; };
+		CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */; };
+		CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */; };
 		CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */; };
 		CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */; };
 		CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E682D1D34251400516570 /* UserAccessSession.swift */; };
@@ -91,6 +93,8 @@
 		CE747BFD1D3839E50006D1B6 /* PlayerFiltersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerFiltersDataSource.swift; path = JamHawk/DataSources/PlayerFiltersDataSource.swift; sourceTree = "<group>"; };
 		CE747C001D3885150006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/JamhawkTitleViewController.xib; sourceTree = "<group>"; };
 		CE747C051D3885900006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/NextAvailableMediaCell.xib; sourceTree = "<group>"; };
+		CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentFilterCell.swift; path = JamHawk/CustomUI/ParentFilterCell.swift; sourceTree = "<group>"; };
+		CE747C0C1D38920C0006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/ParentFilterCell.xib; sourceTree = "<group>"; };
 		CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemporaryInitialViewController.swift; path = JamHawk/ViewControllers/TemporaryInitialViewController.swift; sourceTree = "<group>"; };
 		CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaCell.swift; path = JamHawk/CustomUI/NextAvailableMediaCell.swift; sourceTree = "<group>"; };
 		CE7E682D1D34251400516570 /* UserAccessSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessSession.swift; path = JamHawk/Backend/UserAccessSession.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		CED404DE1D26D44B0083365F /* Storyboards & Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */,
 				CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */,
 				CE747BFF1D3885150006D1B6 /* JamhawkTitleViewController.xib */,
 				CE9B948A1D26B67600B0F53D /* SignIn.storyboard */,
@@ -304,6 +309,7 @@
 				CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */,
 				C67A52CC1D36F42900A5C150 /* PlayheadView.swift */,
 				CE747BF71D382B0F0006D1B6 /* PlayerControlsToolbar.swift */,
+				CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				CE747C011D3885150006D1B6 /* JamhawkTitleViewController.xib in Resources */,
 				CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */,
 				CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */,
+				CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,
 				CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */,
 			);
@@ -557,6 +564,7 @@
 				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
 				CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */,
 				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */,
+				CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */,
 				CE2B693B1D2EC92700EAFF16 /* PlayerAPIInput.swift in Sources */,
 				CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */,
 				CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */,
@@ -607,6 +615,14 @@
 				CE747C051D3885900006D1B6 /* Base */,
 			);
 			name = NextAvailableMediaCell.xib;
+			sourceTree = "<group>";
+		};
+		CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE747C0C1D38920C0006D1B6 /* Base */,
+			);
+			name = ParentFilterCell.xib;
 			sourceTree = "<group>";
 		};
 		CE9B948A1D26B67600B0F53D /* SignIn.storyboard */ = {

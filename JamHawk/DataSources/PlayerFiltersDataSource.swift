@@ -20,6 +20,9 @@ class PlayerFiltersDataSource: NSObject {
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
+		
+		let nib = UINib(nibName: ParentFilterCell.xibName, bundle: nil)
+		_collectionView.registerNib(nib, forCellWithReuseIdentifier: ParentFilterCell.reuseID)
 	}
 
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
@@ -30,15 +33,25 @@ class PlayerFiltersDataSource: NSObject {
 
 extension PlayerFiltersDataSource: UICollectionViewDataSource {
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 3
+		return _output?.filters?.available?.count ?? 0
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ParentFilterCell", forIndexPath: indexPath)
-		cell.contentView.backgroundColor = UIColor(white: 0, alpha: 0.7)
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ParentFilterCell.reuseID, forIndexPath: indexPath) as! ParentFilterCell
+		
+		if let available = _output?.filters?.available {
+			let filter = available[indexPath.row]
+			cell.update(withFilter: filter)
+		}
 		return cell
 	}
 }
 
 extension PlayerFiltersDataSource: UICollectionViewDelegate {
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		if let available = _output?.filters?.available {
+			let filter = available[indexPath.row]
+			print("Options for \(filter.label): \(filter.filterNames)")
+		}
+	}
 }
