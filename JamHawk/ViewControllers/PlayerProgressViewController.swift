@@ -51,6 +51,6 @@ class PlayerProgressViewController: UIViewController {
 	}
 	
 	private func _resetProgressBar() {
-		self._trailingSpaceProgressConstraint.constant = self.view.bounds.width
+		_trailingSpaceProgressConstraint.constant = view.bounds.width
 	}
 }
