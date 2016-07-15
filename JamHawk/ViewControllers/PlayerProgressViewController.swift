@@ -46,7 +46,7 @@ class PlayerProgressViewController: UIViewController {
 		let progress = CGFloat(seconds) / CGFloat(totalDuration)
 		let progressWidth = view.bounds.width * (1 - progress)
 		
-      _trailingSpaceProgressConstraint.constant = progressWidth
+		_trailingSpaceProgressConstraint.constant = progressWidth
 	}
 	
 	private func _resetProgressBar() {
