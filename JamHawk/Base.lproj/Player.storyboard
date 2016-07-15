@@ -50,9 +50,9 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27">
-                                <rect key="frame" x="0.0" y="64" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="5lD-EQ-1Ka"/>
+                                    <constraint firstAttribute="height" constant="58" id="5lD-EQ-1Ka"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="GDz-aQ-PHe" kind="embed" id="hhc-6z-UYI"/>
@@ -299,24 +299,25 @@
             <objects>
                 <viewController id="GDz-aQ-PHe" customClass="PlayerFiltersViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LbK-fd-mfS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iWi-BP-PxI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
-                                <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.0" colorSpace="deviceRGB"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iWi-BP-PxI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="1" minimumInteritemSpacing="1" id="EGs-Uf-XoK">
-                                    <size key="itemSize" width="164" height="53"/>
+                                    <size key="itemSize" width="164" height="56"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ParentFilterCell" id="ALp-UX-eKt">
-                                        <rect key="frame" x="1" y="1" width="164" height="53"/>
+                                        <rect key="frame" x="0.0" y="1" width="164" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="164" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="164" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
