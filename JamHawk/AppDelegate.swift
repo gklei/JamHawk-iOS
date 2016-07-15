@@ -12,12 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
 	var window: UIWindow?
-	
 	var router: AppRouter?
 	let session = JamHawkSession()
 	
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
-	{
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		window = UIWindow()
 		router = AppRouter(window: window!, session: session)
 		
