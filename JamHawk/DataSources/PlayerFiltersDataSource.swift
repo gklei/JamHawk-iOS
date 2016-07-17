@@ -8,14 +8,19 @@
 
 import UIKit
 
+typealias FilterSelectionClosure = (filter: PlayerAPIOutputFilter) -> Void
+
 class PlayerFiltersDataSource: NSObject {
 	
 	// MARK: - Properties
 	private var _output: PlayerAPIOutput?
 	private let _collectionView: UICollectionView
 	
+	var selectionClosure: FilterSelectionClosure = {_ in}
+	
 	init(collectionView: UICollectionView) {
 		_collectionView = collectionView
+		
 		super.init()
 		
 		_collectionView.dataSource = self
@@ -52,8 +57,7 @@ extension PlayerFiltersDataSource: UICollectionViewDelegate {
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		if let available = _output?.filters?.available {
 			let filter = available[indexPath.row]
-			let vm = PlayerAPIOutputFilterViewModel(filter: filter)
-			print("Options for \(filter.label): \(vm.subFilterNames)")
+			selectionClosure(filter: filter)
 		}
 	}
 }

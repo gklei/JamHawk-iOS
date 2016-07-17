@@ -14,6 +14,12 @@ class PlayerFiltersViewController: UIViewController {
 	@IBOutlet private var _collectionView: UICollectionView!
 	
 	// MARK: - Properties
+	var selectionClosure: (filter: PlayerAPIOutputFilter) -> Void = {_ in} {
+		didSet {
+			_filtersDS?.selectionClosure = selectionClosure
+		}
+	}
+	
 	private var _filtersDS: PlayerFiltersDataSource?
 	
 	// MARK: - Overridden

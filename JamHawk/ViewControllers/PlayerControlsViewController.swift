@@ -14,7 +14,7 @@ enum PlayerControlsActionType {
 }
 
 protocol PlayerControlsViewControllerDelegate: class {
-	func playerControlsViewController(controller: PlayerControlsViewController, executedAction action: PlayerControlsActionType)
+	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType)
 }
 
 class PlayerControlsViewController: UIViewController {
@@ -62,7 +62,7 @@ class PlayerControlsViewController: UIViewController {
 	}
 	
 	internal func _userProfileButtonPressed() {
-		delegate?.playerControlsViewController(self, executedAction: .ShowProfile)
+		delegate?.playerControlsViewController(self, didExecuteAction: .ShowProfile)
 	}
 	
 	@IBAction private func _playPauseButtonPressed() {
@@ -71,11 +71,11 @@ class PlayerControlsViewController: UIViewController {
 		
 		// At this point if the player is paused, then the executed action was Pause
 		let action: PlayerControlsActionType = _player.paused ? .Pause : .Play
-		delegate?.playerControlsViewController(self, executedAction: action)
+		delegate?.playerControlsViewController(self, didExecuteAction: action)
 	}
 	
 	@IBAction private func _nextTrackButtonPressed() {
-		delegate?.playerControlsViewController(self, executedAction: .NextTrack)
+		delegate?.playerControlsViewController(self, didExecuteAction: .NextTrack)
 	}
 	
 	@IBAction private func _toggleMuteButtonPressed() {
@@ -83,7 +83,7 @@ class PlayerControlsViewController: UIViewController {
 		_updateBarButtonItems()
 		
 		let action: PlayerControlsActionType = _player.muted ? .Mute : .Unmute
-		delegate?.playerControlsViewController(self, executedAction: action)
+		delegate?.playerControlsViewController(self, didExecuteAction: action)
 	}
 	
 	private func _updateBarButtonItems() {

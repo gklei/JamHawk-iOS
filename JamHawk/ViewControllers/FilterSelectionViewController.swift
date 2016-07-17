@@ -9,27 +9,23 @@
 import UIKit
 
 class FilterSelectionViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+	// MARK: - Outlets
+	// MARK: - Properties
+	private let _filter: PlayerAPIOutputFilter
+	
+	// MARK: - Init
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("initWithCoder: not implemented")
+	}
+	
+	init(filter: PlayerAPIOutputFilter) {
+		_filter = filter
+		super.init(nibName: "FilterSelectionViewController", bundle: nil)
+	}
+	
+	// MARK: - Overridden
+	// MARK: - Setup
+	// MARK: - Private
+	// MARK: - Public
 }

@@ -26,6 +26,8 @@
 		CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */; };
 		CE6CE9931D3C15B10029659F /* FilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9911D3C15B10029659F /* FilterSelectionViewController.swift */; };
 		CE6CE9971D3C15C40029659F /* FilterSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE9951D3C15C40029659F /* FilterSelectionViewController.xib */; };
+		CE6CE9991D3C27C30029659F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9981D3C27C30029659F /* UIView+Extensions.swift */; };
+		CE6CE99B1D3C28620029659F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */; };
 		CE747BF81D382B0F0006D1B6 /* PlayerControlsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BF71D382B0F0006D1B6 /* PlayerControlsToolbar.swift */; };
 		CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */; };
 		CE747BFC1D3839BB0006D1B6 /* PlayerFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BFB1D3839BB0006D1B6 /* PlayerFiltersViewController.swift */; };
@@ -90,6 +92,8 @@
 		CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Jamhawk.swift"; path = "JamHawk/Extensions/UIColor+Jamhawk.swift"; sourceTree = "<group>"; };
 		CE6CE9911D3C15B10029659F /* FilterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterSelectionViewController.swift; path = JamHawk/ViewControllers/FilterSelectionViewController.swift; sourceTree = "<group>"; };
 		CE6CE9961D3C15C40029659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/FilterSelectionViewController.xib; sourceTree = "<group>"; };
+		CE6CE9981D3C27C30029659F /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "JamHawk/Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
+		CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CE747BF71D382B0F0006D1B6 /* PlayerControlsToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsToolbar.swift; path = JamHawk/CustomUI/PlayerControlsToolbar.swift; sourceTree = "<group>"; };
 		CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaViewController.swift; path = JamHawk/ViewControllers/NextAvailableMediaViewController.swift; sourceTree = "<group>"; };
 		CE747BFB1D3839BB0006D1B6 /* PlayerFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerFiltersViewController.swift; path = JamHawk/ViewControllers/PlayerFiltersViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */,
 				CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */,
 				CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */,
+				CE6CE9981D3C27C30029659F /* UIView+Extensions.swift */,
+				CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -541,9 +547,11 @@
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
 				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,
 				CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */,
+				CE6CE9991D3C27C30029659F /* UIView+Extensions.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
 				CE9347891D39892B0090A58C /* CurrentTrackVotingViewController.swift in Sources */,
+				CE6CE99B1D3C28620029659F /* UIViewController+Extensions.swift in Sources */,
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
 				CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */,
 				CE7E68361D342F3300516570 /* PlayerAPIInputUpdates.swift in Sources */,

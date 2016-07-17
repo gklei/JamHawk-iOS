@@ -16,19 +16,35 @@ class MainPlayerViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
 	
+	@IBOutlet private var _topContainer: UIView!
+	@IBOutlet private var _middleContainer: UIView!
+	@IBOutlet private var _bottomContainer: UIView!
+	@IBOutlet private var _playerControlsContainer: UIView!
+	
+	@IBOutlet private var _bottomContainerHeightConstraint: NSLayoutConstraint!
+	
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
 	
-	private var _playerFiltersVC: PlayerFiltersViewController?
-	private var _currentTrackVotingVC: CurrentTrackVotingViewController?
-	private var _nextAvailableMediaVC: NextAvailableMediaViewController?
-	private var _playerControlsVC: PlayerControlsViewController?
+	private let _playerFiltersVC = PlayerFiltersViewController.instantiate(fromStoryboard: "Player")
+	private let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.instantiate(fromStoryboard: "Player")
+	private let _nextAvailableMediaVC = NextAvailableMediaViewController.instantiate(fromStoryboard: "Player")
+	private let _playerControlsVC = PlayerControlsViewController.instantiate(fromStoryboard: "Player")
+	private var _filterSelectionVC: FilterSelectionViewController?
 	
 	var nextTrackButtonPressed: () -> Void = {}
 	
 	// MARK: - Overridden
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		add(childViewController: _playerFiltersVC, toContainer: _topContainer)
+		add(childViewController: _currentTrackVotingVC, toContainer: _middleContainer)
+		add(childViewController: _nextAvailableMediaVC, toContainer: _bottomContainer)
+		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
+		
+		_playerFiltersVC.selectionClosure = _filterSelected
+		_playerControlsVC.delegate = self
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -38,30 +54,26 @@ class MainPlayerViewController: UIViewController {
 		_setupTitleView()
 	}
 	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		let destinationVC = segue.destinationViewController
-		switch destinationVC {
-		case is PlayerControlsViewController:
-			_playerControlsVC = destinationVC as? PlayerControlsViewController
-			_playerControlsVC?.delegate = self
-		case is NextAvailableMediaViewController:
-			_nextAvailableMediaVC = destinationVC as? NextAvailableMediaViewController
-		case is PlayerFiltersViewController:
-			_playerFiltersVC = destinationVC as? PlayerFiltersViewController
-		case is CurrentTrackVotingViewController:
-			_currentTrackVotingVC = destinationVC as? CurrentTrackVotingViewController
-		default: break
-		}
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return .LightContent
+	}
+	
+	// MARK: - Setup
+	private func _setupTitleView() {
+		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
+		let titleView = JamhawkTitleViewController().view
+		titleView.frame = titleViewFrame
+		navigationItem.titleView = titleView
 	}
 	
 	// MARK: - Public
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
 		
-		_playerFiltersVC?.update(withPlayerAPIOutput: output)
-		_currentTrackVotingVC?.update(withPlayerAPIOutput: output)
-		_nextAvailableMediaVC?.update(withPlayerAPIOutput: output)
-		_playerControlsVC?.update(withPlayerAPIOutput: output)
+		_playerFiltersVC.update(withPlayerAPIOutput: output)
+		_currentTrackVotingVC.update(withPlayerAPIOutput: output)
+		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
+		_playerControlsVC.update(withPlayerAPIOutput: output)
 		
 		_updateUI(withOutput: output)
 	}
@@ -73,17 +85,32 @@ class MainPlayerViewController: UIViewController {
 		let vm = PlayerAPIOutputMediaViewModel(media: media)
 		_backgroundImageView.imageURL = vm.posterURL
 	}
-	
-	private func _setupTitleView() {
-		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
-		let titleView = JamhawkTitleViewController().view
-		titleView.frame = titleViewFrame
-		navigationItem.titleView = titleView
+}
+
+// MARK: - Filter Selection
+extension MainPlayerViewController {
+	private func _filterSelected(filter: PlayerAPIOutputFilter) {
+		if _filterSelectionVC != nil {
+			transition(from: _filterSelectionVC, to: _currentTrackVotingVC, usingContainer: _middleContainer) {
+				self._filterSelectionVC = nil
+			}
+		} else {
+			let filterSelectionVC = FilterSelectionViewController(filter: filter)
+			_filterSelectionVC = filterSelectionVC
+			transition(from: _currentTrackVotingVC, to: filterSelectionVC, usingContainer: _middleContainer)
+		}
+		
+		let bottomContainerHeight: CGFloat = _filterSelectionVC != nil ? 124 : 80
+		_bottomContainerHeightConstraint.constant = bottomContainerHeight
+		UIView.animateWithDuration(0.3) {
+			self.view.layoutIfNeeded()
+		}
 	}
 }
 
+// MARK: - Player Controls
 extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
-	func playerControlsViewController(controller: PlayerControlsViewController, executedAction action: PlayerControlsActionType) {
+	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType) {
 		if action == .NextTrack {
 			nextTrackButtonPressed()
 		}

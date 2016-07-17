@@ -37,33 +37,21 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="5lD-EQ-1Ka"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="GDz-aQ-PHe" kind="embed" id="hhc-6z-UYI"/>
-                                </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rB-2F-63i">
                                 <rect key="frame" x="0.0" y="122" width="414" height="437"/>
-                                <connections>
-                                    <segue destination="It7-wj-X6S" kind="embed" id="bHP-tQ-lzS"/>
-                                </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-ve-drH">
                                 <rect key="frame" x="0.0" y="559" width="414" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="1K6-M2-aqZ"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="Nxo-Wo-CjF" kind="embed" id="tsC-dg-KmN"/>
-                                </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ww-DI-mLh">
                                 <rect key="frame" x="0.0" y="683" width="414" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="EWV-0X-QHY"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="eYF-eb-H3C" kind="embed" id="VUf-be-xXk"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,6 +87,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="_backgroundImageView" destination="ffU-sH-OeD" id="E0G-jS-GQQ"/>
+                        <outlet property="_bottomContainer" destination="Sx4-ve-drH" id="L8C-v5-KET"/>
+                        <outlet property="_bottomContainerHeightConstraint" destination="1K6-M2-aqZ" id="vGL-bi-2K7"/>
+                        <outlet property="_middleContainer" destination="4rB-2F-63i" id="VI4-Yw-sie"/>
+                        <outlet property="_playerControlsContainer" destination="2Ww-DI-mLh" id="Anb-6a-F58"/>
+                        <outlet property="_topContainer" destination="mlp-ow-Z27" id="KSe-bH-FDW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WH-fG-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,7 +101,7 @@
         <!--Next Available Media View Controller-->
         <scene sceneID="6Se-zl-59Q">
             <objects>
-                <viewController id="Nxo-Wo-CjF" customClass="NextAvailableMediaViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NextAvailableMediaViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nxo-Wo-CjF" customClass="NextAvailableMediaViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tsL-o7-uAB"/>
                         <viewControllerLayoutGuide type="bottom" id="usV-ju-2F3"/>
@@ -157,6 +150,8 @@
                             <constraint firstAttribute="trailing" secondItem="miX-FT-dVr" secondAttribute="trailing" id="yHh-Sl-dUw"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="124"/>
                     <connections>
                         <outlet property="_collectionView" destination="miX-FT-dVr" id="nK1-aj-29r"/>
                     </connections>
@@ -168,7 +163,7 @@
         <!--Player Controls View Controller-->
         <scene sceneID="h63-B4-F2v">
             <objects>
-                <viewController id="eYF-eb-H3C" customClass="PlayerControlsViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerControlsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eYF-eb-H3C" customClass="PlayerControlsViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Omf-Ye-HEv"/>
                         <viewControllerLayoutGuide type="bottom" id="vNR-GO-xBC"/>
@@ -196,9 +191,6 @@
                                     <barButtonItem image="headphones" width="24" id="Y2Q-2q-P4a">
                                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
                                         <color key="tintColor" red="0.16447375710000001" green="0.53145653010000005" blue="0.42417222259999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="_userProfileButtonPressed" destination="eFK-hP-Wx9" id="Lf4-F8-NKw"/>
-                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="S5L-a8-NUa"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IHj-sg-oS5"/>
@@ -308,7 +300,7 @@
         <!--Player Filters View Controller-->
         <scene sceneID="k0Q-Tg-a71">
             <objects>
-                <viewController id="GDz-aQ-PHe" customClass="PlayerFiltersViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerFiltersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GDz-aQ-PHe" customClass="PlayerFiltersViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rQo-9o-iyO"/>
                         <viewControllerLayoutGuide type="bottom" id="raL-BD-81r"/>
@@ -347,6 +339,8 @@
                             <constraint firstAttribute="bottom" secondItem="iWi-BP-PxI" secondAttribute="bottom" id="h21-K3-v6d"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="58"/>
                     <connections>
                         <outlet property="_collectionView" destination="iWi-BP-PxI" id="Vwk-Wq-7q1"/>
                     </connections>
@@ -358,7 +352,7 @@
         <!--Current Track Voting Large View Controller-->
         <scene sceneID="tEq-tj-HQc">
             <objects>
-                <viewController id="It7-wj-X6S" customClass="CurrentTrackVotingLargeViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentTrackVotingLargeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="It7-wj-X6S" customClass="CurrentTrackVotingLargeViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gZi-od-M0I"/>
                         <viewControllerLayoutGuide type="bottom" id="xyA-UB-Lpo"/>
@@ -453,6 +447,8 @@
                             <constraint firstItem="aBU-7f-VlC" firstAttribute="top" secondItem="f3U-sq-ds7" secondAttribute="bottom" constant="8" id="a12-QV-DCt"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="437"/>
                     <connections>
                         <outlet property="_albumTitleLabel" destination="biZ-ri-I3q" id="Wrk-8O-Gky"/>
                         <outlet property="_artistNameLabel" destination="W6N-rc-e93" id="A2T-hA-SPL"/>
