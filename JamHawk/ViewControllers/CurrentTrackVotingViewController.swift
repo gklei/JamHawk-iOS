@@ -84,3 +84,14 @@ class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewController {
 		_albumTitleLabel.text = vm.albumTitle
 	}
 }
+
+class CurrentTrackVotingSmallViewController: CurrentTrackVotingViewController {
+	
+	// MARK: - Overriden
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+		_upvoteButton.backgroundColor = UIColor.clearColor()
+	}
+}

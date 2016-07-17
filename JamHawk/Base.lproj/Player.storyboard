@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -461,13 +462,108 @@
             </objects>
             <point key="canvasLocation" x="821" y="250.5"/>
         </scene>
+        <!--Current Track Voting Small View Controller-->
+        <scene sceneID="O7g-33-mZk">
+            <objects>
+                <viewController storyboardIdentifier="CurrentTrackVotingSmallViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xaj-35-zse" customClass="CurrentTrackVotingSmallViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NGM-1p-PbW"/>
+                        <viewControllerLayoutGuide type="bottom" id="DJV-9E-dbc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="chN-1W-Qlp">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwo-V5-JK5" userLabel="Thumbs Container">
+                                <rect key="frame" x="290" y="25" width="80" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWl-nQ-aBn">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pWl-nQ-aBn" secondAttribute="height" multiplier="1:1" id="cHy-W0-Rbh"/>
+                                            <constraint firstAttribute="width" constant="30" id="l4S-pL-3T4"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="downvote_small"/>
+                                        <connections>
+                                            <action selector="_downvoteButtonPressed" destination="It7-wj-X6S" eventType="touchUpInside" id="nUE-6z-zG7"/>
+                                            <action selector="_downvoteButtonPressed" destination="xaj-35-zse" eventType="touchUpInside" id="vcq-ok-G0Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRP-m5-ZMp">
+                                        <rect key="frame" x="50" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="oRP-m5-ZMp" secondAttribute="height" multiplier="1:1" id="9SL-s7-qKf"/>
+                                            <constraint firstAttribute="width" constant="30" id="Q7D-vd-YMU"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                                        <state key="normal" image="upvote_small"/>
+                                        <connections>
+                                            <action selector="_upvoteButtonPressed" destination="xaj-35-zse" eventType="touchUpInside" id="gYg-M3-Met"/>
+                                            <action selector="_upvoteButtonPressed" destination="It7-wj-X6S" eventType="touchUpInside" id="m51-hu-Qbg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pWl-nQ-aBn" firstAttribute="leading" secondItem="Vwo-V5-JK5" secondAttribute="leading" id="A0B-5a-j2u"/>
+                                    <constraint firstItem="oRP-m5-ZMp" firstAttribute="centerY" secondItem="Vwo-V5-JK5" secondAttribute="centerY" id="B5k-KS-don"/>
+                                    <constraint firstItem="pWl-nQ-aBn" firstAttribute="centerY" secondItem="Vwo-V5-JK5" secondAttribute="centerY" id="H9Z-5D-Nxd"/>
+                                    <constraint firstAttribute="height" constant="30" id="O06-ha-WBU"/>
+                                    <constraint firstAttribute="width" constant="80" id="OTV-x3-s62"/>
+                                    <constraint firstAttribute="trailing" secondItem="oRP-m5-ZMp" secondAttribute="trailing" id="p7A-H8-fmz"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8a-IC-bDc">
+                                <rect key="frame" x="20" y="22" width="262" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kng-G2-AJS">
+                                <rect key="frame" x="20" y="40.5" width="262" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="P8a-IC-bDc" firstAttribute="leading" secondItem="chN-1W-Qlp" secondAttribute="leading" constant="20" id="4M0-t9-nNt"/>
+                            <constraint firstItem="Vwo-V5-JK5" firstAttribute="leading" secondItem="P8a-IC-bDc" secondAttribute="trailing" constant="8" id="L2L-e9-KVR"/>
+                            <constraint firstItem="Kng-G2-AJS" firstAttribute="top" secondItem="P8a-IC-bDc" secondAttribute="bottom" constant="4" id="LZI-2L-QkR"/>
+                            <constraint firstItem="Kng-G2-AJS" firstAttribute="leading" secondItem="chN-1W-Qlp" secondAttribute="leading" constant="20" id="b62-Nl-Zef"/>
+                            <constraint firstAttribute="trailing" secondItem="Vwo-V5-JK5" secondAttribute="trailing" constant="30" id="fWH-O1-n0a"/>
+                            <constraint firstItem="Kng-G2-AJS" firstAttribute="bottom" secondItem="Vwo-V5-JK5" secondAttribute="bottom" id="hhB-Jg-FQt"/>
+                            <constraint firstItem="Vwo-V5-JK5" firstAttribute="leading" secondItem="Kng-G2-AJS" secondAttribute="trailing" constant="8" id="lCF-ye-FGC"/>
+                            <constraint firstItem="Vwo-V5-JK5" firstAttribute="centerY" secondItem="chN-1W-Qlp" secondAttribute="centerY" id="u1Q-GZ-uVf"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="80"/>
+                    <connections>
+                        <outlet property="_artistNameLabel" destination="Kng-G2-AJS" id="lTn-E2-efg"/>
+                        <outlet property="_downvoteButton" destination="pWl-nQ-aBn" id="xxt-Un-lca"/>
+                        <outlet property="_songTitleLabel" destination="P8a-IC-bDc" id="Rhh-a4-KXe"/>
+                        <outlet property="_upvoteButton" destination="oRP-m5-ZMp" id="hGK-vf-xdj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sFD-b1-3Ra" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1272" y="310"/>
+        </scene>
     </scenes>
     <resources>
         <image name="downvote" width="31" height="32"/>
+        <image name="downvote_small" width="15" height="16"/>
         <image name="headphones" width="10" height="10"/>
         <image name="low_volume" width="18" height="18"/>
         <image name="next_track" width="26" height="16"/>
         <image name="play" width="13" height="16"/>
         <image name="upvote" width="31" height="32"/>
+        <image name="upvote_small" width="15" height="16"/>
     </resources>
 </document>

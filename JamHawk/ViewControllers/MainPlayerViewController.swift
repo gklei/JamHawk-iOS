@@ -28,6 +28,7 @@ class MainPlayerViewController: UIViewController {
 	
 	private let _playerFiltersVC = PlayerFiltersViewController.instantiate(fromStoryboard: "Player")
 	private let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.instantiate(fromStoryboard: "Player")
+	private let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.instantiate(fromStoryboard: "Player")
 	private let _nextAvailableMediaVC = NextAvailableMediaViewController.instantiate(fromStoryboard: "Player")
 	private let _playerControlsVC = PlayerControlsViewController.instantiate(fromStoryboard: "Player")
 	private var _filterSelectionVC: FilterSelectionViewController?
@@ -90,19 +91,22 @@ class MainPlayerViewController: UIViewController {
 // MARK: - Filter Selection
 extension MainPlayerViewController {
 	private func _filterSelected(filter: PlayerAPIOutputFilter) {
+		let transitioningToFilterSelection = _filterSelectionVC == nil
 		if _filterSelectionVC != nil {
 			transition(from: _filterSelectionVC, to: _currentTrackVotingVC, usingContainer: _middleContainer) {
 				self._filterSelectionVC = nil
 			}
+			transition(from: _smallCurrentTrackVotingVC, to: _nextAvailableMediaVC, usingContainer: _bottomContainer)
 		} else {
 			let filterSelectionVC = FilterSelectionViewController(filter: filter)
 			_filterSelectionVC = filterSelectionVC
 			transition(from: _currentTrackVotingVC, to: filterSelectionVC, usingContainer: _middleContainer)
+			transition(from: _nextAvailableMediaVC, to: _smallCurrentTrackVotingVC, usingContainer: _bottomContainer)
 		}
 		
-		let bottomContainerHeight: CGFloat = _filterSelectionVC != nil ? 124 : 80
+		let bottomContainerHeight: CGFloat = transitioningToFilterSelection ? 80 : 124
 		_bottomContainerHeightConstraint.constant = bottomContainerHeight
-		UIView.animateWithDuration(0.3) {
+		UIView.animateWithDuration(0.2) {
 			self.view.layoutIfNeeded()
 		}
 	}

@@ -18,7 +18,7 @@ extension UIViewController {
 		toChildVC.view.alpha = 0
 		toChildVC.view.layoutIfNeeded()
 		
-		UIView.animateWithDuration(0.3, animations: {
+		UIView.animateWithDuration(0.2, animations: {
 			toChildVC.view.alpha = 1
 			fromChildVC?.view.alpha = 0
 		}) { completed in
