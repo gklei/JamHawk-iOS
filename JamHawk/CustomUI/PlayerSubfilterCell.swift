@@ -17,13 +17,12 @@ class PlayerSubfilterCell: UICollectionViewCell {
 	static let xibName = "PlayerSubfilterCell"
 	static let reuseID = "PlayerSubfilterCell"
 	
-	private var _circleColor: UIColor?
+	private var _circleColor = UIColor.jmhVeryLightGrayColor()
 	
 	// MARK: - Overridden
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		backgroundColor = .clearColor()
-		_circleColor = UIColor.jmhVeryLightGrayColor()
 	}
 	
 	// MARK: - Public
@@ -45,6 +44,7 @@ extension PlayerSubfilterCell {
 		didSet {
 			_nameLabel.textColor = highlighted ? .whiteColor() : UIColor(white: 0.45, alpha: 1)
 			_circleColor = highlighted ? .jmhTurquoiseColor() : .jmhVeryLightGrayColor()
+			setNeedsDisplay()
 			
 			if highlighted {
 				UIView.animateWithDuration(0.18, animations: { () -> Void in
@@ -56,14 +56,13 @@ extension PlayerSubfilterCell {
 					self.transform = CGAffineTransformIdentity
 				})
 			}
-			setNeedsDisplay()
 		}
 	}
 	
 	override func drawRect(rect: CGRect) {
 		let contextRef = UIGraphicsGetCurrentContext();
 		
-		_circleColor?.setFill()
+		_circleColor.setFill()
 		
 		// Fill the circle with the fill color
 		CGContextFillEllipseInRect(contextRef, rect);
