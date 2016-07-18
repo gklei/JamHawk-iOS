@@ -14,21 +14,11 @@ class FilterSelectionViewController: UIViewController {
 	@IBOutlet private var _collectionView: UICollectionView!
 	
 	// MARK: - Properties
-	private var _filter: PlayerAPIOutputFilter
+	private var _filter: PlayerAPIOutputFilter?
 	private var _playerSubfiltersDS: PlayerSubfiltersDataSource?
 	
-	var currentFilter: PlayerAPIOutputFilter {
+	var parentFilter: PlayerAPIOutputFilter? {
 		return _filter
-	}
-	
-	// MARK: - Init
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("initWithCoder: not implemented")
-	}
-	
-	init(filter: PlayerAPIOutputFilter) {
-		_filter = filter
-		super.init(nibName: FilterSelectionViewController.className, bundle: nil)
 	}
 	
 	// MARK: - Overridden
@@ -39,7 +29,6 @@ class FilterSelectionViewController: UIViewController {
 		_setupCollectionViewLayout()
 		
 		_playerSubfiltersDS = PlayerSubfiltersDataSource(collectionView: _collectionView)
-		_playerSubfiltersDS?.update(filter: _filter)
 	}
 	
 	// MARK: - Setup
@@ -54,9 +43,10 @@ class FilterSelectionViewController: UIViewController {
 		_collectionView.collectionViewLayout = layout
 	}
 	
-	// MARK: - Private
 	// MARK: - Public
 	func update(filter filter: PlayerAPIOutputFilter) {
+		guard _filter != filter else { return }
+		
 		_filter = filter
 		_playerSubfiltersDS?.update(filter: filter)
 	}

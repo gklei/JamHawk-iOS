@@ -25,6 +25,7 @@ class MainPlayerViewController: UIViewController {
 	
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
+	private var _currentState: MainPlayerState!
 	
 	private let _playerFiltersVC = PlayerFiltersViewController.instantiate(fromStoryboard: "Player")
 	private let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.instantiate(fromStoryboard: "Player")
@@ -46,6 +47,8 @@ class MainPlayerViewController: UIViewController {
 		
 		_playerFiltersVC.selectionClosure = _filterSelected
 		_playerControlsVC.delegate = self
+		
+		_currentState = DefaultHomeScreenState(delegate: self)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -71,10 +74,13 @@ class MainPlayerViewController: UIViewController {
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
 		
-		_playerFiltersVC.update(withPlayerAPIOutput: output)
 		_currentTrackVotingVC.update(withPlayerAPIOutput: output)
 		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
+		
+		if _filterSelectionVC == nil {
+			_playerFiltersVC.update(withPlayerAPIOutput: output)
+		}
 		
 		let _ = _smallCurrentTrackVotingVC.view
 		_smallCurrentTrackVotingVC.update(withPlayerAPIOutput: output)
@@ -94,34 +100,8 @@ class MainPlayerViewController: UIViewController {
 // MARK: - Filter Selection
 extension MainPlayerViewController {
 	private func _filterSelected(filter: PlayerAPIOutputFilter) {
-		var transitioningToFilterSelection = _filterSelectionVC == nil
-		
-		if transitioningToFilterSelection {
-			let filterSelectionVC = FilterSelectionViewController(filter: filter)
-			transition(from: _currentTrackVotingVC, to: filterSelectionVC, usingContainer: _middleContainer)
-			transition(from: _nextAvailableMediaVC, to: _smallCurrentTrackVotingVC, usingContainer: _bottomContainer)
-			
-			_filterSelectionVC = filterSelectionVC
-			_playerFiltersVC.scroll(toFilter: filter)
-		} else {
-			if let currentFilter = _filterSelectionVC?.currentFilter where currentFilter != filter {
-				_filterSelectionVC?.update(filter: filter)
-				_playerFiltersVC.scroll(toFilter: filter)
-				transitioningToFilterSelection = true
-			} else {
-				transition(from: _smallCurrentTrackVotingVC, to: _nextAvailableMediaVC, usingContainer: _bottomContainer)
-				transition(from: _filterSelectionVC, to: _currentTrackVotingVC, usingContainer: _middleContainer) {
-					self._filterSelectionVC = nil
-				}
-				_playerFiltersVC.deselectFilters()
-			}
-		}
-		
-		let bottomContainerHeight: CGFloat = transitioningToFilterSelection ? 80 : 124
-		_bottomContainerHeightConstraint.constant = bottomContainerHeight
-		UIView.animateWithDuration(0.2) {
-			self.view.layoutIfNeeded()
-		}
+		let state = FilterSelectionState(delegate: self, filter: filter)
+		_currentState = state.transition(duration: 0.2)
 	}
 }
 
@@ -131,5 +111,37 @@ extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 		if action == .NextTrack {
 			nextTrackButtonPressed()
 		}
+	}
+}
+
+extension MainPlayerViewController: MainPlayerStateDelegate {
+	var currentState: MainPlayerState {
+		return _currentState
+	}
+	var playerFiltersViewController: PlayerFiltersViewController {
+		return _playerFiltersVC
+	}
+	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController {
+		return _smallCurrentTrackVotingVC
+	}
+	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController {
+		return _currentTrackVotingVC
+	}
+	var nextAvailableMediaViewController: NextAvailableMediaViewController {
+		return _nextAvailableMediaVC
+	}
+	var playerControlsViewController: PlayerControlsViewController {
+		return _playerControlsVC
+	}
+	var filterSelectionViewController: FilterSelectionViewController? {
+		get {
+			return _filterSelectionVC
+		}
+		set {
+			_filterSelectionVC = newValue
+		}
+	}
+	var bottomContainerHeightConstraint: NSLayoutConstraint {
+		return _bottomContainerHeightConstraint
 	}
 }
