@@ -17,6 +17,7 @@ class ParentFilterCell: UICollectionViewCell {
 	
 	private let _leftBorder = UIView()
 	private let _rightBorder = UIView()
+	private let _highlightedBackgroundView = UIView()
 	private let _borderColor = UIColor(white: 1, alpha: 0.4)
 	
 	var showLeftBorder: Bool = true {
@@ -39,6 +40,7 @@ class ParentFilterCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		backgroundColor = .clearColor()
+		_downArrowImageView.tintColor = .whiteColor()
 		_setupBorders()
 	}
 	
@@ -59,7 +61,7 @@ extension ParentFilterCell {
 		bottomBorder.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
 		bottomBorder.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
 		bottomBorder.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-		bottomBorder.heightAnchor.constraintEqualToConstant(1).active = true
+		bottomBorder.heightAnchor.constraintEqualToConstant(2).active = true
 		
 		let topBorder = UIView()
 		topBorder.backgroundColor = _borderColor
@@ -69,23 +71,45 @@ extension ParentFilterCell {
 		topBorder.topAnchor.constraintEqualToAnchor(topAnchor).active = true
 		topBorder.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
 		topBorder.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-		topBorder.heightAnchor.constraintEqualToConstant(1).active = true
+		topBorder.heightAnchor.constraintEqualToConstant(2).active = true
 		
 		_leftBorder.backgroundColor = _borderColor
 		addSubview(_leftBorder)
 		
 		_leftBorder.translatesAutoresizingMaskIntoConstraints = false
 		_leftBorder.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
-		_leftBorder.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-		_leftBorder.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
-		_leftBorder.widthAnchor.constraintEqualToConstant(0.5).active = true
+		_leftBorder.topAnchor.constraintEqualToAnchor(topAnchor, constant: 2).active = true
+		_leftBorder.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -2).active = true
+		_leftBorder.widthAnchor.constraintEqualToConstant(1).active = true
 		
 		addSubview(_rightBorder)
 		_rightBorder.backgroundColor = _borderColor
 		_rightBorder.translatesAutoresizingMaskIntoConstraints = false
 		_rightBorder.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-		_rightBorder.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-		_rightBorder.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
-		_rightBorder.widthAnchor.constraintEqualToConstant(0.5).active = true
+		_rightBorder.topAnchor.constraintEqualToAnchor(topAnchor, constant: 2).active = true
+		_rightBorder.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -2).active = true
+		_rightBorder.widthAnchor.constraintEqualToConstant(1).active = true
+
+		addSubview(_highlightedBackgroundView)
+		_highlightedBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+		_highlightedBackgroundView.leftAnchor.constraintEqualToAnchor(_leftBorder.rightAnchor).active = true
+		_highlightedBackgroundView.topAnchor.constraintEqualToAnchor(topBorder.bottomAnchor).active = true
+		_highlightedBackgroundView.rightAnchor.constraintEqualToAnchor(_rightBorder.leftAnchor).active = true
+		_highlightedBackgroundView.bottomAnchor.constraintEqualToAnchor(bottomBorder.topAnchor).active = true
+	}
+	
+	override var selected: Bool {
+		didSet {
+			contentView.backgroundColor = selected ? .whiteColor() : .clearColor()
+			_filterNameLabel.textColor = selected ? .jmhTurquoiseColor() : .whiteColor()
+			_filterSelectionLabel.textColor = selected ? .jmhTurquoiseColor() : .whiteColor()
+			_downArrowImageView.tintColor = selected ? .jmhTurquoiseColor() : .whiteColor()
+		}
+	}
+	
+	override var highlighted: Bool {
+		didSet {
+			_highlightedBackgroundView.backgroundColor = highlighted ? _borderColor : .clearColor()
+		}
 	}
 }

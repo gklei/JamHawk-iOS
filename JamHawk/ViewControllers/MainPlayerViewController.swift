@@ -113,6 +113,7 @@ extension MainPlayerViewController {
 				transition(from: _filterSelectionVC, to: _currentTrackVotingVC, usingContainer: _middleContainer) {
 					self._filterSelectionVC = nil
 				}
+				_playerFiltersVC.deselectFilters()
 			}
 		}
 		

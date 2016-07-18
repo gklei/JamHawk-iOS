@@ -37,4 +37,8 @@ class PlayerFiltersViewController: UIViewController {
 		guard let ip = _filtersDS?.indexPath(forFilter: filter) else { return }
 		_collectionView.scrollToItemAtIndexPath(ip, atScrollPosition: .CenteredHorizontally, animated: true)
 	}
+	
+	func deselectFilters() {
+		_collectionView.deselectAllItems()
+	}
 }

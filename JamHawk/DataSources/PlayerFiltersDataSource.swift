@@ -56,8 +56,10 @@ extension PlayerFiltersDataSource: UICollectionViewDataSource {
 			
 			if available.first == filter {
 				cell.showLeftBorder = false
+				cell.showRightBorder = true
 			} else if available.last == filter {
 				cell.showRightBorder = false
+				cell.showLeftBorder = true
 			} else {
 				cell.showLeftBorder = true
 				cell.showRightBorder = true
