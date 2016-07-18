@@ -53,6 +53,15 @@ extension PlayerFiltersDataSource: UICollectionViewDataSource {
 			let filter = available[indexPath.row]
 			let vm = PlayerAPIOutputFilterViewModel(filter: filter)
 			cell.update(withViewModel: vm)
+			
+			if available.first == filter {
+				cell.showLeftBorder = false
+			} else if available.last == filter {
+				cell.showRightBorder = false
+			} else {
+				cell.showLeftBorder = true
+				cell.showRightBorder = true
+			}
 		}
 		return cell
 	}

@@ -9,10 +9,6 @@
 import UIKit
 
 extension UIColor {
-	class func jmhLightGrayColor() -> UIColor {
-		return UIColor(red: 228.0 / 255.0, green: 228.0 / 255.0, blue: 227.0 / 255.0, alpha: 1.0)
-	}
-	
 	class func jmhTurquoiseColor() -> UIColor {
 		return UIColor(red: 1.0 / 255.0, green: 187.0 / 255.0, blue: 174.0 / 255.0, alpha: 1.0)
 	}
@@ -29,8 +25,12 @@ extension UIColor {
 		return UIColor(white: 161.0 / 255.0, alpha: 1.0)
 	}
 	
-	class func jmhVeryLightGreyColor() -> UIColor {
+	class func jmhLightGrayColor() -> UIColor {
 		return UIColor(white: 228.0 / 255.0, alpha: 1.0)
+	}
+	
+	class func jmhVeryLightGrayColor() -> UIColor {
+		return UIColor(white: 248.0 / 255.0, alpha: 1.0)
 	}
 }
 

@@ -21,7 +21,7 @@ struct PlayerAPIOutputFilterViewModel {
 	let filter: PlayerAPIOutputFilter
 	
 	var filterName: String {
-		return filter.label
+		return filter.label.uppercaseString
 	}
 	
 	var subFilterNames: [String] {

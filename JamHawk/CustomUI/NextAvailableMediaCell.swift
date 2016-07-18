@@ -10,6 +10,7 @@ import UIKit
 import AsyncImageView
 
 class NextAvailableMediaCell: UICollectionViewCell {
+	
 	// MARK: - Properties
 	static let reuseID = "NextAvailableMediaCell"
 	static let xibName = "NextAvailableMediaCell"

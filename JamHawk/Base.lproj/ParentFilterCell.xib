@@ -25,8 +25,9 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="0G7-Rx-qeW">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="0G7-Rx-qeW">
                         <rect key="frame" x="172" y="26" width="16" height="8"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="Xqq-3G-iVB"/>
                         </constraints>
@@ -47,6 +48,7 @@
             </constraints>
             <size key="customSize" width="210" height="50"/>
             <connections>
+                <outlet property="_downArrowImageView" destination="0G7-Rx-qeW" id="KsT-Tb-npj"/>
                 <outlet property="_filterNameLabel" destination="C2q-yj-BSU" id="0S0-bE-vA1"/>
                 <outlet property="_filterSelectionLabel" destination="C5U-Hf-uY5" id="BYZ-lW-sbC"/>
             </connections>
