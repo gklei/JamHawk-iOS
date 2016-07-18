@@ -27,4 +27,8 @@ class NextAvailableMediaCell: UICollectionViewCell {
 	func update(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
 		_backgroundImageView.imageURL = vm.albumArtworkURL
 	}
+	
+	func reset() {
+		AsyncImageLoader.sharedLoader().cancelLoadingImagesForTarget(_backgroundImageView)
+	}
 }

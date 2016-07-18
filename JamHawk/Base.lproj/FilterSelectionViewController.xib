@@ -14,19 +14,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="427" height="329"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19b-bJ-ACw">
-                    <rect key="frame" x="156.5" y="154" width="114" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
-            <color key="backgroundColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstItem="19b-bJ-ACw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="J4u-zD-Msa"/>
-                <constraint firstItem="19b-bJ-ACw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="M3d-jS-81u"/>
-            </constraints>
+            <color key="backgroundColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="380.5" y="335.5"/>

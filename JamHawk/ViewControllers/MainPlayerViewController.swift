@@ -76,6 +76,9 @@ class MainPlayerViewController: UIViewController {
 		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
 		
+		let _ = _smallCurrentTrackVotingVC.view
+		_smallCurrentTrackVotingVC.update(withPlayerAPIOutput: output)
+		
 		_updateUI(withOutput: output)
 	}
 	
@@ -92,16 +95,19 @@ class MainPlayerViewController: UIViewController {
 extension MainPlayerViewController {
 	private func _filterSelected(filter: PlayerAPIOutputFilter) {
 		let transitioningToFilterSelection = _filterSelectionVC == nil
-		if _filterSelectionVC != nil {
+		
+		if transitioningToFilterSelection {
+			let filterSelectionVC = FilterSelectionViewController(filter: filter)
+			transition(from: _currentTrackVotingVC, to: filterSelectionVC, usingContainer: _middleContainer)
+			transition(from: _nextAvailableMediaVC, to: _smallCurrentTrackVotingVC, usingContainer: _bottomContainer)
+			
+			_filterSelectionVC = filterSelectionVC
+			_playerFiltersVC.scroll(toFilter: filter)
+		} else {
 			transition(from: _filterSelectionVC, to: _currentTrackVotingVC, usingContainer: _middleContainer) {
 				self._filterSelectionVC = nil
 			}
 			transition(from: _smallCurrentTrackVotingVC, to: _nextAvailableMediaVC, usingContainer: _bottomContainer)
-		} else {
-			let filterSelectionVC = FilterSelectionViewController(filter: filter)
-			_filterSelectionVC = filterSelectionVC
-			transition(from: _currentTrackVotingVC, to: filterSelectionVC, usingContainer: _middleContainer)
-			transition(from: _nextAvailableMediaVC, to: _smallCurrentTrackVotingVC, usingContainer: _bottomContainer)
 		}
 		
 		let bottomContainerHeight: CGFloat = transitioningToFilterSelection ? 80 : 124

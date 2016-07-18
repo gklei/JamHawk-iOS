@@ -32,4 +32,9 @@ class PlayerFiltersViewController: UIViewController {
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		_filtersDS?.update(withPlayerAPIOutput: output)
 	}
+	
+	func scroll(toFilter filter: PlayerAPIOutputFilter) {
+		guard let ip = _filtersDS?.indexPath(forFilter: filter) else { return }
+		_collectionView.scrollToItemAtIndexPath(ip, atScrollPosition: .CenteredHorizontally, animated: true)
+	}
 }

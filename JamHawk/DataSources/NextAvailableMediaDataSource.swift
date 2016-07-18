@@ -24,7 +24,13 @@ class NextAvailableMediaDataSource: NSObject {
 	
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		_output = output
-		_collectionView.reloadData()
+		_collectionView.reloadSections(NSIndexSet(index: 0))
+	}
+	
+	func resetCells() {
+		_collectionView.visibleCells().flatMap({$0 as? NextAvailableMediaCell}).forEach { cell in
+			cell?.reset()
+		}
 	}
 }
 
@@ -34,7 +40,6 @@ extension NextAvailableMediaDataSource: UICollectionViewDataSource {
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		
 		let cellID = NextAvailableMediaCell.reuseID
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellID, forIndexPath: indexPath) as! NextAvailableMediaCell
 		

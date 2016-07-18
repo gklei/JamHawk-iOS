@@ -26,6 +26,7 @@ class NextAvailableMediaViewController: UIViewController {
 	
 	// MARK: - Public
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
+		_nextAvailableMediaDS?.resetCells()
 		_nextAvailableMediaDS?.update(withPlayerAPIOutput: output)
 	}
 }

@@ -164,7 +164,7 @@ struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
 
 
 
-struct PlayerAPIOutputFilter: JSONEncodable, JSONDecodable {
+struct PlayerAPIOutputFilter: JSONEncodable, JSONDecodable, Equatable {
 	let category: String
 	let label: String
 	let filterNames: [String]
@@ -185,6 +185,10 @@ struct PlayerAPIOutputFilter: JSONEncodable, JSONDecodable {
 			"filterIDs" : filterIDs.toJSON()
 			])
 	}
+}
+
+func ==(lhs: PlayerAPIOutputFilter, rhs: PlayerAPIOutputFilter) -> Bool {
+	return lhs.category == rhs.category && lhs.label == rhs.label
 }
 
 struct PlayerAPIOutputCommand: JSONDecodable, JSONEncodable {

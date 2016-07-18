@@ -32,9 +32,7 @@ extension UIViewController {
 	
 	func add(childViewController vc: UIViewController, toContainer container: UIView) {
 		addChildViewController(vc)
-		
-		let subview = vc.view
-		container.addAndFill(subview: subview)
+		container.addAndFill(subview: vc.view)
 		vc.didMoveToParentViewController(self)
 	}
 }

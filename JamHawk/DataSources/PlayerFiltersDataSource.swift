@@ -29,6 +29,11 @@ class PlayerFiltersDataSource: NSObject {
 		let nib = UINib(nibName: ParentFilterCell.xibName, bundle: nil)
 		_collectionView.registerNib(nib, forCellWithReuseIdentifier: ParentFilterCell.reuseID)
 	}
+	
+	func indexPath(forFilter filter: PlayerAPIOutputFilter) -> NSIndexPath? {
+		guard let index = _output?.filters?.available?.indexOf(filter) else { return nil }
+		return NSIndexPath(forRow: index, inSection: 0)
+	}
 
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		_output = output

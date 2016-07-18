@@ -10,8 +10,7 @@ import UIKit
 
 extension UIView {
 	func addAndFill(subview subview: UIView) {
-		addSubview(subview)
-		
+		addSubview(subview)	
 		subview.translatesAutoresizingMaskIntoConstraints = false
 		subview.topAnchor.constraintEqualToAnchor(topAnchor).active = true
 		subview.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
