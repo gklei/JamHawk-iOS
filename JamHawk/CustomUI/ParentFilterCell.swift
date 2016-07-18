@@ -39,7 +39,6 @@ class ParentFilterCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		backgroundColor = .clearColor()
-		
 		_setupBorders()
 	}
 	
