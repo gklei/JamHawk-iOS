@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterSelectionViewController" customModule="JamHawk" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubfilterSelectionViewController" customModule="JamHawk" customModuleProvider="target">
             <connections>
                 <outlet property="_collectionView" destination="vod-CI-qjz" id="M8p-0A-nda"/>
                 <outlet property="_collectionViewHeightConstraint" destination="Tz5-TB-kPJ" id="SvE-kg-aDb"/>

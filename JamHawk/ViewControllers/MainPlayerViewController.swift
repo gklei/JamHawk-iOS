@@ -24,15 +24,17 @@ class MainPlayerViewController: UIViewController {
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
+	
+	var playerAPIService: PlayerAPIService?
 	var output: PlayerAPIOutput?
 	private var _currentState: MainPlayerState!
 	
-	internal let _playerFiltersVC = PlayerFiltersViewController.create()
+	internal let _parentFilterSelectionVC = ParentFilterSelectionViewController.create()
 	internal let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.create()
 	internal let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.create()
 	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
 	internal let _playerControlsVC = PlayerControlsViewController.create()
-	internal var _filterSelectionVC: FilterSelectionViewController?
+	internal var _subfilterSelectionVC: SubfilterSelectionViewController?
 	
 	var nextTrackButtonPressed: () -> Void = {}
 	
@@ -40,12 +42,12 @@ class MainPlayerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		add(childViewController: _playerFiltersVC, toContainer: _topContainer)
+		add(childViewController: _parentFilterSelectionVC, toContainer: _topContainer)
 		add(childViewController: _currentTrackVotingVC, toContainer: _middleContainer)
 		add(childViewController: _nextAvailableMediaVC, toContainer: _bottomContainer)
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		
-		_playerFiltersVC.selectionClosure = _filterSelected
+		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
 		_playerControlsVC.delegate = self
 		
 		let state = DefaultHomeScreenState(delegate: self)
@@ -71,8 +73,8 @@ class MainPlayerViewController: UIViewController {
 		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
 		
-		if _filterSelectionVC == nil {
-			_playerFiltersVC.update(withPlayerAPIOutput: output)
+		if _subfilterSelectionVC == nil {
+			_parentFilterSelectionVC.update(withPlayerAPIOutput: output)
 		}
 		
 		let _ = _smallCurrentTrackVotingVC.view
@@ -82,6 +84,15 @@ class MainPlayerViewController: UIViewController {
 	}
 	
 	// MARK: - Private
+	private func _handlePlayerCallback(error error: NSError?, output: PlayerAPIOutput?) {
+		if let error = error {
+			self.present(error)
+		}
+		
+		guard let output = output else { return }
+		self.update(withPlayerAPIOutput: output)
+	}
+	
 	private func _updateUI(withOutput output: PlayerAPIOutput) {
 		guard let media = output.media else { return }
 		
@@ -92,7 +103,7 @@ class MainPlayerViewController: UIViewController {
 
 // MARK: - Filter Selection
 extension MainPlayerViewController {
-	private func _filterSelected(filter: PlayerAPIOutputFilter) {
+	private func _parentFilterSelected(filter: PlayerAPIOutputFilter) {
 		let state = FilterSelectionState(delegate: self, filter: filter)
 		_currentState = state.transition(duration: 0.2)
 	}
@@ -102,7 +113,7 @@ extension MainPlayerViewController {
 extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType) {
 		if action == .NextTrack {
-			nextTrackButtonPressed()
+			playerAPIService?.requestNextTrack(_handlePlayerCallback)
 		}
 	}
 }

@@ -307,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="219" y="902"/>
         </scene>
-        <!--Player Filters View Controller-->
+        <!--Parent Filter Selection View Controller-->
         <scene sceneID="k0Q-Tg-a71">
             <objects>
-                <viewController storyboardIdentifier="PlayerFiltersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GDz-aQ-PHe" customClass="PlayerFiltersViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParentFilterSelectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GDz-aQ-PHe" customClass="ParentFilterSelectionViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rQo-9o-iyO"/>
                         <viewControllerLayoutGuide type="bottom" id="raL-BD-81r"/>

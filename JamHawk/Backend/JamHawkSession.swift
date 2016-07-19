@@ -9,7 +9,8 @@
 import Foundation
 import Freddy
 
-class JamHawkSession {
+class JamHawkSession: PlayerAPIService {
+	
 	// MARK: - Properties
 	private let _userSession: UserAccessSession
 	private let _playerSession: PlayerSession

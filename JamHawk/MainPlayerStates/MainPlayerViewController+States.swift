@@ -9,8 +9,8 @@
 import UIKit
 
 extension MainPlayerViewController: MainPlayerStateDelegate {
-	var playerFiltersViewController: PlayerFiltersViewController {
-		return _playerFiltersVC
+	var parentFilterSelectionViewController: ParentFilterSelectionViewController {
+		return _parentFilterSelectionVC
 	}
 	
 	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController {
@@ -29,11 +29,11 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _playerControlsVC
 	}
 	
-	var filterSelectionViewController: FilterSelectionViewController? {
+	var filterSelectionViewController: SubfilterSelectionViewController? {
 		get {
-			return _filterSelectionVC
+			return _subfilterSelectionVC
 		} set {
-			_filterSelectionVC = newValue
+			_subfilterSelectionVC = newValue
 		}
 	}
 	

@@ -8,7 +8,12 @@
 
 import Foundation
 
-class PlayerSession {
+protocol PlayerAPIService {
+	func instantiatePlayer(callback: PlayerAPICallback)
+	func requestNextTrack(callback: PlayerAPICallback)
+}
+
+class PlayerSession: PlayerAPIService {
 	// MARK: - Properties
 	private let _session: NSURLSession
 	private var _playerDataTask: NSURLSessionDataTask?

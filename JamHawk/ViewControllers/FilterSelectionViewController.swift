@@ -1,5 +1,5 @@
 //
-//  FilterSelectionViewController.swift
+//  SubfilterSelectionViewController.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/17/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterSelectionViewController: UIViewController {
+class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!

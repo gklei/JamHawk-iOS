@@ -1,5 +1,5 @@
 //
-//  PlayerFiltersViewController.swift
+//  ParentFilterSelectionViewController.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/14/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PlayerFiltersViewController: UIViewController, PlayerStoryboardInstantiable {
+final class ParentFilterSelectionViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!

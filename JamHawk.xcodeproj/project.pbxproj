@@ -25,7 +25,7 @@
 		CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */; };
 		CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */; };
 		CE6CE9931D3C15B10029659F /* FilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9911D3C15B10029659F /* FilterSelectionViewController.swift */; };
-		CE6CE9971D3C15C40029659F /* FilterSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE9951D3C15C40029659F /* FilterSelectionViewController.xib */; };
+		CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */; };
 		CE6CE9991D3C27C30029659F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9981D3C27C30029659F /* UIView+Extensions.swift */; };
 		CE6CE99B1D3C28620029659F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */; };
 		CE6CE99D1D3D23E00029659F /* PlayerSubfiltersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99C1D3D23E00029659F /* PlayerSubfiltersDataSource.swift */; };
@@ -95,7 +95,7 @@
 		CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputModels.swift; path = JamHawk/Models/PlayerAPIInputModels.swift; sourceTree = "<group>"; };
 		CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Jamhawk.swift"; path = "JamHawk/Extensions/UIColor+Jamhawk.swift"; sourceTree = "<group>"; };
 		CE6CE9911D3C15B10029659F /* FilterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterSelectionViewController.swift; path = JamHawk/ViewControllers/FilterSelectionViewController.swift; sourceTree = "<group>"; };
-		CE6CE9961D3C15C40029659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/FilterSelectionViewController.xib; sourceTree = "<group>"; };
+		CE6CE9961D3C15C40029659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/SubfilterSelectionViewController.xib; sourceTree = "<group>"; };
 		CE6CE9981D3C27C30029659F /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "JamHawk/Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CE6CE99C1D3D23E00029659F /* PlayerSubfiltersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSubfiltersDataSource.swift; path = JamHawk/DataSources/PlayerSubfiltersDataSource.swift; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6CE99F1D3D262F0029659F /* PlayerSubfilterCell.xib */,
-				CE6CE9951D3C15C40029659F /* FilterSelectionViewController.xib */,
+				CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */,
 				CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */,
 				CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */,
 				CE747BFF1D3885150006D1B6 /* JamhawkTitleViewController.xib */,
@@ -493,7 +493,7 @@
 				CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */,
 				CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */,
 				CE6CE9A11D3D262F0029659F /* PlayerSubfilterCell.xib in Resources */,
-				CE6CE9971D3C15C40029659F /* FilterSelectionViewController.xib in Resources */,
+				CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */,
 				CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,
 				CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */,
@@ -637,12 +637,12 @@
 			name = Player.storyboard;
 			sourceTree = "<group>";
 		};
-		CE6CE9951D3C15C40029659F /* FilterSelectionViewController.xib */ = {
+		CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE6CE9961D3C15C40029659F /* Base */,
 			);
-			name = FilterSelectionViewController.xib;
+			name = SubfilterSelectionViewController.xib;
 			sourceTree = "<group>";
 		};
 		CE747BFF1D3885150006D1B6 /* JamhawkTitleViewController.xib */ = {

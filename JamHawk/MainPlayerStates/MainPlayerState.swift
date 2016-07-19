@@ -10,12 +10,12 @@ import UIKit
 
 protocol MainPlayerStateDelegate: class {
 	var view: UIView! { get }
-	var playerFiltersViewController: PlayerFiltersViewController { get }
+	var parentFilterSelectionViewController: ParentFilterSelectionViewController { get }
 	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController { get }
 	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController { get }
 	var nextAvailableMediaViewController: NextAvailableMediaViewController { get }
 	var playerControlsViewController: PlayerControlsViewController { get }
-	var filterSelectionViewController: FilterSelectionViewController? { get set }
+	var filterSelectionViewController: SubfilterSelectionViewController? { get set }
 	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
 	
 	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, completion: dispatch_block_t?)
@@ -43,7 +43,7 @@ class DefaultHomeScreenState: MainPlayerState {
 			self._delegate.filterSelectionViewController = nil
 		}
 		
-		_delegate.playerFiltersViewController.deselectFilters()
+		_delegate.parentFilterSelectionViewController.deselectFilters()
 		_delegate.bottomContainerHeightConstraint.constant = 124.0
 		UIView.animateWithDuration(duration) {
 			self._delegate.view.layoutIfNeeded()
@@ -70,7 +70,7 @@ class FilterSelectionState: MainPlayerState {
 		}
 		
 		if _delegate.filterSelectionViewController?.parentFilter == nil {
-			let filterSelectionVC = FilterSelectionViewController()
+			let filterSelectionVC = SubfilterSelectionViewController()
 			_delegate.filterSelectionViewController = filterSelectionVC
 			
 			_delegate.transition(from: _delegate.largeCurrentTrackVotingViewController, to: filterSelectionVC, completion: nil)
@@ -83,7 +83,7 @@ class FilterSelectionState: MainPlayerState {
 		}
 		
 		_delegate.filterSelectionViewController?.update(filter: _filter)
-		_delegate.playerFiltersViewController.scroll(toFilter: _filter)
+		_delegate.parentFilterSelectionViewController.scroll(toFilter: _filter)
 
 		return self
 	}
