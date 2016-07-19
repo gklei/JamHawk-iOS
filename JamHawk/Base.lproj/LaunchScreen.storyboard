@@ -25,7 +25,7 @@
                                 <rect key="frame" x="211" y="210" width="179" height="180"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="eiz-Er-xJL">
-                                        <rect key="frame" x="22" y="0.0" width="135" height="133"/>
+                                        <rect key="frame" x="17" y="0.0" width="135" height="133"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="xid-DV-xqe">
                                         <rect key="frame" x="20" y="143" width="139" height="37"/>
@@ -37,11 +37,13 @@
                                     <constraint firstAttribute="trailing" secondItem="xid-DV-xqe" secondAttribute="trailing" constant="20" id="N8v-z8-wh2"/>
                                     <constraint firstItem="eiz-Er-xJL" firstAttribute="top" secondItem="sI2-qc-yHq" secondAttribute="top" id="PYL-VL-g9R"/>
                                     <constraint firstItem="xid-DV-xqe" firstAttribute="leading" secondItem="sI2-qc-yHq" secondAttribute="leading" constant="20" id="VBM-9I-ge1"/>
+                                    <constraint firstItem="xid-DV-xqe" firstAttribute="centerX" secondItem="eiz-Er-xJL" secondAttribute="centerX" constant="5" id="aFe-5C-jNX"/>
                                     <constraint firstItem="xid-DV-xqe" firstAttribute="top" secondItem="eiz-Er-xJL" secondAttribute="bottom" constant="10" id="dHc-70-RZH"/>
                                     <constraint firstAttribute="bottom" secondItem="xid-DV-xqe" secondAttribute="bottom" id="lw5-Zz-pfH"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="F84-V0-7a4"/>
                                         <exclude reference="2EJ-Tj-mev"/>
                                     </mask>
                                 </variation>
