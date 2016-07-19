@@ -44,8 +44,12 @@ class CurrentTrackVotingViewController: UIViewController {
 		_downvoteButton.layer.borderWidth = 2.0
 		
 		_upvoteButton.layer.borderColor = UIColor.whiteColor().CGColor
+		_upvoteButton.backgroundColor = .clearColor()
+		_upvoteButton.tintColor = UIColor.jmhTurquoiseColor()
+		
 		_downvoteButton.layer.borderColor = UIColor.whiteColor().CGColor
 		_downvoteButton.backgroundColor = UIColor.clearColor()
+		_downvoteButton.tintColor = UIColor.jmhTangerineColor()
 	}
 	
 	@IBAction private func _downvoteButtonPressed() {
@@ -90,8 +94,6 @@ final class CurrentTrackVotingSmallViewController: CurrentTrackVotingViewControl
 	// MARK: - Overriden
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		view.backgroundColor = UIColor(white: 0, alpha: 0.3)
-		_upvoteButton.backgroundColor = UIColor.clearColor()
 	}
 }
