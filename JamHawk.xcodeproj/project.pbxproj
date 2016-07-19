@@ -12,7 +12,6 @@
 		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
-		CE10F1281D3816F500D69682 /* JamhawkTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10F1261D3816F500D69682 /* JamhawkTitleViewController.swift */; };
 		CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */; };
 		CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2B69031D2C97EE00EAFF16 /* Player.storyboard */; };
 		CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */; };
@@ -36,7 +35,6 @@
 		CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */; };
 		CE747BFC1D3839BB0006D1B6 /* PlayerFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BFB1D3839BB0006D1B6 /* PlayerFiltersViewController.swift */; };
 		CE747BFE1D3839E50006D1B6 /* PlayerFiltersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BFD1D3839E50006D1B6 /* PlayerFiltersDataSource.swift */; };
-		CE747C011D3885150006D1B6 /* JamhawkTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747BFF1D3885150006D1B6 /* JamhawkTitleViewController.xib */; };
 		CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */; };
 		CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */; };
 		CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */; };
@@ -82,7 +80,6 @@
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
-		CE10F1261D3816F500D69682 /* JamhawkTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamhawkTitleViewController.swift; path = JamHawk/ViewControllers/JamhawkTitleViewController.swift; sourceTree = "<group>"; };
 		CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsViewController.swift; path = JamHawk/ViewControllers/PlayerControlsViewController.swift; sourceTree = "<group>"; };
 		CE2B69041D2C97EE00EAFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Player.storyboard; sourceTree = "<group>"; };
 		CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendProtocols.swift; path = JamHawk/Backend/BackendProtocols.swift; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaViewController.swift; path = JamHawk/ViewControllers/NextAvailableMediaViewController.swift; sourceTree = "<group>"; };
 		CE747BFB1D3839BB0006D1B6 /* PlayerFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerFiltersViewController.swift; path = JamHawk/ViewControllers/PlayerFiltersViewController.swift; sourceTree = "<group>"; };
 		CE747BFD1D3839E50006D1B6 /* PlayerFiltersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerFiltersDataSource.swift; path = JamHawk/DataSources/PlayerFiltersDataSource.swift; sourceTree = "<group>"; };
-		CE747C001D3885150006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/JamhawkTitleViewController.xib; sourceTree = "<group>"; };
 		CE747C051D3885900006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/NextAvailableMediaCell.xib; sourceTree = "<group>"; };
 		CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentFilterCell.swift; path = JamHawk/CustomUI/ParentFilterCell.swift; sourceTree = "<group>"; };
 		CE747C0C1D38920C0006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/ParentFilterCell.xib; sourceTree = "<group>"; };
@@ -303,7 +299,6 @@
 				CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */,
 				CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */,
 				CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */,
-				CE747BFF1D3885150006D1B6 /* JamhawkTitleViewController.xib */,
 				CE9B948A1D26B67600B0F53D /* SignIn.storyboard */,
 				CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */,
 				CE2B69031D2C97EE00EAFF16 /* Player.storyboard */,
@@ -314,7 +309,6 @@
 		CED404DF1D26D45F0083365F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE10F1261D3816F500D69682 /* JamhawkTitleViewController.swift */,
 				CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */,
 				CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */,
 				CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */,
@@ -489,7 +483,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */,
-				CE747C011D3885150006D1B6 /* JamhawkTitleViewController.xib in Resources */,
 				CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */,
 				CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */,
 				CE6CE9A11D3D262F0029659F /* SubfilterCell.xib in Resources */,
@@ -594,7 +587,6 @@
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CEFEAD901D3D7EDD004D3CFC /* MainPlayerViewController+States.swift in Sources */,
-				CE10F1281D3816F500D69682 /* JamhawkTitleViewController.swift in Sources */,
 				CE747BF81D382B0F0006D1B6 /* PlayerControlsToolbar.swift in Sources */,
 				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
 				CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */,
@@ -643,14 +635,6 @@
 				CE6CE9961D3C15C40029659F /* Base */,
 			);
 			name = SubfilterSelectionViewController.xib;
-			sourceTree = "<group>";
-		};
-		CE747BFF1D3885150006D1B6 /* JamhawkTitleViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE747C001D3885150006D1B6 /* Base */,
-			);
-			name = JamhawkTitleViewController.xib;
 			sourceTree = "<group>";
 		};
 		CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */ = {
