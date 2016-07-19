@@ -21,23 +21,40 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="mcC-dl-B5c">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="eiz-Er-xJL">
-                                <rect key="frame" x="233" y="209" width="135" height="133"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="xid-DV-xqe">
-                                <rect key="frame" x="231" y="352" width="139" height="37"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sI2-qc-yHq">
+                                <rect key="frame" x="211" y="210" width="179" height="180"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="eiz-Er-xJL">
+                                        <rect key="frame" x="22" y="0.0" width="135" height="133"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="xid-DV-xqe">
+                                        <rect key="frame" x="20" y="143" width="139" height="37"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xid-DV-xqe" firstAttribute="centerY" secondItem="eiz-Er-xJL" secondAttribute="centerY" id="2EJ-Tj-mev"/>
+                                    <constraint firstItem="eiz-Er-xJL" firstAttribute="centerX" secondItem="sI2-qc-yHq" secondAttribute="centerX" id="F84-V0-7a4"/>
+                                    <constraint firstAttribute="trailing" secondItem="xid-DV-xqe" secondAttribute="trailing" constant="20" id="N8v-z8-wh2"/>
+                                    <constraint firstItem="eiz-Er-xJL" firstAttribute="top" secondItem="sI2-qc-yHq" secondAttribute="top" id="PYL-VL-g9R"/>
+                                    <constraint firstItem="xid-DV-xqe" firstAttribute="leading" secondItem="sI2-qc-yHq" secondAttribute="leading" constant="20" id="VBM-9I-ge1"/>
+                                    <constraint firstItem="xid-DV-xqe" firstAttribute="top" secondItem="eiz-Er-xJL" secondAttribute="bottom" constant="10" id="dHc-70-RZH"/>
+                                    <constraint firstAttribute="bottom" secondItem="xid-DV-xqe" secondAttribute="bottom" id="lw5-Zz-pfH"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2EJ-Tj-mev"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mcC-dl-B5c" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="7B3-cc-4A1"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="mcC-dl-B5c" secondAttribute="bottom" id="8dy-x4-efh"/>
-                            <constraint firstItem="xid-DV-xqe" firstAttribute="centerX" secondItem="mcC-dl-B5c" secondAttribute="centerX" id="HTg-4i-LsP"/>
+                            <constraint firstItem="sI2-qc-yHq" firstAttribute="centerY" secondItem="mcC-dl-B5c" secondAttribute="centerY" id="9fn-BG-NXL"/>
+                            <constraint firstItem="sI2-qc-yHq" firstAttribute="centerX" secondItem="mcC-dl-B5c" secondAttribute="centerX" id="EqL-lb-AkG"/>
                             <constraint firstAttribute="trailing" secondItem="mcC-dl-B5c" secondAttribute="trailing" id="UQC-RO-tyN"/>
-                            <constraint firstItem="xid-DV-xqe" firstAttribute="top" secondItem="eiz-Er-xJL" secondAttribute="bottom" constant="10" id="X5m-wy-eo1"/>
-                            <constraint firstItem="eiz-Er-xJL" firstAttribute="centerX" secondItem="mcC-dl-B5c" secondAttribute="centerX" id="ZW6-5S-RfJ"/>
                             <constraint firstItem="mcC-dl-B5c" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="b9u-dh-Iom"/>
-                            <constraint firstItem="eiz-Er-xJL" firstAttribute="centerY" secondItem="mcC-dl-B5c" secondAttribute="centerY" constant="-25" id="qc3-tO-inP"/>
                         </constraints>
                     </view>
                 </viewController>
