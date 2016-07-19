@@ -56,7 +56,8 @@ class MainPlayerViewController: UIViewController {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
 		removeRightBarItem()
-		navigationItem.titleView = JamhawkTitleViewController().view
+		
+		navigationController?.navigationBar.hidden = true
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {

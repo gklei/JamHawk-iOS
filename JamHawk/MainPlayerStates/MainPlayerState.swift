@@ -62,7 +62,7 @@ class FilterSelectionState: MainPlayerState {
 	
 	override func transition(duration duration: Double) -> MainPlayerState {
 		
-		// If the filter selection we are trying to transition to is already being selected, then transition
+		// If the filter we are trying to transition to for selecting is already , then transition
 		// back to the default state
 		if let parentFilter = _delegate.filterSelectionViewController?.parentFilter where parentFilter == _filter {
 			let state = DefaultHomeScreenState(delegate: _delegate)

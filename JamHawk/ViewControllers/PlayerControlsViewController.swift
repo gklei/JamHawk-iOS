@@ -33,7 +33,7 @@ class PlayerControlsViewController: UIViewController {
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		_setupProfileBarButtonItem()
+		_profileItem.customView = UserProfileButtonView()
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -46,12 +46,6 @@ class PlayerControlsViewController: UIViewController {
 	}
 	
 	// MARK: - Private
-	private func _setupProfileBarButtonItem() {
-		let selector: Selector = #selector(PlayerControlsViewController._userProfileButtonPressed)
-		let profileButton = UIButton.jamhawkUserProfileButton(withTarget: self, selector: selector)
-		_profileItem.customView = profileButton
-	}
-	
 	private func _updatePlayer(withOutput output: PlayerAPIOutput) {
 		guard let updatedItem = AVPlayerItem(output: output) else { return }
 		

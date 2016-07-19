@@ -7,10 +7,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Main Player View Controller-->
         <scene sceneID="xiB-Lx-30A">
             <objects>
-                <viewController storyboardIdentifier="MainPlayerViewController" title="Home" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eFK-hP-Wx9" customClass="MainPlayerViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPlayerViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eFK-hP-Wx9" customClass="MainPlayerViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SJ7-tw-lQE"/>
                         <viewControllerLayoutGuide type="bottom" id="5JL-SW-YcI"/>
@@ -135,7 +135,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm">
                                 <rect key="frame" x="114" y="20" width="186" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -179,25 +179,26 @@
                                     <segue destination="9EW-Pu-hpM" kind="embed" id="PAf-fT-etr"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozL-b4-Cmb">
-                                <rect key="frame" x="0.0" y="56" width="600" height="4"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8N-2f-qPO">
+                                <rect key="frame" x="0.0" y="12" width="600" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="4" id="7tO-H3-kMb"/>
+                                    <constraint firstAttribute="height" constant="2" id="W4a-Rv-ahj"/>
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqZ-6e-fc9" customClass="PlayerControlsToolbar" customModule="JamHawk" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="12" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="14" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem image="headphones" width="24" id="Y2Q-2q-P4a">
-                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
+                                    <barButtonItem image="headphones" width="26" id="Y2Q-2q-P4a">
                                         <color key="tintColor" red="0.16447375710000001" green="0.53145653010000005" blue="0.42417222259999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="_userProfileButtonPressed" destination="eYF-eb-H3C" id="ibf-zt-rrC"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="S5L-a8-NUa"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IHj-sg-oS5"/>
                                     <barButtonItem width="28" style="plain" systemItem="fixedSpace" id="h5t-Vd-6ek"/>
                                     <barButtonItem image="play" width="20" style="plain" id="uuE-hq-KTO">
-                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
                                         <color key="tintColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_playPauseButtonPressed" destination="eYF-eb-H3C" id="hKJ-vW-ySS"/>
@@ -205,7 +206,6 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="v1K-bB-hwL"/>
                                     <barButtonItem image="next_track" id="yYw-gU-6h9">
-                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
                                         <color key="tintColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_nextTrackButtonPressed" destination="eYF-eb-H3C" id="6LY-DN-tiz"/>
@@ -213,7 +213,6 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iYc-0M-KND"/>
                                     <barButtonItem image="low_volume" width="24" id="rwm-jI-Lsk">
-                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
                                         <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <action selector="_toggleMuteButtonPressed" destination="eYF-eb-H3C" id="pNZ-Tj-o8A"/>
@@ -221,18 +220,28 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozL-b4-Cmb">
+                                <rect key="frame" x="0.0" y="58" width="600" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="7tO-H3-kMb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HqZ-6e-fc9" firstAttribute="top" secondItem="z2b-eF-0AV" secondAttribute="bottom" id="1qt-NF-u6S"/>
                             <constraint firstItem="ozL-b4-Cmb" firstAttribute="leading" secondItem="fAT-Su-jaK" secondAttribute="leading" id="3Kq-CA-UQe"/>
                             <constraint firstAttribute="trailing" secondItem="HqZ-6e-fc9" secondAttribute="trailing" id="3Zv-tS-bR4"/>
                             <constraint firstItem="HqZ-6e-fc9" firstAttribute="leading" secondItem="fAT-Su-jaK" secondAttribute="leading" id="6pu-MW-CeJ"/>
+                            <constraint firstItem="J8N-2f-qPO" firstAttribute="top" secondItem="z2b-eF-0AV" secondAttribute="bottom" id="Bzh-q9-MtW"/>
+                            <constraint firstItem="HqZ-6e-fc9" firstAttribute="top" secondItem="J8N-2f-qPO" secondAttribute="bottom" id="EUA-e9-3bC"/>
+                            <constraint firstItem="J8N-2f-qPO" firstAttribute="leading" secondItem="fAT-Su-jaK" secondAttribute="leading" id="Nxr-kr-asW"/>
                             <constraint firstAttribute="trailing" secondItem="z2b-eF-0AV" secondAttribute="trailing" id="QP9-wy-uQp"/>
                             <constraint firstAttribute="trailing" secondItem="ozL-b4-Cmb" secondAttribute="trailing" id="TnK-2L-jer"/>
                             <constraint firstItem="ozL-b4-Cmb" firstAttribute="top" secondItem="HqZ-6e-fc9" secondAttribute="bottom" id="UAC-Ve-Onr"/>
                             <constraint firstItem="z2b-eF-0AV" firstAttribute="leading" secondItem="fAT-Su-jaK" secondAttribute="leading" id="Vah-69-2E7"/>
                             <constraint firstItem="vNR-GO-xBC" firstAttribute="top" secondItem="ozL-b4-Cmb" secondAttribute="bottom" id="cgU-Zn-dOC"/>
+                            <constraint firstAttribute="trailing" secondItem="J8N-2f-qPO" secondAttribute="trailing" id="oWM-z9-GDf"/>
                             <constraint firstItem="z2b-eF-0AV" firstAttribute="top" secondItem="Omf-Ye-HEv" secondAttribute="bottom" id="xZT-hB-9mp"/>
                         </constraints>
                     </view>
@@ -411,7 +420,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jl2-iM-nT5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jl2-iM-nT5">
                                         <rect key="frame" x="8" y="101" width="358" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

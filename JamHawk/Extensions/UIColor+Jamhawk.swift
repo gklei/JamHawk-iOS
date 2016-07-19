@@ -36,15 +36,49 @@ extension UIColor {
 
 extension UIButton {
 	class func jamhawkUserProfileButton(withTarget target: AnyObject?, selector: Selector) -> UIButton {
-		let profileButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+		let profileButton = UIButton(frame: CGRect(x: 0, y: 0, width: 26, height: 26))
 		profileButton.setImage(UIImage(named: "headphones"), forState: .Normal)
-		profileButton.backgroundColor = UIColor.jmhTurquoiseColor()
+		profileButton.layer.backgroundColor = UIColor.jmhTurquoiseColor().CGColor
 		profileButton.tintColor = UIColor.whiteColor()
-		profileButton.layer.cornerRadius = 12.0
+		profileButton.layer.cornerRadius = 13.0
 		profileButton.layer.borderColor = UIColor.jmhLightGrayColor().CGColor
 		profileButton.layer.borderWidth = 2
 		
 		profileButton.addTarget(target, action: selector, forControlEvents: .TouchUpInside)
 		return profileButton
+	}
+}
+
+class UserProfileButtonView: UIButton {
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	private let image = UIImage(named: "headphones")
+	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		backgroundColor = .clearColor()
+	}
+	
+	convenience init() {
+		self.init(frame: CGRect(x: 0, y: 0, width: 26, height: 26))
+	}
+	
+	override func drawRect(rect: CGRect) {
+		UIColor.jmhLightGrayColor().setFill()
+		let context = UIGraphicsGetCurrentContext()
+		CGContextFillEllipseInRect(context, rect)
+		
+		UIColor.jmhTurquoiseColor().setFill()
+		CGContextFillEllipseInRect(context, rect.insetBy(dx: 2, dy: 2))
+
+		if let imageSize = image?.size {
+			var imageRect = CGRect(origin: CGPoint.zero, size: imageSize)
+			imageRect.origin.x = rect.midX - imageSize.width * 0.5
+			imageRect.origin.y = rect.midY - imageSize.height * 0.5
+			image?.drawInRect(imageRect)
+		}
 	}
 }
