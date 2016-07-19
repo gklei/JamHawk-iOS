@@ -12,6 +12,7 @@ class FilterSelectionViewController: UIViewController {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!
+	@IBOutlet private var _collectionViewHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
 	private var _filter: PlayerAPIOutputFilter?
@@ -26,8 +27,11 @@ class FilterSelectionViewController: UIViewController {
 		super.viewDidLoad()
 		
 		_collectionView.allowsMultipleSelection = true
-		_setupCollectionViewLayout()
 		
+		view.backgroundColor = .clearColor()
+		_collectionView.backgroundColor = .whiteColor()
+		
+		_setupCollectionViewLayout()
 		_playerSubfiltersDS = PlayerSubfiltersDataSource(collectionView: _collectionView)
 	}
 	
@@ -48,6 +52,12 @@ class FilterSelectionViewController: UIViewController {
 		guard _filter != filter else { return }
 		
 		_filter = filter
-		_playerSubfiltersDS?.update(filter: filter)
+		_playerSubfiltersDS?.update(filter: filter) { [weak self] finished in
+			if let contentHeight = self?._collectionView.contentSize.height,
+				let viewHeight = self?.view.bounds.height {
+				let constant = min(viewHeight, contentHeight)
+				self?._collectionViewHeightConstraint.constant = constant
+			}
+		}
 	}
 }

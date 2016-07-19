@@ -56,8 +56,7 @@ class MainPlayerViewController: UIViewController {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
 		removeRightBarItem()
-		
-		navigationController?.navigationBar.hidden = true
+		navigationController?.setNavigationBarHidden(true, animated: false)
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterSelectionViewController" customModule="JamHawk" customModuleProvider="target">
             <connections>
                 <outlet property="_collectionView" destination="vod-CI-qjz" id="M8p-0A-nda"/>
+                <outlet property="_collectionViewHeightConstraint" destination="Tz5-TB-kPJ" id="SvE-kg-aDb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,6 +20,9 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vod-CI-qjz">
                     <rect key="frame" x="0.0" y="0.0" width="427" height="329"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="329" id="Tz5-TB-kPJ"/>
+                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HeD-1o-yjI">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -30,7 +34,6 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vod-CI-qjz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AsS-Tv-Ln1"/>
-                <constraint firstAttribute="bottom" secondItem="vod-CI-qjz" secondAttribute="bottom" id="F9e-ra-dN4"/>
                 <constraint firstItem="vod-CI-qjz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tpc-Ff-nBj"/>
                 <constraint firstAttribute="trailing" secondItem="vod-CI-qjz" secondAttribute="trailing" id="jP2-2T-PNM"/>
             </constraints>

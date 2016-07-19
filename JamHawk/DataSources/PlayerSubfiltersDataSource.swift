@@ -25,9 +25,10 @@ class PlayerSubfiltersDataSource: NSObject {
 		_collectionView.delegate = self
 	}
 	
-	func update(filter filter: PlayerAPIOutputFilter) {
+	func update(filter filter: PlayerAPIOutputFilter, completion: ((finished: Bool) -> Void)? = nil) {
 		_filter = filter
-		_collectionView.reloadData()
+		self._collectionView.reloadData()
+		_collectionView.performBatchUpdates({}, completion: completion)
 	}
 }
 
