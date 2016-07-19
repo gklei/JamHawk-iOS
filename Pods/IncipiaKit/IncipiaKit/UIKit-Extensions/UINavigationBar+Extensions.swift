@@ -17,4 +17,9 @@ public extension UINavigationBar
 	public func resetTransparency() {
 		setBackgroundImage(nil, forBarMetrics: .Default)
 	}
+	
+	public func update(backgroundColor color: UIColor) {
+		let image = UIImage.imageWithColor(color)
+		setBackgroundImage(image, forBarMetrics: .Default)
+	}
 }

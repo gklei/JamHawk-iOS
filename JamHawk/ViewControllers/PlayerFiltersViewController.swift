@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerFiltersViewController: UIViewController {
+final class PlayerFiltersViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!
