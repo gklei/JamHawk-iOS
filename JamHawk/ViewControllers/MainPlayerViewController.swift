@@ -21,18 +21,18 @@ class MainPlayerViewController: UIViewController {
 	@IBOutlet private var _bottomContainer: UIView!
 	@IBOutlet private var _playerControlsContainer: UIView!
 	
-	@IBOutlet private var _bottomContainerHeightConstraint: NSLayoutConstraint!
+	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
 	var output: PlayerAPIOutput?
 	private var _currentState: MainPlayerState!
 	
-	private let _playerFiltersVC = PlayerFiltersViewController.instantiate(fromStoryboard: "Player")
-	private let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.instantiate(fromStoryboard: "Player")
-	private let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.instantiate(fromStoryboard: "Player")
-	private let _nextAvailableMediaVC = NextAvailableMediaViewController.instantiate(fromStoryboard: "Player")
-	private let _playerControlsVC = PlayerControlsViewController.instantiate(fromStoryboard: "Player")
-	private var _filterSelectionVC: FilterSelectionViewController?
+	internal let _playerFiltersVC = PlayerFiltersViewController.instantiate(fromStoryboard: "Player")
+	internal let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.instantiate(fromStoryboard: "Player")
+	internal let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.instantiate(fromStoryboard: "Player")
+	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.instantiate(fromStoryboard: "Player")
+	internal let _playerControlsVC = PlayerControlsViewController.instantiate(fromStoryboard: "Player")
+	internal var _filterSelectionVC: FilterSelectionViewController?
 	
 	var nextTrackButtonPressed: () -> Void = {}
 	
@@ -48,26 +48,19 @@ class MainPlayerViewController: UIViewController {
 		_playerFiltersVC.selectionClosure = _filterSelected
 		_playerControlsVC.delegate = self
 		
-		_currentState = DefaultHomeScreenState(delegate: self)
+		let state = DefaultHomeScreenState(delegate: self)
+		_currentState = state.transition(duration: 0)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
 		removeRightBarItem()
-		_setupTitleView()
+		navigationItem.titleView = JamhawkTitleViewController().view
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
-	}
-	
-	// MARK: - Setup
-	private func _setupTitleView() {
-		let titleViewFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 40)
-		let titleView = JamhawkTitleViewController().view
-		titleView.frame = titleViewFrame
-		navigationItem.titleView = titleView
 	}
 	
 	// MARK: - Public
@@ -111,37 +104,5 @@ extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 		if action == .NextTrack {
 			nextTrackButtonPressed()
 		}
-	}
-}
-
-extension MainPlayerViewController: MainPlayerStateDelegate {
-	var currentState: MainPlayerState {
-		return _currentState
-	}
-	var playerFiltersViewController: PlayerFiltersViewController {
-		return _playerFiltersVC
-	}
-	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController {
-		return _smallCurrentTrackVotingVC
-	}
-	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController {
-		return _currentTrackVotingVC
-	}
-	var nextAvailableMediaViewController: NextAvailableMediaViewController {
-		return _nextAvailableMediaVC
-	}
-	var playerControlsViewController: PlayerControlsViewController {
-		return _playerControlsVC
-	}
-	var filterSelectionViewController: FilterSelectionViewController? {
-		get {
-			return _filterSelectionVC
-		}
-		set {
-			_filterSelectionVC = newValue
-		}
-	}
-	var bottomContainerHeightConstraint: NSLayoutConstraint {
-		return _bottomContainerHeightConstraint
 	}
 }

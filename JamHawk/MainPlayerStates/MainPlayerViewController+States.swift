@@ -7,3 +7,37 @@
 //
 
 import UIKit
+
+extension MainPlayerViewController: MainPlayerStateDelegate {
+	var playerFiltersViewController: PlayerFiltersViewController {
+		return _playerFiltersVC
+	}
+	
+	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController {
+		return _smallCurrentTrackVotingVC
+	}
+	
+	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController {
+		return _currentTrackVotingVC
+	}
+	
+	var nextAvailableMediaViewController: NextAvailableMediaViewController {
+		return _nextAvailableMediaVC
+	}
+	
+	var playerControlsViewController: PlayerControlsViewController {
+		return _playerControlsVC
+	}
+	
+	var filterSelectionViewController: FilterSelectionViewController? {
+		get {
+			return _filterSelectionVC
+		} set {
+			_filterSelectionVC = newValue
+		}
+	}
+	
+	var bottomContainerHeightConstraint: NSLayoutConstraint {
+		return _bottomContainerHeightConstraint
+	}
+}

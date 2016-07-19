@@ -9,7 +9,6 @@
 import UIKit
 
 protocol MainPlayerStateDelegate: class {
-	
 	var view: UIView! { get }
 	var playerFiltersViewController: PlayerFiltersViewController { get }
 	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController { get }
@@ -17,7 +16,6 @@ protocol MainPlayerStateDelegate: class {
 	var nextAvailableMediaViewController: NextAvailableMediaViewController { get }
 	var playerControlsViewController: PlayerControlsViewController { get }
 	var filterSelectionViewController: FilterSelectionViewController? { get set }
-	
 	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
 	
 	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, completion: dispatch_block_t?)
@@ -63,17 +61,18 @@ class FilterSelectionState: MainPlayerState {
 	}
 	
 	override func transition(duration duration: Double) -> MainPlayerState {
+		
+		// If the filter selection we are trying to transition to is already being selected, then transition
+		// back to the default state
 		if let parentFilter = _delegate.filterSelectionViewController?.parentFilter where parentFilter == _filter {
 			let state = DefaultHomeScreenState(delegate: _delegate)
 			return state.transition(duration: duration)
 		}
 		
-		if let currentFilter = _delegate.filterSelectionViewController?.parentFilter where currentFilter != _filter {
-			_delegate.filterSelectionViewController?.update(filter: _filter)
-			_delegate.playerFiltersViewController.scroll(toFilter: _filter)
-		} else {
+		if _delegate.filterSelectionViewController?.parentFilter == nil {
 			let filterSelectionVC = FilterSelectionViewController()
 			_delegate.filterSelectionViewController = filterSelectionVC
+			
 			_delegate.transition(from: _delegate.largeCurrentTrackVotingViewController, to: filterSelectionVC, completion: nil)
 			_delegate.transition(from: _delegate.nextAvailableMediaViewController, to: _delegate.smallCurrentTrackVotingViewController, completion: nil)
 			
@@ -81,14 +80,12 @@ class FilterSelectionState: MainPlayerState {
 			UIView.animateWithDuration(duration) {
 				self._delegate.view.layoutIfNeeded()
 			}
-			
-			_delegate.filterSelectionViewController?.update(filter: _filter)
-			_delegate.playerFiltersViewController.scroll(toFilter: _filter)
 		}
+		
+		_delegate.filterSelectionViewController?.update(filter: _filter)
+		_delegate.playerFiltersViewController.scroll(toFilter: _filter)
+
 		return self
-	}
-	
-	func update(filter filter: PlayerAPIOutputFilter) {
 	}
 }
 
@@ -104,5 +101,5 @@ class ShowProfileState: MainPlayerState {
 	}
 }
 
-class ShowNextAvailableMediaState: MainPlayerState {
+class ShowNextAvailableMediaDetailsState: MainPlayerState {
 }
