@@ -30,7 +30,7 @@
 		CE6CE99B1D3C28620029659F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */; };
 		CE6CE99D1D3D23E00029659F /* PlayerSubfiltersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99C1D3D23E00029659F /* PlayerSubfiltersDataSource.swift */; };
 		CE6CE9A01D3D262F0029659F /* PlayerSubfilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99E1D3D262F0029659F /* PlayerSubfilterCell.swift */; };
-		CE6CE9A11D3D262F0029659F /* PlayerSubfilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE99F1D3D262F0029659F /* PlayerSubfilterCell.xib */; };
+		CE6CE9A11D3D262F0029659F /* SubfilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE99F1D3D262F0029659F /* SubfilterCell.xib */; };
 		CE6CE9A41D3D67D50029659F /* MainPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9A31D3D67D50029659F /* MainPlayerState.swift */; };
 		CE747BF81D382B0F0006D1B6 /* PlayerControlsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BF71D382B0F0006D1B6 /* PlayerControlsToolbar.swift */; };
 		CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */; };
@@ -100,7 +100,7 @@
 		CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CE6CE99C1D3D23E00029659F /* PlayerSubfiltersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSubfiltersDataSource.swift; path = JamHawk/DataSources/PlayerSubfiltersDataSource.swift; sourceTree = "<group>"; };
 		CE6CE99E1D3D262F0029659F /* PlayerSubfilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSubfilterCell.swift; path = JamHawk/CustomUI/PlayerSubfilterCell.swift; sourceTree = "<group>"; };
-		CE6CE99F1D3D262F0029659F /* PlayerSubfilterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerSubfilterCell.xib; path = JamHawk/CustomUI/PlayerSubfilterCell.xib; sourceTree = "<group>"; };
+		CE6CE99F1D3D262F0029659F /* SubfilterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubfilterCell.xib; path = JamHawk/CustomUI/SubfilterCell.xib; sourceTree = "<group>"; };
 		CE6CE9A31D3D67D50029659F /* MainPlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPlayerState.swift; path = JamHawk/MainPlayerStates/MainPlayerState.swift; sourceTree = "<group>"; };
 		CE747BF71D382B0F0006D1B6 /* PlayerControlsToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsToolbar.swift; path = JamHawk/CustomUI/PlayerControlsToolbar.swift; sourceTree = "<group>"; };
 		CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaViewController.swift; path = JamHawk/ViewControllers/NextAvailableMediaViewController.swift; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 		CED404DE1D26D44B0083365F /* Storyboards & Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				CE6CE99F1D3D262F0029659F /* PlayerSubfilterCell.xib */,
+				CE6CE99F1D3D262F0029659F /* SubfilterCell.xib */,
 				CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */,
 				CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */,
 				CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */,
@@ -492,7 +492,7 @@
 				CE747C011D3885150006D1B6 /* JamhawkTitleViewController.xib in Resources */,
 				CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */,
 				CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */,
-				CE6CE9A11D3D262F0029659F /* PlayerSubfilterCell.xib in Resources */,
+				CE6CE9A11D3D262F0029659F /* SubfilterCell.xib in Resources */,
 				CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */,
 				CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,

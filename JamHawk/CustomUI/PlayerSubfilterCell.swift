@@ -1,5 +1,5 @@
 //
-//  PlayerSubfilterCell.swift
+//  SubfilterCell.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/18/16.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class PlayerSubfilterCell: UICollectionViewCell {
+class SubfilterCell: UICollectionViewCell {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _nameLabel: UILabel!
 	
 	// MARK: - Properties
-	static let xibName = "PlayerSubfilterCell"
-	static let reuseID = "PlayerSubfilterCell"
+	static let xibName = "SubfilterCell"
+	static let reuseID = "SubfilterCell"
 	
 	private var _circleColor = UIColor.jmhVeryLightGrayColor()
 	
@@ -31,7 +31,7 @@ class PlayerSubfilterCell: UICollectionViewCell {
 	}
 }
 
-extension PlayerSubfilterCell {
+extension SubfilterCell {
 	override var selected: Bool {
 		didSet {
 			_nameLabel.textColor = selected ? .whiteColor() : UIColor(white: 0.45, alpha: 1)

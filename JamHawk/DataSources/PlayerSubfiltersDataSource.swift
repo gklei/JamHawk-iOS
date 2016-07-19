@@ -18,8 +18,8 @@ class PlayerSubfiltersDataSource: NSObject {
 		_collectionView = collectionView
 		super.init()
 		
-		let nib = UINib(nibName: PlayerSubfilterCell.xibName, bundle: nil)
-		_collectionView.registerNib(nib, forCellWithReuseIdentifier: PlayerSubfilterCell.reuseID)
+		let nib = UINib(nibName: SubfilterCell.xibName, bundle: nil)
+		_collectionView.registerNib(nib, forCellWithReuseIdentifier: SubfilterCell.reuseID)
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
@@ -38,7 +38,7 @@ extension PlayerSubfiltersDataSource: UICollectionViewDataSource {
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PlayerSubfilterCell.reuseID, forIndexPath: indexPath) as! PlayerSubfilterCell
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SubfilterCell.reuseID, forIndexPath: indexPath) as! SubfilterCell
 		
 		if let names = _filter?.filterNames {
 			let filterName = names[indexPath.row]
