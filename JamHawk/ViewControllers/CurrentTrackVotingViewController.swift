@@ -73,7 +73,7 @@ class CurrentTrackVotingViewController: UIViewController {
 	}
 }
 
-class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewController {
+final class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
 	@IBOutlet internal var _albumTitleLabel: UILabel!
@@ -85,7 +85,7 @@ class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewController {
 	}
 }
 
-class CurrentTrackVotingSmallViewController: CurrentTrackVotingViewController {
+final class CurrentTrackVotingSmallViewController: CurrentTrackVotingViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Overriden
 	override func viewDidLoad() {

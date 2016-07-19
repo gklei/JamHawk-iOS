@@ -8,6 +8,16 @@
 
 import UIKit
 
+protocol PlayerStoryboardInstantiable {
+	static func create() -> Self
+}
+
+extension PlayerStoryboardInstantiable where Self: UIViewController {
+	static func create() -> Self {
+		return instantiate(fromStoryboard: "Player")
+	}
+}
+
 extension UIViewController {
 	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, usingContainer container: UIView, completion: dispatch_block_t? = nil) {
 		

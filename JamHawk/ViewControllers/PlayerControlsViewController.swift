@@ -17,7 +17,7 @@ protocol PlayerControlsViewControllerDelegate: class {
 	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType)
 }
 
-class PlayerControlsViewController: UIViewController {
+final class PlayerControlsViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _playPauseItem: UIBarButtonItem!

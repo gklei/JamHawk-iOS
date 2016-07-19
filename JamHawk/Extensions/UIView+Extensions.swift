@@ -17,8 +17,4 @@ extension UIView {
 		subview.leadingAnchor.constraintEqualToAnchor(leadingAnchor).active = true
 		subview.trailingAnchor.constraintEqualToAnchor(trailingAnchor).active = true
 	}
-	
-	func makeCircular() {
-		layer.cornerRadius = min(bounds.width, bounds.height) * 0.5
-	}
 }

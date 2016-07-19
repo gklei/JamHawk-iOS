@@ -60,7 +60,6 @@
 		CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */; };
 		CEFEAD901D3D7EDD004D3CFC /* MainPlayerViewController+States.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEAD8F1D3D7EDD004D3CFC /* MainPlayerViewController+States.swift */; };
 		CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */; };
-		CEFFF7981D358F8D00D083F1 /* UIToolbar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */; };
 		CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */; };
 		CEFFF79C1D359A1500D083F1 /* AVPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */; };
 		CEFFF79E1D369B0400D083F1 /* NextAvailableMediaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */; };
@@ -135,7 +134,6 @@
 		CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPlayerViewController.swift; path = JamHawk/ViewControllers/MainPlayerViewController.swift; sourceTree = "<group>"; };
 		CEFEAD8F1D3D7EDD004D3CFC /* MainPlayerViewController+States.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MainPlayerViewController+States.swift"; path = "JamHawk/MainPlayerStates/MainPlayerViewController+States.swift"; sourceTree = "<group>"; };
 		CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIOutputViewModel.swift; path = JamHawk/ViewModels/PlayerAPIOutputViewModel.swift; sourceTree = "<group>"; };
-		CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIToolbar+Extensions.swift"; path = "JamHawk/Extensions/UIToolbar+Extensions.swift"; sourceTree = "<group>"; };
 		CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerProgressViewController.swift; path = JamHawk/ViewControllers/PlayerProgressViewController.swift; sourceTree = "<group>"; };
 		CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AVPlayer+Extensions.swift"; path = "JamHawk/Extensions/AVPlayer+Extensions.swift"; sourceTree = "<group>"; };
 		CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaDataSource.swift; path = JamHawk/DataSources/NextAvailableMediaDataSource.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 		CE2B69471D2EF07000EAFF16 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEFFF7971D358F8D00D083F1 /* UIToolbar+Extensions.swift */,
 				CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */,
 				CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */,
 				CE6CE9981D3C27C30029659F /* UIView+Extensions.swift */,
@@ -595,7 +592,6 @@
 				CE747BFC1D3839BB0006D1B6 /* PlayerFiltersViewController.swift in Sources */,
 				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
-				CEFFF7981D358F8D00D083F1 /* UIToolbar+Extensions.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CEFEAD901D3D7EDD004D3CFC /* MainPlayerViewController+States.swift in Sources */,
 				CE10F1281D3816F500D69682 /* JamhawkTitleViewController.swift in Sources */,

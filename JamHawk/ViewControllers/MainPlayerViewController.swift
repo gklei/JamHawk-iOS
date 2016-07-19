@@ -27,11 +27,11 @@ class MainPlayerViewController: UIViewController {
 	var output: PlayerAPIOutput?
 	private var _currentState: MainPlayerState!
 	
-	internal let _playerFiltersVC = PlayerFiltersViewController.instantiate(fromStoryboard: "Player")
-	internal let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.instantiate(fromStoryboard: "Player")
-	internal let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.instantiate(fromStoryboard: "Player")
-	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.instantiate(fromStoryboard: "Player")
-	internal let _playerControlsVC = PlayerControlsViewController.instantiate(fromStoryboard: "Player")
+	internal let _playerFiltersVC = PlayerFiltersViewController.create()
+	internal let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.create()
+	internal let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.create()
+	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
+	internal let _playerControlsVC = PlayerControlsViewController.create()
 	internal var _filterSelectionVC: FilterSelectionViewController?
 	
 	var nextTrackButtonPressed: () -> Void = {}

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NextAvailableMediaViewController: UIViewController {
+final class NextAvailableMediaViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!

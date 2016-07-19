@@ -23,6 +23,26 @@ public extension UIViewController {
 		navigationItem.setLeftBarButtonItems([item], animated: false)
 	}
 	
+	public func updateLeftBarButtonItem(withImageName name: String, action: Selector) {
+		let item = UIBarButtonItem(image: UIImage(named: name), style: .Plain, target: self, action: action)
+		navigationItem.setLeftBarButtonItems([item], animated: false)
+	}
+	
+	public func updateRightBarButtonItem(withImageName name: String, action: Selector) {
+		let item = UIBarButtonItem(image: UIImage(named: name), style: .Plain, target: self, action: action)
+		navigationItem.setRightBarButtonItems([item], animated: false)
+	}
+	
+	public func updateLeftBarButtonItem(withTitle title: String, action: Selector) {
+		let item = UIBarButtonItem(title: title, style: .Plain, target: self, action: action)
+		navigationItem.setLeftBarButtonItems([item], animated: false)
+	}
+	
+	public func updateRightBarButtonItem(withTitle title: String, action: Selector) {
+		let item = UIBarButtonItem(title: title, style: .Plain, target: self, action: action)
+		navigationItem.setRightBarButtonItems([item], animated: false)
+	}
+	
 	@objc private func ik_backButtonPressed() {
 		navigationController?.popViewControllerAnimated(true)
 	}
