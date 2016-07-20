@@ -204,12 +204,29 @@
                                     <constraint firstItem="UqF-2w-N0Z" firstAttribute="top" secondItem="bjw-z5-2Uy" secondAttribute="top" id="qV4-br-Uzu"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOF-eg-ZhU">
+                                <rect key="frame" x="0.0" y="509" width="600" height="91"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="MGO-X1-Jxz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueButtonPressed:" destination="dOE-fG-Mm9" eventType="touchUpInside" id="emd-kv-Kz7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97265625" green="0.97265625" blue="0.97265625" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bjw-z5-2Uy" secondAttribute="trailing" constant="-20" id="2fi-XQ-hIc"/>
+                            <constraint firstItem="rOF-eg-ZhU" firstAttribute="leading" secondItem="uv7-qb-f2z" secondAttribute="leading" id="g7P-M0-YKM"/>
+                            <constraint firstAttribute="trailing" secondItem="rOF-eg-ZhU" secondAttribute="trailing" id="jAL-gG-Mu2"/>
                             <constraint firstItem="bjw-z5-2Uy" firstAttribute="centerY" secondItem="uv7-qb-f2z" secondAttribute="centerY" id="nyX-3b-Liy"/>
+                            <constraint firstItem="KFF-Eb-48j" firstAttribute="top" secondItem="rOF-eg-ZhU" secondAttribute="bottom" id="szc-56-6eD"/>
                             <constraint firstItem="bjw-z5-2Uy" firstAttribute="leading" secondItem="uv7-qb-f2z" secondAttribute="leadingMargin" constant="-20" id="xwS-s4-PMk"/>
                         </constraints>
                         <connections>
