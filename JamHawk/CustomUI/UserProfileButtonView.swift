@@ -9,12 +9,11 @@
 import UIKit
 
 class UserProfileButtonView: UIButton {
+	private let image = UIImage(named: "headphones")
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
-	private let image = UIImage(named: "headphones")
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
