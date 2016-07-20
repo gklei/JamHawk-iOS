@@ -8,15 +8,6 @@
 
 import UIKit
 
-class JHSignInSignUpTextField: UITextField {
-   override func textRectForBounds(bounds: CGRect) -> CGRect {
-      return bounds.insetBy(dx: 20, dy: 0)
-   }
-   override func editingRectForBounds(bounds: CGRect) -> CGRect {
-      return bounds.insetBy(dx: 20, dy: 0)
-   }
-}
-
 class JHSignInViewController: UIViewController {
    
    // MARK: - IBOutlets
