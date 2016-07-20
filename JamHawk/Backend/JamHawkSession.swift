@@ -53,7 +53,7 @@ class JamHawkSession: PlayerAPIService {
 		_playerSession.instantiatePlayer(callback)
 	}
 	
-	func requestNextTrack(callback: PlayerAPICallback) {
-		_playerSession.requestNextTrack(callback)
+	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates? = nil, callback: PlayerAPICallback) {
+		_playerSession.requestNextTrack(withUpdates: updates, callback: callback)
 	}
 }

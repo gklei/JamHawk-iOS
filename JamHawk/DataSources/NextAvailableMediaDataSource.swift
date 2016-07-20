@@ -14,6 +14,13 @@ class NextAvailableMediaDataSource: NSObject {
 	private let _collectionView: UICollectionView
 	private var _output: PlayerAPIOutput?
 	
+	var selectionClosure: (track: PlayerAPIOutputMetadata) -> Void = {_ in}
+	var selectedTrack: PlayerAPIOutputMetadata? {
+		guard let ip = _collectionView.indexPathsForSelectedItems()?.first else { return nil }
+		guard ip.row < _output?.next?.count else { return nil }
+		return _output?.next?[ip.row]
+	}
+	
 	init(collectionView: UICollectionView) {
 		_collectionView = collectionView
 		super.init()
@@ -25,6 +32,14 @@ class NextAvailableMediaDataSource: NSObject {
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		_output = output
 		_collectionView.reloadSections(NSIndexSet(index: 0))
+	}
+	
+	func selectFirstTrack() {
+		guard _collectionView.numberOfItemsInSection(0) > 1 else { return }
+		
+		let ip = NSIndexPath(forRow: 0, inSection: 0)
+		_collectionView.selectItemAtIndexPath(ip, animated: false, scrollPosition: .None)
+		collectionView(_collectionView, didSelectItemAtIndexPath: ip)
 	}
 	
 	func resetCells() {
@@ -54,6 +69,13 @@ extension NextAvailableMediaDataSource: UICollectionViewDataSource {
 }
 
 extension NextAvailableMediaDataSource: UICollectionViewDelegate {
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		if let next = _output?.next {
+			let metadata = next[indexPath.row]
+			selectionClosure(track: metadata)
+		}
+	}
+	
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
 	{
 		let cellWidth: CGFloat = 48

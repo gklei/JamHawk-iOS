@@ -135,8 +135,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm">
-                                <rect key="frame" x="114" y="19" width="186" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm">
+                                <rect key="frame" x="20" y="19" width="374" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -147,6 +147,8 @@
                             <constraint firstItem="7gg-Ql-qcm" firstAttribute="centerX" secondItem="miX-FT-dVr" secondAttribute="centerX" id="2Yi-3b-Sm4"/>
                             <constraint firstItem="usV-ju-2F3" firstAttribute="top" secondItem="miX-FT-dVr" secondAttribute="bottom" constant="26" id="6kw-4d-7V8"/>
                             <constraint firstItem="miX-FT-dVr" firstAttribute="leading" secondItem="yLV-js-tTd" secondAttribute="leading" id="I2l-Ac-zXv"/>
+                            <constraint firstAttribute="trailing" secondItem="7gg-Ql-qcm" secondAttribute="trailing" constant="20" id="MlS-x7-yTp"/>
+                            <constraint firstItem="7gg-Ql-qcm" firstAttribute="leading" secondItem="yLV-js-tTd" secondAttribute="leading" constant="20" id="uTl-KC-St2"/>
                             <constraint firstItem="miX-FT-dVr" firstAttribute="top" secondItem="7gg-Ql-qcm" secondAttribute="bottom" constant="16" id="vZn-ep-Z8n"/>
                             <constraint firstAttribute="trailing" secondItem="miX-FT-dVr" secondAttribute="trailing" id="yHh-Sl-dUw"/>
                         </constraints>
@@ -155,6 +157,7 @@
                     <size key="freeformSize" width="414" height="124"/>
                     <connections>
                         <outlet property="_collectionView" destination="miX-FT-dVr" id="nK1-aj-29r"/>
+                        <outlet property="_nextSongInfoLabel" destination="7gg-Ql-qcm" id="sqm-Q6-m6H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAu-Qb-NW0" userLabel="First Responder" sceneMemberID="firstResponder"/>

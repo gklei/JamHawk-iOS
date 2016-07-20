@@ -33,3 +33,12 @@ class NextAvailableMediaCell: UICollectionViewCell {
 		AsyncImageLoader.sharedLoader().cancelLoadingImagesForTarget(_backgroundImageView)
 	}
 }
+
+extension NextAvailableMediaCell {
+	override var selected: Bool {
+		didSet {
+			layer.borderWidth = 2.0
+			layer.borderColor = selected ? UIColor.whiteColor().CGColor : UIColor.clearColor().CGColor
+		}
+	}
+}

@@ -35,8 +35,6 @@ class MainPlayerViewController: UIViewController {
 	internal let _playerControlsVC = PlayerControlsViewController.create()
 	internal var _subfilterSelectionVC: SubfilterSelectionViewController?
 	
-	var nextTrackButtonPressed: () -> Void = {}
-	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -83,7 +81,7 @@ class MainPlayerViewController: UIViewController {
 	}
 	
 	// MARK: - Private
-	private func _handlePlayerCallback(error error: NSError?, output: PlayerAPIOutput?) {
+	private func _handlePlayerAPICallback(error error: NSError?, output: PlayerAPIOutput?) {
 		if let error = error {
 			self.present(error)
 		}
@@ -112,7 +110,18 @@ extension MainPlayerViewController {
 extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType) {
 		if action == .NextTrack {
-			playerAPIService?.requestNextTrack(_handlePlayerCallback)
+			_requestNextTrack()
 		}
+	}
+}
+
+extension MainPlayerViewController {
+	private func _requestNextTrack() {
+		var updates: PlayerAPIInputUpdates?
+		if let selectedTrack = _nextAvailableMediaVC.selectedTrack {
+			updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: selectedTrack.mid, ratings: nil)
+		}
+		
+		playerAPIService?.requestNextTrack(withUpdates: updates, callback: _handlePlayerAPICallback)
 	}
 }

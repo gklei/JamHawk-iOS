@@ -10,7 +10,7 @@ import Foundation
 
 protocol PlayerAPIService {
 	func instantiatePlayer(callback: PlayerAPICallback)
-	func requestNextTrack(callback: PlayerAPICallback)
+	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates?, callback: PlayerAPICallback)
 }
 
 class PlayerSession: PlayerAPIService {
@@ -20,6 +20,8 @@ class PlayerSession: PlayerAPIService {
 	
 	private var _playerID: String?
 	private var _playerStatus: PlayerAPIInputStatus?
+	
+	private var _currentRequestID = 0
 	
 	init(session: NSURLSession) {
 		_session = session
@@ -45,10 +47,11 @@ class PlayerSession: PlayerAPIService {
 		_playerDataTask?.resume()
 	}
 	
-	func requestNextTrack(callback: PlayerAPICallback) {
+	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates? = nil, callback: PlayerAPICallback) {
+		
 		guard let id = _playerID else { return }
-		let statusInput = PlayerAPIInputStatus.requestNextTrackStatus(id)
-		let input = PlayerAPIInput(instance: nil, status: statusInput, updates: nil, events: nil)
+		let status = PlayerAPIInputStatus.requestNextTrackStatus(id)
+		let input = PlayerAPIInput(instance: nil, status: status, updates: updates, events: nil)
 		guard let request = input.generateRequest() else { return }
 		
 		_playerDataTask?.cancel()
@@ -56,7 +59,6 @@ class PlayerSession: PlayerAPIService {
 			
 			let output = PlayerAPIOutput(jsonData: data)
 			dispatch_async(dispatch_get_main_queue()) {
-				
 				callback(error: error, output: output)
 			}
 		})
