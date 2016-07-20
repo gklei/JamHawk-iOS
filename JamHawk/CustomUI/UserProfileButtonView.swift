@@ -9,7 +9,7 @@
 import UIKit
 
 class UserProfileButtonView: UIButton {
-	private let image = UIImage(named: "headphones")
+	private let _image = UIImage(named: "headphones")
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -32,11 +32,11 @@ class UserProfileButtonView: UIButton {
 		UIColor.jmhTurquoiseColor().setFill()
 		CGContextFillEllipseInRect(context, rect.insetBy(dx: 2, dy: 2))
 		
-		if let imageSize = image?.size {
+		if let imageSize = _image?.size {
 			var imageRect = CGRect(origin: CGPoint.zero, size: imageSize)
 			imageRect.origin.x = rect.midX - imageSize.width * 0.5
 			imageRect.origin.y = rect.midY - imageSize.height * 0.5
-			image?.drawInRect(imageRect)
+			_image?.drawInRect(imageRect)
 		}
 	}
 }
