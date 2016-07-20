@@ -37,7 +37,6 @@ class JHSignInViewController: UIViewController {
    
    // MARK: - Setup
    private func _setupOutlets() {
-      signInLabel.text = "Sign In"
       signInLabel.kerning = 1.7
       passwordTextField.secureTextEntry = true
    }

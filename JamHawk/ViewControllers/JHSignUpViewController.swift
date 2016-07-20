@@ -36,7 +36,6 @@ class JHSignUpViewController: UIViewController {
    
    // MARK: - Setup 
    private func _setupOutlets() {
-      _signUpLabel.text = "Sign Up"
       _signUpLabel.kerning = 1.7
       _passwordTextField.secureTextEntry = true
       _confirmPasswordTextField.secureTextEntry = true
