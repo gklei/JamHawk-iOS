@@ -52,7 +52,7 @@ class JHSignUpViewController: UIViewController {
       guard let inputEmail = _emailTextField.text else { return }
       guard let inputPassword = _passwordTextField.text else { return }
       
-      if _credentialsAreValid() {
+      guard _credentialsAreValid() else { return }
          session!.signUp(email: inputEmail, password: inputPassword, callback: { (error, output) in
             if let error = error {
                self.present(error)
@@ -66,7 +66,6 @@ class JHSignUpViewController: UIViewController {
                }
             }
          })
-      }
    }
    
    // MARK: - Private Methods
