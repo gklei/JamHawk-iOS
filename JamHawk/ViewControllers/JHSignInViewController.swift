@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IncipiaKit
 
 class JHSignInViewController: UIViewController {
    

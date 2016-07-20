@@ -20,10 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		window = UIWindow()
 //		router = AppRouter(window: window!, session: session)
       
-      let signInVC = JHSignInViewController.instantiate(fromStoryboard: "SignIn")
-      signInVC.session = session
-      window?.rootViewController = signInVC
-      window?.makeKeyAndVisible()
+//      let signInVC = JHSignInViewController.instantiate(fromStoryboard: "SignIn")
+//      signInVC.session = session
+//      window?.rootViewController = signInVC
+      
+        let signUpVC = JHSignUpViewController.instantiate(fromStoryboard: "SignIn")
+//        signUpVC.session = session
+        window?.rootViewController = signUpVC
+        window?.makeKeyAndVisible()
       
 		return true
 	}
