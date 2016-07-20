@@ -22,6 +22,9 @@ class NextAvailableMediaCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		layer.cornerRadius = 3.0
+		
+		_backgroundImageView.alpha = 0.6
+		backgroundColor = .clearColor()
 	}
 	
 	// MARK: - Public
@@ -39,6 +42,7 @@ extension NextAvailableMediaCell {
 		didSet {
 			layer.borderWidth = 2.0
 			layer.borderColor = selected ? UIColor.whiteColor().CGColor : UIColor.clearColor().CGColor
+			_backgroundImageView.alpha = selected ? 1 : 0.6
 		}
 	}
 }

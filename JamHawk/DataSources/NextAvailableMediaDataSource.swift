@@ -27,6 +27,15 @@ class NextAvailableMediaDataSource: NSObject {
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
+		
+		let layout = UICollectionViewFlowLayout()
+		
+		let size = _collectionView.bounds.height
+		layout.itemSize = CGSize(width: size, height: size)
+		layout.minimumLineSpacing = 28.0
+		layout.scrollDirection = .Horizontal
+		
+		_collectionView.collectionViewLayout = layout
 	}
 	
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
@@ -78,9 +87,9 @@ extension NextAvailableMediaDataSource: UICollectionViewDelegate {
 	
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
 	{
-		let cellWidth: CGFloat = 48
+		let cellWidth = collectionView.bounds.height
 		let numberOfCells: CGFloat = CGFloat(_output?.next?.count ?? 0)
-		let cellSpacing: CGFloat = 11
+		let cellSpacing: CGFloat = 28.0
 		
 		let viewWidth = UIScreen.mainScreen().bounds.width
 		let totalContentWidth = numberOfCells * cellWidth + ((numberOfCells - 1) * cellSpacing)

@@ -24,6 +24,9 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	@IBOutlet private var _toggleMuteItem: UIBarButtonItem!
 	@IBOutlet private var _profileItem: UIBarButtonItem!
 	
+	@IBOutlet private var _topPaddingView: UIView!
+	@IBOutlet private var _bottomPaddingView: UIView!
+	
 	// MARK: - Properties
 	weak var delegate: PlayerControlsViewControllerDelegate?
 	
@@ -34,6 +37,12 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		_profileItem.customView = UserProfileButtonView()
+		
+		let color = UIColor(white: 26.0 / 255.0, alpha: 1)
+		_topPaddingView.backgroundColor = color
+		_bottomPaddingView.backgroundColor = color
+		
+		_toggleMuteItem.tintColor = .whiteColor()
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -81,8 +90,8 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	}
 	
 	private func _updateBarButtonItems() {
-		let playPauseImageName = _player.paused ? "play" : "pause"
-		let toggleMuteImageName = _player.muted ? "mute" : "low_volume"
+		let playPauseImageName = _player.paused ? "play2" : "pause"
+		let toggleMuteImageName = _player.muted ? "mute" : "low_volume2"
 		
 		_playPauseItem.image = UIImage(named: playPauseImageName)
 		_toggleMuteItem.image = UIImage(named: toggleMuteImageName)

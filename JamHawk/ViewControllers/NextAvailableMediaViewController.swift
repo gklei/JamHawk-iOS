@@ -31,6 +31,16 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		
 		_nextAvailableMediaDS = NextAvailableMediaDataSource(collectionView: _collectionView)
 		_nextAvailableMediaDS?.selectionClosure = _updateUI
+		
+		let topBorder = UIView()
+		topBorder.backgroundColor = UIColor(white: 1, alpha: 0.4)
+		view.addSubview(topBorder)
+		
+		topBorder.translatesAutoresizingMaskIntoConstraints = false
+		topBorder.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
+		topBorder.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active = true
+		topBorder.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
+		topBorder.heightAnchor.constraintEqualToConstant(1).active = true
 	}
 	
 	// MARK: - Private

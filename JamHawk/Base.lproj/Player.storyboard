@@ -22,7 +22,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ffU-sH-OeD" customClass="AsyncImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6K-uX-wfs">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bqg-z0-1FA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PVM-IC-RyA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6K-uX-wfs">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
@@ -34,18 +42,18 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27">
-                                <rect key="frame" x="0.0" y="64" width="414" height="58"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="68"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="5lD-EQ-1Ka"/>
+                                    <constraint firstAttribute="height" constant="68" id="5lD-EQ-1Ka"/>
                                 </constraints>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rB-2F-63i">
-                                <rect key="frame" x="0.0" y="122" width="414" height="437"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="401"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-ve-drH">
-                                <rect key="frame" x="0.0" y="559" width="414" height="124"/>
+                                <rect key="frame" x="0.0" y="533" width="414" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="124" id="1K6-M2-aqZ"/>
+                                    <constraint firstAttribute="height" constant="150" id="1K6-M2-aqZ"/>
                                 </constraints>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ww-DI-mLh">
@@ -58,10 +66,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mlp-ow-Z27" secondAttribute="trailing" id="0fN-Tx-DMw"/>
+                            <constraint firstItem="Bqg-z0-1FA" firstAttribute="height" secondItem="ffU-sH-OeD" secondAttribute="height" id="1YZ-Rm-pkx"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="3n1-JI-LHa"/>
                             <constraint firstAttribute="trailing" secondItem="4rB-2F-63i" secondAttribute="trailing" id="7KM-9E-UF5"/>
                             <constraint firstItem="Sx4-ve-drH" firstAttribute="top" secondItem="4rB-2F-63i" secondAttribute="bottom" id="Dp2-XO-s9l"/>
+                            <constraint firstItem="Bqg-z0-1FA" firstAttribute="centerY" secondItem="ffU-sH-OeD" secondAttribute="centerY" id="EJ5-du-VmW"/>
+                            <constraint firstItem="Bqg-z0-1FA" firstAttribute="width" secondItem="ffU-sH-OeD" secondAttribute="width" id="GJt-T8-Mqc"/>
                             <constraint firstItem="vB4-QW-Prx" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="MZo-pk-GGe"/>
+                            <constraint firstItem="Bqg-z0-1FA" firstAttribute="centerX" secondItem="ffU-sH-OeD" secondAttribute="centerX" id="PAA-Zp-VZZ"/>
                             <constraint firstAttribute="trailing" secondItem="Sx4-ve-drH" secondAttribute="trailing" id="Rer-HN-BS3"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ffU-sH-OeD" secondAttribute="bottom" id="Tms-aM-h5d"/>
                             <constraint firstAttribute="trailing" secondItem="vB4-QW-Prx" secondAttribute="trailing" id="WSQ-YM-asF"/>
@@ -108,14 +120,14 @@
                         <viewControllerLayoutGuide type="bottom" id="usV-ju-2F3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yLV-js-tTd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="miX-FT-dVr">
-                                <rect key="frame" x="0.0" y="50" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="58" width="414" height="60"/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.0" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="TNd-s1-rxH"/>
+                                    <constraint firstAttribute="height" constant="60" id="TNd-s1-rxH"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="11" minimumInteritemSpacing="0.0" id="Jtm-7Z-KLX">
                                     <size key="itemSize" width="48" height="48"/>
@@ -125,7 +137,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NextAvailableMediaCell" id="weY-Ef-Cur">
-                                        <rect key="frame" x="10" y="0.0" width="48" height="48"/>
+                                        <rect key="frame" x="10" y="6" width="48" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
@@ -136,7 +148,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm">
-                                <rect key="frame" x="20" y="19" width="374" height="15"/>
+                                <rect key="frame" x="20" y="27" width="374" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -145,7 +157,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7gg-Ql-qcm" firstAttribute="centerX" secondItem="miX-FT-dVr" secondAttribute="centerX" id="2Yi-3b-Sm4"/>
-                            <constraint firstItem="usV-ju-2F3" firstAttribute="top" secondItem="miX-FT-dVr" secondAttribute="bottom" constant="26" id="6kw-4d-7V8"/>
+                            <constraint firstItem="usV-ju-2F3" firstAttribute="top" secondItem="miX-FT-dVr" secondAttribute="bottom" constant="32" id="6kw-4d-7V8"/>
                             <constraint firstItem="miX-FT-dVr" firstAttribute="leading" secondItem="yLV-js-tTd" secondAttribute="leading" id="I2l-Ac-zXv"/>
                             <constraint firstAttribute="trailing" secondItem="7gg-Ql-qcm" secondAttribute="trailing" constant="20" id="MlS-x7-yTp"/>
                             <constraint firstItem="7gg-Ql-qcm" firstAttribute="leading" secondItem="yLV-js-tTd" secondAttribute="leading" constant="20" id="uTl-KC-St2"/>
@@ -154,7 +166,7 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="124"/>
+                    <size key="freeformSize" width="414" height="150"/>
                     <connections>
                         <outlet property="_collectionView" destination="miX-FT-dVr" id="nK1-aj-29r"/>
                         <outlet property="_nextSongInfoLabel" destination="7gg-Ql-qcm" id="sqm-Q6-m6H"/>
@@ -193,7 +205,7 @@
                                 <rect key="frame" x="0.0" y="14" width="600" height="44"/>
                                 <items>
                                     <barButtonItem image="headphones" width="26" id="Y2Q-2q-P4a">
-                                        <color key="tintColor" red="0.16447375710000001" green="0.53145653010000005" blue="0.42417222259999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_userProfileButtonPressed" destination="eYF-eb-H3C" id="ibf-zt-rrC"/>
                                         </connections>
@@ -201,22 +213,22 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="S5L-a8-NUa"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IHj-sg-oS5"/>
                                     <barButtonItem width="28" style="plain" systemItem="fixedSpace" id="h5t-Vd-6ek"/>
-                                    <barButtonItem image="play" width="20" style="plain" id="uuE-hq-KTO">
-                                        <color key="tintColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="play2" width="20" style="plain" id="uuE-hq-KTO">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_playPauseButtonPressed" destination="eYF-eb-H3C" id="hKJ-vW-ySS"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="v1K-bB-hwL"/>
-                                    <barButtonItem image="next_track" id="yYw-gU-6h9">
-                                        <color key="tintColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="next_track2" id="yYw-gU-6h9">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_nextTrackButtonPressed" destination="eYF-eb-H3C" id="6LY-DN-tiz"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iYc-0M-KND"/>
                                     <barButtonItem image="low_volume" width="24" id="rwm-jI-Lsk">
-                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="_toggleMuteButtonPressed" destination="eYF-eb-H3C" id="pNZ-Tj-o8A"/>
                                         </connections>
@@ -252,9 +264,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="60"/>
                     <connections>
+                        <outlet property="_bottomPaddingView" destination="ozL-b4-Cmb" id="va1-Ps-OgS"/>
                         <outlet property="_playPauseItem" destination="uuE-hq-KTO" id="Iy7-Y8-gkE"/>
                         <outlet property="_profileItem" destination="Y2Q-2q-P4a" id="jAx-dT-1eG"/>
                         <outlet property="_toggleMuteItem" destination="rwm-jI-Lsk" id="K2n-2h-yc2"/>
+                        <outlet property="_topPaddingView" destination="J8N-2f-qPO" id="8ow-xA-nWs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agT-e7-aDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -319,11 +333,11 @@
                         <viewControllerLayoutGuide type="bottom" id="raL-BD-81r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LbK-fd-mfS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iWi-BP-PxI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="EGs-Uf-XoK">
                                     <size key="itemSize" width="164" height="58"/>
@@ -333,7 +347,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ParentFilterCell" id="ALp-UX-eKt">
-                                        <rect key="frame" x="0.0" y="0.0" width="164" height="58"/>
+                                        <rect key="frame" x="0.0" y="5" width="164" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="164" height="58"/>
@@ -353,7 +367,7 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="58"/>
+                    <size key="freeformSize" width="414" height="68"/>
                     <connections>
                         <outlet property="_collectionView" destination="iWi-BP-PxI" id="Vwk-Wq-7q1"/>
                     </connections>
@@ -583,9 +597,9 @@
         <image name="downvote_small" width="15" height="16"/>
         <image name="headphones" width="10" height="10"/>
         <image name="low_volume" width="18" height="18"/>
-        <image name="next_track" width="26" height="16"/>
-        <image name="play" width="13" height="16"/>
-        <image name="upvote" width="31" height="32"/>
+        <image name="next_track2" width="26" height="16"/>
+        <image name="play2" width="15" height="18"/>
+        <image name="upvote" width="38" height="41"/>
         <image name="upvote_small" width="15" height="16"/>
     </resources>
 </document>

@@ -33,6 +33,8 @@ class SubfilterSelectionViewController: UIViewController {
 		
 		_setupCollectionViewLayout()
 		_playerSubfiltersDS = PlayerSubfiltersDataSource(collectionView: _collectionView)
+		
+		_collectionViewHeightConstraint.constant = 0
 	}
 	
 	// MARK: - Setup
@@ -56,7 +58,11 @@ class SubfilterSelectionViewController: UIViewController {
 			if let contentHeight = self?._collectionView.contentSize.height,
 				let viewHeight = self?.view.bounds.height {
 				let constant = min(viewHeight, contentHeight)
+				
 				self?._collectionViewHeightConstraint.constant = constant
+				UIView.animateWithDuration(0.2, animations: {
+					self?.view.layoutIfNeeded()
+				})
 			}
 		}
 	}

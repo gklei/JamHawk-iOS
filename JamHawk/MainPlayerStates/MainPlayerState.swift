@@ -44,7 +44,7 @@ class DefaultHomeScreenState: MainPlayerState {
 		}
 		
 		_delegate.parentFilterSelectionViewController.deselectFilters()
-		_delegate.bottomContainerHeightConstraint.constant = 124.0
+		_delegate.bottomContainerHeightConstraint.constant = 150.0
 		UIView.animateWithDuration(duration) {
 			self._delegate.view.layoutIfNeeded()
 		}

@@ -45,11 +45,11 @@ class CurrentTrackVotingViewController: UIViewController {
 		
 		_upvoteButton.layer.borderColor = UIColor.whiteColor().CGColor
 		_upvoteButton.backgroundColor = .clearColor()
-		_upvoteButton.tintColor = UIColor.jmhTurquoiseColor()
+		_upvoteButton.tintColor = .whiteColor()
 		
 		_downvoteButton.layer.borderColor = UIColor.whiteColor().CGColor
-		_downvoteButton.backgroundColor = UIColor.clearColor()
-		_downvoteButton.tintColor = UIColor.jmhTangerineColor()
+		_downvoteButton.backgroundColor = .clearColor()
+		_downvoteButton.tintColor = .whiteColor()
 	}
 	
 	@IBAction private func _downvoteButtonPressed() {

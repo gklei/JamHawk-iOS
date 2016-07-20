@@ -20,11 +20,17 @@ class PlayerFiltersDataSource: NSObject {
 	
 	init(collectionView: UICollectionView) {
 		_collectionView = collectionView
-		
 		super.init()
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
+		
+		let layout = UICollectionViewFlowLayout()
+		let size = _collectionView.bounds.height
+		layout.itemSize = CGSize(width: 182, height: size)
+		layout.minimumLineSpacing = 0
+		layout.scrollDirection = .Horizontal
+		_collectionView.collectionViewLayout = layout
 		
 		let nib = UINib(nibName: ParentFilterCell.xibName, bundle: nil)
 		_collectionView.registerNib(nib, forCellWithReuseIdentifier: ParentFilterCell.reuseID)
