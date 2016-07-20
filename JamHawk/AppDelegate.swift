@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		window = UIWindow()
-		router = AppRouter(window: window!, session: session)
+//		router = AppRouter(window: window!, session: session)
       
-//      let signInVC = JHSignInViewController.instantiate(fromStoryboard: "SignIn")
-//      signInVC.session = session
-//      window?.rootViewController = signInVC
-//      window?.makeKeyAndVisible()
+      let signInVC = JHSignInViewController.instantiate(fromStoryboard: "SignIn")
+      signInVC.session = session
+      window?.rootViewController = signInVC
+      window?.makeKeyAndVisible()
       
 		return true
 	}
