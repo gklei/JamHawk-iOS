@@ -51,9 +51,8 @@ class JHSignUpViewController: UIViewController {
    @IBAction func _continueButtonDidPress(sender: AnyObject) {
       guard let inputEmail = _emailTextField.text else { return }
       guard let inputPassword = _passwordTextField.text else { return }
-      guard let inputConfirmPassword = _confirmPasswordTextField.text else { return }
       
-      if passwordsMatch(inputPassword, confirmPassword: inputConfirmPassword) {
+      if passwordsMatch() {
          if !inputEmail.isValidEmail {
             presentMessage("Invalid email")
             return }
@@ -77,9 +76,10 @@ class JHSignUpViewController: UIViewController {
       }
    }
    
-   private func passwordsMatch(password: String, confirmPassword: String) -> Bool {
-      if password == confirmPassword { return true }
-      return false
+   private func passwordsMatch() -> Bool {
+      guard let password = _passwordTextField.text?.trimmed where password != "" else { return false }
+      guard let confirmedPassword = _confirmPasswordTextField.text?.trimmed where confirmedPassword != "" else { return false }
+      return password == confirmedPassword
    }
    
    
