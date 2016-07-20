@@ -11,7 +11,6 @@
 		C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A52CC1D36F42900A5C150 /* PlayheadView.swift */; };
 		C67E317E1D4005D200D140D2 /* JHSignInSignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */; };
 		C6EFB1EA1D3ECE1000B57397 /* JHSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */; };
-		C6EFB1EC1D3EDFBD00B57397 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFB1EB1D3EDFBD00B57397 /* UILabel+Extensions.swift */; };
 		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
@@ -81,7 +80,6 @@
 		C67A52CC1D36F42900A5C150 /* PlayheadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayheadView.swift; path = JamHawk/CustomUI/PlayheadView.swift; sourceTree = "<group>"; };
 		C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignInSignUpTextField.swift; path = JamHawk/CustomUI/JHSignInSignUpTextField.swift; sourceTree = "<group>"; };
 		C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignInViewController.swift; path = JamHawk/ViewControllers/JHSignInViewController.swift; sourceTree = "<group>"; };
-		C6EFB1EB1D3EDFBD00B57397 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+Extensions.swift"; path = "JamHawk/Extensions/UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */,
 				CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */,
 				CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */,
-				C6EFB1EB1D3EDFBD00B57397 /* UILabel+Extensions.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -563,7 +560,6 @@
 			files = (
 				CE2B693F1D2EE04400EAFF16 /* PlayerAPIOutputModels.swift in Sources */,
 				CE7E68301D3427E000516570 /* PlayerSession.swift in Sources */,
-				C6EFB1EC1D3EDFBD00B57397 /* UILabel+Extensions.swift in Sources */,
 				CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */,
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
 				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,

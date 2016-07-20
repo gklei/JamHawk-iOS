@@ -24,7 +24,6 @@ class MainPlayerViewController: UIViewController {
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
-	
 	var playerAPIService: PlayerAPIService?
 	var output: PlayerAPIOutput?
 	private var _currentState: MainPlayerState!
