@@ -52,10 +52,7 @@ class JHSignUpViewController: UIViewController {
       guard let inputEmail = _emailTextField.text else { return }
       guard let inputPassword = _passwordTextField.text else { return }
       
-      if passwordsMatch() {
-         if !inputEmail.isValidEmail {
-            presentMessage("Invalid email")
-            return }
+      if _credentialsAreValid() {
          session!.signUp(email: inputEmail, password: inputPassword, callback: { (error, output) in
             if let error = error {
                self.present(error)
@@ -69,18 +66,24 @@ class JHSignUpViewController: UIViewController {
                }
             }
          })
-      } else {
-         presentMessage("passwords do not match")
-         return
-        // passwords do not match
       }
    }
    
-   private func passwordsMatch() -> Bool {
+   // MARK: - Private Methods
+   private func _passwordsMatch() -> Bool {
       guard let password = _passwordTextField.text?.trimmed where password != "" else { return false }
       guard let confirmedPassword = _confirmPasswordTextField.text?.trimmed where confirmedPassword != "" else { return false }
       return password == confirmedPassword
    }
    
-   
+   private func _credentialsAreValid() -> Bool {
+      guard _emailTextField.text.isValidEmail else {
+         presentMessage("Invalid email")
+         return false
+      }
+      if !_passwordsMatch() {
+         presentMessage("passwords do not match")
+      }
+      return _passwordsMatch()
+   }
 }
