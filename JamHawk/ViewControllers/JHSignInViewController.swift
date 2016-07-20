@@ -71,5 +71,4 @@ class JHSignInViewController: UIViewController {
       if email == "" || !email.isValidEmail || password == "" { return false }
       return true
    }
-   
 }
