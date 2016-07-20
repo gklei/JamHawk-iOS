@@ -42,7 +42,6 @@ class JHSignUpViewController: UIViewController {
    }
    
    // MARK: - Actions
-   
    @IBAction func _viewTapped(sender: AnyObject) {
       view.endEditing(true)
    }
