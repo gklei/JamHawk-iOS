@@ -37,7 +37,7 @@ struct PlayerAPIInputEvent: JSONEncodable {
 			"mid" : mid?.toJSON() ?? JSON.Null,
 			"description" : description?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
 
@@ -56,6 +56,6 @@ struct PlayerAPIInputInstance: JSONEncodable {
 			"isMobile" : isMobile?.toJSON() ?? JSON.Null,
 			"preloadSync" : preloadSync?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(dictionary)
+		return JSON.withoutNullValues(dictionary)
 	}
 }

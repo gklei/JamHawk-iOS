@@ -24,6 +24,6 @@ struct PlayerAPIInputUpdates: JSONEncodable {
 			"select" : select?.toJSON() ?? JSON.Null,
 			"ratings" : ratings?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }

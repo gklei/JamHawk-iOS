@@ -51,6 +51,6 @@ extension PlayerAPIOutput: JSONEncodable {
 			"commands" : commands?.toJSON() ?? JSON.Null,
 			"denied" : denied?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }

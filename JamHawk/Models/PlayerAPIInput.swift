@@ -24,7 +24,7 @@ extension PlayerAPIInput: JSONEncodable {
 			"updates" : updates?.toJSON() ?? JSON.Null,
 			"events" : events?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(dictionary)
+		return JSON.withoutNullValues(dictionary)
 	}
 }
 

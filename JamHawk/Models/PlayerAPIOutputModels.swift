@@ -39,7 +39,7 @@ struct PlayerAPIOutputInstance: JSONDecodable, JSONEncodable {
 		let json: [Swift.String : JSON] = [
 			"playerID" : playerID?.toJSON() ?? JSON.Null,
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
 
@@ -63,7 +63,7 @@ struct PlayerAPIOutputMedia: JSONDecodable, JSONEncodable {
 			"m4a" : m4a?.toJSON() ?? JSON.Null,
 			"m4v" : m4v?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
 
@@ -84,7 +84,7 @@ struct PlayerAPIOutputArtist: JSONDecodable, JSONEncodable {
 			"name" : name?.toJSON() ?? JSON.Null,
 			"text" : text?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
 
@@ -140,7 +140,7 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 			"duration" : duration?.toJSON() ?? JSON.Null,
 			"links" : links?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
 
@@ -158,7 +158,7 @@ struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
 			"message" : message?.toJSON() ?? JSON.Null,
 			"type" : type?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
 
@@ -205,7 +205,7 @@ struct PlayerAPIOutputCommand: JSONDecodable, JSONEncodable {
 			"name" : name.toJSON(),
 			"parameters" : parameters?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
 
@@ -223,6 +223,6 @@ struct PlayerAPIOutputFilters: JSONDecodable, JSONEncodable {
 			"available" : available?.toJSON() ?? JSON.Null,
 			"selected" : selected?.toJSON() ?? JSON.Null
 		]
-		return JSON.withNullValuesRemoved(json)
+		return JSON.withoutNullValues(json)
 	}
 }
