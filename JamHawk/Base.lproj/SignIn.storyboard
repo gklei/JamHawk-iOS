@@ -313,8 +313,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZMi-fP-21g" customClass="JHSignInSignUpTextField" customModule="JamHawk" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="103" width="600" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZMi-fP-21g" customClass="JHSignInSignUpTextField" customModule="JamHawk" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="99" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -368,9 +368,13 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="_continueButtonDidPress:" destination="XoA-tj-RXt" eventType="touchUpInside" id="Sfp-mH-kio"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3bF-sV-1uJ" firstAttribute="centerY" secondItem="qhS-hU-BPe" secondAttribute="centerY" id="BhJ-NG-E1b"/>
                             <constraint firstItem="Nos-iq-t34" firstAttribute="top" secondItem="Lmd-c8-IZy" secondAttribute="bottom" id="NLe-3p-ECf"/>
@@ -385,13 +389,25 @@
                                 <exclude reference="kBZ-2k-urW"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bAx-Vz-xDC" appends="YES" id="Bns-wI-ycJ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="_centerYConstraint" destination="BhJ-NG-E1b" id="wEk-Kp-x2O"/>
+                        <outlet property="_confirmPasswordTextField" destination="ZMi-fP-21g" id="N55-eZ-rwY"/>
                         <outlet property="_containerView" destination="3bF-sV-1uJ" id="87Q-wO-csZ"/>
+                        <outlet property="_emailTextField" destination="xae-4x-g9f" id="mnU-KO-1R8"/>
+                        <outlet property="_passwordTextField" destination="fXa-iB-xp4" id="k6J-qO-rcy"/>
+                        <outlet property="_signUpLabel" destination="Qbd-e5-NjL" id="Rxe-zU-GwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zv5-cx-RBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bAx-Vz-xDC">
+                    <connections>
+                        <action selector="_viewTapped:" destination="XoA-tj-RXt" id="Vpt-CH-475"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="694" y="957"/>
         </scene>
