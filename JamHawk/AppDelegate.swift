@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 //      window?.rootViewController = signInVC
       
         let signUpVC = JHSignUpViewController.instantiate(fromStoryboard: "SignIn")
-//        signUpVC.session = session
+        signUpVC.session = session
         window?.rootViewController = signUpVC
         window?.makeKeyAndVisible()
       

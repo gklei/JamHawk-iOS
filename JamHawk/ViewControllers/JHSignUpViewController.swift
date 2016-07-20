@@ -49,13 +49,16 @@ class JHSignUpViewController: UIViewController {
    }
    
    // MARK: - Class Methods
-   
+   // test credentials: brendan@incipia.co / hello1
    @IBAction func _continueButtonDidPress(sender: AnyObject) {
       guard let inputEmail = _emailTextField.text else { return }
       guard let inputPassword = _passwordTextField.text else { return }
       guard let inputConfirmPassword = _confirmPasswordTextField.text else { return }
       
       if passwordsMatch(inputPassword, confirmPassword: inputConfirmPassword) {
+         if !inputEmail.isValidEmail {
+            presentMessage("Invalid email")
+            return }
          session!.signUp(email: inputEmail, password: inputPassword, callback: { (error, output) in
             if let error = error {
                self.present(error)
@@ -70,6 +73,8 @@ class JHSignUpViewController: UIViewController {
             }
          })
       } else {
+         presentMessage("passwords do not match")
+         return
         // passwords do not match
       }
    }
