@@ -62,10 +62,4 @@ extension UIViewController {
 			completion?()
 		}
 	}
-	
-	func add(childViewController vc: UIViewController, toContainer container: UIView) {
-		addChildViewController(vc)
-		container.addAndFill(subview: vc.view)
-		vc.didMoveToParentViewController(self)
-	}
 }

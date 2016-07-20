@@ -41,4 +41,10 @@ public extension UIViewController
 		navigationController?.navigationBar.tintColor = color
 		navigationController?.navigationBar.barTintColor = color
 	}
+	
+	func add(childViewController vc: UIViewController, toContainer container: UIView) {
+		addChildViewController(vc)
+		container.addAndFill(subview: vc.view)
+		vc.didMoveToParentViewController(self)
+	}
 }

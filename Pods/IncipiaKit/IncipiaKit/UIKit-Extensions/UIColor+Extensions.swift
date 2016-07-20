@@ -41,4 +41,11 @@ public extension UIColor
 	public var isWhite: Bool {
 		return hexString.uppercaseString == "#FFFFFF"
 	}
+	
+	public var isLight: Bool {
+		let components = CGColorGetComponents(self.CGColor)
+		let brightness = (((components[0] * 299.0) as CGFloat) + ((components[1] * 587.0) as CGFloat) + ((components[2] * 114.0)) as CGFloat) / (1000.0 as CGFloat)
+		
+		return brightness >= 0.7
+	}
 }
