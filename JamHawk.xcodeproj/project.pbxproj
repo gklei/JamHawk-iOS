@@ -10,6 +10,7 @@
 		C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */; };
 		C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A52CC1D36F42900A5C150 /* PlayheadView.swift */; };
 		C67E317E1D4005D200D140D2 /* JHSignInSignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */; };
+		C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */; };
 		C6EFB1EA1D3ECE1000B57397 /* JHSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */; };
 		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
@@ -80,6 +81,7 @@
 		B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67A52CC1D36F42900A5C150 /* PlayheadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayheadView.swift; path = JamHawk/CustomUI/PlayheadView.swift; sourceTree = "<group>"; };
 		C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignInSignUpTextField.swift; path = JamHawk/CustomUI/JHSignInSignUpTextField.swift; sourceTree = "<group>"; };
+		C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignUpViewController.swift; path = JamHawk/ViewControllers/JHSignUpViewController.swift; sourceTree = "<group>"; };
 		C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignInViewController.swift; path = JamHawk/ViewControllers/JHSignInViewController.swift; sourceTree = "<group>"; };
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				CE9347881D39892B0090A58C /* CurrentTrackVotingViewController.swift */,
 				CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */,
 				C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */,
+				C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
 				CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */,
 				CE747BFC1D3839BB0006D1B6 /* PlayerFiltersViewController.swift in Sources */,
+				C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */,
 				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
 				C67E317E1D4005D200D140D2 /* JHSignInSignUpTextField.swift in Sources */,
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,

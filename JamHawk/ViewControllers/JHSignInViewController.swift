@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IncipiaKit
 
 class JHSignInViewController: UIViewController {
    
@@ -36,7 +37,6 @@ class JHSignInViewController: UIViewController {
    
    // MARK: - Setup
    private func _setupOutlets() {
-      signInLabel.text = "Sign In"
       signInLabel.kerning = 1.7
       passwordTextField.secureTextEntry = true
    }
@@ -45,6 +45,8 @@ class JHSignInViewController: UIViewController {
    @IBAction private func _viewTapped(recognizer: UIGestureRecognizer) {
       view.endEditing(true)
    }
+   
+   // MARK: - Class Methods
    
    @IBAction func continueButtonPressed(sender: AnyObject) {
       guard let email = emailTextField.text else { return }
