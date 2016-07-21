@@ -51,7 +51,10 @@ class JHSignUpViewController: UIViewController {
       guard let inputEmail = _emailTextField.text else { return }
       guard let inputPassword = _passwordTextField.text else { return }
       
-      guard _credentialsAreValid() else { return }
+      guard _credentialsAreValid() else {
+         presentMessage("Sign Up Failed: Invalid Credentials Provided")
+         return
+      }
       session?.signUp(email: inputEmail, password: inputPassword, callback: { (error, output) in
          if let error = error {
             self.present(error)
@@ -75,16 +78,7 @@ class JHSignUpViewController: UIViewController {
    }
    
    private func _credentialsAreValid() -> Bool {
-      if let email = _emailTextField.text {
-         if !email.isValidEmail  {
-            presentMessage("Invalid Email")
-            return false
-         }
-      }
-      else { return false }
-      if !_passwordsMatch() {
-         presentMessage("Passwords do not Match")
-      }
+      guard let email = _emailTextField.text where email.isValidEmail else { return false }
       return _passwordsMatch()
    }
 }
