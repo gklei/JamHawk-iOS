@@ -14,6 +14,10 @@ class PlayerSubfiltersDataSource: NSObject {
 	private let _collectionView: UICollectionView
 	private var _filter: PlayerAPIOutputFilter?
 	
+	var selectedSubfilterIDs: [PlayerAPIFilterID] {
+		return _collectionView.indexPathsForSelectedItems()?.flatMap { _subfilterID(forIndexPath: $0) } ?? []
+	}
+	
 	init(collectionView: UICollectionView) {
 		_collectionView = collectionView
 		super.init()
@@ -29,6 +33,22 @@ class PlayerSubfiltersDataSource: NSObject {
 		_filter = filter
 		self._collectionView.reloadData()
 		_collectionView.performBatchUpdates({}, completion: completion)
+	}
+	
+	func selectSubfilters(withIDs selectedIDs: [PlayerAPIFilterID]) {
+		guard let ids = _filter?.filterIDs else { return }
+		for id in selectedIDs {
+			guard let index = ids.indexOf(id) else { continue }
+			let ip = NSIndexPath(forRow: index, inSection: 0)
+			_collectionView.selectItemAtIndexPath(ip, animated: false, scrollPosition: .None)
+		}
+	}
+	
+	private func _subfilterID(forIndexPath indexPath: NSIndexPath) -> PlayerAPIFilterID? {
+		guard let ids = _filter?.filterIDs else { return nil }
+		guard ids.count > indexPath.row else { return nil }
+		let id = ids[indexPath.row]
+		return id
 	}
 }
 

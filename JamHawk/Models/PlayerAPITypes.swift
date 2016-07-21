@@ -13,5 +13,6 @@ typealias PlayerAPICallback = (error: NSError?, output: PlayerAPIOutput?) -> Voi
 
 typealias PlayerAPIMediaID = Int
 typealias PlayerAPIFilterID = String
-typealias PlayerAPIFilterSelection = Dictionary<PlayerAPIFilterID, PlayerAPIFilterID>
+typealias PlayerAPIFilterCategory = String
+typealias PlayerAPIFilterSelection = Dictionary<PlayerAPIFilterCategory, [PlayerAPIFilterID]>
 typealias PlayerAPIMediaRatings = Dictionary<PlayerAPIMediaID, PlayerAPIOutputTrackRating>

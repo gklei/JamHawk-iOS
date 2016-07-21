@@ -29,7 +29,7 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _playerControlsVC
 	}
 	
-	var filterSelectionViewController: SubfilterSelectionViewController? {
+	var subfilterSelectionViewController: SubfilterSelectionViewController? {
 		get {
 			return _subfilterSelectionVC
 		} set {

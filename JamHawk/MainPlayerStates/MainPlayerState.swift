@@ -15,7 +15,7 @@ protocol MainPlayerStateDelegate: class {
 	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController { get }
 	var nextAvailableMediaViewController: NextAvailableMediaViewController { get }
 	var playerControlsViewController: PlayerControlsViewController { get }
-	var filterSelectionViewController: SubfilterSelectionViewController? { get set }
+	var subfilterSelectionViewController: SubfilterSelectionViewController? { get set }
 	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
 	
 	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, completion: dispatch_block_t?)
@@ -39,8 +39,8 @@ class MainPlayerState: NSObject {
 class DefaultHomeScreenState: MainPlayerState {
 	override func transition(duration duration: Double) -> MainPlayerState {
 		_delegate.transition(from: _delegate.smallCurrentTrackVotingViewController, to: _delegate.nextAvailableMediaViewController, completion: nil)
-		_delegate.transition(from: _delegate.filterSelectionViewController, to: _delegate.largeCurrentTrackVotingViewController) {
-			self._delegate.filterSelectionViewController = nil
+		_delegate.transition(from: _delegate.subfilterSelectionViewController, to: _delegate.largeCurrentTrackVotingViewController) {
+			self._delegate.subfilterSelectionViewController = nil
 		}
 		
 		_delegate.parentFilterSelectionViewController.deselectFilters()
@@ -54,9 +54,11 @@ class DefaultHomeScreenState: MainPlayerState {
 
 class FilterSelectionState: MainPlayerState {
 	private let _filter: PlayerAPIOutputFilter
+	private let _selectedSubfilters: [PlayerAPIFilterID]
 	
-	init(delegate: MainPlayerStateDelegate, filter: PlayerAPIOutputFilter) {
+	init(delegate: MainPlayerStateDelegate, filter: PlayerAPIOutputFilter, selectedSubfilters: [PlayerAPIFilterID]) {
 		_filter = filter
+		_selectedSubfilters = selectedSubfilters
 		super.init(delegate: delegate)
 	}
 	
@@ -64,14 +66,14 @@ class FilterSelectionState: MainPlayerState {
 		
 		// If the filter we are trying to transition to for selecting is already , then transition
 		// back to the default state
-		if let parentFilter = _delegate.filterSelectionViewController?.parentFilter where parentFilter == _filter {
+		if let parentFilter = _delegate.subfilterSelectionViewController?.parentFilter where parentFilter == _filter {
 			let state = DefaultHomeScreenState(delegate: _delegate)
 			return state.transition(duration: duration)
 		}
 		
-		if _delegate.filterSelectionViewController?.parentFilter == nil {
+		if _delegate.subfilterSelectionViewController?.parentFilter == nil {
 			let filterSelectionVC = SubfilterSelectionViewController()
-			_delegate.filterSelectionViewController = filterSelectionVC
+			_delegate.subfilterSelectionViewController = filterSelectionVC
 			
 			_delegate.transition(from: _delegate.largeCurrentTrackVotingViewController, to: filterSelectionVC, completion: nil)
 			_delegate.transition(from: _delegate.nextAvailableMediaViewController, to: _delegate.smallCurrentTrackVotingViewController, completion: nil)
@@ -82,7 +84,7 @@ class FilterSelectionState: MainPlayerState {
 			}
 		}
 		
-		_delegate.filterSelectionViewController?.update(filter: _filter)
+		_delegate.subfilterSelectionViewController?.update(filter: _filter, selectedSubfilters: _selectedSubfilters)
 		_delegate.parentFilterSelectionViewController.scroll(toFilter: _filter)
 
 		return self

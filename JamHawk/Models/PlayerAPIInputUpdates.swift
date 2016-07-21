@@ -12,7 +12,7 @@ import Freddy
 struct PlayerAPIInputUpdates: JSONEncodable {
 	let abandonedRequests: [Int]?
 	let canPlay: Bool?
-	let filter: PlayerAPIFilterSelection?
+	let filter: PlayerAPIInputFilterSelection?
 	let select: PlayerAPIMediaID?
 	let ratings: PlayerAPIMediaRatings?
 	

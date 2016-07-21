@@ -22,6 +22,10 @@ class SubfilterSelectionViewController: UIViewController {
 		return _filter
 	}
 	
+	var selectedSubfilterIDs: [PlayerAPIFilterID] {
+		return _playerSubfiltersDS?.selectedSubfilterIDs ?? []
+	}
+	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -50,7 +54,7 @@ class SubfilterSelectionViewController: UIViewController {
 	}
 	
 	// MARK: - Public
-	func update(filter filter: PlayerAPIOutputFilter) {
+	func update(filter filter: PlayerAPIOutputFilter, selectedSubfilters: [PlayerAPIFilterID]) {
 		guard _filter != filter else { return }
 		
 		_filter = filter
@@ -62,5 +66,6 @@ class SubfilterSelectionViewController: UIViewController {
 				self?._collectionViewHeightConstraint.constant = constant
 			}
 		}
+		_playerSubfiltersDS?.selectSubfilters(withIDs: selectedSubfilters)
 	}
 }

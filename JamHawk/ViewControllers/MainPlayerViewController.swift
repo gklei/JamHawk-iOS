@@ -110,7 +110,16 @@ class MainPlayerViewController: UIViewController {
 // MARK: - Filter Selection
 extension MainPlayerViewController {
 	private func _parentFilterSelected(filter: PlayerAPIOutputFilter) {
-		let state = FilterSelectionState(delegate: self, filter: filter)
+		
+		if let selectedIDs = _subfilterSelectionVC?.selectedSubfilterIDs {
+			let selection: PlayerAPIFilterSelection = [filter.category : selectedIDs]
+			let filters = PlayerAPIInputFilterSelection(selection: selection)
+			let json = filters.toJSON()
+			print(json)
+		}
+		
+		let selectedSubfilters = self.output?.filters?.selected ?? []
+		let state = FilterSelectionState(delegate: self, filter: filter, selectedSubfilters: selectedSubfilters)
 		_currentState = state.transition(duration: 0.2)
 	}
 }

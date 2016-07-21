@@ -36,6 +36,7 @@ class PlayerFiltersDataSource: NSObject {
 		_collectionView.registerNib(nib, forCellWithReuseIdentifier: ParentFilterCell.reuseID)
 	}
 	
+	// MARK: - Public
 	func indexPath(forFilter filter: PlayerAPIOutputFilter) -> NSIndexPath? {
 		guard let index = _output?.filters?.available?.indexOf(filter) else { return nil }
 		return NSIndexPath(forRow: index, inSection: 0)
@@ -43,7 +44,8 @@ class PlayerFiltersDataSource: NSObject {
 
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		_output = output
-		_collectionView.reloadData()
+		let section = NSIndexSet(index: 0)
+		_collectionView.reloadSections(section)
 	}
 }
 
