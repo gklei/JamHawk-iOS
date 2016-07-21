@@ -1,7 +1,7 @@
 PODS:
   - AsyncImageView (1.6)
   - Freddy (2.1.0)
-  - IncipiaKit (0.0.10)
+  - IncipiaKit (0.0.12)
 
 DEPENDENCIES:
   - AsyncImageView
@@ -11,7 +11,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
   Freddy: bbdca013977db29638b24baf6572ce94452bec29
-  IncipiaKit: 65f4b3d02b20afd0734074424d332ecd2879fa49
+  IncipiaKit: c4e741526ff20af3ffc3d4798b01f70dfcf5a635
 
 PODFILE CHECKSUM: 0757134d36d38151565ed931a6ed24e774fa8144
 

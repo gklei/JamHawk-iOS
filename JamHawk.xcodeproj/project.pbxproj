@@ -26,7 +26,6 @@
 		CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */; };
 		CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */; };
 		CE5DA0B11D400C8E00025C17 /* UserProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */; };
-		CE5DA0B31D404E0100025C17 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0B21D404E0100025C17 /* UIImage+Effects.swift */; };
 		CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */; };
 		CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */; };
 		CE6CE99B1D3C28620029659F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */; };
@@ -97,7 +96,6 @@
 		CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputModels.swift; path = JamHawk/Models/PlayerAPIInputModels.swift; sourceTree = "<group>"; };
 		CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Jamhawk.swift"; path = "JamHawk/Extensions/UIColor+Jamhawk.swift"; sourceTree = "<group>"; };
 		CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileButtonView.swift; path = JamHawk/CustomUI/UserProfileButtonView.swift; sourceTree = "<group>"; };
-		CE5DA0B21D404E0100025C17 /* UIImage+Effects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Effects.swift"; path = "JamHawk/Extensions/UIImage+Effects.swift"; sourceTree = "<group>"; };
 		CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubfilterSelectionViewController.swift; path = JamHawk/ViewControllers/SubfilterSelectionViewController.swift; sourceTree = "<group>"; };
 		CE6CE9961D3C15C40029659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/SubfilterSelectionViewController.xib; sourceTree = "<group>"; };
 		CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */,
 				CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */,
 				CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */,
-				CE5DA0B21D404E0100025C17 /* UIImage+Effects.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -610,7 +607,6 @@
 				CE7E68321D342EB900516570 /* PlayerAPIInputStatus.swift in Sources */,
 				CEFFF79E1D369B0400D083F1 /* NextAvailableMediaDataSource.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
-				CE5DA0B31D404E0100025C17 /* UIImage+Effects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

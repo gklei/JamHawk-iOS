@@ -7,70 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01E9B6F460B9DF8024F6924AC9B6D5D9 /* UIViewController+AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE77D945AFD678C618992CE85A3378F /* UIViewController+AlertPresenting.swift */; };
-		034E82B8DEB66F88DAFADA8230812C69 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0F4D66C2464762F3631414B133A8B8 /* Icons.xcassets */; };
-		0B4F44A121372FBF6E435CBE374E1627 /* JSONEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E62EE506476C76683CE15BAF6EDB2 /* JSONEncodingDetector.swift */; };
-		0D95CEFD88EC3D59A9EB1222CB3A6A86 /* IncipiaKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06011E02421315971132DAD70F609D73 /* IncipiaKit.bundle */; };
-		163C56ADBD329A426F87B0E722888D28 /* Freddy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D36371EED5E68DA274F929CC842AD022 /* Freddy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		019DCEFFBEC628925990903A2D81885F /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAFA4373A36F180C327DAABA6835CF3 /* UIAlertController+Extensions.swift */; };
+		09AB763F00596F62CC91487A583FFCAA /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7CA3D9C5835AFA3573A7D1BCF9AFD /* UICollectionView+Extensions.swift */; };
+		0B4F44A121372FBF6E435CBE374E1627 /* JSONEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFCFBE8B8AE47858D57A570A95D6099 /* JSONEncodingDetector.swift */; };
+		0C4FDF340CCCC06FBAB57C03ABB7DC6D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA1C9D52E92559BD1E65A48FD28601 /* UIViewController+Extensions.swift */; };
+		0DFFF6549D84B233C9BD121B5162EC5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		163C56ADBD329A426F87B0E722888D28 /* Freddy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7667389405F1D399E94A6F291DE8EE3B /* Freddy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		175F703F946951158B0EC21CCBBFB81C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		1C731A7E93B3EE736C2D238AF4AAA843 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		1DA80E06B1BBC28C9A79C5D58174FAB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		240AF7846496262186DC6C6F72ED515A /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465B12C01870658FA72EE0E0A921C21E /* UINavigationController+Extensions.swift */; };
-		2D78059FB37F22F5B9406CD0E0DBE370 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D25ED4B1A5DF3BB57B861D92F002958 /* AsyncImageView.m */; };
-		30DD31C1F303E4F39DA3934B46D638DF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606A2AF8FA5CDB86D6CB87F9024EA1F /* UIDevice+Extensions.swift */; };
-		354D9140F425776D9BEF00A565220E13 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6140B5FE7C140933D23CB62345E19DC /* UINavigationBar+Extensions.swift */; };
-		38EF39FF4CAA73C0E37FE0D569217E0C /* UIViewController+BarButtonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12EF1AB30BD2AD9922372E88FB8996 /* UIViewController+BarButtonItems.swift */; };
-		3AAA9B3BEA8FE730E64937CD89E68DF2 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB16ED7E90D4B063D0A97D15B39D96 /* String+Extensions.swift */; };
-		4476EEDB89BD2BBE269BA25D9D6869BA /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E61C5D6C5810A2213A640C3BF2065 /* JSONParsing.swift */; };
-		463AF79BC96D3D9431A6B82C92362402 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598EF52662BD6D99F3B15356C3CD52D0 /* UIAlertController+Extensions.swift */; };
-		506168601950847EFC5CA2A1FE49583E /* UIToolbar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA9FCEC0EC309CAF4DCC43CD33783D /* UIToolbar+Extensions.swift */; };
-		58918A573F10E1151852677B4C9A8A76 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066FABD03E28F070DEAC6085C9BF023 /* UIView+Extensions.swift */; };
-		5C56A4C23429C27A6FD234353D139CC5 /* AsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = FEDB53A8486AB1856E9B05712E49A4E8 /* AsyncImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6400C65D7B17C5AF90708D0F8F6FCB63 /* JSONSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D425C96EBB7166A851C75C6CA6B6A /* JSONSerializing.swift */; };
-		658E20EDA309AD4EC8F4AD990E4C81F2 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB5C2A6AA8C8D242FF9D3517247E31 /* UICollectionView+Extensions.swift */; };
-		700BDCB998A8BB5B1CEC2DD2D2D5911F /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258078368305A63433E1D52D587540C /* JSONParser.swift */; };
-		71855A59D64364A6C3DC1D8B5C9122D8 /* UIViewController+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AA45331A04DE00BF719DE07358A3B /* UIViewController+Instantiate.swift */; };
-		73D0CE87AF6E05DAFC9D1605ECA6A3F0 /* UIViewControllerContextTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA7576E3BD4671434F49580706880C /* UIViewControllerContextTransitioning.swift */; };
-		875B92D83DA1F6B2E985CF02837D2DCA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		88B18B4D964C6BB228972BB995CF9581 /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD89CEE3978FCC7EBB7D3BE397131F67 /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8CB75F8BDB4EB751DD623221BCEC0EEF /* NSIndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CD5A8FF48E27D56414BEA002508A6F /* NSIndexPath+Extensions.swift */; };
+		1C7910425EA72A0D811F11F9C6F3AEC1 /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34839D2097325A98EA029C24E5EA18D8 /* IncipiaKit-dummy.m */; };
+		2405AE4496691AE468F634916EC048CC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776719FD1CABDEF4C534569020386B84 /* UIColor+Extensions.swift */; };
+		2C949E21D766C6C351A59759F86BE5DA /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF55D178C9EA15E8E668E56B30DA82B /* NSBundle+Extensions.swift */; };
+		2D72A1E45D64D32E9F2102701905C840 /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6060F823EF45055056D4F0AB9FBDFD66 /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D78059FB37F22F5B9406CD0E0DBE370 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BE80BC3E4E9514D6C582E548D94784 /* AsyncImageView.m */; };
+		300C87A00476B6A7E029E285C4A38AAB /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46F05BE58834570B4DE7061B1A7260 /* UIImage+Extensions.swift */; };
+		4476EEDB89BD2BBE269BA25D9D6869BA /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0A0C3A95690C3A24CC4839AF8218B /* JSONParsing.swift */; };
+		5C56A4C23429C27A6FD234353D139CC5 /* AsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 023FC0B6A0D34BFDB40C32A4732C1B5A /* AsyncImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6400C65D7B17C5AF90708D0F8F6FCB63 /* JSONSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C869484E6D4C2747C78AA13CCB00BA2 /* JSONSerializing.swift */; };
+		68F2480352D7391CA10471D244A5607C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA28DA09C0F85497A157F9DB06C2D978 /* UITextField+Extensions.swift */; };
+		700BDCB998A8BB5B1CEC2DD2D2D5911F /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53974F72A9CAFF8C742D0CF3B86DB9AF /* JSONParser.swift */; };
+		704F310D1145087A3F508F15F5A89093 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891BA6846C353B9F4A6CC166C8F2E73E /* String+Extensions.swift */; };
+		797AD55FE51F1BF7EC2D63C89D3C0A77 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0096BF640D8041F59745F029575C2E0C /* UIDevice+Extensions.swift */; };
 		8EE2FCD0C813BEC9DBE7CDBDE8170C27 /* Pods-JamHawk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */; };
 		9386776F2276FFCAEA1EEF0DF559E838 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		95C9F7D166D041482D8D330988C3A389 /* JSONSubscripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EFBBFF32FE542003C373883AF2C83D /* JSONSubscripting.swift */; };
-		99A312A29811B785F8F35EEAB3D615AE /* Freddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F19B22158C4C6A11B9F414F63CD2D /* Freddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A92A86A96252D46E3317356993A3AC1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17764D5EB414B283D171BCAD3C7F1F6A /* UIViewController+Extensions.swift */; };
-		9DDD7E9CEA5A44B0BD55E0EAE62BE7EC /* JSONLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94ABF506E663518B2CDBF637199FAB /* JSONLiteralConvertible.swift */; };
-		A8EF8EBED5A16E9375B5F4D1962133CE /* AsyncImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A78B0F3F92FF4C35DA79BB8473A6BAAA /* AsyncImageView-dummy.m */; };
-		A9EFF88A21F2A5CF891B53242B697915 /* NSBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C7DE6A37DAD026E244AEBA11F1179 /* NSBundle+Extensions.swift */; };
-		B4E2A24C67D53B1D1F7BFF2503BB315D /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6176775C0A93805DB368AAF6A75BE2BC /* UIBarButtonItem+Extensions.swift */; };
-		BAE022E2DC981249588682A637BF401F /* AsyncImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E91FFA20FA5FDFC351138C520FAE16F5 /* AsyncImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB8A2D9D5ED80DBD8B9065864DD50E41 /* IconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38291AD304C1CA19E66F6DBE60B79CE /* IconProvider.swift */; };
-		BFC9A4B8E369DD7CDA0805A6EAFC4DC5 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21C24CC143FAA855BAB4E7CE67B233 /* UILabel+Extensions.swift */; };
-		C0F3756C4C77EC31F50AF6E1F794B042 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11502F357ACF302E51F6723D168800 /* JSONDecodable.swift */; };
-		C28BB4E70BE12B8B44FA9688662AD2EB /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418150F1E7AA8280695352ED22039B8 /* UIImage+Extensions.swift */; };
-		C3BA9FD728D155726D3467BEF61F3331 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F1C4A47B36337FD980ABC5B92E462 /* UIColor+Extensions.swift */; };
-		CC7F5D04E26E5E2117CBABA597225B59 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0038065363906C1FEE7F43380BE97 /* JSON.swift */; };
-		D718E70F65A51F0F5038E89DB08090EA /* IncipiaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E865EC5BF3655571D1DAF0AA824A179E /* IncipiaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9D802FC0A25A689F65495956A3B9E76 /* IncipiaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 871AED3C6C3B77007AD31C36CAB2643A /* IncipiaKit-dummy.m */; };
-		E597971E2E9FC8DAE78D697CBD10046D /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2104C254AA84D9C2769F8CB60CAA27 /* JSONEncodable.swift */; };
+		95C9F7D166D041482D8D330988C3A389 /* JSONSubscripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C514CE95AE02E517A5CF9C9A7AB40C /* JSONSubscripting.swift */; };
+		99A312A29811B785F8F35EEAB3D615AE /* Freddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 764A25CED8F544EB9A611A5F79674ED4 /* Freddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DDD7E9CEA5A44B0BD55E0EAE62BE7EC /* JSONLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B510152C8362050142DD863730BCA8 /* JSONLiteralConvertible.swift */; };
+		A1B9E96D967535F725F0C1C91EBA80B1 /* NSIndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D817342D4EAC18D5ACB6E89EFF492C2 /* NSIndexPath+Extensions.swift */; };
+		A7D3077AE5D27A8410CD79D961248D59 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE6533609BF8E633CB8E7DF8A4D2B25 /* UINavigationBar+Extensions.swift */; };
+		A8EF8EBED5A16E9375B5F4D1962133CE /* AsyncImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A715768FBDE9CB88BF0CCA4DE6558305 /* AsyncImageView-dummy.m */; };
+		BAE022E2DC981249588682A637BF401F /* AsyncImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7981B03791D3233E4A8CD9B2898F2B6 /* AsyncImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB9942D9BB53EC015BACF0A6E6822267 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F56787371B6B79B770AA845C41CFCBF /* UIView+Extensions.swift */; };
+		BD5714C755A2F89B59569B8579389E94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		C0F3756C4C77EC31F50AF6E1F794B042 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B9E420E339E389B18449155E891E1C /* JSONDecodable.swift */; };
+		CC7F5D04E26E5E2117CBABA597225B59 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD34E457F292ADC98F59BFF42E4257 /* JSON.swift */; };
+		CCC4BBC7C10154D267C605E7846958E8 /* IncipiaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B7C85819E24EBF64F357337CEFE9EB32 /* IncipiaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF30AE9A5413FF5D76BE97ABCD2A000 /* IconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DC9C2C0A69F566357631969FFC45E /* IconProvider.swift */; };
+		CE69B6BDD6AD52980531C29497713E26 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843122E760D800B126AA6E6D00FA13E /* UILabel+Extensions.swift */; };
+		E597971E2E9FC8DAE78D697CBD10046D /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CE2BB861FA0391B17B8EDF066CB08A /* JSONEncodable.swift */; };
 		EB956BA30D29CC83AB5C1CA3F49D3FF2 /* Pods-JamHawk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F9FAC1500258C5DC152AEBD3FF2BF869 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1951FCC07A9EC0873AE6D46F51A4EA /* UITextField+Extensions.swift */; };
-		FDB24A67301DAC22E84605827EDDBABB /* Freddy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEE351D6293088C0BFCE4FC6061BB6 /* Freddy-dummy.m */; };
+		EC2F159205704A9739D831D0B23FA780 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8729984D5D643BAD5ADBB91578DE26 /* UIBarButtonItem+Extensions.swift */; };
+		F005257BE03E73242751833824399F55 /* IncipiaKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06011E02421315971132DAD70F609D73 /* IncipiaKit.bundle */; };
+		F62D820CFA5287CA3AF3925C72BFCAA5 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE95D2FF9DCF9B12D5E5433DD6255B6 /* Icons.xcassets */; };
+		FDB24A67301DAC22E84605827EDDBABB /* Freddy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 552A2386045967AA1CFEF0A2B903B643 /* Freddy-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4942EA27988E26BCFC1DFB97B9E49C99 /* PBXContainerItemProxy */ = {
+		97847B09B28A39E6D7435C6C713E002F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E7C2C14F7D4EF8BBCDCDC41019D68380;
+			remoteGlobalIDString = 9EF597B2EAC4D748186E0A96B67ECBD5;
 			remoteInfo = "IncipiaKit-IncipiaKit";
 		};
 		BCB0B7571946924C0DFA8545735CBDE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0D072EAA61282EF4F9F8178FFCA5A165;
+			remoteGlobalIDString = 8BC42F9E992A5F918B14C663CE8FAA01;
 			remoteInfo = IncipiaKit;
 		};
 		CF139B8E31A5590C8D00B63F427228AD /* PBXContainerItemProxy */ = {
@@ -90,78 +84,72 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05A5D4EA691159C3C4836D52F8AD6FC0 /* Freddy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Freddy.modulemap; sourceTree = "<group>"; };
+		0096BF640D8041F59745F029575C2E0C /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		023FC0B6A0D34BFDB40C32A4732C1B5A /* AsyncImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = AsyncImageView/AsyncImageView.h; sourceTree = "<group>"; };
 		06011E02421315971132DAD70F609D73 /* IncipiaKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncipiaKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0843122E760D800B126AA6E6D00FA13E /* UILabel+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILabel+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		090BD8CDFB29FBEF0FAD1D1CBCFAB1D2 /* Pods-JamHawk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JamHawk-dummy.m"; sourceTree = "<group>"; };
-		0A94ABF506E663518B2CDBF637199FAB /* JSONLiteralConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONLiteralConvertible.swift; path = Sources/JSONLiteralConvertible.swift; sourceTree = "<group>"; };
-		0ABB16ED7E90D4B063D0A97D15B39D96 /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
-		0B1D22F3467E0A4675659F2A348C5A73 /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
 		0B3E0FEFF3973AF6F0B73DDF868EEB35 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		13CB5C2A6AA8C8D242FF9D3517247E31 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
-		17764D5EB414B283D171BCAD3C7F1F6A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		1B788E0DEA0D09AE98E22BECE69CF06A /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
 		1FE76EC2C184516458480063541FFC13 /* Pods-JamHawk-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JamHawk-acknowledgements.plist"; sourceTree = "<group>"; };
-		22CA7576E3BD4671434F49580706880C /* UIViewControllerContextTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerContextTransitioning.swift; path = "IncipiaKit/UIKit-Extensions/UIViewControllerContextTransitioning.swift"; sourceTree = "<group>"; };
+		24C4DFD557D5564251F687F0D50E7F1C /* Freddy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-prefix.pch"; sourceTree = "<group>"; };
 		2AD4096A731B3C19CEEBA8E2A70E0F8A /* Pods-JamHawk-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JamHawk-acknowledgements.markdown"; sourceTree = "<group>"; };
-		33EFBBFF32FE542003C373883AF2C83D /* JSONSubscripting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSubscripting.swift; path = Sources/JSONSubscripting.swift; sourceTree = "<group>"; };
-		389F19B22158C4C6A11B9F414F63CD2D /* Freddy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Freddy.h; path = Sources/Freddy.h; sourceTree = "<group>"; };
-		3D2E61C5D6C5810A2213A640C3BF2065 /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParsing.swift; path = Sources/JSONParsing.swift; sourceTree = "<group>"; };
-		3F11502F357ACF302E51F6723D168800 /* JSONDecodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/JSONDecodable.swift; sourceTree = "<group>"; };
-		45CD5A8FF48E27D56414BEA002508A6F /* NSIndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/NSIndexPath+Extensions.swift"; sourceTree = "<group>"; };
-		465B12C01870658FA72EE0E0A921C21E /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
-		496C7DE6A37DAD026E244AEBA11F1179 /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
-		4F2104C254AA84D9C2769F8CB60CAA27 /* JSONEncodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodable.swift; path = Sources/JSONEncodable.swift; sourceTree = "<group>"; };
+		2B2844B74E2B77D76C40BC4F03FCFF19 /* AsyncImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AsyncImageView.modulemap; sourceTree = "<group>"; };
+		2BCA1C9D52E92559BD1E65A48FD28601 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		2DE95D2FF9DCF9B12D5E5433DD6255B6 /* Icons.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = IncipiaKit/Resources/Icons.xcassets; sourceTree = "<group>"; };
+		34839D2097325A98EA029C24E5EA18D8 /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
+		36BE80BC3E4E9514D6C582E548D94784 /* AsyncImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = AsyncImageView/AsyncImageView.m; sourceTree = "<group>"; };
+		3D817342D4EAC18D5ACB6E89EFF492C2 /* NSIndexPath+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Extensions.swift"; path = "IncipiaKit/Extensions/NSIndexPath+Extensions.swift"; sourceTree = "<group>"; };
+		3EB7CA3D9C5835AFA3573A7D1BCF9AFD /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		40FC921246E60ABC7FB4BF310368FE65 /* Freddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Freddy.xcconfig; sourceTree = "<group>"; };
+		45D71ED178BA22595C4BEC29CB7289EC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51C53A49968641D7325923339AC48CDF /* Freddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Freddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		598EF52662BD6D99F3B15356C3CD52D0 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
-		59C4C357961A6A740DBD9F1F980E23B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B0B4F97B3CB0A9F8F9381A851BE4159 /* AsyncImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AsyncImageView.modulemap; sourceTree = "<group>"; };
-		5C12EF1AB30BD2AD9922372E88FB8996 /* UIViewController+BarButtonItems.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+BarButtonItems.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+BarButtonItems.swift"; sourceTree = "<group>"; };
-		5D25ED4B1A5DF3BB57B861D92F002958 /* AsyncImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = AsyncImageView/AsyncImageView.m; sourceTree = "<group>"; };
-		6176775C0A93805DB368AAF6A75BE2BC /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
-		6BAB988850DE7FF0D4776546CE4AB0DF /* Freddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Freddy.xcconfig; sourceTree = "<group>"; };
+		52C514CE95AE02E517A5CF9C9A7AB40C /* JSONSubscripting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSubscripting.swift; path = Sources/JSONSubscripting.swift; sourceTree = "<group>"; };
+		53974F72A9CAFF8C742D0CF3B86DB9AF /* JSONParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = Sources/JSONParser.swift; sourceTree = "<group>"; };
+		552A2386045967AA1CFEF0A2B903B643 /* Freddy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Freddy-dummy.m"; sourceTree = "<group>"; };
+		5AF55D178C9EA15E8E668E56B30DA82B /* NSBundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+Extensions.swift"; path = "IncipiaKit/Extensions/NSBundle+Extensions.swift"; sourceTree = "<group>"; };
+		6060F823EF45055056D4F0AB9FBDFD66 /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
 		6CDFC04B016931338BF764898CC69687 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
-		7049A0AAF4BE3C850866B457C4DF7552 /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
-		7066FABD03E28F070DEAC6085C9BF023 /* UIView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
+		6F56787371B6B79B770AA845C41CFCBF /* UIView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
+		7144CFDBCED09085CF907AB95A0A1731 /* AsyncImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-prefix.pch"; sourceTree = "<group>"; };
+		74B510152C8362050142DD863730BCA8 /* JSONLiteralConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONLiteralConvertible.swift; path = Sources/JSONLiteralConvertible.swift; sourceTree = "<group>"; };
+		74B9E420E339E389B18449155E891E1C /* JSONDecodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/JSONDecodable.swift; sourceTree = "<group>"; };
+		75E0A0C3A95690C3A24CC4839AF8218B /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParsing.swift; path = Sources/JSONParsing.swift; sourceTree = "<group>"; };
+		764A25CED8F544EB9A611A5F79674ED4 /* Freddy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Freddy.h; path = Sources/Freddy.h; sourceTree = "<group>"; };
+		7667389405F1D399E94A6F291DE8EE3B /* Freddy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-umbrella.h"; sourceTree = "<group>"; };
+		776719FD1CABDEF4C534569020386B84 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		7AE24D3EADE15F1620D64ECDDDD32EAE /* ResourceBundle-IncipiaKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-IncipiaKit-Info.plist"; sourceTree = "<group>"; };
 		803170CE347C6FC09C54373D9056BDD4 /* Pods-JamHawk-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-frameworks.sh"; sourceTree = "<group>"; };
 		8040AF05B5E2D7161515A581C0A464F7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		871AED3C6C3B77007AD31C36CAB2643A /* IncipiaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncipiaKit-dummy.m"; sourceTree = "<group>"; };
+		891BA6846C353B9F4A6CC166C8F2E73E /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "IncipiaKit/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
 		8976D967FEA6D9D0BF5D8992E278875B /* IncipiaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IncipiaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A913CF975D9B343883DD07CBBF40508 /* ResourceBundle-IncipiaKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-IncipiaKit-Info.plist"; sourceTree = "<group>"; };
-		8B0D425C96EBB7166A851C75C6CA6B6A /* JSONSerializing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSerializing.swift; path = Sources/JSONSerializing.swift; sourceTree = "<group>"; };
-		918F1C4A47B36337FD980ABC5B92E462 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		9258078368305A63433E1D52D587540C /* JSONParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = Sources/JSONParser.swift; sourceTree = "<group>"; };
+		8F46F05BE58834570B4DE7061B1A7260 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95FA9FCEC0EC309CAF4DCC43CD33783D /* UIToolbar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIToolbar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIToolbar+Extensions.swift"; sourceTree = "<group>"; };
+		9C869484E6D4C2747C78AA13CCB00BA2 /* JSONSerializing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONSerializing.swift; path = Sources/JSONSerializing.swift; sourceTree = "<group>"; };
+		9DB129929A5732D10E0F5AE18F38911B /* IncipiaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-prefix.pch"; sourceTree = "<group>"; };
+		9E4DC9C2C0A69F566357631969FFC45E /* IconProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconProvider.swift; path = IncipiaKit/Private/IconProvider.swift; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A38291AD304C1CA19E66F6DBE60B79CE /* IconProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconProvider.swift; path = IncipiaKit/Private/IconProvider.swift; sourceTree = "<group>"; };
-		A48EC2AF9C408B332A0D459383D89DC6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A644FAE2D2FB32BAA96CE988BF287171 /* AsyncImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-prefix.pch"; sourceTree = "<group>"; };
-		A78B0F3F92FF4C35DA79BB8473A6BAAA /* AsyncImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AsyncImageView-dummy.m"; sourceTree = "<group>"; };
-		AD89CEE3978FCC7EBB7D3BE397131F67 /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
+		A6AD34E457F292ADC98F59BFF42E4257 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/JSON.swift; sourceTree = "<group>"; };
+		A715768FBDE9CB88BF0CCA4DE6558305 /* AsyncImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AsyncImageView-dummy.m"; sourceTree = "<group>"; };
 		ADC7E3CB4AA6D18A393FA493E064B8B3 /* Pods-JamHawk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JamHawk-umbrella.h"; sourceTree = "<group>"; };
-		B22E62EE506476C76683CE15BAF6EDB2 /* JSONEncodingDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingDetector.swift; path = Sources/JSONEncodingDetector.swift; sourceTree = "<group>"; };
-		B606A2AF8FA5CDB86D6CB87F9024EA1F /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIDevice+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIDevice+Extensions.swift"; sourceTree = "<group>"; };
-		B74BD0E8A67E5104FD5620C246237B26 /* Freddy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-prefix.pch"; sourceTree = "<group>"; };
-		BBCEE351D6293088C0BFCE4FC6061BB6 /* Freddy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Freddy-dummy.m"; sourceTree = "<group>"; };
-		BE1951FCC07A9EC0873AE6D46F51A4EA /* UITextField+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UITextField+Extensions.swift"; sourceTree = "<group>"; };
-		BF21C24CC143FAA855BAB4E7CE67B233 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILabel+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		B7C85819E24EBF64F357337CEFE9EB32 /* IncipiaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IncipiaKit-umbrella.h"; sourceTree = "<group>"; };
+		BAFCFBE8B8AE47858D57A570A95D6099 /* JSONEncodingDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingDetector.swift; path = Sources/JSONEncodingDetector.swift; sourceTree = "<group>"; };
+		BC3A106E71D999D5EBF61EF9A5D83664 /* Freddy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Freddy.modulemap; sourceTree = "<group>"; };
+		BCAAF861D4CEE1C0D08C6690C9218D57 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFFC0FF4652277782A1A076BC534AAAF /* Pods-JamHawk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JamHawk.modulemap"; sourceTree = "<group>"; };
-		C37AA45331A04DE00BF719DE07358A3B /* UIViewController+Instantiate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Instantiate.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+Instantiate.swift"; sourceTree = "<group>"; };
-		C5242B98DA64D6B940491C3187A1FCEF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9A72330F23B50D1A1ADD8C50B85EF39 /* AsyncImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0B411450723EC4787270DD7F96C7CF4 /* AsyncImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AsyncImageView.xcconfig; sourceTree = "<group>"; };
-		D36371EED5E68DA274F929CC842AD022 /* Freddy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Freddy-umbrella.h"; sourceTree = "<group>"; };
-		D6140B5FE7C140933D23CB62345E19DC /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
-		DD0F4D66C2464762F3631414B133A8B8 /* Icons.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = IncipiaKit/Resources/Icons.xcassets; sourceTree = "<group>"; };
-		E3F0038065363906C1FEE7F43380BE97 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/JSON.swift; sourceTree = "<group>"; };
+		CA28DA09C0F85497A157F9DB06C2D978 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		CF05ED80F2900331A829879459782C23 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D023236BEC6DF4F54482EFD46E695200 /* IncipiaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IncipiaKit.modulemap; sourceTree = "<group>"; };
+		DB8729984D5D643BAD5ADBB91578DE26 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		DEE6533609BF8E633CB8E7DF8A4D2B25 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
+		DF2A936A76B2B41089FDC1BE71B05CC5 /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
 		E5094C1FBA56A55ABF8DA7F6F92AF4BA /* Pods-JamHawk-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JamHawk-resources.sh"; sourceTree = "<group>"; };
-		E865EC5BF3655571D1DAF0AA824A179E /* IncipiaKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IncipiaKit.h; path = IncipiaKit/IncipiaKit.h; sourceTree = "<group>"; };
 		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		E91FFA20FA5FDFC351138C520FAE16F5 /* AsyncImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-umbrella.h"; sourceTree = "<group>"; };
-		EAE77D945AFD678C618992CE85A3378F /* UIViewController+AlertPresenting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+AlertPresenting.swift"; path = "IncipiaKit/UIKit-Extensions/UIViewController+AlertPresenting.swift"; sourceTree = "<group>"; };
-		EE067309374F03010EE066AA694C510B /* IncipiaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncipiaKit.xcconfig; sourceTree = "<group>"; };
-		F418150F1E7AA8280695352ED22039B8 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		FEDB53A8486AB1856E9B05712E49A4E8 /* AsyncImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = AsyncImageView/AsyncImageView.h; sourceTree = "<group>"; };
+		EAAFA4373A36F180C327DAABA6835CF3 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Extensions.swift"; path = "IncipiaKit/UIKit-Extensions/UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		EC90FBA571AB20A1FBE459C0564D177A /* AsyncImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AsyncImageView.xcconfig; sourceTree = "<group>"; };
+		F4CE2BB861FA0391B17B8EDF066CB08A /* JSONEncodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodable.swift; path = Sources/JSONEncodable.swift; sourceTree = "<group>"; };
+		F7981B03791D3233E4A8CD9B2898F2B6 /* AsyncImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncImageView-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,10 +161,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9EE2E6C6A973C40D605607FCB5B94D35 /* Frameworks */ = {
+		551A404EB2FD847C1D598E8852F4BB25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A7568A35DF17F3AADC23B9A8E3614B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD5714C755A2F89B59569B8579389E94 /* Foundation.framework in Frameworks */,
+				0DFFF6549D84B233C9BD121B5162EC5B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,15 +182,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				175F703F946951158B0EC21CCBBFB81C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F66C90FC2DA14D04BAC5FF8BBBFF5A40 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1DA80E06B1BBC28C9A79C5D58174FAB2 /* Foundation.framework in Frameworks */,
-				875B92D83DA1F6B2E985CF02837D2DCA /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,14 +196,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		018176A51305F83075032944DD97A06F /* AsyncImageView */ = {
+		1B10E6DB395815F1E7905F157C6FB212 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FEDB53A8486AB1856E9B05712E49A4E8 /* AsyncImageView.h */,
-				5D25ED4B1A5DF3BB57B861D92F002958 /* AsyncImageView.m */,
-				4AE7A7D0943AA9BB9CF3F7DD2403334C /* Support Files */,
+				BC3A106E71D999D5EBF61EF9A5D83664 /* Freddy.modulemap */,
+				40FC921246E60ABC7FB4BF310368FE65 /* Freddy.xcconfig */,
+				552A2386045967AA1CFEF0A2B903B643 /* Freddy-dummy.m */,
+				24C4DFD557D5564251F687F0D50E7F1C /* Freddy-prefix.pch */,
+				7667389405F1D399E94A6F291DE8EE3B /* Freddy-umbrella.h */,
+				BCAAF861D4CEE1C0D08C6690C9218D57 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Freddy";
+			sourceTree = "<group>";
+		};
+		1D3E44CCD4AC9E180289DCC118B7380B /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				023FC0B6A0D34BFDB40C32A4732C1B5A /* AsyncImageView.h */,
+				36BE80BC3E4E9514D6C582E548D94784 /* AsyncImageView.m */,
+				34E3BBB22E1856DBD25A136AD268DE6D /* Support Files */,
 			);
 			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
+		1E0B4E6A235ED35307BF7B29DD0A2D81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D3E44CCD4AC9E180289DCC118B7380B /* AsyncImageView */,
+				CF561CEFCAB9C13825F4B8AFC1C5B9AE /* Freddy */,
+				ADC7B73244043E8D80BCCE7B399713B2 /* IncipiaKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		34E3BBB22E1856DBD25A136AD268DE6D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B2844B74E2B77D76C40BC4F03FCFF19 /* AsyncImageView.modulemap */,
+				EC90FBA571AB20A1FBE459C0564D177A /* AsyncImageView.xcconfig */,
+				A715768FBDE9CB88BF0CCA4DE6558305 /* AsyncImageView-dummy.m */,
+				7144CFDBCED09085CF907AB95A0A1731 /* AsyncImageView-prefix.pch */,
+				F7981B03791D3233E4A8CD9B2898F2B6 /* AsyncImageView-umbrella.h */,
+				CF05ED80F2900331A829879459782C23 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AsyncImageView";
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -244,20 +270,6 @@
 			path = "Target Support Files/Pods-JamHawk";
 			sourceTree = "<group>";
 		};
-		4AE7A7D0943AA9BB9CF3F7DD2403334C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5B0B4F97B3CB0A9F8F9381A851BE4159 /* AsyncImageView.modulemap */,
-				D0B411450723EC4787270DD7F96C7CF4 /* AsyncImageView.xcconfig */,
-				A78B0F3F92FF4C35DA79BB8473A6BAAA /* AsyncImageView-dummy.m */,
-				A644FAE2D2FB32BAA96CE988BF287171 /* AsyncImageView-prefix.pch */,
-				E91FFA20FA5FDFC351138C520FAE16F5 /* AsyncImageView-umbrella.h */,
-				C5242B98DA64D6B940491C3187A1FCEF /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/AsyncImageView";
-			sourceTree = "<group>";
-		};
 		5532BD7A05EC542A088E7C240CEA3431 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,106 +295,76 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				CBCEA791B6A88D9C06764C485A132210 /* Pods */,
+				1E0B4E6A235ED35307BF7B29DD0A2D81 /* Pods */,
 				657DC9CC1C51F8E353AA197A9D72D3A6 /* Products */,
 				5532BD7A05EC542A088E7C240CEA3431 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		AABF19592996FDA3406A7621AD991FE2 /* Support Files */ = {
+		ADC7B73244043E8D80BCCE7B399713B2 /* IncipiaKit */ = {
 			isa = PBXGroup;
 			children = (
-				7049A0AAF4BE3C850866B457C4DF7552 /* IncipiaKit.modulemap */,
-				EE067309374F03010EE066AA694C510B /* IncipiaKit.xcconfig */,
-				871AED3C6C3B77007AD31C36CAB2643A /* IncipiaKit-dummy.m */,
-				0B1D22F3467E0A4675659F2A348C5A73 /* IncipiaKit-prefix.pch */,
-				AD89CEE3978FCC7EBB7D3BE397131F67 /* IncipiaKit-umbrella.h */,
-				59C4C357961A6A740DBD9F1F980E23B0 /* Info.plist */,
-				8A913CF975D9B343883DD07CBBF40508 /* ResourceBundle-IncipiaKit-Info.plist */,
+				9E4DC9C2C0A69F566357631969FFC45E /* IconProvider.swift */,
+				6060F823EF45055056D4F0AB9FBDFD66 /* IncipiaKit.h */,
+				5AF55D178C9EA15E8E668E56B30DA82B /* NSBundle+Extensions.swift */,
+				3D817342D4EAC18D5ACB6E89EFF492C2 /* NSIndexPath+Extensions.swift */,
+				891BA6846C353B9F4A6CC166C8F2E73E /* String+Extensions.swift */,
+				EAAFA4373A36F180C327DAABA6835CF3 /* UIAlertController+Extensions.swift */,
+				DB8729984D5D643BAD5ADBB91578DE26 /* UIBarButtonItem+Extensions.swift */,
+				3EB7CA3D9C5835AFA3573A7D1BCF9AFD /* UICollectionView+Extensions.swift */,
+				776719FD1CABDEF4C534569020386B84 /* UIColor+Extensions.swift */,
+				0096BF640D8041F59745F029575C2E0C /* UIDevice+Extensions.swift */,
+				8F46F05BE58834570B4DE7061B1A7260 /* UIImage+Extensions.swift */,
+				0843122E760D800B126AA6E6D00FA13E /* UILabel+Extensions.swift */,
+				DEE6533609BF8E633CB8E7DF8A4D2B25 /* UINavigationBar+Extensions.swift */,
+				CA28DA09C0F85497A157F9DB06C2D978 /* UITextField+Extensions.swift */,
+				6F56787371B6B79B770AA845C41CFCBF /* UIView+Extensions.swift */,
+				2BCA1C9D52E92559BD1E65A48FD28601 /* UIViewController+Extensions.swift */,
+				EB0FBB85C2A053153080768883B6BB12 /* Resources */,
+				B25EFA79B6786425ED88D946BFAE5D93 /* Support Files */,
+			);
+			path = IncipiaKit;
+			sourceTree = "<group>";
+		};
+		B25EFA79B6786425ED88D946BFAE5D93 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D023236BEC6DF4F54482EFD46E695200 /* IncipiaKit.modulemap */,
+				DF2A936A76B2B41089FDC1BE71B05CC5 /* IncipiaKit.xcconfig */,
+				34839D2097325A98EA029C24E5EA18D8 /* IncipiaKit-dummy.m */,
+				9DB129929A5732D10E0F5AE18F38911B /* IncipiaKit-prefix.pch */,
+				B7C85819E24EBF64F357337CEFE9EB32 /* IncipiaKit-umbrella.h */,
+				45D71ED178BA22595C4BEC29CB7289EC /* Info.plist */,
+				7AE24D3EADE15F1620D64ECDDDD32EAE /* ResourceBundle-IncipiaKit-Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/IncipiaKit";
 			sourceTree = "<group>";
 		};
-		B5689935DF63DEBC6D92A4F5FBADB190 /* Support Files */ = {
+		CF561CEFCAB9C13825F4B8AFC1C5B9AE /* Freddy */ = {
 			isa = PBXGroup;
 			children = (
-				05A5D4EA691159C3C4836D52F8AD6FC0 /* Freddy.modulemap */,
-				6BAB988850DE7FF0D4776546CE4AB0DF /* Freddy.xcconfig */,
-				BBCEE351D6293088C0BFCE4FC6061BB6 /* Freddy-dummy.m */,
-				B74BD0E8A67E5104FD5620C246237B26 /* Freddy-prefix.pch */,
-				D36371EED5E68DA274F929CC842AD022 /* Freddy-umbrella.h */,
-				A48EC2AF9C408B332A0D459383D89DC6 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Freddy";
-			sourceTree = "<group>";
-		};
-		C15FF3275E75D30001F517540C8BFAF5 /* Freddy */ = {
-			isa = PBXGroup;
-			children = (
-				389F19B22158C4C6A11B9F414F63CD2D /* Freddy.h */,
-				E3F0038065363906C1FEE7F43380BE97 /* JSON.swift */,
-				3F11502F357ACF302E51F6723D168800 /* JSONDecodable.swift */,
-				4F2104C254AA84D9C2769F8CB60CAA27 /* JSONEncodable.swift */,
-				B22E62EE506476C76683CE15BAF6EDB2 /* JSONEncodingDetector.swift */,
-				0A94ABF506E663518B2CDBF637199FAB /* JSONLiteralConvertible.swift */,
-				9258078368305A63433E1D52D587540C /* JSONParser.swift */,
-				3D2E61C5D6C5810A2213A640C3BF2065 /* JSONParsing.swift */,
-				8B0D425C96EBB7166A851C75C6CA6B6A /* JSONSerializing.swift */,
-				33EFBBFF32FE542003C373883AF2C83D /* JSONSubscripting.swift */,
-				B5689935DF63DEBC6D92A4F5FBADB190 /* Support Files */,
+				764A25CED8F544EB9A611A5F79674ED4 /* Freddy.h */,
+				A6AD34E457F292ADC98F59BFF42E4257 /* JSON.swift */,
+				74B9E420E339E389B18449155E891E1C /* JSONDecodable.swift */,
+				F4CE2BB861FA0391B17B8EDF066CB08A /* JSONEncodable.swift */,
+				BAFCFBE8B8AE47858D57A570A95D6099 /* JSONEncodingDetector.swift */,
+				74B510152C8362050142DD863730BCA8 /* JSONLiteralConvertible.swift */,
+				53974F72A9CAFF8C742D0CF3B86DB9AF /* JSONParser.swift */,
+				75E0A0C3A95690C3A24CC4839AF8218B /* JSONParsing.swift */,
+				9C869484E6D4C2747C78AA13CCB00BA2 /* JSONSerializing.swift */,
+				52C514CE95AE02E517A5CF9C9A7AB40C /* JSONSubscripting.swift */,
+				1B10E6DB395815F1E7905F157C6FB212 /* Support Files */,
 			);
 			path = Freddy;
 			sourceTree = "<group>";
 		};
-		C215D734DDD3E9A34D1A9030887BDC1C /* IncipiaKit */ = {
+		EB0FBB85C2A053153080768883B6BB12 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A38291AD304C1CA19E66F6DBE60B79CE /* IconProvider.swift */,
-				E865EC5BF3655571D1DAF0AA824A179E /* IncipiaKit.h */,
-				496C7DE6A37DAD026E244AEBA11F1179 /* NSBundle+Extensions.swift */,
-				45CD5A8FF48E27D56414BEA002508A6F /* NSIndexPath+Extensions.swift */,
-				0ABB16ED7E90D4B063D0A97D15B39D96 /* String+Extensions.swift */,
-				598EF52662BD6D99F3B15356C3CD52D0 /* UIAlertController+Extensions.swift */,
-				6176775C0A93805DB368AAF6A75BE2BC /* UIBarButtonItem+Extensions.swift */,
-				13CB5C2A6AA8C8D242FF9D3517247E31 /* UICollectionView+Extensions.swift */,
-				918F1C4A47B36337FD980ABC5B92E462 /* UIColor+Extensions.swift */,
-				B606A2AF8FA5CDB86D6CB87F9024EA1F /* UIDevice+Extensions.swift */,
-				F418150F1E7AA8280695352ED22039B8 /* UIImage+Extensions.swift */,
-				BF21C24CC143FAA855BAB4E7CE67B233 /* UILabel+Extensions.swift */,
-				D6140B5FE7C140933D23CB62345E19DC /* UINavigationBar+Extensions.swift */,
-				465B12C01870658FA72EE0E0A921C21E /* UINavigationController+Extensions.swift */,
-				BE1951FCC07A9EC0873AE6D46F51A4EA /* UITextField+Extensions.swift */,
-				95FA9FCEC0EC309CAF4DCC43CD33783D /* UIToolbar+Extensions.swift */,
-				7066FABD03E28F070DEAC6085C9BF023 /* UIView+Extensions.swift */,
-				EAE77D945AFD678C618992CE85A3378F /* UIViewController+AlertPresenting.swift */,
-				5C12EF1AB30BD2AD9922372E88FB8996 /* UIViewController+BarButtonItems.swift */,
-				17764D5EB414B283D171BCAD3C7F1F6A /* UIViewController+Extensions.swift */,
-				C37AA45331A04DE00BF719DE07358A3B /* UIViewController+Instantiate.swift */,
-				22CA7576E3BD4671434F49580706880C /* UIViewControllerContextTransitioning.swift */,
-				CAB6F989D0A6C821A69BDB6A54593836 /* Resources */,
-				AABF19592996FDA3406A7621AD991FE2 /* Support Files */,
-			);
-			path = IncipiaKit;
-			sourceTree = "<group>";
-		};
-		CAB6F989D0A6C821A69BDB6A54593836 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				DD0F4D66C2464762F3631414B133A8B8 /* Icons.xcassets */,
+				2DE95D2FF9DCF9B12D5E5433DD6255B6 /* Icons.xcassets */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		CBCEA791B6A88D9C06764C485A132210 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				018176A51305F83075032944DD97A06F /* AsyncImageView */,
-				C15FF3275E75D30001F517540C8BFAF5 /* Freddy */,
-				C215D734DDD3E9A34D1A9030887BDC1C /* IncipiaKit */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
@@ -397,12 +379,12 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2BED11743A757C5E0DF894EEE574FE69 /* Headers */ = {
+		0A3804E621DB92733539DFE7E374CA05 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88B18B4D964C6BB228972BB995CF9581 /* IncipiaKit-umbrella.h in Headers */,
-				D718E70F65A51F0F5038E89DB08090EA /* IncipiaKit.h in Headers */,
+				CCC4BBC7C10154D267C605E7846958E8 /* IncipiaKit-umbrella.h in Headers */,
+				2D72A1E45D64D32E9F2102701905C840 /* IncipiaKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,25 +417,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0D072EAA61282EF4F9F8178FFCA5A165 /* IncipiaKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6A88E8224EE985F1D981C77DC5C81458 /* Build configuration list for PBXNativeTarget "IncipiaKit" */;
-			buildPhases = (
-				D0712A7CBFEC5846CB4324539D08E9A7 /* Sources */,
-				F66C90FC2DA14D04BAC5FF8BBBFF5A40 /* Frameworks */,
-				19E9F694CDD4A68C6DC9F4B0E84E5A8F /* Resources */,
-				2BED11743A757C5E0DF894EEE574FE69 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				478F507EC74AC5E87B95AA0349CA6237 /* PBXTargetDependency */,
-			);
-			name = IncipiaKit;
-			productName = IncipiaKit;
-			productReference = 8976D967FEA6D9D0BF5D8992E278875B /* IncipiaKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		10F2A98565E4CB0A4354935364A3323C /* AsyncImageView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9587AD528AD636BEFB883CF330B5ED99 /* Build configuration list for PBXNativeTarget "AsyncImageView" */;
@@ -491,13 +454,32 @@
 			productReference = 0B3E0FEFF3973AF6F0B73DDF868EEB35 /* Pods_JamHawk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E7C2C14F7D4EF8BBCDCDC41019D68380 /* IncipiaKit-IncipiaKit */ = {
+		8BC42F9E992A5F918B14C663CE8FAA01 /* IncipiaKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D59DE44790F009BAB1CE347E5367867 /* Build configuration list for PBXNativeTarget "IncipiaKit-IncipiaKit" */;
+			buildConfigurationList = BBDCBA5BEF401AE9A74CB70B1276F918 /* Build configuration list for PBXNativeTarget "IncipiaKit" */;
 			buildPhases = (
-				E73B3FA233C3D34FC9FBB5732DE7CA75 /* Sources */,
-				9EE2E6C6A973C40D605607FCB5B94D35 /* Frameworks */,
-				B371202486F798A4FCE553AC9A8D9A61 /* Resources */,
+				311DF891BBF719B584CAB8719F0A0828 /* Sources */,
+				9A7568A35DF17F3AADC23B9A8E3614B1 /* Frameworks */,
+				EA6A626F12A54ED99937D87E3DF83BFF /* Resources */,
+				0A3804E621DB92733539DFE7E374CA05 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				184AF3C9A78224708F709B5C0B5F12F0 /* PBXTargetDependency */,
+			);
+			name = IncipiaKit;
+			productName = IncipiaKit;
+			productReference = 8976D967FEA6D9D0BF5D8992E278875B /* IncipiaKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9EF597B2EAC4D748186E0A96B67ECBD5 /* IncipiaKit-IncipiaKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EE71FE34473A7D7C0BE677FD7335941 /* Build configuration list for PBXNativeTarget "IncipiaKit-IncipiaKit" */;
+			buildPhases = (
+				1066363D244E9108918ADFFA6C77A61A /* Sources */,
+				551A404EB2FD847C1D598E8852F4BB25 /* Frameworks */,
+				3AE37C785E5659B7A2CB24BAF1468CFA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -548,33 +530,63 @@
 			targets = (
 				10F2A98565E4CB0A4354935364A3323C /* AsyncImageView */,
 				EEE4BFE3AC283ECEA2CF60A4C399216A /* Freddy */,
-				0D072EAA61282EF4F9F8178FFCA5A165 /* IncipiaKit */,
-				E7C2C14F7D4EF8BBCDCDC41019D68380 /* IncipiaKit-IncipiaKit */,
+				8BC42F9E992A5F918B14C663CE8FAA01 /* IncipiaKit */,
+				9EF597B2EAC4D748186E0A96B67ECBD5 /* IncipiaKit-IncipiaKit */,
 				4095FF81F75984F6195092D3A9FCF485 /* Pods-JamHawk */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		19E9F694CDD4A68C6DC9F4B0E84E5A8F /* Resources */ = {
+		3AE37C785E5659B7A2CB24BAF1468CFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D95CEFD88EC3D59A9EB1222CB3A6A86 /* IncipiaKit.bundle in Resources */,
+				F62D820CFA5287CA3AF3925C72BFCAA5 /* Icons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B371202486F798A4FCE553AC9A8D9A61 /* Resources */ = {
+		EA6A626F12A54ED99937D87E3DF83BFF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034E82B8DEB66F88DAFADA8230812C69 /* Icons.xcassets in Resources */,
+				F005257BE03E73242751833824399F55 /* IncipiaKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1066363D244E9108918ADFFA6C77A61A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		311DF891BBF719B584CAB8719F0A0828 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF30AE9A5413FF5D76BE97ABCD2A000 /* IconProvider.swift in Sources */,
+				1C7910425EA72A0D811F11F9C6F3AEC1 /* IncipiaKit-dummy.m in Sources */,
+				2C949E21D766C6C351A59759F86BE5DA /* NSBundle+Extensions.swift in Sources */,
+				A1B9E96D967535F725F0C1C91EBA80B1 /* NSIndexPath+Extensions.swift in Sources */,
+				704F310D1145087A3F508F15F5A89093 /* String+Extensions.swift in Sources */,
+				019DCEFFBEC628925990903A2D81885F /* UIAlertController+Extensions.swift in Sources */,
+				EC2F159205704A9739D831D0B23FA780 /* UIBarButtonItem+Extensions.swift in Sources */,
+				09AB763F00596F62CC91487A583FFCAA /* UICollectionView+Extensions.swift in Sources */,
+				2405AE4496691AE468F634916EC048CC /* UIColor+Extensions.swift in Sources */,
+				797AD55FE51F1BF7EC2D63C89D3C0A77 /* UIDevice+Extensions.swift in Sources */,
+				300C87A00476B6A7E029E285C4A38AAB /* UIImage+Extensions.swift in Sources */,
+				CE69B6BDD6AD52980531C29497713E26 /* UILabel+Extensions.swift in Sources */,
+				A7D3077AE5D27A8410CD79D961248D59 /* UINavigationBar+Extensions.swift in Sources */,
+				68F2480352D7391CA10471D244A5607C /* UITextField+Extensions.swift in Sources */,
+				BB9942D9BB53EC015BACF0A6E6822267 /* UIView+Extensions.swift in Sources */,
+				0C4FDF340CCCC06FBAB57C03ABB7DC6D /* UIViewController+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		423BE0A90ED1CAD6B72679356B672FD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,55 +621,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0712A7CBFEC5846CB4324539D08E9A7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB8A2D9D5ED80DBD8B9065864DD50E41 /* IconProvider.swift in Sources */,
-				D9D802FC0A25A689F65495956A3B9E76 /* IncipiaKit-dummy.m in Sources */,
-				A9EFF88A21F2A5CF891B53242B697915 /* NSBundle+Extensions.swift in Sources */,
-				8CB75F8BDB4EB751DD623221BCEC0EEF /* NSIndexPath+Extensions.swift in Sources */,
-				3AAA9B3BEA8FE730E64937CD89E68DF2 /* String+Extensions.swift in Sources */,
-				463AF79BC96D3D9431A6B82C92362402 /* UIAlertController+Extensions.swift in Sources */,
-				B4E2A24C67D53B1D1F7BFF2503BB315D /* UIBarButtonItem+Extensions.swift in Sources */,
-				658E20EDA309AD4EC8F4AD990E4C81F2 /* UICollectionView+Extensions.swift in Sources */,
-				C3BA9FD728D155726D3467BEF61F3331 /* UIColor+Extensions.swift in Sources */,
-				30DD31C1F303E4F39DA3934B46D638DF /* UIDevice+Extensions.swift in Sources */,
-				C28BB4E70BE12B8B44FA9688662AD2EB /* UIImage+Extensions.swift in Sources */,
-				BFC9A4B8E369DD7CDA0805A6EAFC4DC5 /* UILabel+Extensions.swift in Sources */,
-				354D9140F425776D9BEF00A565220E13 /* UINavigationBar+Extensions.swift in Sources */,
-				240AF7846496262186DC6C6F72ED515A /* UINavigationController+Extensions.swift in Sources */,
-				F9FAC1500258C5DC152AEBD3FF2BF869 /* UITextField+Extensions.swift in Sources */,
-				506168601950847EFC5CA2A1FE49583E /* UIToolbar+Extensions.swift in Sources */,
-				58918A573F10E1151852677B4C9A8A76 /* UIView+Extensions.swift in Sources */,
-				01E9B6F460B9DF8024F6924AC9B6D5D9 /* UIViewController+AlertPresenting.swift in Sources */,
-				38EF39FF4CAA73C0E37FE0D569217E0C /* UIViewController+BarButtonItems.swift in Sources */,
-				9A92A86A96252D46E3317356993A3AC1 /* UIViewController+Extensions.swift in Sources */,
-				71855A59D64364A6C3DC1D8B5C9122D8 /* UIViewController+Instantiate.swift in Sources */,
-				73D0CE87AF6E05DAFC9D1605ECA6A3F0 /* UIViewControllerContextTransitioning.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E73B3FA233C3D34FC9FBB5732DE7CA75 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		478F507EC74AC5E87B95AA0349CA6237 /* PBXTargetDependency */ = {
+		184AF3C9A78224708F709B5C0B5F12F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "IncipiaKit-IncipiaKit";
-			target = E7C2C14F7D4EF8BBCDCDC41019D68380 /* IncipiaKit-IncipiaKit */;
-			targetProxy = 4942EA27988E26BCFC1DFB97B9E49C99 /* PBXContainerItemProxy */;
+			target = 9EF597B2EAC4D748186E0A96B67ECBD5 /* IncipiaKit-IncipiaKit */;
+			targetProxy = 97847B09B28A39E6D7435C6C713E002F /* PBXContainerItemProxy */;
 		};
 		96F8A0733D5E1D0AF0A6EB19AEB129FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IncipiaKit;
-			target = 0D072EAA61282EF4F9F8178FFCA5A165 /* IncipiaKit */;
+			target = 8BC42F9E992A5F918B14C663CE8FAA01 /* IncipiaKit */;
 			targetProxy = BCB0B7571946924C0DFA8545735CBDE9 /* PBXContainerItemProxy */;
 		};
 		A55709A8AE78C9B43788141941875F42 /* PBXTargetDependency */ = {
@@ -675,26 +651,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0725AB34AC71389AEC19B0586015D18C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE067309374F03010EE066AA694C510B /* IncipiaKit.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/IncipiaKit";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/IncipiaKit/ResourceBundle-IncipiaKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				PRODUCT_NAME = IncipiaKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		085DB27016A2249AF89DB8314DDBF962 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0B411450723EC4787270DD7F96C7CF4 /* AsyncImageView.xcconfig */;
+			baseConfigurationReference = EC90FBA571AB20A1FBE459C0564D177A /* AsyncImageView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -723,7 +682,7 @@
 		};
 		1529CF4BF002FA9ECE6E15CECCAB633A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BAB988850DE7FF0D4776546CE4AB0DF /* Freddy.xcconfig */;
+			baseConfigurationReference = 40FC921246E60ABC7FB4BF310368FE65 /* Freddy.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -742,36 +701,6 @@
 				MODULEMAP_FILE = "Target Support Files/Freddy/Freddy.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Freddy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		224B0CC8AC4AF7DCCBEC9386C64B8CD1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE067309374F03010EE066AA694C510B /* IncipiaKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/IncipiaKit/IncipiaKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/IncipiaKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/IncipiaKit/IncipiaKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = IncipiaKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -858,7 +787,7 @@
 		};
 		659E01D7605D22C0CA500D94D5B60538 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0B411450723EC4787270DD7F96C7CF4 /* AsyncImageView.xcconfig */;
+			baseConfigurationReference = EC90FBA571AB20A1FBE459C0564D177A /* AsyncImageView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -885,9 +814,38 @@
 			};
 			name = Release;
 		};
-		678DC4C0D70EA33E10480FD7A778A5D0 /* Release */ = {
+		66DD6EEF18888D1C2883F6097C4D72C3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE067309374F03010EE066AA694C510B /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = DF2A936A76B2B41089FDC1BE71B05CC5 /* IncipiaKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/IncipiaKit/IncipiaKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IncipiaKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IncipiaKit/IncipiaKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = IncipiaKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		689A529EE15C4C308A4DF2FD87F21395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF2A936A76B2B41089FDC1BE71B05CC5 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/IncipiaKit";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -900,7 +858,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
 		71B4254E788C580A9D7E51E0B3AAF7DB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -938,7 +896,7 @@
 		};
 		758BCAAF6A5E859C9D4C25BE1D2F5CED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BAB988850DE7FF0D4776546CE4AB0DF /* Freddy.xcconfig */;
+			baseConfigurationReference = 40FC921246E60ABC7FB4BF310368FE65 /* Freddy.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1003,13 +961,13 @@
 			};
 			name = Release;
 		};
-		976E87594EE5C3AEEDF15B3166C73EF1 /* Release */ = {
+		BAB40EA6F3812E9E19649C6F5C302025 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE067309374F03010EE066AA694C510B /* IncipiaKit.xcconfig */;
+			baseConfigurationReference = DF2A936A76B2B41089FDC1BE71B05CC5 /* IncipiaKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1022,13 +980,31 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/IncipiaKit/IncipiaKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = IncipiaKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F2A53120AAC99396F4C1F8C21CB5A286 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF2A936A76B2B41089FDC1BE71B05CC5 /* IncipiaKit.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/IncipiaKit";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/IncipiaKit/ResourceBundle-IncipiaKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				PRODUCT_NAME = IncipiaKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1062,20 +1038,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D59DE44790F009BAB1CE347E5367867 /* Build configuration list for PBXNativeTarget "IncipiaKit-IncipiaKit" */ = {
+		2EE71FE34473A7D7C0BE677FD7335941 /* Build configuration list for PBXNativeTarget "IncipiaKit-IncipiaKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0725AB34AC71389AEC19B0586015D18C /* Debug */,
-				678DC4C0D70EA33E10480FD7A778A5D0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6A88E8224EE985F1D981C77DC5C81458 /* Build configuration list for PBXNativeTarget "IncipiaKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				224B0CC8AC4AF7DCCBEC9386C64B8CD1 /* Debug */,
-				976E87594EE5C3AEEDF15B3166C73EF1 /* Release */,
+				689A529EE15C4C308A4DF2FD87F21395 /* Debug */,
+				F2A53120AAC99396F4C1F8C21CB5A286 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1085,6 +1052,15 @@
 			buildConfigurations = (
 				085DB27016A2249AF89DB8314DDBF962 /* Debug */,
 				659E01D7605D22C0CA500D94D5B60538 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBDCBA5BEF401AE9A74CB70B1276F918 /* Build configuration list for PBXNativeTarget "IncipiaKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAB40EA6F3812E9E19649C6F5C302025 /* Debug */,
+				66DD6EEF18888D1C2883F6097C4D72C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

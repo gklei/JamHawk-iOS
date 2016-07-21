@@ -103,7 +103,7 @@ class MainPlayerViewController: UIViewController {
 		guard let image = image else { return }
 		
 		_currentTrackVotingVC.updateAlbumArt(withImage: image)
-		_backgroundImageView.image = image.applyBlurWithRadius(6.0, tintColor: nil, saturationDeltaFactor: 1)
+		_backgroundImageView.image = image.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1)
 	}
 }
 
