@@ -48,6 +48,13 @@ struct PlayerAPIOutputMetadataViewModel {
 	var albumTitle: String? {
 		return metatdata.album
 	}
+	
+	var artistAndSongTitle: String? {
+		guard let artist = artistName else { return nil }
+		guard let song = songTitle else { return nil }
+		
+		return "\(artist) – \(song)"
+	}
 }
 
 struct PlayerAPIOutputArtistViewModel {

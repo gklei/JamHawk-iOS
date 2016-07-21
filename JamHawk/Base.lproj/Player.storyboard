@@ -178,12 +178,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2b-eF-0AV" userLabel="Progress Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="12"/>
-                                <connections>
-                                    <segue destination="9EW-Pu-hpM" kind="embed" id="PAf-fT-etr"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8N-2f-qPO">
                                 <rect key="frame" x="0.0" y="12" width="600" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -232,6 +226,12 @@
                                     <constraint firstAttribute="height" constant="2" id="7tO-H3-kMb"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2b-eF-0AV" userLabel="Progress Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="12"/>
+                                <connections>
+                                    <segue destination="9EW-Pu-hpM" kind="embed" id="PAf-fT-etr"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -279,7 +279,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RX-IW-4Mu">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
-                                <color key="backgroundColor" red="0.89411765336990356" green="0.89411765336990356" blue="0.89019608497619629" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U89-Ok-Edb">
                                 <rect key="frame" x="0.0" y="0.0" width="500" height="20"/>

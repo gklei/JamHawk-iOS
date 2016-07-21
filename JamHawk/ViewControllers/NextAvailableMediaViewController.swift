@@ -46,9 +46,9 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 	// MARK: - Private
 	private func _updateUI(withTrack track: PlayerAPIOutputMetadata) {
 		let vm = PlayerAPIOutputMetadataViewModel(metatdata: track)
-		guard let artist = vm.artistName, song = vm.songTitle else { return }
+		guard let title = vm.artistAndSongTitle else { return }
 		
-		_nextSongInfoLabel.text = "Next song: \(artist) – \(song)"
+		_nextSongInfoLabel.text = "Next Song: \(title)"
 	}
 	
 	// MARK: - Public
