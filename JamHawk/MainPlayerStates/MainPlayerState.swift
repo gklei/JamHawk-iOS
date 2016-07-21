@@ -48,8 +48,6 @@ class DefaultHomeScreenState: MainPlayerState {
 		UIView.animateWithDuration(duration) {
 			self._delegate.view.layoutIfNeeded()
 		}
-		
-		_delegate.filterSelectionViewController?.collapseFilterSelection()
 		return self
 	}
 }

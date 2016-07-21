@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AsyncImageView
 
 protocol CurrentTrackVotingViewControllerDelegate: class {
 	func currentTrackVotingViewControllerUpvoteButtonPressed(forTrack track: PlayerAPIOutputMetadata, controller: CurrentTrackVotingViewController)
@@ -81,11 +82,32 @@ final class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewControl
 	
 	// MARK: - Outlets
 	@IBOutlet internal var _albumTitleLabel: UILabel!
+	@IBOutlet internal var _currentTrackLabel: UILabel!
+	@IBOutlet internal var _albumArtImageView: AsyncImageView!
+	@IBOutlet internal var _albumArtContainerView: UIView!
 	
 	// MARK: - Overridden
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+//		_albumArtImageView.backgroundColor = .clearColor()
+//		_albumArtContainerView.backgroundColor = .clearColor()
+//		_currentTrackLabel.hidden = true
+//		
+//		_albumArtContainerView.layer.shadowRadius = 12
+//		_albumArtContainerView.layer.shadowOpacity = 0.25
+//		_albumArtContainerView.layer.shadowOffset = CGSize(width: 0, height: 2)
+//		_albumArtContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+	}
+	
 	override func update(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
 		super.update(withViewModel: vm)
 		_albumTitleLabel.text = vm.albumTitle
+//		_currentTrackLabel.text = "\(vm.artistName) – \(vm.songTitle)"
+	}
+	
+	func updateAlbumArt(withImage image: UIImage) {
+//		_albumArtImageView.image = image
 	}
 }
 

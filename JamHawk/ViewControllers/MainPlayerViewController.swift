@@ -94,7 +94,16 @@ class MainPlayerViewController: UIViewController {
 		guard let media = output.media else { return }
 		
 		let vm = PlayerAPIOutputMediaViewModel(media: media)
-		_backgroundImageView.imageURL = vm.posterURL
+		
+		AsyncImageLoader.sharedLoader().cancelLoadingImagesForTarget(_backgroundImageView)
+		AsyncImageLoader.sharedLoader().loadImageWithURL(vm.posterURL, target: self, action: #selector(MainPlayerViewController._imageFinishedLoading(_:url:)))
+	}
+	
+	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
+		guard let image = image else { return }
+		
+		_currentTrackVotingVC.updateAlbumArt(withImage: image)
+		_backgroundImageView.image = image.applyBlurWithRadius(6.0, tintColor: nil, saturationDeltaFactor: 1)
 	}
 }
 

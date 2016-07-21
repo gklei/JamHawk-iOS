@@ -60,17 +60,7 @@ class SubfilterSelectionViewController: UIViewController {
 				let constant = min(viewHeight, contentHeight)
 				
 				self?._collectionViewHeightConstraint.constant = constant
-				UIView.animateWithDuration(0.2, animations: {
-					self?.view.layoutIfNeeded()
-				})
 			}
 		}
-	}
-	
-	func collapseFilterSelection() {
-		_collectionViewHeightConstraint.constant = 0
-		UIView.animateWithDuration(0.2, animations: {
-			self.view.layoutIfNeeded()
-		})
 	}
 }
