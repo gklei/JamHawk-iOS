@@ -46,26 +46,25 @@ class JHSignUpViewController: UIViewController {
       view.endEditing(true)
    }
    
-   // MARK: - Class Methods
    // test credentials: brendan@incipia.co / hello1
    @IBAction func _continueButtonDidPress(sender: AnyObject) {
       guard let inputEmail = _emailTextField.text else { return }
       guard let inputPassword = _passwordTextField.text else { return }
       
       guard _credentialsAreValid() else { return }
-         session!.signUp(email: inputEmail, password: inputPassword, callback: { (error, output) in
-            if let error = error {
-               self.present(error)
+      session?.signUp(email: inputEmail, password: inputPassword, callback: { (error, output) in
+         if let error = error {
+            self.present(error)
+         } else {
+            guard let output = output else { return }
+            
+            if output.success == true {
+               self.presentMessage("Success logging up")
             } else {
-               guard let output = output else { return }
-               
-               if output.success == true {
-                  self.presentMessage("Success logging up")
-               } else {
-                  self.presentMessage(output.message ?? "Failure logging up")
-               }
+               self.presentMessage(output.message ?? "Failure logging up")
             }
-         })
+         }
+      })
    }
    
    // MARK: - Private Methods
@@ -76,12 +75,15 @@ class JHSignUpViewController: UIViewController {
    }
    
    private func _credentialsAreValid() -> Bool {
-      guard _emailTextField.text.isValidEmail else {
-         presentMessage("Invalid email")
-         return false
+      if let email = _emailTextField.text {
+         if !email.isValidEmail  {
+            presentMessage("Invalid Email")
+            return false
+         }
       }
+      else { return false }
       if !_passwordsMatch() {
-         presentMessage("passwords do not match")
+         presentMessage("Passwords do not Match")
       }
       return _passwordsMatch()
    }
