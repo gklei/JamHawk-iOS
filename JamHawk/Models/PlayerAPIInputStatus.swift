@@ -23,7 +23,7 @@ struct PlayerAPIInputStatus: JSONEncodable {
 	
 	// MARK: - Testing
 	static func requestNextTrackStatus(playerID: String) -> PlayerAPIInputStatus {
-		return PlayerAPIInputStatus(playerID: playerID, requestID: 0, needInstance: false, needMedia: true, needNext: true, needFilters: true)
+		return PlayerAPIInputStatus(playerID: playerID, requestID: 0, needInstance: false, needMedia: true, needNext: true, needFilters: false)
 	}
 	
 	func toJSON() -> JSON {
