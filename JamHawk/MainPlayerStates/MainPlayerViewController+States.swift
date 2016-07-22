@@ -29,12 +29,8 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _playerControlsVC
 	}
 	
-	var subfilterSelectionViewController: SubfilterSelectionViewController? {
-		get {
-			return _subfilterSelectionVC
-		} set {
-			_subfilterSelectionVC = newValue
-		}
+	var subfilterSelectionViewController: SubfilterSelectionViewController {
+		return _subfilterSelectionVC
 	}
 	
 	var bottomContainerHeightConstraint: NSLayoutConstraint {

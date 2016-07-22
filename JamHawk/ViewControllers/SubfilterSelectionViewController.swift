@@ -33,7 +33,7 @@ class SubfilterSelectionViewController: UIViewController {
 		view.clipsToBounds = true
 		_collectionView.allowsMultipleSelection = true
 		
-		view.backgroundColor = .clearColor()
+		view.backgroundColor = UIColor(white: 0, alpha: 0.2)
 		_collectionView.backgroundColor = .whiteColor()
 		_collectionView.layer.masksToBounds = true
 		
@@ -71,5 +71,9 @@ class SubfilterSelectionViewController: UIViewController {
 		_playerSubfiltersDS?.update(filter: filter)
 		_playerSubfiltersDS?.selectSubfilters(withIDs: selectedSubfilters)
 		view.setNeedsLayout()
+	}
+	
+	func reset() {
+		_filter = nil
 	}
 }

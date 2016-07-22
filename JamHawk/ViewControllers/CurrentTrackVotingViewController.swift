@@ -85,6 +85,7 @@ final class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewControl
 	@IBOutlet internal var _currentTrackLabel: UILabel!
 	@IBOutlet internal var _albumArtImageView: AsyncImageView!
 	@IBOutlet internal var _albumArtContainerView: UIView!
+	@IBOutlet private var _votingButtonsContainer: UIView!
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -107,13 +108,13 @@ final class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewControl
 	func updateAlbumArt(withImage image: UIImage) {
 		_albumArtImageView.image = image
 	}
+	
+	func setVotingButtonsHidden(hidden: Bool) {
+		_votingButtonsContainer.alpha = hidden ? 0 : 1
+	}
 }
 
 final class CurrentTrackVotingSmallViewController: CurrentTrackVotingViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Overriden
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		view.backgroundColor = UIColor(white: 0, alpha: 0.3)
-	}
 }

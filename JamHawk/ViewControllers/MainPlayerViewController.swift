@@ -20,6 +20,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	@IBOutlet private var _middleContainer: UIView!
 	@IBOutlet private var _bottomContainer: UIView!
 	@IBOutlet private var _playerControlsContainer: UIView!
+	@IBOutlet private var _subfilterSelectionContainer: UIView!
 	
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
@@ -33,7 +34,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.create()
 	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
 	internal let _playerControlsVC = PlayerControlsViewController.create()
-	internal var _subfilterSelectionVC: SubfilterSelectionViewController?
+	internal var _subfilterSelectionVC = SubfilterSelectionViewController()
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -43,6 +44,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _currentTrackVotingVC, toContainer: _middleContainer)
 		add(childViewController: _nextAvailableMediaVC, toContainer: _bottomContainer)
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
+		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
 		
 		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
 		_playerControlsVC.delegate = self
@@ -69,10 +71,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_currentTrackVotingVC.update(withPlayerAPIOutput: output)
 		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
-		
-		if _subfilterSelectionVC == nil {
-			_parentFilterSelectionVC.update(withPlayerAPIOutput: output)
-		}
+		_parentFilterSelectionVC.update(withPlayerAPIOutput: output)
 		
 		let _ = _smallCurrentTrackVotingVC.view
 		_smallCurrentTrackVotingVC.update(withPlayerAPIOutput: output)
@@ -87,7 +86,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		}
 		
 		guard let output = output else { return }
-		self.update(withPlayerAPIOutput: output)
+		update(withPlayerAPIOutput: output)
 	}
 	
 	private func _updateUI(withOutput output: PlayerAPIOutput) {
@@ -102,21 +101,13 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
 		guard let image = image else { return }
 		
-		_backgroundImageView.image = image.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1)
+		_backgroundImageView.image = image.applyBlur(withRadius: 5.0, tintColor: nil, saturationDeltaFactor: 1)
 	}
 }
 
 // MARK: - Filter Selection
 extension MainPlayerViewController {
 	private func _parentFilterSelected(filter: PlayerAPIOutputFilter) {
-		
-		if let selectedIDs = _subfilterSelectionVC?.selectedSubfilterIDs {
-			let selection: PlayerAPIFilterSelection = [filter.category : selectedIDs]
-			let filters = PlayerAPIInputFilterSelection(selection: selection)
-			let json = filters.toJSON()
-			print(json)
-		}
-		
 		let selectedSubfilters = self.output?.filters?.selected ?? []
 		let state = FilterSelectionState(delegate: self, filter: filter, selectedSubfilters: selectedSubfilters)
 		_currentState = state.transition(duration: 0.2)
