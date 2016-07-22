@@ -30,6 +30,7 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 	
 	// MARK: - Public
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
+		guard output.filters?.available != nil else { return }
 		_filtersDS?.update(withPlayerAPIOutput: output)
 	}
 	
