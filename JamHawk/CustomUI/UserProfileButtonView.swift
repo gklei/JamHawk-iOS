@@ -9,7 +9,7 @@
 import UIKit
 
 class UserProfileButtonView: UIButton {
-	private let _image = UIImage(named: "headphones")
+	private let _imageView = UIImageView(image: UIImage(named: "headphones"))
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -18,6 +18,13 @@ class UserProfileButtonView: UIButton {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		backgroundColor = .clearColor()
+		
+		addSubview(_imageView)
+		_imageView.translatesAutoresizingMaskIntoConstraints = false
+		
+		_imageView.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+		_imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+		_imageView.tintColor = .jmhTurquoiseColor()
 	}
 	
 	convenience init() {
@@ -25,18 +32,11 @@ class UserProfileButtonView: UIButton {
 	}
 	
 	override func drawRect(rect: CGRect) {
-		UIColor.jmhLightGrayColor().setFill()
+		UIColor.whiteColor().setFill()
 		let context = UIGraphicsGetCurrentContext()
-		CGContextFillEllipseInRect(context, rect)
 		
-		UIColor.jmhTurquoiseColor().setFill()
-		CGContextFillEllipseInRect(context, rect.insetBy(dx: 2, dy: 2))
-		
-		if let imageSize = _image?.size {
-			var imageRect = CGRect(origin: CGPoint.zero, size: imageSize)
-			imageRect.origin.x = rect.midX - imageSize.width * 0.5
-			imageRect.origin.y = rect.midY - imageSize.height * 0.5
-			_image?.drawInRect(imageRect)
-		}
+		UIColor.whiteColor().setStroke()
+		CGContextSetLineWidth(context, 2)
+		CGContextStrokeEllipseInRect(context, rect.insetBy(dx: 1, dy: 1))
 	}
 }
