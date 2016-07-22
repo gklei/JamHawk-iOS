@@ -46,6 +46,10 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
 		
+//		// Load views that don't show initially
+		let _ = _smallCurrentTrackVotingVC.view
+		let _ = _subfilterSelectionVC.view
+		
 		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
 		_playerControlsVC.delegate = self
 		
@@ -72,8 +76,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
 		_parentFilterSelectionVC.update(withPlayerAPIOutput: output)
-		
-		let _ = _smallCurrentTrackVotingVC.view
 		_smallCurrentTrackVotingVC.update(withPlayerAPIOutput: output)
 		
 		_updateUI(withOutput: output)
