@@ -42,15 +42,6 @@ class SubfilterSelectionViewController: UIViewController {
 		_collectionViewHeightConstraint.constant = view.bounds.height
 	}
 	
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-		
-		let contentHeight = _collectionView.contentSize.height
-		let constant = min(view.bounds.height, contentHeight)
-		
-		_collectionViewHeightConstraint.constant = constant
-	}
-	
 	// MARK: - Setup
 	private func _setupCollectionViewLayout() {
 		let size = UIScreen.mainScreen().bounds.width * 0.24
@@ -69,8 +60,14 @@ class SubfilterSelectionViewController: UIViewController {
 		
 		_filter = filter
 		_playerSubfiltersDS?.update(filter: filter)
+		
 		_playerSubfiltersDS?.selectSubfilters(withIDs: selectedSubfilters)
-		view.setNeedsLayout()
+		
+		// Manually update the collection view height
+		let numRows: CGFloat = ceil(CGFloat(filter.filterIDs.count) / 3.0)
+		let layout = self._collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+		let height = layout.sectionInset.top + layout.sectionInset.bottom + (layout.itemSize.height * numRows)
+		self._collectionViewHeightConstraint.constant = min(view.bounds.height, height)
 	}
 	
 	func reset() {
