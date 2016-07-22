@@ -98,6 +98,7 @@ final class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewControl
 		_albumArtContainerView.layer.shadowOpacity = 0.5
 		_albumArtContainerView.layer.shadowOffset = CGSize(width: 0, height: 2)
 		_albumArtContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+		_albumArtContainerView.layer.shadowPath = UIBezierPath(rect: _albumArtContainerView.bounds).CGPath
 	}
 	
 	override func update(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
