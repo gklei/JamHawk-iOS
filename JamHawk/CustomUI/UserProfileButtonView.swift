@@ -17,18 +17,20 @@ class UserProfileButtonView: UIButton {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		_setupImageView()
 		backgroundColor = .clearColor()
-		
-		addSubview(_imageView)
-		_imageView.translatesAutoresizingMaskIntoConstraints = false
-		
-		_imageView.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
-		_imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
-		_imageView.tintColor = .jmhTurquoiseColor()
 	}
 	
 	convenience init() {
 		self.init(frame: CGRect(x: 0, y: 0, width: 26, height: 26))
+	}
+	
+	private func _setupImageView() {
+		addSubview(_imageView)
+		_imageView.translatesAutoresizingMaskIntoConstraints = false
+		_imageView.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+		_imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+		_imageView.tintColor = .jmhTurquoiseColor()
 	}
 	
 	override func drawRect(rect: CGRect) {
