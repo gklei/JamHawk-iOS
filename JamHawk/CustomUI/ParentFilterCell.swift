@@ -92,7 +92,6 @@ extension ParentFilterCell {
 		_rightBorder.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -1).active = true
 		_rightBorder.widthAnchor.constraintEqualToConstant(halfPixelWidth).active = true
 
-//		addSubview(_highlightedBackgroundView)
 		insertSubview(_highlightedBackgroundView, atIndex: 0)
 		_highlightedBackgroundView.translatesAutoresizingMaskIntoConstraints = false
 		_highlightedBackgroundView.leftAnchor.constraintEqualToAnchor(_leftBorder.rightAnchor).active = true
@@ -103,7 +102,7 @@ extension ParentFilterCell {
 	
 	override var selected: Bool {
 		didSet {
-			_highlightedBackgroundView.backgroundColor = selected ? .whiteColor() : .clearColor()
+			contentView.backgroundColor = selected ? .whiteColor() : .clearColor()
 			_filterNameLabel.textColor = selected ? .jmhTurquoiseColor() : .whiteColor()
 			_filterSelectionLabel.textColor = selected ? .jmhTurquoiseColor() : .whiteColor()
 			_downArrowImageView.tintColor = selected ? .jmhTurquoiseColor() : .whiteColor()
