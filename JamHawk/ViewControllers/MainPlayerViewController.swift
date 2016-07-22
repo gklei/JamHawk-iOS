@@ -11,7 +11,7 @@ import AVFoundation
 import AsyncImageView
 import IncipiaKit
 
-class MainPlayerViewController: UIViewController {
+final class MainPlayerViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
@@ -102,7 +102,6 @@ class MainPlayerViewController: UIViewController {
 	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
 		guard let image = image else { return }
 		
-		_currentTrackVotingVC.updateAlbumArt(withImage: image)
 		_backgroundImageView.image = image.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1)
 	}
 }

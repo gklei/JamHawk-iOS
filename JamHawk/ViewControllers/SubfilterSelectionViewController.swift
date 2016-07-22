@@ -37,8 +37,14 @@ class SubfilterSelectionViewController: UIViewController {
 		
 		_setupCollectionViewLayout()
 		_playerSubfiltersDS = PlayerSubfiltersDataSource(collectionView: _collectionView)
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
 		
-		_collectionViewHeightConstraint.constant = 0
+		let contentHeight = _collectionView.contentSize.height
+		let constant = min(view.bounds.height, contentHeight)
+		_collectionViewHeightConstraint.constant = constant
 	}
 	
 	// MARK: - Setup
@@ -59,12 +65,7 @@ class SubfilterSelectionViewController: UIViewController {
 		
 		_filter = filter
 		_playerSubfiltersDS?.update(filter: filter) { [weak self] finished in
-			if let contentHeight = self?._collectionView.contentSize.height,
-				let viewHeight = self?.view.bounds.height {
-				let constant = min(viewHeight, contentHeight)
-				
-				self?._collectionViewHeightConstraint.constant = constant
-			}
+			self?.view.setNeedsLayout()
 		}
 		_playerSubfiltersDS?.selectSubfilters(withIDs: selectedSubfilters)
 	}
