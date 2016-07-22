@@ -21,8 +21,10 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	@IBOutlet private var _bottomContainer: UIView!
 	@IBOutlet private var _playerControlsContainer: UIView!
 	@IBOutlet internal var _subfilterSelectionContainer: UIView!
+	@IBOutlet internal var _profileNavigationContainer: UIView!
 	
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
+	private let _profileNavController = UINavigationController()
 	
 	// MARK: - Properties
 	var playerAPIService: PlayerAPIService?
@@ -52,6 +54,15 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		
 		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
 		_playerControlsVC.delegate = self
+		
+		let vc = UIViewController()
+		vc.view.backgroundColor = .clearColor()
+		_profileNavController.viewControllers = [vc]
+		_profileNavController.makeNavBarTransparent()
+		_profileNavController.makeNavBarShadowTransparent()
+		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
+		
+		_profileNavigationContainer.alpha = 0
 		
 		let state = DefaultHomeScreenState(delegate: self)
 		_currentState = state.transition(duration: 0)
@@ -122,6 +133,12 @@ extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 		if action == .NextTrack {
 			_requestNextTrack()
 		}
+//		if action == .Mute {
+//			let viewController = UIViewController()
+//			viewController.view.backgroundColor = .orangeColor()
+//			_profileNavigationContainer.alpha = 1
+//			_profileNavController.pushViewController(viewController, animated: true)
+//		}
 	}
 }
 
