@@ -101,7 +101,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
 		guard let image = image else { return }
 		
-		_backgroundImageView.image = image.applyBlur(withRadius: 5.0, tintColor: nil, saturationDeltaFactor: 1)
+		_backgroundImageView.image = image.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1)
 	}
 }
 
