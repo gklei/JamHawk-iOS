@@ -26,15 +26,15 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="401"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igk-xx-ASo" userLabel="Subfilter Selection Container">
+                                <rect key="frame" x="0.0" y="132" width="414" height="401"/>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27">
                                 <rect key="frame" x="0.0" y="64" width="414" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="5lD-EQ-1Ka"/>
                                 </constraints>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igk-xx-ASo" userLabel="Subfilter Selection Container">
-                                <rect key="frame" x="0.0" y="132" width="414" height="401"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-ve-drH">
                                 <rect key="frame" x="0.0" y="533" width="414" height="150"/>
@@ -84,7 +84,7 @@
                         <outlet property="_bottomContainerHeightConstraint" destination="1K6-M2-aqZ" id="vGL-bi-2K7"/>
                         <outlet property="_middleContainer" destination="4rB-2F-63i" id="VI4-Yw-sie"/>
                         <outlet property="_playerControlsContainer" destination="2Ww-DI-mLh" id="Anb-6a-F58"/>
-                        <outlet property="_subfilterSelectionContainer" destination="4rB-2F-63i" id="GhA-ci-1Ol"/>
+                        <outlet property="_subfilterSelectionContainer" destination="igk-xx-ASo" id="Pmh-RN-zvm"/>
                         <outlet property="_topContainer" destination="mlp-ow-Z27" id="KSe-bH-FDW"/>
                     </connections>
                 </viewController>

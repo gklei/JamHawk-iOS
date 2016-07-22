@@ -36,4 +36,8 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	var bottomContainerHeightConstraint: NSLayoutConstraint {
 		return _bottomContainerHeightConstraint
 	}
+	
+	var subfilterSelectionContainer: UIView! {
+		return _subfilterSelectionContainer
+	}
 }

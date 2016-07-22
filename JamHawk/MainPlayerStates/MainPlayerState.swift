@@ -17,6 +17,7 @@ protocol MainPlayerStateDelegate: class {
 	var playerControlsViewController: PlayerControlsViewController { get }
 	var subfilterSelectionViewController: SubfilterSelectionViewController { get }
 	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
+	var subfilterSelectionContainer: UIView! { get }
 	
 	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, completion: dispatch_block_t?)
 }
@@ -46,7 +47,7 @@ class DefaultHomeScreenState: MainPlayerState {
 		_delegate.bottomContainerHeightConstraint.constant = 150.0
 		UIView.animateWithDuration(duration) {
 			self._delegate.view.layoutIfNeeded()
-			self._delegate.subfilterSelectionViewController.view.alpha = 0
+			self._delegate.subfilterSelectionContainer.alpha = 0
 			self._delegate.largeCurrentTrackVotingViewController.setVotingButtonsHidden(false)
 		}
 		return self
@@ -78,7 +79,7 @@ class FilterSelectionState: MainPlayerState {
 			_delegate.bottomContainerHeightConstraint.constant = 80.0
 			UIView.animateWithDuration(duration) {
 				self._delegate.view.layoutIfNeeded()
-				self._delegate.subfilterSelectionViewController.view.alpha = 1
+				self._delegate.subfilterSelectionContainer.alpha = 1
 				self._delegate.largeCurrentTrackVotingViewController.setVotingButtonsHidden(true)
 			}
 		}

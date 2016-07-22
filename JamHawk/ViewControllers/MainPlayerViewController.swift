@@ -20,7 +20,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	@IBOutlet private var _middleContainer: UIView!
 	@IBOutlet private var _bottomContainer: UIView!
 	@IBOutlet private var _playerControlsContainer: UIView!
-	@IBOutlet private var _subfilterSelectionContainer: UIView!
+	@IBOutlet internal var _subfilterSelectionContainer: UIView!
 	
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
