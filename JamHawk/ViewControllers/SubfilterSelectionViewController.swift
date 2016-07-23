@@ -22,6 +22,7 @@ class SubfilterSelectionViewController: UIViewController {
 		return _filter
 	}
 	
+	var viewTappedClosure: () -> Void = {}
 	var selectedSubfilterIDs: [PlayerAPIFilterID] {
 		return _playerSubfiltersDS?.selectedSubfilterIDs ?? []
 	}
@@ -67,10 +68,14 @@ class SubfilterSelectionViewController: UIViewController {
 		let numRows: CGFloat = ceil(CGFloat(filter.filterIDs.count) / 3.0)
 		let layout = self._collectionView.collectionViewLayout as! UICollectionViewFlowLayout
 		let height = layout.sectionInset.top + layout.sectionInset.bottom + (layout.itemSize.height * numRows)
-		self._collectionViewHeightConstraint.constant = min(view.bounds.height, height)
+		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
 	}
 	
 	func reset() {
 		_filter = nil
+	}
+	
+	@IBAction private func _viewTapped(recognizer: UIGestureRecognizer) {
+		viewTappedClosure()
 	}
 }

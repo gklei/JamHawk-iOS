@@ -17,11 +17,19 @@
             <rect key="frame" x="0.0" y="0.0" width="427" height="329"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vod-CI-qjz">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDV-bi-5Rz">
                     <rect key="frame" x="0.0" y="0.0" width="427" height="329"/>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="5hh-Df-7K5" appends="YES" id="cP8-G0-gEV"/>
+                    </connections>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vod-CI-qjz">
+                    <rect key="frame" x="0.0" y="0.0" width="427" height="100"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="329" id="Tz5-TB-kPJ"/>
+                        <constraint firstAttribute="height" constant="100" id="Tz5-TB-kPJ"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HeD-1o-yjI">
                         <size key="itemSize" width="50" height="50"/>
@@ -33,13 +41,22 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="MDV-bi-5Rz" secondAttribute="bottom" id="0Dk-QW-Vg4"/>
                 <constraint firstItem="vod-CI-qjz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AsS-Tv-Ln1"/>
+                <constraint firstAttribute="trailing" secondItem="MDV-bi-5Rz" secondAttribute="trailing" id="B6A-hP-2Pl"/>
+                <constraint firstItem="MDV-bi-5Rz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K48-1p-MhA"/>
                 <constraint firstItem="vod-CI-qjz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tpc-Ff-nBj"/>
+                <constraint firstItem="MDV-bi-5Rz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aB1-cm-yW1"/>
                 <constraint firstAttribute="trailing" secondItem="vod-CI-qjz" secondAttribute="trailing" id="jP2-2T-PNM"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="294.5" y="333.5"/>
         </view>
+        <tapGestureRecognizer id="5hh-Df-7K5">
+            <connections>
+                <action selector="_viewTapped:" destination="-1" id="uOA-kh-X2U"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

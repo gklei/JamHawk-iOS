@@ -53,6 +53,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		let _ = _subfilterSelectionVC.view
 		
 		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
+		_subfilterSelectionVC.viewTappedClosure = _transitionToDefaultState
+		
 		_playerControlsVC.delegate = self
 		
 		let vc = UIViewController()
@@ -115,6 +117,11 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		guard let image = image else { return }
 		
 		_backgroundImageView.image = image.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1)
+	}
+	
+	private func _transitionToDefaultState() {
+		let state = DefaultHomeScreenState(delegate: self)
+		_currentState = state.transition(duration: 0.2)
 	}
 }
 
