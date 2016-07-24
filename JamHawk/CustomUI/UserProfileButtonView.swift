@@ -21,8 +21,13 @@ class UserProfileButtonView: UIButton {
 		backgroundColor = .clearColor()
 	}
 	
-	convenience init() {
+	convenience init(target: AnyObject?, selector: Selector) {
 		self.init(frame: CGRect(x: 0, y: 0, width: 26, height: 26))
+		
+		let button = UIButton()
+		button.addTarget(target, action: selector, forControlEvents: .TouchDown)
+		
+		addAndFill(subview: button)
 	}
 	
 	private func _setupImageView() {

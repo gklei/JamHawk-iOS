@@ -28,6 +28,13 @@
 		CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */; };
 		CE5DA0B11D400C8E00025C17 /* UserProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */; };
 		CE5DA0B51D41A52900025C17 /* UpdatesTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0B41D41A52900025C17 /* UpdatesTracker.swift */; };
+		CE5DA0D61D44854C00025C17 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5DA0D41D44854C00025C17 /* Profile.storyboard */; };
+		CE5DA0D81D44861D00025C17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0D71D44861D00025C17 /* ProfileViewController.swift */; };
+		CE5DA0DA1D44936B00025C17 /* DefaultMainPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0D91D44936B00025C17 /* DefaultMainPlayerState.swift */; };
+		CE5DA0DC1D4493D700025C17 /* FilterSelectionMainPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0DB1D4493D700025C17 /* FilterSelectionMainPlayerState.swift */; };
+		CE5DA0DE1D44940200025C17 /* ShowProfileMainPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0DD1D44940200025C17 /* ShowProfileMainPlayerState.swift */; };
+		CE5DA0E01D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0DF1D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift */; };
+		CE5DA0E21D4494AE00025C17 /* ShowTrackDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0E11D4494AE00025C17 /* ShowTrackDetailsState.swift */; };
 		CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */; };
 		CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */; };
 		CE6CE99B1D3C28620029659F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */; };
@@ -100,6 +107,13 @@
 		CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Jamhawk.swift"; path = "JamHawk/Extensions/UIColor+Jamhawk.swift"; sourceTree = "<group>"; };
 		CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileButtonView.swift; path = JamHawk/CustomUI/UserProfileButtonView.swift; sourceTree = "<group>"; };
 		CE5DA0B41D41A52900025C17 /* UpdatesTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdatesTracker.swift; path = JamHawk/Backend/UpdatesTracker.swift; sourceTree = "<group>"; };
+		CE5DA0D51D44854C00025C17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		CE5DA0D71D44861D00025C17 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = JamHawk/ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		CE5DA0D91D44936B00025C17 /* DefaultMainPlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultMainPlayerState.swift; path = JamHawk/MainPlayerStates/DefaultMainPlayerState.swift; sourceTree = "<group>"; };
+		CE5DA0DB1D4493D700025C17 /* FilterSelectionMainPlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterSelectionMainPlayerState.swift; path = JamHawk/MainPlayerStates/FilterSelectionMainPlayerState.swift; sourceTree = "<group>"; };
+		CE5DA0DD1D44940200025C17 /* ShowProfileMainPlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowProfileMainPlayerState.swift; path = JamHawk/MainPlayerStates/ShowProfileMainPlayerState.swift; sourceTree = "<group>"; };
+		CE5DA0DF1D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeAdjustmentMainPlayerState.swift; path = JamHawk/MainPlayerStates/VolumeAdjustmentMainPlayerState.swift; sourceTree = "<group>"; };
+		CE5DA0E11D4494AE00025C17 /* ShowTrackDetailsState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowTrackDetailsState.swift; path = JamHawk/MainPlayerStates/ShowTrackDetailsState.swift; sourceTree = "<group>"; };
 		CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubfilterSelectionViewController.swift; path = JamHawk/ViewControllers/SubfilterSelectionViewController.swift; sourceTree = "<group>"; };
 		CE6CE9961D3C15C40029659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/SubfilterSelectionViewController.xib; sourceTree = "<group>"; };
 		CE6CE99A1D3C28620029659F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -213,8 +227,12 @@
 		CE6CE9A21D3D67670029659F /* Main View Controller States */ = {
 			isa = PBXGroup;
 			children = (
+				CE5DA0D91D44936B00025C17 /* DefaultMainPlayerState.swift */,
+				CE5DA0DB1D4493D700025C17 /* FilterSelectionMainPlayerState.swift */,
 				CE6CE9A31D3D67D50029659F /* MainPlayerState.swift */,
-				CEFEAD8F1D3D7EDD004D3CFC /* MainPlayerViewController+States.swift */,
+				CE5DA0DD1D44940200025C17 /* ShowProfileMainPlayerState.swift */,
+				CE5DA0E11D4494AE00025C17 /* ShowTrackDetailsState.swift */,
+				CE5DA0DF1D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift */,
 			);
 			name = "Main View Controller States";
 			sourceTree = "<group>";
@@ -309,6 +327,7 @@
 				CE9B948A1D26B67600B0F53D /* SignIn.storyboard */,
 				CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */,
 				CE2B69031D2C97EE00EAFF16 /* Player.storyboard */,
+				CE5DA0D41D44854C00025C17 /* Profile.storyboard */,
 			);
 			name = "Storyboards & Xibs";
 			sourceTree = "<group>";
@@ -327,6 +346,7 @@
 				CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */,
 				C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */,
 				C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */,
+				CE5DA0D71D44861D00025C17 /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -379,6 +399,7 @@
 		CEFD86C91D32E21F005313AD /* Jamhawk */ = {
 			isa = PBXGroup;
 			children = (
+				CEFEAD8F1D3D7EDD004D3CFC /* MainPlayerViewController+States.swift */,
 			);
 			name = Jamhawk;
 			sourceTree = "<group>";
@@ -500,6 +521,7 @@
 				CE6CE9A11D3D262F0029659F /* SubfilterCell.xib in Resources */,
 				CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */,
 				CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */,
+				CE5DA0D61D44854C00025C17 /* Profile.storyboard in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,
 				CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */,
 			);
@@ -585,20 +607,26 @@
 				CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */,
 				CE6CE9A01D3D262F0029659F /* PlayerSubfilterCell.swift in Sources */,
 				CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */,
+				CE5DA0E01D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift in Sources */,
 				CE747BFE1D3839E50006D1B6 /* PlayerFiltersDataSource.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
 				CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */,
 				CE5DA0B11D400C8E00025C17 /* UserProfileButtonView.swift in Sources */,
 				CE2B69411D2EE1FD00EAFF16 /* PlayerAPITypes.swift in Sources */,
 				CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */,
+				CE5DA0E21D4494AE00025C17 /* ShowTrackDetailsState.swift in Sources */,
 				C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */,
+				CE5DA0DA1D44936B00025C17 /* DefaultMainPlayerState.swift in Sources */,
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
 				CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */,
+				CE5DA0DC1D4493D700025C17 /* FilterSelectionMainPlayerState.swift in Sources */,
 				CE747BFC1D3839BB0006D1B6 /* PlayerFiltersViewController.swift in Sources */,
 				C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */,
 				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
+				CE5DA0DE1D44940200025C17 /* ShowProfileMainPlayerState.swift in Sources */,
 				C67E317E1D4005D200D140D2 /* JHSignInSignUpTextField.swift in Sources */,
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
+				CE5DA0D81D44861D00025C17 /* ProfileViewController.swift in Sources */,
 				C6EFB1EA1D3ECE1000B57397 /* JHSignInViewController.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CEFEAD901D3D7EDD004D3CFC /* MainPlayerViewController+States.swift in Sources */,
@@ -643,6 +671,14 @@
 				CE2B69041D2C97EE00EAFF16 /* Base */,
 			);
 			name = Player.storyboard;
+			sourceTree = "<group>";
+		};
+		CE5DA0D41D44854C00025C17 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE5DA0D51D44854C00025C17 /* Base */,
+			);
+			name = Profile.storyboard;
 			sourceTree = "<group>";
 		};
 		CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */ = {

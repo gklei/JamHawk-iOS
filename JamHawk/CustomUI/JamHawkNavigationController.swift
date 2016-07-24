@@ -26,3 +26,17 @@ class JamHawkNavigationController: UINavigationController {
 		return topViewController?.preferredStatusBarStyle() ?? .LightContent
 	}
 }
+
+class ProfileNavigationController: UINavigationController {
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		makeNavBarTransparent()
+		
+		navigationBar.titleTextAttributes = [
+			NSForegroundColorAttributeName : UIColor(white: 129.0 / 255.0, alpha: 1),
+			NSFontAttributeName : UIFont.systemFontOfSize(14)
+		]
+	}
+}

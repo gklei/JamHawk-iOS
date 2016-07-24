@@ -40,4 +40,28 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	var subfilterSelectionContainer: UIView! {
 		return _subfilterSelectionContainer
 	}
+	
+	var profileNavigationController: UINavigationController {
+		return _profileNavController
+	}
+	
+	var profileViewController: ProfileViewController {
+		return _profileViewController
+	}
+	
+	var profileNavigationContainer: UIView! {
+		return _profileNavigationContainer
+	}
+	
+	var middleContainer: UIView! {
+		return _middleContainer
+	}
+	
+	var bottomContainer: UIView! {
+		return _bottomContainer
+	}
+	
+	var currentState: MainPlayerState {
+		return _currentState
+	}
 }

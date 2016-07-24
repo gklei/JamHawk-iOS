@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 enum PlayerControlsActionType {
-	case ShowProfile, Play, Pause, NextTrack, Mute, Unmute
+	case UserProfile, Play, Pause, NextTrack, Mute, Unmute
 }
 
 protocol PlayerControlsViewControllerDelegate: class {
@@ -36,7 +36,9 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		_profileItem.customView = UserProfileButtonView()
+		
+		let selector = #selector(PlayerControlsViewController._profileButtonPressed)
+		_profileItem.customView = UserProfileButtonView(target: self, selector: selector)
 		
 		let color = UIColor(white: 26.0 / 255.0, alpha: 1)
 		_topPaddingView.backgroundColor = color
@@ -55,6 +57,10 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	}
 	
 	// MARK: - Private
+	internal func _profileButtonPressed() {
+		delegate?.playerControlsViewController(self, didExecuteAction: .UserProfile)
+	}
+	
 	private func _updatePlayer(withOutput output: PlayerAPIOutput) {
 		guard let updatedItem = AVPlayerItem(output: output) else { return }
 		
@@ -62,10 +68,6 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 		_player.play()
 		
 		_updateBarButtonItems()
-	}
-	
-	internal func _userProfileButtonPressed() {
-		delegate?.playerControlsViewController(self, didExecuteAction: .ShowProfile)
 	}
 	
 	@IBAction private func _playPauseButtonPressed() {

@@ -16,20 +16,18 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	// MARK: - Outlets
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
 	
-	@IBOutlet private var _topContainer: UIView!
-	@IBOutlet private var _middleContainer: UIView!
-	@IBOutlet private var _bottomContainer: UIView!
-	@IBOutlet private var _playerControlsContainer: UIView!
+	@IBOutlet internal var _topContainer: UIView!
+	@IBOutlet internal var _middleContainer: UIView!
+	@IBOutlet internal var _bottomContainer: UIView!
+	@IBOutlet internal var _playerControlsContainer: UIView!
 	@IBOutlet internal var _subfilterSelectionContainer: UIView!
 	@IBOutlet internal var _profileNavigationContainer: UIView!
-	
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
-	private let _profileNavController = UINavigationController()
 	
 	// MARK: - Properties
 	var playerAPIService: PlayerAPIService?
 	var output: PlayerAPIOutput?
-	private var _currentState: MainPlayerState!
+	internal var _currentState: MainPlayerState!
 	
 	internal let _parentFilterSelectionVC = ParentFilterSelectionViewController.create()
 	internal let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.create()
@@ -37,6 +35,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
 	internal let _playerControlsVC = PlayerControlsViewController.create()
 	internal var _subfilterSelectionVC = SubfilterSelectionViewController()
+	internal var _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
+	internal let _profileNavController = ProfileNavigationController()
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -47,26 +47,14 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _nextAvailableMediaVC, toContainer: _bottomContainer)
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
-		
-//		// Load views that don't show initially
-		let _ = _smallCurrentTrackVotingVC.view
-		let _ = _subfilterSelectionVC.view
-		
-		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
-		_subfilterSelectionVC.viewTappedClosure = _transitionToDefaultState
-		
-		_playerControlsVC.delegate = self
-		
-		let vc = UIViewController()
-		vc.view.backgroundColor = .clearColor()
-		_profileNavController.viewControllers = [vc]
-		_profileNavController.makeNavBarTransparent()
-		_profileNavController.makeNavBarShadowTransparent()
 		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
 		
-		_profileNavigationContainer.alpha = 0
+		_profileNavController.viewControllers = [_profileViewController]
+		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
+		_subfilterSelectionVC.viewTappedClosure = _transitionToDefaultState
+		_playerControlsVC.delegate = self
 		
-		let state = DefaultHomeScreenState(delegate: self)
+		let state = DefaultMainPlayerState(delegate: self)
 		_currentState = state.transition(duration: 0)
 	}
 	
@@ -78,7 +66,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
+		return _currentState.isKindOfClass(ShowProfileState) ? .Default : .LightContent
 	}
 	
 	// MARK: - Public
@@ -109,19 +97,20 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		
 		let vm = PlayerAPIOutputMediaViewModel(media: media)
 		
+		let loadImageSelector = #selector(MainPlayerViewController._imageFinishedLoading(_:url:))
 		AsyncImageLoader.sharedLoader().cancelLoadingImagesForTarget(_backgroundImageView)
-		AsyncImageLoader.sharedLoader().loadImageWithURL(vm.posterURL, target: self, action: #selector(MainPlayerViewController._imageFinishedLoading(_:url:)))
+		AsyncImageLoader.sharedLoader().loadImageWithURL(vm.posterURL,
+		                                                 target: self,
+		                                                 action: loadImageSelector)
 	}
 	
 	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
-		guard let image = image else { return }
-		
-		_backgroundImageView.image = image.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1)
+		_backgroundImageView.image = image?.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1.3)
 	}
 	
 	private func _transitionToDefaultState() {
-		let state = DefaultHomeScreenState(delegate: self)
-		_currentState = state.transition(duration: 0.2)
+		let state = DefaultMainPlayerState(delegate: self)
+		_currentState = state.transition(duration: 0.3)
 	}
 }
 
@@ -129,33 +118,30 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 extension MainPlayerViewController {
 	private func _parentFilterSelected(filter: PlayerAPIOutputFilter) {
 		let selectedSubfilters = self.output?.filters?.selected ?? []
-		let state = FilterSelectionState(delegate: self, filter: filter, selectedSubfilters: selectedSubfilters)
-		_currentState = state.transition(duration: 0.2)
+		let state = FilterSelectionMainPlayerState(delegate: self, filter: filter, selectedSubfilters: selectedSubfilters)
+		_currentState = state.transition(duration: 0.3)
 	}
 }
 
 // MARK: - Player Controls
 extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType) {
-		if action == .NextTrack {
+		switch action {
+		case .NextTrack:
 			_requestNextTrack()
+		case .UserProfile:
+			let state = ShowProfileState(delegate: self)
+			_currentState = state.transition(duration: 0.3)
+			setNeedsStatusBarAppearanceUpdate()
+		default: break
 		}
-//		if action == .Mute {
-//			let viewController = UIViewController()
-//			viewController.view.backgroundColor = .orangeColor()
-//			_profileNavigationContainer.alpha = 1
-//			_profileNavController.pushViewController(viewController, animated: true)
-//		}
 	}
 }
 
 extension MainPlayerViewController {
 	private func _requestNextTrack() {
-		var updates: PlayerAPIInputUpdates?
-		if let selectedTrack = _nextAvailableMediaVC.selectedTrack {
-			updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: selectedTrack.mid, ratings: nil)
-		}
-		
+		let selectedTrack = _nextAvailableMediaVC.selectedTrack?.mid
+		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: selectedTrack, ratings: nil)
 		playerAPIService?.requestNextTrack(withUpdates: updates, callback: _handlePlayerAPICallback)
 	}
 }
