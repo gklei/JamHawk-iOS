@@ -104,13 +104,16 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		                                                 action: loadImageSelector)
 	}
 	
-	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
-		_backgroundImageView.image = image?.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1.3)
-	}
-	
 	private func _transitionToDefaultState() {
 		let state = DefaultMainPlayerState(delegate: self)
 		_currentState = state.transition(duration: 0.3)
+	}
+}
+
+// MARK: - Async Image Downloading
+extension MainPlayerViewController {
+	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
+		_backgroundImageView.image = image?.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1.3)
 	}
 }
 

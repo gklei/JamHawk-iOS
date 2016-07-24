@@ -26,11 +26,13 @@ class FilterSelectionMainPlayerState: MainPlayerState {
 		
 		// If the filter we are trying to transition to for selecting is already selected, then transition
 		// back to the default state
-		if _delegate.subfilterSelectionViewController.parentFilter == _filter {
+		guard _delegate.subfilterSelectionViewController.parentFilter != _filter else {
 			let state = DefaultMainPlayerState(delegate: _delegate)
 			return state.transition(duration: duration)
 		}
 		
+		// If the parentFilter of the subfilterSelectionViewController is nil, then we are opening the subfilter
+		// selection UI for the first time
 		if _delegate.subfilterSelectionViewController.parentFilter == nil {
 			_delegate.transition(from: _delegate.nextAvailableMediaViewController,
 			                     to: _delegate.smallCurrentTrackVotingViewController,
