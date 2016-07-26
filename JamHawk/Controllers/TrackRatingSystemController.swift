@@ -26,3 +26,21 @@ final class TrackRatingSystemController: SystemController<PlayerAPIOutputMetadat
 		didUpdateModel(controller: self)
 	}
 }
+
+extension TrackRatingSystemController: TrackRatingDataSource {
+	var ratingOptions: [PlayerAPIOutputTrackRating] {
+		return [.Negative, .Positive]
+	}
+	
+	var currentTrackRating: PlayerAPIOutputTrackRating? {
+		guard let track = _track else { return nil }
+		return track.rating
+	}
+	
+	func rateCurrentTrack(rating: PlayerAPIOutputTrackRating) {
+		guard let current = _track else { return }
+		_track = current.copy(withRating: rating)
+		
+		didUpdateModel(controller: self)
+	}
+}

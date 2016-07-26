@@ -92,7 +92,6 @@ extension ParentFilterSelectionViewController: UICollectionViewDataSource {
 
 extension ParentFilterSelectionViewController: UICollectionViewDelegate {
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		
 		if let index = dataSource?.selectedParentFilterIndex where index == indexPath.row {
 			dataSource?.resetParentFilterSelection()
 		} else {

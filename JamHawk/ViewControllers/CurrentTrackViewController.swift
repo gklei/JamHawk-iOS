@@ -30,8 +30,12 @@ final class CompactCurrentTrackViewController: CurrentTrackViewController, Playe
 	@IBOutlet internal var _songTitleLabel: UILabel!
 	@IBOutlet internal var _artistNameLabel: UILabel!
 	
-	weak var trackRatingDataSource: TrackRatingDataSource?
 	private var _trackRatingVC: TrackRatingViewController?
+	weak var trackRatingDataSource: TrackRatingDataSource? {
+		didSet {
+			_trackRatingVC?.dataSource = trackRatingDataSource
+		}
+	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		let destController = segue.destinationViewController
@@ -44,8 +48,9 @@ final class CompactCurrentTrackViewController: CurrentTrackViewController, Playe
 	}
 	
 	override func syncUI() {
-		guard let vm = dataSource?.currentTrackViewModel else { return }
+		_trackRatingVC?.syncUI()
 		
+		guard let vm = dataSource?.currentTrackViewModel else { return }
 		_songTitleLabel.text = vm.songTitle
 		_artistNameLabel.text = vm.artistName
 	}
@@ -61,8 +66,12 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 	@IBOutlet internal var _albumArtImageView: AsyncImageView!
 	@IBOutlet internal var _albumArtContainerView: UIView!
 	
-	weak var trackRatingDataSource: TrackRatingDataSource?
 	private var _trackRatingVC: TrackRatingViewController?
+	weak var trackRatingDataSource: TrackRatingDataSource? {
+		didSet {
+			_trackRatingVC?.dataSource = trackRatingDataSource
+		}
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -88,8 +97,9 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 	}
 	
 	override func syncUI() {
-		guard let vm = dataSource?.currentTrackViewModel else { return }
+		_trackRatingVC?.syncUI()
 		
+		guard let vm = dataSource?.currentTrackViewModel else { return }
 		_currentTrackLabel.text = vm.artistAndSongTitle
 		_albumArtImageView.imageURL = vm.albumArtworkURL
 	}

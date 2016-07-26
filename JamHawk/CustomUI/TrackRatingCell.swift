@@ -28,6 +28,25 @@ class TrackRatingCell: UICollectionViewCell {
 	@IBOutlet private var _iconImageView: UIImageView!
 	@IBOutlet private var _centerYConstraint: NSLayoutConstraint!
 	
+	private var iconColor = UIColor.whiteColor()
+	
+	
+	override var highlighted: Bool {
+		didSet {
+			iconColor = highlighted ? UIColor.jmhTurquoiseColor() : .whiteColor()
+			_iconImageView.tintColor = iconColor
+			setNeedsDisplay()
+		}
+	}
+	
+	override var selected: Bool {
+		didSet {
+			iconColor = selected ? UIColor.jmhTurquoiseColor() : .whiteColor()
+			_iconImageView.tintColor = iconColor
+			setNeedsDisplay()
+		}
+	}
+	
 	func update(withRating rating: PlayerAPIOutputTrackRating) {
 		_iconImageView.image = rating.icon
 		
@@ -37,10 +56,9 @@ class TrackRatingCell: UICollectionViewCell {
 	}
 	
 	override func drawRect(rect: CGRect) {
-		UIColor.whiteColor().setFill()
 		let context = UIGraphicsGetCurrentContext()
 		
-		UIColor.whiteColor().setStroke()
+		iconColor.setStroke()
 		CGContextSetLineWidth(context, 2)
 		CGContextStrokeEllipseInRect(context, rect.insetBy(dx: 1, dy: 1))
 	}

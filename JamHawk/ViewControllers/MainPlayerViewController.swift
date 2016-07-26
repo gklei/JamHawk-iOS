@@ -73,7 +73,9 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_largeCurrentTrackVC.dataSource = currentTrackSystem
 		_compactCurrentTrackVC.dataSource = currentTrackSystem
 		
-		let ratingSystem = TrackRatingSystemController()
+		let ratingSystem = _setupRatingSystem()
+		_largeCurrentTrackVC.trackRatingDataSource = ratingSystem
+		_compactCurrentTrackVC.trackRatingDataSource = ratingSystem
 		
 		let playerSystem = PlayerSystemController()
 		
@@ -120,6 +122,12 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		let currentTrackSystem = CurrentTrackSystemController()
 		currentTrackSystem.didUpdateModel = _currentTrackModelChanged
 		return currentTrackSystem
+	}
+	
+	private func _setupRatingSystem() -> TrackRatingSystemController {
+		let ratingSystem = TrackRatingSystemController()
+		ratingSystem.didUpdateModel = _currentTrackRatingChanged
+		return ratingSystem
 	}
 	
 	// MARK: - Public
@@ -206,6 +214,14 @@ extension MainPlayerViewController {
 // MARK: - Current Track System
 extension MainPlayerViewController {
 	private func _currentTrackModelChanged(controller: CurrentTrackSystemController) {
+		_largeCurrentTrackVC.syncUI()
+		_compactCurrentTrackVC.syncUI()
+	}
+}
+
+// MARK: - Current Track Rating System
+extension MainPlayerViewController {
+	private func _currentTrackRatingChanged(controller: TrackRatingSystemController) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
 	}

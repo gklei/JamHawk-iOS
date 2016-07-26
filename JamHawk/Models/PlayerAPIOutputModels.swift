@@ -116,6 +116,26 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable, Equatable {
 	let duration: Int?
 	let links: [String]?
 	
+	init(mid: PlayerAPIMediaID?,
+	     artist: String?,
+	     album: String?,
+	     title: String?,
+	     detailURL: String?,
+	     imageURL: String?,
+	     rating: PlayerAPIOutputTrackRating?,
+	     duration: Int?,
+	     links: [String]?) {
+		self.mid = mid
+		self.artist = artist
+		self.album = album
+		self.title = title
+		self.detailURL = detailURL
+		self.imageURL = imageURL
+		self.rating = rating
+		self.duration = duration
+		self.links = links
+	}
+	
 	init(json: JSON) throws {
 		mid = try json.int("mid", alongPath: .MissingKeyBecomesNil)
 		artist = try json.string("artist", alongPath: .MissingKeyBecomesNil)
@@ -141,6 +161,10 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable, Equatable {
 			"links" : links?.toJSON() ?? JSON.Null
 		]
 		return JSON.withoutNullValues(json)
+	}
+	
+	func copy(withRating rating: PlayerAPIOutputTrackRating) -> PlayerAPIOutputMetadata {
+		return PlayerAPIOutputMetadata(mid: mid, artist: artist, album: album, title: title, detailURL: detailURL, imageURL: imageURL, rating: rating, duration: duration, links: links)
 	}
 }
 
