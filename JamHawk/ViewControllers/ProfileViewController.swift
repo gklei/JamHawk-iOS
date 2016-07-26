@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
       layout.itemSize = CGSize(width: _profileOptionsCollectionView.bounds.width, height: 50)
       layout.minimumLineSpacing = 1.0
       layout.scrollDirection = .Vertical
+      layout.headerReferenceSize = CGSize(width: 0, height: 80)
       
       _profileOptionsCollectionView.dataSource = self
       _profileOptionsCollectionView.delegate = self
@@ -45,6 +46,11 @@ extension ProfileViewController: UICollectionViewDataSource {
       cell.titleLabel.text = "Fuck"
       return cell
    }
+   
+   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+      let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ProfileHeaderView", forIndexPath: indexPath)
+      return header
+   }
 }
 
 extension ProfileViewController: UICollectionViewDelegate {
@@ -56,6 +62,6 @@ class ProfileOptionCell: UICollectionViewCell {
    
    override func awakeFromNib() {
       super.awakeFromNib()
-      backgroundColor = .redColor()
+      backgroundColor = .lightGrayColor()
    }
 }
