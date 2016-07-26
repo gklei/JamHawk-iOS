@@ -45,6 +45,7 @@
 		CE5DA0F51D46847C00025C17 /* SystemCoordinationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */; };
 		CE5DA0FE1D47B8A300025C17 /* TrackRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0FD1D47B8A300025C17 /* TrackRatingViewController.swift */; };
 		CE5DA1001D47B8B000025C17 /* TrackRatingSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0FF1D47B8B000025C17 /* TrackRatingSystemController.swift */; };
+		CE5DA1021D47F06400025C17 /* TrackRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA1011D47F06400025C17 /* TrackRatingCell.swift */; };
 		CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */; };
 		CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */; };
 		CE6CE9A01D3D262F0029659F /* PlayerSubfilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99E1D3D262F0029659F /* PlayerSubfilterCell.swift */; };
@@ -130,6 +131,7 @@
 		CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemCoordinationController.swift; path = JamHawk/Controllers/SystemCoordinationController.swift; sourceTree = "<group>"; };
 		CE5DA0FD1D47B8A300025C17 /* TrackRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackRatingViewController.swift; path = JamHawk/ViewControllers/TrackRatingViewController.swift; sourceTree = "<group>"; };
 		CE5DA0FF1D47B8B000025C17 /* TrackRatingSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackRatingSystemController.swift; path = JamHawk/Controllers/TrackRatingSystemController.swift; sourceTree = "<group>"; };
+		CE5DA1011D47F06400025C17 /* TrackRatingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackRatingCell.swift; path = JamHawk/CustomUI/TrackRatingCell.swift; sourceTree = "<group>"; };
 		CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubfilterSelectionViewController.swift; path = JamHawk/ViewControllers/SubfilterSelectionViewController.swift; sourceTree = "<group>"; };
 		CE6CE9961D3C15C40029659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/SubfilterSelectionViewController.xib; sourceTree = "<group>"; };
 		CE6CE99E1D3D262F0029659F /* PlayerSubfilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSubfilterCell.swift; path = JamHawk/CustomUI/PlayerSubfilterCell.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				CE6CE99E1D3D262F0029659F /* PlayerSubfilterCell.swift */,
 				C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */,
 				CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */,
+				CE5DA1011D47F06400025C17 /* TrackRatingCell.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */,
 				CE6CE9A41D3D67D50029659F /* MainPlayerState.swift in Sources */,
 				CE5DA0E61D455EC500025C17 /* UIViewController+Extensions.swift in Sources */,
+				CE5DA1021D47F06400025C17 /* TrackRatingCell.swift in Sources */,
 				CE7E68321D342EB900516570 /* PlayerAPIInputStatus.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
 			);

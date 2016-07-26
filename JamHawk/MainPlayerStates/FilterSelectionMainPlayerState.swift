@@ -19,7 +19,7 @@ class FilterSelectionMainPlayerState: MainPlayerState {
 			self._delegate.nextAvailablMediaContainer.alpha = 0
 			self._delegate.compactCurrentTrackContainer.alpha = 1
 			self._delegate.subfilterSelectionContainer.alpha = 1
-//			self._delegate.largeCurrentTrackVotingViewController.setVotingButtonsHidden(true)
+			self._delegate.largeCurrentTrackVotingViewController.setRatingViewControllerHidden(true)
 		}
 		
 		return self

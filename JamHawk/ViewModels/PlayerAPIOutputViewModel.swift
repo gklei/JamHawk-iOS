@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PlayerAPIOutputMediaViewModel {
 	let media: PlayerAPIOutputMedia
@@ -71,4 +72,8 @@ struct PlayerAPIOutputArtistViewModel {
 	var text: String? {
 		return artist.text
 	}
+}
+
+struct PlayerAPIOutputTrackRatingViewModel {
+	let rating: PlayerAPIOutputTrackRating
 }

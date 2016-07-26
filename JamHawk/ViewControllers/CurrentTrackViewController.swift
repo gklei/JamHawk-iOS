@@ -30,11 +30,28 @@ final class CompactCurrentTrackViewController: CurrentTrackViewController, Playe
 	@IBOutlet internal var _songTitleLabel: UILabel!
 	@IBOutlet internal var _artistNameLabel: UILabel!
 	
+	weak var trackRatingDataSource: TrackRatingDataSource?
+	private var _trackRatingVC: TrackRatingViewController?
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		let destController = segue.destinationViewController
+		switch destController {
+		case destController as TrackRatingViewController:
+			_trackRatingVC = destController as? TrackRatingViewController
+			_trackRatingVC?.dataSource = trackRatingDataSource
+		default: break
+		}
+	}
+	
 	override func syncUI() {
 		guard let vm = dataSource?.currentTrackViewModel else { return }
 		
 		_songTitleLabel.text = vm.songTitle
 		_artistNameLabel.text = vm.artistName
+	}
+	
+	func setRatingViewControllerHidden(hidden: Bool) {
+		_trackRatingVC?.view.alpha = hidden ? 0 : 1
 	}
 }
 
@@ -43,6 +60,9 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 	@IBOutlet internal var _currentTrackLabel: UILabel!
 	@IBOutlet internal var _albumArtImageView: AsyncImageView!
 	@IBOutlet internal var _albumArtContainerView: UIView!
+	
+	weak var trackRatingDataSource: TrackRatingDataSource?
+	private var _trackRatingVC: TrackRatingViewController?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -57,10 +77,24 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		_albumArtContainerView.layer.shadowPath = UIBezierPath(rect: _albumArtContainerView.bounds).CGPath
 	}
 	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		let destController = segue.destinationViewController
+		switch destController {
+		case destController as TrackRatingViewController:
+			_trackRatingVC = destController as? TrackRatingViewController
+			_trackRatingVC?.dataSource = trackRatingDataSource
+		default: break
+		}
+	}
+	
 	override func syncUI() {
 		guard let vm = dataSource?.currentTrackViewModel else { return }
 		
 		_currentTrackLabel.text = vm.artistAndSongTitle
 		_albumArtImageView.imageURL = vm.albumArtworkURL
+	}
+	
+	func setRatingViewControllerHidden(hidden: Bool) {
+		_trackRatingVC?.view.alpha = hidden ? 0 : 1
 	}
 }
