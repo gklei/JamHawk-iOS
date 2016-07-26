@@ -18,7 +18,10 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	@IBOutlet internal var _topContainer: UIView!
 	@IBOutlet internal var _middleContainer: UIView!
-	@IBOutlet internal var _bottomContainer: UIView!
+	
+	@IBOutlet internal var _compactCurrentTrackContainer: UIView!
+	@IBOutlet internal var _nextAvailableMediaContainer: UIView!
+	
 	@IBOutlet internal var _playerControlsContainer: UIView!
 	@IBOutlet internal var _subfilterSelectionContainer: UIView!
 	@IBOutlet internal var _profileNavigationContainer: UIView!
@@ -38,24 +41,43 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal var _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
 	internal let _profileNavController = ProfileNavigationController()
 	
+	// MARK: - System Controllers
+	private var _coordinationController: SystemCoordinationController?
+	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		add(childViewController: _parentFilterSelectionVC, toContainer: _topContainer)
 		add(childViewController: _currentTrackVotingVC, toContainer: _middleContainer)
-		add(childViewController: _nextAvailableMediaVC, toContainer: _bottomContainer)
+		add(childViewController: _nextAvailableMediaVC, toContainer: _nextAvailableMediaContainer)
+		add(childViewController: _smallCurrentTrackVotingVC, toContainer: _compactCurrentTrackContainer)
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
 		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
 		
 		_profileNavController.viewControllers = [_profileViewController]
-		_parentFilterSelectionVC.selectionClosure = _parentFilterSelected
 		_subfilterSelectionVC.viewTappedClosure = _transitionToDefaultState
 		_playerControlsVC.delegate = self
 		
 		let state = DefaultMainPlayerState(delegate: self)
 		_currentState = state.transition(duration: 0)
+		
+		let playerSystem = PlayerSystemController()
+		
+		let filterSystem = _setupFilterSystem()
+		_parentFilterSelectionVC.dataSource = filterSystem
+		_subfilterSelectionVC.dataSource = filterSystem
+
+		let currentTrackSystem = CurrentTrackSystemController()
+		let nextAvailableSystem = NextAvailableMediaSystemController()
+		let ratingSystem = TrackRatingSystemController()
+		
+		_coordinationController = SystemCoordinationController(playerSystem: playerSystem,
+		                                                       filterSystem: filterSystem,
+		                                                       currentTrackSystem: currentTrackSystem,
+		                                                       nextAvailableSystem: nextAvailableSystem,
+		                                                       ratingSystem: ratingSystem)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -69,14 +91,25 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		return _currentState.isKindOfClass(ShowProfileState) ? .Default : .LightContent
 	}
 	
+	// MARK: - Setup
+	private func _setupFilterSystem() -> FilterSystemController {
+		let filterSystem = FilterSystemController()
+		
+		filterSystem.didUpdateModel = _filterModelChanged
+		filterSystem.didUpdateSelection = _filterSelectionChanged
+		
+		return filterSystem
+	}
+	
 	// MARK: - Public
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
 		
+		_coordinationController?.handle(apiOutput: output)
+		
 		_currentTrackVotingVC.update(withPlayerAPIOutput: output)
 		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
-		_parentFilterSelectionVC.update(withPlayerAPIOutput: output)
 		_smallCurrentTrackVotingVC.update(withPlayerAPIOutput: output)
 		
 		_updateUI(withOutput: output)
@@ -106,7 +139,12 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	private func _transitionToDefaultState() {
 		let state = DefaultMainPlayerState(delegate: self)
-		_currentState = state.transition(duration: 0.3)
+		_transition(toState: state, duration: 0.3)
+	}
+	
+	private func _transition(toState state: MainPlayerState, duration: Double) {
+		guard _currentState.dynamicType != state.dynamicType else { return }
+		_currentState = state.transition(duration: duration)
 	}
 }
 
@@ -117,12 +155,23 @@ extension MainPlayerViewController {
 	}
 }
 
-// MARK: - Filter Selection
+// MARK: - Filter System
 extension MainPlayerViewController {
-	private func _parentFilterSelected(filter: PlayerAPIOutputFilter) {
-		let selectedSubfilters = self.output?.filters?.selected ?? []
-		let state = FilterSelectionMainPlayerState(delegate: self, filter: filter, selectedSubfilters: selectedSubfilters)
-		_currentState = state.transition(duration: 0.3)
+	private func _filterModelChanged(controller: FilterSystemController) {
+		_parentFilterSelectionVC.syncData()
+		_subfilterSelectionVC.syncData()
+	}
+	
+	private func _filterSelectionChanged(controller: FilterSystemController) {
+		var state: MainPlayerState = DefaultMainPlayerState(delegate: self)
+		
+		if controller.selectedParentFilter != nil {
+			state = FilterSelectionMainPlayerState(delegate: self)
+			_subfilterSelectionVC.syncUI()
+		}
+		
+		_parentFilterSelectionVC.syncUI()
+		_transition(toState: state, duration: 0.3)
 	}
 }
 

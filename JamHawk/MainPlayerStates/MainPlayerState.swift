@@ -19,13 +19,15 @@ protocol MainPlayerStateDelegate: class {
 	var playerControlsViewController: PlayerControlsViewController { get }
 	var profileViewController: ProfileViewController { get }
 	
-	var bottomContainer: UIView! { get }
 	var middleContainer: UIView! { get }
 	var subfilterSelectionContainer: UIView! { get }
 	var profileNavigationContainer: UIView! { get }
 	
 	var profileNavigationController: UINavigationController { get }
 	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
+	
+	var compactCurrentTrackContainer: UIView! { get }
+	var nextAvailablMediaContainer: UIView! { get }
 	
 	var currentState: MainPlayerState { get }
 	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, completion: dispatch_block_t?)

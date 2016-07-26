@@ -18,12 +18,10 @@ class ShowProfileState: MainPlayerState {
 			return state.transition(duration: duration)
 		}
 		
-		_delegate.transition(from: _delegate.nextAvailableMediaViewController,
-		                     to: _delegate.smallCurrentTrackVotingViewController,
-		                     completion: nil)
-		
 		_delegate.bottomContainerHeightConstraint.constant = 80.0
 		UIView.animateWithDuration(duration) {
+			self._delegate.nextAvailablMediaContainer.alpha = 0
+			self._delegate.compactCurrentTrackContainer.alpha = 1
 			self._delegate.profileNavigationContainer.alpha = 1
 			self._delegate.view.layoutIfNeeded()
 		}

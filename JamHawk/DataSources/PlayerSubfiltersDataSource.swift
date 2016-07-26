@@ -22,8 +22,6 @@ class PlayerSubfiltersDataSource: NSObject {
 		_collectionView = collectionView
 		super.init()
 		
-		let nib = UINib(nibName: SubfilterCell.xibName, bundle: nil)
-		_collectionView.registerNib(nib, forCellWithReuseIdentifier: SubfilterCell.reuseID)
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self

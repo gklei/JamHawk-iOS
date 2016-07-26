@@ -41,6 +41,14 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _subfilterSelectionContainer
 	}
 	
+	var compactCurrentTrackContainer: UIView! {
+		return _compactCurrentTrackContainer
+	}
+	
+	var nextAvailablMediaContainer: UIView! {
+		return _nextAvailableMediaContainer
+	}
+	
 	var profileNavigationController: UINavigationController {
 		return _profileNavController
 	}
@@ -55,10 +63,6 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	
 	var middleContainer: UIView! {
 		return _middleContainer
-	}
-	
-	var bottomContainer: UIView! {
-		return _bottomContainer
 	}
 	
 	var currentState: MainPlayerState {

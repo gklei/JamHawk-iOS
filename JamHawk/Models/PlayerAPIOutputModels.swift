@@ -162,8 +162,6 @@ struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
 	}
 }
 
-
-
 struct PlayerAPIOutputFilter: JSONEncodable, JSONDecodable, Equatable {
 	let category: String
 	let label: String

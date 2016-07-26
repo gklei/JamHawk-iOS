@@ -67,7 +67,7 @@ class CurrentTrackVotingViewController: UIViewController {
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		guard let metadata = output.track else { return }
 		
-		let vm = PlayerAPIOutputMetadataViewModel(metatdata: metadata)
+		let vm = PlayerAPIOutputMetadataViewModel(metadata: metadata)
 		update(withViewModel: vm)
 	}
 	
@@ -116,6 +116,5 @@ final class CurrentTrackVotingLargeViewController: CurrentTrackVotingViewControl
 }
 
 final class CurrentTrackVotingSmallViewController: CurrentTrackVotingViewController, PlayerStoryboardInstantiable {
-	
 	// MARK: - Overriden
 }

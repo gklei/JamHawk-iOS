@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SubfilterSelectionDataSource: class {
+//	var availableSubfilterViewModels
+	var subfilterViewModels: [SubfilterViewModel] { get }
+}
+
 class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Outlets
@@ -15,17 +20,9 @@ class SubfilterSelectionViewController: UIViewController {
 	@IBOutlet private var _collectionViewHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
-	private var _filter: PlayerAPIOutputFilter?
-	private var _playerSubfiltersDS: PlayerSubfiltersDataSource?
-	
-	var parentFilter: PlayerAPIOutputFilter? {
-		return _filter
-	}
+	weak var dataSource: SubfilterSelectionDataSource?
 	
 	var viewTappedClosure: () -> Void = {}
-	var selectedSubfilterIDs: [PlayerAPIFilterID] {
-		return _playerSubfiltersDS?.selectedSubfilterIDs ?? []
-	}
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -38,12 +35,23 @@ class SubfilterSelectionViewController: UIViewController {
 		_collectionView.backgroundColor = .whiteColor()
 		_collectionView.layer.masksToBounds = true
 		
+		_collectionView.dataSource = self
+		
+		_registerCollectionViewCells()
 		_setupCollectionViewLayout()
-		_playerSubfiltersDS = PlayerSubfiltersDataSource(collectionView: _collectionView)
-		_collectionViewHeightConstraint.constant = view.bounds.height
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		_updateCollectionViewHeight()
 	}
 	
 	// MARK: - Setup
+	private func _registerCollectionViewCells() {
+		let nib = UINib(nibName: SubfilterCell.xibName, bundle: nil)
+		_collectionView.registerNib(nib, forCellWithReuseIdentifier: SubfilterCell.reuseID)
+	}
+	
 	private func _setupCollectionViewLayout() {
 		let size = UIScreen.mainScreen().bounds.width * 0.24
 		let inset = UIScreen.mainScreen().bounds.width * 0.08
@@ -56,26 +64,43 @@ class SubfilterSelectionViewController: UIViewController {
 	}
 	
 	// MARK: - Public
-	func update(filter filter: PlayerAPIOutputFilter, selectedSubfilters: [PlayerAPIFilterID]) {
-		guard _filter != filter else { return }
-		
-		_filter = filter
-		_playerSubfiltersDS?.update(filter: filter)
-		
-		_playerSubfiltersDS?.selectSubfilters(withIDs: selectedSubfilters)
-		
-		// Manually update the collection view height
-		let numRows: CGFloat = ceil(CGFloat(filter.filterIDs.count) / 3.0)
+	func syncData() {
+		_collectionView.reloadData()
+		_updateCollectionViewHeight()
+	}
+	
+	func syncUI() {
+		_collectionView.reloadData()
+		_updateCollectionViewHeight()
+	}
+	
+	private func _updateCollectionViewHeight() {
+		guard let count = dataSource?.subfilterViewModels.count else { return }
+		let numRows: CGFloat = ceil(CGFloat(count) / 3.0)
 		let layout = self._collectionView.collectionViewLayout as! UICollectionViewFlowLayout
 		let height = layout.sectionInset.top + layout.sectionInset.bottom + (layout.itemSize.height * numRows)
 		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
-	}
-	
-	func reset() {
-		_filter = nil
+		self.view.setNeedsLayout()
 	}
 	
 	@IBAction private func _viewTapped(recognizer: UIGestureRecognizer) {
 		viewTappedClosure()
+	}
+}
+
+extension SubfilterSelectionViewController: UICollectionViewDataSource {
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return dataSource?.subfilterViewModels.count ?? 0
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SubfilterCell.reuseID, forIndexPath: indexPath) as! SubfilterCell
+		
+		if let viewModels = dataSource?.subfilterViewModels {
+			let subfilter = viewModels[indexPath.row]
+			cell.update(name: subfilter.name)
+		}
+		
+		return cell
 	}
 }
