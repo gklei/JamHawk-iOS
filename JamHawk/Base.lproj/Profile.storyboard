@@ -31,19 +31,17 @@
                                 <rect key="frame" x="226" y="534" width="148" height="42"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-ED-GSK">
-                                <rect key="frame" x="0.0" y="126" width="600" height="101"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="FF8-tF-jdm"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="126" width="600" height="403"/>
+                                <color key="backgroundColor" red="0.89616402120000005" green="0.89616402120000005" blue="0.89616402120000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QMW-ye-IU1">
                                     <size key="itemSize" width="375" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="80"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileOptionCell" id="cUh-My-sr8" customClass="ProfileOptionCell" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="113" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="113" y="80" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -67,6 +65,31 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileHeaderView" id="gdT-Aw-nN8">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Doctor Schreber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tio-zG-vRY">
+                                            <rect key="frame" x="141" y="29" width="134" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="temp_profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yB4-gO-kGD">
+                                            <rect key="frame" x="-12" y="14" width="51" height="51"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93452380950000002" green="0.93452380950000002" blue="0.93452380950000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="tio-zG-vRY" firstAttribute="top" secondItem="gdT-Aw-nN8" secondAttribute="topMargin" constant="21" id="1Yt-rF-N8u"/>
+                                        <constraint firstItem="yB4-gO-kGD" firstAttribute="top" secondItem="gdT-Aw-nN8" secondAttribute="topMargin" constant="6" id="E82-g3-Lga"/>
+                                        <constraint firstItem="tio-zG-vRY" firstAttribute="leading" secondItem="yB4-gO-kGD" secondAttribute="trailing" constant="16" id="R45-ob-CwP"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="yB4-gO-kGD" secondAttribute="leading" constant="20" id="W3b-lw-Jpj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tio-zG-vRY" secondAttribute="trailing" constant="370" id="i99-ed-5Ar"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="yB4-gO-kGD" secondAttribute="bottom" constant="7" id="vco-up-1VH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tio-zG-vRY" secondAttribute="bottom" constant="21" id="ypz-IE-hbW"/>
+                                    </constraints>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,6 +101,7 @@
                             <constraint firstItem="1YP-ED-GSK" firstAttribute="top" secondItem="trw-6e-z7L" secondAttribute="bottom" constant="35" id="M4B-mt-7RL"/>
                             <constraint firstAttribute="trailing" secondItem="1YP-ED-GSK" secondAttribute="trailing" id="SAC-jL-F1X"/>
                             <constraint firstItem="trw-6e-z7L" firstAttribute="leading" secondItem="gxm-Tb-Jtj" secondAttribute="leading" constant="20" id="aMX-GT-OKu"/>
+                            <constraint firstItem="W1P-et-RKj" firstAttribute="top" secondItem="1YP-ED-GSK" secondAttribute="bottom" constant="5" id="ccn-9B-R7r"/>
                             <constraint firstItem="G4u-WI-Tby" firstAttribute="leading" secondItem="trw-6e-z7L" secondAttribute="trailing" constant="16" id="xi1-G1-Z3T"/>
                             <constraint firstItem="UG3-IL-0vC" firstAttribute="top" secondItem="W1P-et-RKj" secondAttribute="bottom" constant="24" id="zJH-Lg-8KJ"/>
                         </constraints>
