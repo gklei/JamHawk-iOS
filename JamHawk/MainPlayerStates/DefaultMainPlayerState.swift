@@ -20,7 +20,7 @@ class DefaultMainPlayerState: MainPlayerState {
 			self._delegate.subfilterSelectionContainer.alpha = 0
 			self._delegate.profileNavigationContainer.alpha = 0
 			self._delegate.compactCurrentTrackContainer.alpha = 0
-			self._delegate.largeCurrentTrackVotingViewController.setVotingButtonsHidden(false)
+//			self._delegate.largeCurrentTrackVotingViewController.setVotingButtonsHidden(false)
 		}
 		
 		return self

@@ -33,8 +33,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal var _currentState: MainPlayerState!
 	
 	internal let _parentFilterSelectionVC = ParentFilterSelectionViewController.create()
-	internal let _currentTrackVotingVC = CurrentTrackVotingLargeViewController.create()
-	internal let _smallCurrentTrackVotingVC = CurrentTrackVotingSmallViewController.create()
+	internal let _largeCurrentTrackVC = LargeCurrentTrackViewController.create()
+	internal let _compactCurrentTrackVC = CompactCurrentTrackViewController.create()
 	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
 	internal let _playerControlsVC = PlayerControlsViewController.create()
 	internal var _subfilterSelectionVC = SubfilterSelectionViewController()
@@ -49,9 +49,9 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		super.viewDidLoad()
 		
 		add(childViewController: _parentFilterSelectionVC, toContainer: _topContainer)
-		add(childViewController: _currentTrackVotingVC, toContainer: _middleContainer)
+		add(childViewController: _largeCurrentTrackVC, toContainer: _middleContainer)
 		add(childViewController: _nextAvailableMediaVC, toContainer: _nextAvailableMediaContainer)
-		add(childViewController: _smallCurrentTrackVotingVC, toContainer: _compactCurrentTrackContainer)
+		add(childViewController: _compactCurrentTrackVC, toContainer: _compactCurrentTrackContainer)
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
 		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
@@ -69,9 +69,13 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		let nextAvailableSystem = _setupNextAvailableMediaSystem()
 		_nextAvailableMediaVC.dataSource = nextAvailableSystem
 		
-		let playerSystem = PlayerSystemController()
-		let currentTrackSystem = CurrentTrackSystemController()
+		let currentTrackSystem = _setupCurrentTrackSystem()
+		_largeCurrentTrackVC.dataSource = currentTrackSystem
+		_compactCurrentTrackVC.dataSource = currentTrackSystem
+		
 		let ratingSystem = TrackRatingSystemController()
+		
+		let playerSystem = PlayerSystemController()
 		
 		_coordinationController = SystemCoordinationController(playerSystem: playerSystem,
 		                                                       filterSystem: filterSystem,
@@ -95,7 +99,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		return _currentState.isKindOfClass(ShowProfileState) ? .Default : .LightContent
 	}
 	
-	// MARK: - Setup
+	// MARK: - System Setup
 	private func _setupFilterSystem() -> FilterSystemController {
 		let filterSystem = FilterSystemController()
 		filterSystem.didUpdateModel = _filterModelChanged
@@ -112,15 +116,18 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		return nextAvailableMediaSystem
 	}
 	
+	private func _setupCurrentTrackSystem() -> CurrentTrackSystemController {
+		let currentTrackSystem = CurrentTrackSystemController()
+		currentTrackSystem.didUpdateModel = _currentTrackModelChanged
+		return currentTrackSystem
+	}
+	
 	// MARK: - Public
 	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
 		self.output = output
 		
 		_coordinationController?.handle(apiOutput: output)
-		
-		_currentTrackVotingVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
-		_smallCurrentTrackVotingVC.update(withPlayerAPIOutput: output)
 		
 		_updateUI(withOutput: output)
 	}
@@ -193,6 +200,14 @@ extension MainPlayerViewController {
 	
 	private func _nextAvailableMediaSelectionChanged(controller: NextAvailableMediaSystemController) {
 		_nextAvailableMediaVC.syncUI()
+	}
+}
+
+// MARK: - Current Track System
+extension MainPlayerViewController {
+	private func _currentTrackModelChanged(controller: CurrentTrackSystemController) {
+		_largeCurrentTrackVC.syncUI()
+		_compactCurrentTrackVC.syncUI()
 	}
 }
 

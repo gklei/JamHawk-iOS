@@ -25,7 +25,6 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	override func update(withModel model: PlayerAPIOutputFilters?) {
 		guard let model = model else { return }
 		_filters = model
-		
 		didUpdateModel(controller: self)
 	}
 	
@@ -51,7 +50,6 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		
 		let filter = available[index]
 		selectedParentFilter = filter
-		
 		didUpdateSelection(controller: self)
 	}
 	

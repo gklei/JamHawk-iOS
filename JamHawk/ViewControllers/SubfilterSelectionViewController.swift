@@ -34,8 +34,6 @@ class SubfilterSelectionViewController: UIViewController {
 		_collectionView.backgroundColor = .whiteColor()
 		_collectionView.layer.masksToBounds = true
 		
-		_collectionView.dataSource = self
-		
 		_registerCollectionViewCells()
 		_setupCollectionViewLayout()
 	}
@@ -102,4 +100,7 @@ extension SubfilterSelectionViewController: UICollectionViewDataSource {
 		
 		return cell
 	}
+}
+
+extension SubfilterSelectionViewController: UICollectionViewDelegate {
 }

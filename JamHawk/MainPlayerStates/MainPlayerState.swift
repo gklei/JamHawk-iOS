@@ -11,13 +11,7 @@ import UIKit
 protocol MainPlayerStateDelegate: class {
 	var view: UIView! { get }
 	
-	var parentFilterSelectionViewController: ParentFilterSelectionViewController { get }
-	var subfilterSelectionViewController: SubfilterSelectionViewController { get }
-	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController { get }
-	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController { get }
-	var nextAvailableMediaViewController: NextAvailableMediaViewController { get }
-	var playerControlsViewController: PlayerControlsViewController { get }
-	var profileViewController: ProfileViewController { get }
+	var largeCurrentTrackVotingViewController: LargeCurrentTrackViewController { get }
 	
 	var middleContainer: UIView! { get }
 	var subfilterSelectionContainer: UIView! { get }

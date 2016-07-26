@@ -143,6 +143,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Nxo-Wo-CjF" id="O4A-jc-azf"/>
+                                    <outlet property="delegate" destination="Nxo-Wo-CjF" id="3aR-KB-17s"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm">
                                 <rect key="frame" x="20" y="25" width="374" height="17"/>
@@ -354,6 +358,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="GDz-aQ-PHe" id="BNM-zP-S01"/>
+                                    <outlet property="delegate" destination="GDz-aQ-PHe" id="40w-Nr-TsH"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -374,10 +382,10 @@
             </objects>
             <point key="canvasLocation" x="821" y="-42"/>
         </scene>
-        <!--Current Track Voting Small View Controller-->
+        <!--Compact Current Track View Controller-->
         <scene sceneID="O7g-33-mZk">
             <objects>
-                <viewController storyboardIdentifier="CurrentTrackVotingSmallViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xaj-35-zse" customClass="CurrentTrackVotingSmallViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompactCurrentTrackViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xaj-35-zse" customClass="CompactCurrentTrackViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NGM-1p-PbW"/>
                         <viewControllerLayoutGuide type="bottom" id="DJV-9E-dbc"/>
@@ -398,9 +406,6 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="downvote_small"/>
-                                        <connections>
-                                            <action selector="_downvoteButtonPressed" destination="xaj-35-zse" eventType="touchUpInside" id="vcq-ok-G0Y"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRP-m5-ZMp">
                                         <rect key="frame" x="50" y="0.0" width="30" height="30"/>
@@ -411,9 +416,6 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                                         <state key="normal" image="upvote_small"/>
-                                        <connections>
-                                            <action selector="_upvoteButtonPressed" destination="xaj-35-zse" eventType="touchUpInside" id="gYg-M3-Met"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -466,19 +468,69 @@
                     <size key="freeformSize" width="400" height="80"/>
                     <connections>
                         <outlet property="_artistNameLabel" destination="Kng-G2-AJS" id="lTn-E2-efg"/>
-                        <outlet property="_downvoteButton" destination="pWl-nQ-aBn" id="xxt-Un-lca"/>
                         <outlet property="_songTitleLabel" destination="P8a-IC-bDc" id="Rhh-a4-KXe"/>
-                        <outlet property="_upvoteButton" destination="oRP-m5-ZMp" id="hGK-vf-xdj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFD-b1-3Ra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="310"/>
+            <point key="canvasLocation" x="1183" y="277"/>
         </scene>
-        <!--Current Track Voting Large View Controller-->
+        <!--Track Rating View Controller-->
+        <scene sceneID="dhN-Oc-azI">
+            <objects>
+                <viewController storyboardIdentifier="TrackRatingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NxN-Ss-Ild" customClass="TrackRatingViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s7g-2t-m21"/>
+                        <viewControllerLayoutGuide type="bottom" id="f2n-RA-fIW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yG8-be-kfT">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VmD-1d-8UL">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0gh-lJ-x6x">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BTX-3c-78X">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f2n-RA-fIW" firstAttribute="top" secondItem="VmD-1d-8UL" secondAttribute="bottom" id="0hy-1Y-2G0"/>
+                            <constraint firstAttribute="trailing" secondItem="VmD-1d-8UL" secondAttribute="trailing" id="IoG-1Y-aUx"/>
+                            <constraint firstItem="VmD-1d-8UL" firstAttribute="leading" secondItem="yG8-be-kfT" secondAttribute="leading" id="S9x-Ow-ErT"/>
+                            <constraint firstItem="VmD-1d-8UL" firstAttribute="top" secondItem="s7g-2t-m21" secondAttribute="bottom" id="Ywh-ak-2tS"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="100"/>
+                    <connections>
+                        <outlet property="_collectionView" destination="VmD-1d-8UL" id="rED-y3-79U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KnX-EW-mHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1407" y="611"/>
+        </scene>
+        <!--Large Current Track View Controller-->
         <scene sceneID="0Eh-c8-GOh">
             <objects>
-                <viewController storyboardIdentifier="CurrentTrackVotingLargeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wj6-NS-0EY" customClass="CurrentTrackVotingLargeViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LargeCurrentTrackViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wj6-NS-0EY" customClass="LargeCurrentTrackViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H2a-cS-afj"/>
                         <viewControllerLayoutGuide type="bottom" id="kiA-4r-T0z"/>
@@ -536,9 +588,6 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="downvote_med"/>
-                                        <connections>
-                                            <action selector="_downvoteButtonPressed" destination="wj6-NS-0EY" eventType="touchUpInside" id="GlC-MR-8oo"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFb-3t-QJu">
                                         <rect key="frame" x="66" y="0.0" width="44" height="44"/>
@@ -548,9 +597,6 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                                         <state key="normal" image="upvote_med"/>
-                                        <connections>
-                                            <action selector="_upvoteButtonPressed" destination="wj6-NS-0EY" eventType="touchUpInside" id="1Bt-XN-ci0"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -582,9 +628,6 @@
                         <outlet property="_albumArtContainerView" destination="wOL-G7-MWg" id="Usu-f1-vLH"/>
                         <outlet property="_albumArtImageView" destination="Qnm-3a-BXh" id="zJO-eV-orA"/>
                         <outlet property="_currentTrackLabel" destination="IUl-iN-34d" id="pg4-VB-K8e"/>
-                        <outlet property="_downvoteButton" destination="GVD-qM-isC" id="pwj-mV-XAw"/>
-                        <outlet property="_upvoteButton" destination="ZFb-3t-QJu" id="7vf-tk-FSM"/>
-                        <outlet property="_votingButtonsContainer" destination="yaV-R5-vYX" id="IUJ-ll-RMO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jc4-ZA-VSg" userLabel="First Responder" sceneMemberID="firstResponder"/>

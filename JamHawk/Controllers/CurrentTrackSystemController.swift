@@ -14,15 +14,17 @@ final class CurrentTrackSystemController: SystemController<PlayerAPIOutputMetada
 	var didUpdateModel: (controller: CurrentTrackSystemController) -> Void = {_ in}
 	var didUpdateSelection: (controller: CurrentTrackSystemController) -> Void = {_ in}
 	
-	var currentTrackViewModel: PlayerAPIOutputMetadataViewModel? {
-		guard let track = _track else { return nil }
-		return PlayerAPIOutputMetadataViewModel(metadata: track)
-	}
-	
 	override func update(withModel model: PlayerAPIOutputMetadata?) {
 		guard let model = model else { return }
 		_track = model
 		
 		didUpdateModel(controller: self)
+	}
+}
+
+extension CurrentTrackSystemController: CurrentTrackDataSource {
+	var currentTrackViewModel: PlayerAPIOutputMetadataViewModel? {
+		guard let track = _track else { return nil }
+		return PlayerAPIOutputMetadataViewModel(metadata: track)
 	}
 }

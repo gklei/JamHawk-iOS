@@ -27,9 +27,6 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		_collectionView.dataSource = self
-		_collectionView.delegate = self
-		
 		_registerCollectionViewCellType()
 		_setupCollectionViewLayout()
 	}
