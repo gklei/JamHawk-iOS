@@ -8,9 +8,24 @@
 
 import UIKit
 
+enum ProfileOptionType {
+   case EditProfile
+   case Settings
+   
+   var title: String {
+      switch self {
+      case .EditProfile:
+         return "Edit Profile"
+      case .Settings:
+         return "Settings"
+      }
+   }
+}
+
 class ProfileViewController: UIViewController {
 	
    @IBOutlet weak var _profileOptionsCollectionView: UICollectionView!
+   private var _profileOptionTypes = [ProfileOptionType.EditProfile, ProfileOptionType.Settings]
    
    
 	// MARK: - Overridden
@@ -20,7 +35,7 @@ class ProfileViewController: UIViewController {
       layout.itemSize = CGSize(width: _profileOptionsCollectionView.bounds.width, height: 50)
       layout.minimumLineSpacing = 1.0
       layout.scrollDirection = .Vertical
-      layout.headerReferenceSize = CGSize(width: 0, height: 80)
+      layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 80)
       
       _profileOptionsCollectionView.dataSource = self
       _profileOptionsCollectionView.delegate = self
@@ -38,12 +53,12 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDataSource {
    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      return 2
+      return _profileOptionTypes.count
    }
    
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileOptionCell", forIndexPath: indexPath) as! ProfileOptionCell
-      cell.titleLabel.text = "Fuck"
+      cell.titleLabel.text = _profileOptionTypes[indexPath.row].title
       return cell
    }
    
@@ -62,6 +77,6 @@ class ProfileOptionCell: UICollectionViewCell {
    
    override func awakeFromNib() {
       super.awakeFromNib()
-      backgroundColor = .lightGrayColor()
+      backgroundColor = .whiteColor()
    }
 }
