@@ -20,6 +20,11 @@ class SystemCoordinationController {
 	private let _nextAvailableSystem: NextAvailableMediaSystemController
 	private let _ratingSystem: TrackRatingSystemController
 	
+	// TAKE THIS OUT!
+	var currentNextTrack: PlayerAPIOutputMetadata? {
+		return _nextAvailableSystem.currentNextTrackSelection
+	}
+	
 	init(playerSystem: PlayerSystemController,
 	     filterSystem: FilterSystemController,
 	     currentTrackSystem: CurrentTrackSystemController,
@@ -36,7 +41,10 @@ class SystemCoordinationController {
 		_playerSystem.update(withModel: output.media)
 		_filterSystem.update(withModel: output.filters)
 		_currentTrackSystem.update(withModel: output.track)
+		
 		_nextAvailableSystem.update(withModel: output.next)
+		_nextAvailableSystem.selectMedia(atIndex: 0)
+		
 		_ratingSystem.update(withModel: output.track)
 	}
 }

@@ -46,14 +46,12 @@
 		CE5DA0F51D46847C00025C17 /* SystemCoordinationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */; };
 		CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */; };
 		CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE9951D3C15C40029659F /* SubfilterSelectionViewController.xib */; };
-		CE6CE99D1D3D23E00029659F /* PlayerSubfiltersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99C1D3D23E00029659F /* PlayerSubfiltersDataSource.swift */; };
 		CE6CE9A01D3D262F0029659F /* PlayerSubfilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE99E1D3D262F0029659F /* PlayerSubfilterCell.swift */; };
 		CE6CE9A11D3D262F0029659F /* SubfilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE99F1D3D262F0029659F /* SubfilterCell.xib */; };
 		CE6CE9A41D3D67D50029659F /* MainPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CE9A31D3D67D50029659F /* MainPlayerState.swift */; };
 		CE747BF81D382B0F0006D1B6 /* PlayerControlsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BF71D382B0F0006D1B6 /* PlayerControlsToolbar.swift */; };
 		CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */; };
 		CE747BFC1D3839BB0006D1B6 /* ParentFilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BFB1D3839BB0006D1B6 /* ParentFilterSelectionViewController.swift */; };
-		CE747BFE1D3839E50006D1B6 /* PlayerFiltersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747BFD1D3839E50006D1B6 /* PlayerFiltersDataSource.swift */; };
 		CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */; };
 		CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */; };
 		CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */; };
@@ -133,14 +131,12 @@
 		CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemCoordinationController.swift; path = JamHawk/Controllers/SystemCoordinationController.swift; sourceTree = "<group>"; };
 		CE6CE9911D3C15B10029659F /* SubfilterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubfilterSelectionViewController.swift; path = JamHawk/ViewControllers/SubfilterSelectionViewController.swift; sourceTree = "<group>"; };
 		CE6CE9961D3C15C40029659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/SubfilterSelectionViewController.xib; sourceTree = "<group>"; };
-		CE6CE99C1D3D23E00029659F /* PlayerSubfiltersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSubfiltersDataSource.swift; path = JamHawk/DataSources/PlayerSubfiltersDataSource.swift; sourceTree = "<group>"; };
 		CE6CE99E1D3D262F0029659F /* PlayerSubfilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSubfilterCell.swift; path = JamHawk/CustomUI/PlayerSubfilterCell.swift; sourceTree = "<group>"; };
 		CE6CE99F1D3D262F0029659F /* SubfilterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubfilterCell.xib; path = JamHawk/CustomUI/SubfilterCell.xib; sourceTree = "<group>"; };
 		CE6CE9A31D3D67D50029659F /* MainPlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPlayerState.swift; path = JamHawk/MainPlayerStates/MainPlayerState.swift; sourceTree = "<group>"; };
 		CE747BF71D382B0F0006D1B6 /* PlayerControlsToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsToolbar.swift; path = JamHawk/CustomUI/PlayerControlsToolbar.swift; sourceTree = "<group>"; };
 		CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaViewController.swift; path = JamHawk/ViewControllers/NextAvailableMediaViewController.swift; sourceTree = "<group>"; };
 		CE747BFB1D3839BB0006D1B6 /* ParentFilterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentFilterSelectionViewController.swift; path = JamHawk/ViewControllers/ParentFilterSelectionViewController.swift; sourceTree = "<group>"; };
-		CE747BFD1D3839E50006D1B6 /* PlayerFiltersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerFiltersDataSource.swift; path = JamHawk/DataSources/PlayerFiltersDataSource.swift; sourceTree = "<group>"; };
 		CE747C051D3885900006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/NextAvailableMediaCell.xib; sourceTree = "<group>"; };
 		CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentFilterCell.swift; path = JamHawk/CustomUI/ParentFilterCell.swift; sourceTree = "<group>"; };
 		CE747C0C1D38920C0006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/ParentFilterCell.xib; sourceTree = "<group>"; };
@@ -472,8 +468,6 @@
 			isa = PBXGroup;
 			children = (
 				CEFFF79D1D369B0400D083F1 /* NextAvailableMediaDataSource.swift */,
-				CE747BFD1D3839E50006D1B6 /* PlayerFiltersDataSource.swift */,
-				CE6CE99C1D3D23E00029659F /* PlayerSubfiltersDataSource.swift */,
 			);
 			name = "Data Sources";
 			sourceTree = "<group>";
@@ -655,7 +649,6 @@
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
 				CE5DA0F31D46844C00025C17 /* TrackRatingSystemController.swift in Sources */,
 				CE9347891D39892B0090A58C /* CurrentTrackVotingViewController.swift in Sources */,
-				CE6CE99D1D3D23E00029659F /* PlayerSubfiltersDataSource.swift in Sources */,
 				CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */,
 				CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */,
 				CE7E68361D342F3300516570 /* PlayerAPIInputUpdates.swift in Sources */,
@@ -666,7 +659,6 @@
 				CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */,
 				CE5DA0E01D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift in Sources */,
 				CE5DA0EB1D4677D800025C17 /* FilterSystemController.swift in Sources */,
-				CE747BFE1D3839E50006D1B6 /* PlayerFiltersDataSource.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
 				CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */,
 				CE5DA0E41D455EAA00025C17 /* JamhawkRequestController.swift in Sources */,

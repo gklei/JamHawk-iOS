@@ -57,20 +57,20 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
 		
 		_profileNavController.viewControllers = [_profileViewController]
-		_subfilterSelectionVC.viewTappedClosure = _transitionToDefaultState
 		_playerControlsVC.delegate = self
 		
 		let state = DefaultMainPlayerState(delegate: self)
 		_currentState = state.transition(duration: 0)
 		
-		let playerSystem = PlayerSystemController()
-		
 		let filterSystem = _setupFilterSystem()
 		_parentFilterSelectionVC.dataSource = filterSystem
 		_subfilterSelectionVC.dataSource = filterSystem
-
+		
+		let nextAvailableSystem = _setupNextAvailableMediaSystem()
+		_nextAvailableMediaVC.dataSource = nextAvailableSystem
+		
+		let playerSystem = PlayerSystemController()
 		let currentTrackSystem = CurrentTrackSystemController()
-		let nextAvailableSystem = NextAvailableMediaSystemController()
 		let ratingSystem = TrackRatingSystemController()
 		
 		_coordinationController = SystemCoordinationController(playerSystem: playerSystem,
@@ -78,6 +78,10 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		                                                       currentTrackSystem: currentTrackSystem,
 		                                                       nextAvailableSystem: nextAvailableSystem,
 		                                                       ratingSystem: ratingSystem)
+		
+		_subfilterSelectionVC.viewTappedClosure = {
+			filterSystem.resetParentFilterSelection()
+		}
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -94,11 +98,18 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	// MARK: - Setup
 	private func _setupFilterSystem() -> FilterSystemController {
 		let filterSystem = FilterSystemController()
-		
 		filterSystem.didUpdateModel = _filterModelChanged
 		filterSystem.didUpdateSelection = _filterSelectionChanged
 		
 		return filterSystem
+	}
+	
+	private func _setupNextAvailableMediaSystem() -> NextAvailableMediaSystemController {
+		let nextAvailableMediaSystem = NextAvailableMediaSystemController()
+		nextAvailableMediaSystem.didUpdateModel = _nextAvailableMediaChanged
+		nextAvailableMediaSystem.didUpdateSelection = _nextAvailableMediaSelectionChanged
+		
+		return nextAvailableMediaSystem
 	}
 	
 	// MARK: - Public
@@ -108,7 +119,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_coordinationController?.handle(apiOutput: output)
 		
 		_currentTrackVotingVC.update(withPlayerAPIOutput: output)
-		_nextAvailableMediaVC.update(withPlayerAPIOutput: output)
 		_playerControlsVC.update(withPlayerAPIOutput: output)
 		_smallCurrentTrackVotingVC.update(withPlayerAPIOutput: output)
 		
@@ -175,6 +185,17 @@ extension MainPlayerViewController {
 	}
 }
 
+// MARK: - Next Available Media System
+extension MainPlayerViewController {
+	private func _nextAvailableMediaChanged(controller: NextAvailableMediaSystemController) {
+		_nextAvailableMediaVC.syncData()
+	}
+	
+	private func _nextAvailableMediaSelectionChanged(controller: NextAvailableMediaSystemController) {
+		_nextAvailableMediaVC.syncUI()
+	}
+}
+
 // MARK: - Player Controls
 extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType) {
@@ -192,7 +213,7 @@ extension MainPlayerViewController: PlayerControlsViewControllerDelegate {
 
 extension MainPlayerViewController {
 	private func _requestNextTrack() {
-		let selectedTrack = _nextAvailableMediaVC.selectedTrack?.mid
+		let selectedTrack = _coordinationController?.currentNextTrack?.mid
 		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: selectedTrack, ratings: nil)
 		playerAPIService?.requestNextTrack(withUpdates: updates, callback: _handlePlayerAPICallback)
 	}

@@ -12,6 +12,7 @@ protocol ParentFilterSelectionDataSource: class {
 	var selectedParentFilterIndex: Int? { get }
 	var parentFilterViewModels: [PlayerAPIOutputFilterViewModel] { get }
 	func selectFilter(atIndex index: Int)
+	func resetParentFilterSelection()
 }
 
 final class ParentFilterSelectionViewController: UIViewController, PlayerStoryboardInstantiable {
@@ -50,7 +51,7 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 	
 	// MARK: - Public
 	func syncUI() {
-		if let selectedIndex = self.dataSource?.selectedParentFilterIndex {
+		if let selectedIndex = dataSource?.selectedParentFilterIndex {
 			let ip = NSIndexPath(forRow: selectedIndex, inSection: 0)
 			_collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .CenteredHorizontally)
 		} else {
@@ -94,6 +95,11 @@ extension ParentFilterSelectionViewController: UICollectionViewDataSource {
 
 extension ParentFilterSelectionViewController: UICollectionViewDelegate {
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		dataSource?.selectFilter(atIndex: indexPath.row)
+		
+		if let index = dataSource?.selectedParentFilterIndex where index == indexPath.row {
+			dataSource?.resetParentFilterSelection()
+		} else {
+			dataSource?.selectFilter(atIndex: indexPath.row)
+		}
 	}
 }

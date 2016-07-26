@@ -105,7 +105,7 @@ enum PlayerAPIOutputTrackRating: Int, JSONEncodable, JSONDecodable {
 	}
 }
 
-struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
+struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable, Equatable {
 	let mid: PlayerAPIMediaID?
 	let artist: String?
 	let album: String?
@@ -142,6 +142,10 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 		]
 		return JSON.withoutNullValues(json)
 	}
+}
+
+func ==(lhs: PlayerAPIOutputMetadata, rhs: PlayerAPIOutputMetadata) -> Bool {
+	return lhs.mid == rhs.mid
 }
 
 struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {

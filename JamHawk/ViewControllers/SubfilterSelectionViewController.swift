@@ -9,7 +9,6 @@
 import UIKit
 
 protocol SubfilterSelectionDataSource: class {
-//	var availableSubfilterViewModels
 	var subfilterViewModels: [SubfilterViewModel] { get }
 }
 

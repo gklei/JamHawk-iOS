@@ -17,19 +17,27 @@ final class NextAvailableMediaSystemController: SystemController<[PlayerAPIOutpu
 	
 	var currentNextTrackSelection: PlayerAPIOutputMetadata?
 	
-	var nextAvailableMediaViewModels: [PlayerAPIOutputMetadataViewModel] {
-		guard let next = _next else { return [] }
-		return next.flatMap({ PlayerAPIOutputMetadataViewModel(metadata: $0) })
-	}
-	
 	override func update(withModel model: [PlayerAPIOutputMetadata]?) {
 		guard let model = model else { return }
 		_next = model
 		
 		didUpdateModel(controller: self)
 	}
+}
+
+extension NextAvailableMediaSystemController: NextAvailableMediaSelectionDataSource {
+	var nextAvailableMediaViewModels: [PlayerAPIOutputMetadataViewModel] {
+		guard let next = _next else { return [] }
+		return next.flatMap({ PlayerAPIOutputMetadataViewModel(metadata: $0) })
+	}
 	
-	func selectTrack(atIndex index: Int) {
+	var selectedMediaIndex: Int? {
+		guard let next = _next else { return nil }
+		guard let track = currentNextTrackSelection else { return nil }
+		return next.indexOf(track)
+	}
+	
+	func selectMedia(atIndex index: Int) {
 		guard let next = _next where next.count > index else { return }
 		
 		let selection = next[index]

@@ -50,12 +50,13 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		guard available.count > index else { return }
 		
 		let filter = available[index]
-		if filter == selectedParentFilter {
-			selectedParentFilter = nil
-		} else {
-			selectedParentFilter = filter
-		}
+		selectedParentFilter = filter
 		
+		didUpdateSelection(controller: self)
+	}
+	
+	func resetParentFilterSelection() {
+		selectedParentFilter = nil
 		didUpdateSelection(controller: self)
 	}
 }
