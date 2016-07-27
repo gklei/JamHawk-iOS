@@ -20,7 +20,6 @@ class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Properties
 	weak var dataSource: SubfilterSelectionDataSource?
-	private var _viewModels: [SubfilterViewModel] = []
 	private var _layout: UICollectionViewFlowLayout!
 	
 	var viewTappedClosure: () -> Void = {}
@@ -65,8 +64,6 @@ class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Public
 	func syncData() {
-		_viewModels = dataSource?.subfilterViewModels ?? []
-		
 		dispatch_async(dispatch_get_main_queue()) {
 			self._collectionView.reloadData()
 			self.view.setNeedsLayout()
@@ -74,8 +71,6 @@ class SubfilterSelectionViewController: UIViewController {
 	}
 	
 	func syncUI() {
-		_viewModels = dataSource?.subfilterViewModels ?? []
-		
 		dispatch_async(dispatch_get_main_queue()) {
 			self._collectionView.reloadData()
 			self.view.setNeedsLayout()
@@ -83,7 +78,7 @@ class SubfilterSelectionViewController: UIViewController {
 	}
 	
 	private func _updateCollectionViewHeight() {
-		let count = _viewModels.count
+		let count = dataSource?.subfilterViewModels.count ?? 0
 		let numRows: CGFloat = ceil(CGFloat(count) / 3.0)
 		let height = _layout.sectionInset.top + _layout.sectionInset.bottom + (_layout.itemSize.height * numRows)
 		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
@@ -96,14 +91,16 @@ class SubfilterSelectionViewController: UIViewController {
 
 extension SubfilterSelectionViewController: UICollectionViewDataSource {
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return _viewModels.count
+		return dataSource?.subfilterViewModels.count ?? 0
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SubfilterCell.reuseID, forIndexPath: indexPath) as! SubfilterCell
 		
-		let subfilter = _viewModels[indexPath.row]
-		cell.update(name: subfilter.name)
+		if let viewModels = dataSource?.subfilterViewModels {
+			let subfilter = viewModels[indexPath.row]
+			cell.update(name: subfilter.name)
+		}
 		
 		return cell
 	}
