@@ -37,7 +37,7 @@ class MainPlayerState: NSObject {
 		super.init()
 	}
 	
-	func transition(duration duration: Double) -> MainPlayerState {
+	func transition(duration duration: Double, completion: dispatch_block_t? = nil) -> MainPlayerState {
 		return self
 	}
 }

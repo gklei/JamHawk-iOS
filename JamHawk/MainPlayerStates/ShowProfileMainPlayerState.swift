@@ -11,7 +11,7 @@ import UIKit
 class ShowProfileState: MainPlayerState {
 	
 	// MARK: - Overridden
-	override func transition(duration duration: Double) -> MainPlayerState {
+	override func transition(duration duration: Double, completion: dispatch_block_t? = nil) -> MainPlayerState {
 		
 		guard !_delegate.currentState.isKindOfClass(self.dynamicType) else {
 			let state = DefaultMainPlayerState(delegate: _delegate)
@@ -29,6 +29,7 @@ class ShowProfileState: MainPlayerState {
 			self._delegate.view.layoutIfNeeded()
 		}) { finished in
 			self._delegate.mainPlayerStateTransitionEnded(from: previousState, to: self, duration: duration)
+			completion?()
 		}
 
 		return self

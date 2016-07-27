@@ -11,7 +11,7 @@ import UIKit
 class FilterSelectionMainPlayerState: MainPlayerState {
 	
 	// MARK: - Overridden
-	override func transition(duration duration: Double) -> MainPlayerState {
+	override func transition(duration duration: Double, completion: dispatch_block_t? = nil) -> MainPlayerState {
 		
 		let previousState = _delegate.currentState
 		_delegate.mainPlayerStateTransitionBegan(from: previousState, to: self, duration: duration)
@@ -24,6 +24,7 @@ class FilterSelectionMainPlayerState: MainPlayerState {
 			self._delegate.subfilterSelectionContainer.alpha = 1
 			}) { finished in
 				self._delegate.mainPlayerStateTransitionEnded(from: previousState, to: self, duration: duration)
+				completion?()
 		}
 		
 		return self

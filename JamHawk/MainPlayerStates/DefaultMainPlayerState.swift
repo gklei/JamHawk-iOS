@@ -11,7 +11,7 @@ import UIKit
 class DefaultMainPlayerState: MainPlayerState {
 	
 	// MARK: - Overridden
-	override func transition(duration duration: Double) -> MainPlayerState {
+	override func transition(duration duration: Double, completion: dispatch_block_t? = nil) -> MainPlayerState {
 		
 		let previousState = _delegate.currentState
 		_delegate.mainPlayerStateTransitionBegan(from: previousState, to: self, duration: duration)
@@ -26,6 +26,7 @@ class DefaultMainPlayerState: MainPlayerState {
 			self._delegate.largeCurrentTrackVotingViewController.setRatingViewControllerHidden(false)
 		}) { finished in
 			self._delegate.mainPlayerStateTransitionEnded(from: previousState, to: self, duration: duration)
+			completion?()
 		}
 		
 		return self
