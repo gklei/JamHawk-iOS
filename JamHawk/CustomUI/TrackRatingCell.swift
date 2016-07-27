@@ -20,6 +20,14 @@ private extension PlayerAPIOutputTrackRating {
 	var icon: UIImage? {
 		return UIImage(named: imageName)
 	}
+	
+	var selectedColor: UIColor {
+		switch self {
+		case .Negative: return .jmhTangerineColor()
+		case .Neutral: return .whiteColor()
+		case .Positive: return .jmhTurquoiseColor()
+		}
+	}
 }
 
 class TrackRatingCell: UICollectionViewCell {
@@ -28,27 +36,28 @@ class TrackRatingCell: UICollectionViewCell {
 	@IBOutlet private var _iconImageView: UIImageView!
 	@IBOutlet private var _centerYConstraint: NSLayoutConstraint!
 	
-	private var iconColor = UIColor.whiteColor()
-	
+	private var _iconColor = UIColor.whiteColor()
+	private var _selectedColor = UIColor.jmhTurquoiseColor()
 	
 	override var highlighted: Bool {
 		didSet {
-			iconColor = highlighted ? UIColor.jmhTurquoiseColor() : .whiteColor()
-			_iconImageView.tintColor = iconColor
+			_iconColor = highlighted ? _selectedColor : .whiteColor()
+			_iconImageView.tintColor = _iconColor
 			setNeedsDisplay()
 		}
 	}
 	
 	override var selected: Bool {
 		didSet {
-			iconColor = selected ? UIColor.jmhTurquoiseColor() : .whiteColor()
-			_iconImageView.tintColor = iconColor
+			_iconColor = selected ? _selectedColor : .whiteColor()
+			_iconImageView.tintColor = _iconColor
 			setNeedsDisplay()
 		}
 	}
 	
 	func update(withRating rating: PlayerAPIOutputTrackRating) {
 		_iconImageView.image = rating.icon
+		_selectedColor = rating.selectedColor
 		
 		// We need this weird hack for now to get the image to be centered on the Y-axis
 		let offset = bounds.height * 0.02
@@ -58,7 +67,7 @@ class TrackRatingCell: UICollectionViewCell {
 	override func drawRect(rect: CGRect) {
 		let context = UIGraphicsGetCurrentContext()
 		
-		iconColor.setStroke()
+		_iconColor.setStroke()
 		CGContextSetLineWidth(context, 2)
 		CGContextStrokeEllipseInRect(context, rect.insetBy(dx: 1, dy: 1))
 	}
