@@ -7,14 +7,19 @@
 //
 
 import UIKit
-import AVFoundation
 
-enum PlayerControlsActionType {
+enum PlayerControlsEventType {
 	case UserProfile, Play, Pause, NextTrack, Mute, Unmute
 }
 
-protocol PlayerControlsViewControllerDelegate: class {
-	func playerControlsViewController(controller: PlayerControlsViewController, didExecuteAction action: PlayerControlsActionType)
+protocol PlayerDataSource: class {
+	var paused: Bool { get }
+	var muted: Bool { get }
+	func register(event event: PlayerControlsEventType)
+}
+
+protocol PlayerControlsDelegate: class {
+	func playerControlsProfileButtonPressed()
 }
 
 final class PlayerControlsViewController: UIViewController, PlayerStoryboardInstantiable {
@@ -28,10 +33,10 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	@IBOutlet private var _bottomPaddingView: UIView!
 	
 	// MARK: - Properties
-	weak var delegate: PlayerControlsViewControllerDelegate?
+	weak var dataSource: PlayerDataSource?
+	weak var delegate: PlayerControlsDelegate?
 	
 	private var _playerProgressVC: PlayerProgressViewController?
-	private let _player = AVPlayer() // TODO: Take player out of here...
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -51,57 +56,48 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 		switch segue.destinationViewController {
 		case is PlayerProgressViewController:
 			_playerProgressVC = segue.destinationViewController as? PlayerProgressViewController
-			_playerProgressVC?.startObserving(player: _player)
 		default: break
 		}
 	}
 	
 	// MARK: - Private
 	internal func _profileButtonPressed() {
-		delegate?.playerControlsViewController(self, didExecuteAction: .UserProfile)
-	}
-	
-	private func _updatePlayer(withOutput output: PlayerAPIOutput) {
-		guard let updatedItem = AVPlayerItem(output: output) else { return }
-		
-		_player.replaceCurrentItemWithPlayerItem(updatedItem)
-		_player.play()
-		
-		_updateBarButtonItems()
+		dataSource?.register(event: .UserProfile)
+		delegate?.playerControlsProfileButtonPressed()
 	}
 	
 	@IBAction private func _playPauseButtonPressed() {
-		_player.togglePlayPause()
-		_updateBarButtonItems()
-		
-		// At this point if the player is paused, then the executed action was Pause
-		let action: PlayerControlsActionType = _player.paused ? .Pause : .Play
-		delegate?.playerControlsViewController(self, didExecuteAction: action)
+		guard let dataSource = dataSource else { return }
+		let event: PlayerControlsEventType = dataSource.paused ? .Play : .Pause
+		dataSource.register(event: event)
 	}
 	
 	@IBAction private func _nextTrackButtonPressed() {
-		delegate?.playerControlsViewController(self, didExecuteAction: .NextTrack)
+		dataSource?.register(event: .NextTrack)
 	}
 	
 	@IBAction private func _toggleMuteButtonPressed() {
-		_player.toggleMute()
-		_updateBarButtonItems()
-		
-		let action: PlayerControlsActionType = _player.muted ? .Mute : .Unmute
-		delegate?.playerControlsViewController(self, didExecuteAction: action)
+		guard let dataSource = dataSource else { return }
+		let event: PlayerControlsEventType = dataSource.muted ? .Unmute : .Mute
+		dataSource.register(event: event)
 	}
 	
 	private func _updateBarButtonItems() {
-		let playPauseImageName = _player.paused ? "play2" : "pause"
-		let toggleMuteImageName = _player.muted ? "mute" : "low_volume2"
+		guard let dataSource = dataSource else { return }
 		
+		let playPauseImageName = dataSource.paused ? "play2" : "pause"
+		let toggleMuteImageName = dataSource.muted ? "mute" : "low_volume2"
+
 		_playPauseItem.image = UIImage(named: playPauseImageName)
 		_toggleMuteItem.image = UIImage(named: toggleMuteImageName)
 	}
 	
 	// MARK: - Public
-	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
-		_playerProgressVC?.output = output
-		_updatePlayer(withOutput: output)
+	func syncUI() {
+		_updateBarButtonItems()
+	}
+	
+	func updateProgress(progress: CGFloat) {
+		_playerProgressVC?.updateProgress(progress)
 	}
 }

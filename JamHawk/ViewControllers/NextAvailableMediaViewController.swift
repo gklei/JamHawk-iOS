@@ -8,46 +8,111 @@
 
 import UIKit
 
+protocol NextAvailableMediaSelectionDataSource: class {
+	var selectedMediaIndex: Int? { get }
+	var nextAvailableMediaViewModels: [PlayerAPIOutputMetadataViewModel] { get }
+	func selectMedia(atIndex index: Int)
+}
+
 final class NextAvailableMediaViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!
 	@IBOutlet private var _nextSongInfoLabel: UILabel!
 	
-	// MARK: - Properties: Private
-	private var _nextAvailableMediaDS: NextAvailableMediaDataSource?
-	
-	// MARK: - Properties: Public
-	var selectedTrack: PlayerAPIOutputMetadata? {
-		return _nextAvailableMediaDS?.selectedTrack
-	}
+	// MARK: - Properties
+	weak var dataSource: NextAvailableMediaSelectionDataSource?
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let nib = UINib(nibName: NextAvailableMediaCell.xibName, bundle: nil)
-		_collectionView.registerNib(nib, forCellWithReuseIdentifier: NextAvailableMediaCell.reuseID)
+		_registerCollectionViewCells()
+		_setupCollectionViewLayout()
 		
-		_nextAvailableMediaDS = NextAvailableMediaDataSource(collectionView: _collectionView)
-		_nextAvailableMediaDS?.selectionClosure = _updateUI
+		_collectionView.dataSource = self
+		_collectionView.delegate = self
 		
 		let topBorder = view.addBorder(withSize: 1, toEdge: .Top)
 		topBorder?.backgroundColor = UIColor(white: 1, alpha: 0.4)
 	}
 	
-	// MARK: - Private
-	private func _updateUI(withTrack track: PlayerAPIOutputMetadata) {
-		let vm = PlayerAPIOutputMetadataViewModel(metatdata: track)
-		guard let title = vm.artistAndSongTitle else { return }
+	// MARK: - Setup
+	private func _setupCollectionViewLayout() {
+		let layout = UICollectionViewFlowLayout()
 		
-		_nextSongInfoLabel.text = "Next Song: \(title)"
+		let size = _collectionView.bounds.height
+		layout.itemSize = CGSize(width: size, height: size)
+		layout.minimumLineSpacing = 28.0
+		layout.scrollDirection = .Horizontal
+		
+		_collectionView.collectionViewLayout = layout
+	}
+	
+	private func _registerCollectionViewCells() {
+		let nib = UINib(nibName: NextAvailableMediaCell.xibName, bundle: nil)
+		_collectionView.registerNib(nib, forCellWithReuseIdentifier: NextAvailableMediaCell.reuseID)
 	}
 	
 	// MARK: - Public
-	func update(withPlayerAPIOutput output: PlayerAPIOutput) {
-		_nextAvailableMediaDS?.resetCells()
-		_nextAvailableMediaDS?.update(withPlayerAPIOutput: output)
-		_nextAvailableMediaDS?.selectFirstTrack()
+	func syncData() {
+		_collectionView.reloadSections(NSIndexSet(index: 0))
+	}
+	
+	func syncUI() {
+		_updateInfoLabel()
+		if let selectedIndex = self.dataSource?.selectedMediaIndex {
+			let ip = NSIndexPath(forRow: selectedIndex, inSection: 0)
+			_collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .CenteredHorizontally)
+		}
+	}
+	
+	private func _updateInfoLabel() {
+		guard let index = dataSource?.selectedMediaIndex else { return }
+		guard let viewModel = dataSource?.nextAvailableMediaViewModels[index] else { return }
+		guard let artistAndSongTitle = viewModel.artistAndSongTitle else { return }
+		
+		_nextSongInfoLabel.text = "Next Song: \(artistAndSongTitle)"
+	}
+}
+
+extension NextAvailableMediaViewController: UICollectionViewDataSource {
+	
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return dataSource?.nextAvailableMediaViewModels.count ?? 0
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		let cellID = NextAvailableMediaCell.reuseID
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellID, forIndexPath: indexPath) as! NextAvailableMediaCell
+		
+		if let viewModels = dataSource?.nextAvailableMediaViewModels {
+			let vm = viewModels[indexPath.row]
+			cell.update(withViewModel: vm)
+		}
+		
+		return cell
+	}
+}
+
+extension NextAvailableMediaViewController: UICollectionViewDelegate {
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		dataSource?.selectMedia(atIndex: indexPath.row)
+	}
+	
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
+	{
+		let cellWidth = collectionView.bounds.height
+		let numberOfCells: CGFloat = CGFloat(dataSource?.nextAvailableMediaViewModels.count ?? 0)
+		let cellSpacing: CGFloat = 28.0
+		
+		let viewWidth = UIScreen.mainScreen().bounds.width
+		let totalContentWidth = numberOfCells * cellWidth + ((numberOfCells - 1) * cellSpacing)
+		
+		var leftEdgeInset = (viewWidth - totalContentWidth) * 0.5
+		leftEdgeInset = max(leftEdgeInset, 0)
+		
+		return UIEdgeInsets(top: 0, left: leftEdgeInset, bottom: 0, right: leftEdgeInset)
 	}
 }

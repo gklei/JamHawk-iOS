@@ -11,21 +11,24 @@ import UIKit
 class DefaultMainPlayerState: MainPlayerState {
 	
 	// MARK: - Overridden
-	override func transition(duration duration: Double) -> MainPlayerState {
-		_delegate.transition(from: _delegate.smallCurrentTrackVotingViewController,
-		                     to: _delegate.nextAvailableMediaViewController,
-		                     completion: nil)
+	override func transition(duration duration: Double, completion: dispatch_block_t? = nil) -> MainPlayerState {
 		
-		_delegate.subfilterSelectionViewController.reset()
-		_delegate.parentFilterSelectionViewController.deselectFilters()
+		let previousState = _delegate.currentState
+		_delegate.mainPlayerStateTransitionBegan(from: previousState, to: self, duration: duration)
 		
 		_delegate.bottomContainerHeightConstraint.constant = 150.0
-		UIView.animateWithDuration(duration) {
+		UIView.animateWithDuration(duration, animations: {
 			self._delegate.view.layoutIfNeeded()
+			self._delegate.nextAvailablMediaContainer.alpha = 1
 			self._delegate.subfilterSelectionContainer.alpha = 0
 			self._delegate.profileNavigationContainer.alpha = 0
-			self._delegate.largeCurrentTrackVotingViewController.setVotingButtonsHidden(false)
+			self._delegate.compactCurrentTrackContainer.alpha = 0
+			self._delegate.largeCurrentTrackVotingViewController.setRatingViewControllerHidden(false)
+		}) { finished in
+			self._delegate.mainPlayerStateTransitionEnded(from: previousState, to: self, duration: duration)
+			completion?()
 		}
+		
 		return self
 	}
 }

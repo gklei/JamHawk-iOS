@@ -11,24 +11,20 @@ import UIKit
 protocol MainPlayerStateDelegate: class {
 	var view: UIView! { get }
 	
-	var parentFilterSelectionViewController: ParentFilterSelectionViewController { get }
-	var subfilterSelectionViewController: SubfilterSelectionViewController { get }
-	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController { get }
-	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController { get }
-	var nextAvailableMediaViewController: NextAvailableMediaViewController { get }
-	var playerControlsViewController: PlayerControlsViewController { get }
-	var profileViewController: ProfileViewController { get }
+	var largeCurrentTrackVotingViewController: LargeCurrentTrackViewController { get }
+	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
 	
-	var bottomContainer: UIView! { get }
 	var middleContainer: UIView! { get }
 	var subfilterSelectionContainer: UIView! { get }
 	var profileNavigationContainer: UIView! { get }
 	
-	var profileNavigationController: UINavigationController { get }
-	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
+	var compactCurrentTrackContainer: UIView! { get }
+	var nextAvailablMediaContainer: UIView! { get }
 	
 	var currentState: MainPlayerState { get }
-	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, completion: dispatch_block_t?)
+	
+	func mainPlayerStateTransitionBegan(from from: MainPlayerState, to: MainPlayerState, duration: Double)
+	func mainPlayerStateTransitionEnded(from from: MainPlayerState, to: MainPlayerState, duration: Double)
 }
 
 class MainPlayerState: NSObject {
@@ -41,7 +37,7 @@ class MainPlayerState: NSObject {
 		super.init()
 	}
 	
-	func transition(duration duration: Double) -> MainPlayerState {
+	func transition(duration duration: Double, completion: dispatch_block_t? = nil) -> MainPlayerState {
 		return self
 	}
 }

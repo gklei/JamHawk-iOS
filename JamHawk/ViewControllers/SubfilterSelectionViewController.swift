@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SubfilterSelectionDataSource: class {
+	var subfilterViewModels: [SubfilterViewModel] { get }
+}
+
 class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Outlets
@@ -15,17 +19,11 @@ class SubfilterSelectionViewController: UIViewController {
 	@IBOutlet private var _collectionViewHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
-	private var _filter: PlayerAPIOutputFilter?
-	private var _playerSubfiltersDS: PlayerSubfiltersDataSource?
-	
-	var parentFilter: PlayerAPIOutputFilter? {
-		return _filter
-	}
+	weak var dataSource: SubfilterSelectionDataSource?
+	private var _viewModels: [SubfilterViewModel] = []
+	private var _layout: UICollectionViewFlowLayout!
 	
 	var viewTappedClosure: () -> Void = {}
-	var selectedSubfilterIDs: [PlayerAPIFilterID] {
-		return _playerSubfiltersDS?.selectedSubfilterIDs ?? []
-	}
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -38,44 +36,78 @@ class SubfilterSelectionViewController: UIViewController {
 		_collectionView.backgroundColor = .whiteColor()
 		_collectionView.layer.masksToBounds = true
 		
+		_registerCollectionViewCells()
 		_setupCollectionViewLayout()
-		_playerSubfiltersDS = PlayerSubfiltersDataSource(collectionView: _collectionView)
-		_collectionViewHeightConstraint.constant = view.bounds.height
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		_updateCollectionViewHeight()
 	}
 	
 	// MARK: - Setup
+	private func _registerCollectionViewCells() {
+		let nib = UINib(nibName: SubfilterCell.xibName, bundle: nil)
+		_collectionView.registerNib(nib, forCellWithReuseIdentifier: SubfilterCell.reuseID)
+	}
+	
 	private func _setupCollectionViewLayout() {
 		let size = UIScreen.mainScreen().bounds.width * 0.24
 		let inset = UIScreen.mainScreen().bounds.width * 0.08
 		
-		let layout = UICollectionViewFlowLayout()
-		layout.itemSize = CGSize(width: size, height: size)
-		layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+		_layout = UICollectionViewFlowLayout()
+		_layout.itemSize = CGSize(width: size, height: size)
+		_layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
 		
-		_collectionView.collectionViewLayout = layout
+		_collectionView.collectionViewLayout = _layout
+		view.setNeedsLayout()
 	}
 	
 	// MARK: - Public
-	func update(filter filter: PlayerAPIOutputFilter, selectedSubfilters: [PlayerAPIFilterID]) {
-		guard _filter != filter else { return }
+	func syncData() {
+		_viewModels = dataSource?.subfilterViewModels ?? []
 		
-		_filter = filter
-		_playerSubfiltersDS?.update(filter: filter)
-		
-		_playerSubfiltersDS?.selectSubfilters(withIDs: selectedSubfilters)
-		
-		// Manually update the collection view height
-		let numRows: CGFloat = ceil(CGFloat(filter.filterIDs.count) / 3.0)
-		let layout = self._collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-		let height = layout.sectionInset.top + layout.sectionInset.bottom + (layout.itemSize.height * numRows)
-		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
+		dispatch_async(dispatch_get_main_queue()) {
+			self._collectionView.reloadData()
+			self.view.setNeedsLayout()
+		}
 	}
 	
-	func reset() {
-		_filter = nil
+	func syncUI() {
+		_viewModels = dataSource?.subfilterViewModels ?? []
+		
+		dispatch_async(dispatch_get_main_queue()) {
+			self._collectionView.reloadData()
+			self.view.setNeedsLayout()
+		}
+	}
+	
+	private func _updateCollectionViewHeight() {
+		let count = _viewModels.count
+		let numRows: CGFloat = ceil(CGFloat(count) / 3.0)
+		let height = _layout.sectionInset.top + _layout.sectionInset.bottom + (_layout.itemSize.height * numRows)
+		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
 	}
 	
 	@IBAction private func _viewTapped(recognizer: UIGestureRecognizer) {
 		viewTappedClosure()
 	}
+}
+
+extension SubfilterSelectionViewController: UICollectionViewDataSource {
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return _viewModels.count
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SubfilterCell.reuseID, forIndexPath: indexPath) as! SubfilterCell
+		
+		let subfilter = _viewModels[indexPath.row]
+		cell.update(name: subfilter.name)
+		
+		return cell
+	}
+}
+
+extension SubfilterSelectionViewController: UICollectionViewDelegate {
 }

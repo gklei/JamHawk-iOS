@@ -26,6 +26,7 @@ class TemporaryInitialViewController: UIViewController {
 	
 	// MARK: - Public
 	func update(state: TemporaryInitialState) {
+		let _ = view
 		_mainLabel.text = state.rawValue
 	}
 }

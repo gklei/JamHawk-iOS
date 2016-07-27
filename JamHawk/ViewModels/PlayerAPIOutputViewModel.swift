@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PlayerAPIOutputMediaViewModel {
 	let media: PlayerAPIOutputMedia
@@ -17,7 +18,7 @@ struct PlayerAPIOutputMediaViewModel {
 	}
 }
 
-struct PlayerAPIOutputFilterViewModel {
+struct PlayerAPIOutputFilterViewModel: Equatable {
 	let filter: PlayerAPIOutputFilter
 	
 	var filterName: String {
@@ -29,24 +30,28 @@ struct PlayerAPIOutputFilterViewModel {
 	}
 }
 
+func ==(lhs: PlayerAPIOutputFilterViewModel, rhs: PlayerAPIOutputFilterViewModel) -> Bool {
+	return lhs.filter == rhs.filter
+}
+
 struct PlayerAPIOutputMetadataViewModel {
-	let metatdata: PlayerAPIOutputMetadata
+	let metadata: PlayerAPIOutputMetadata
 	
 	var albumArtworkURL: NSURL? {
-		guard let imageURLString = metatdata.imageURL else { return nil }
+		guard let imageURLString = metadata.imageURL else { return nil }
 		return NSURL(string: imageURLString)
 	}
 	
 	var songTitle: String? {
-		return metatdata.title
+		return metadata.title
 	}
 	
 	var artistName: String? {
-		return metatdata.artist
+		return metadata.artist
 	}
 	
 	var albumTitle: String? {
-		return metatdata.album
+		return metadata.album
 	}
 	
 	var artistAndSongTitle: String? {
@@ -67,4 +72,8 @@ struct PlayerAPIOutputArtistViewModel {
 	var text: String? {
 		return artist.text
 	}
+}
+
+struct PlayerAPIOutputTrackRatingViewModel {
+	let rating: PlayerAPIOutputTrackRating
 }

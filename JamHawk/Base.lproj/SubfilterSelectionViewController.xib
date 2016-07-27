@@ -23,6 +23,7 @@
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="5hh-Df-7K5" appends="YES" id="cP8-G0-gEV"/>
+                        <outletCollection property="gestureRecognizers" destination="WHR-hd-r8C" appends="YES" id="MkT-4h-W4R"/>
                     </connections>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vod-CI-qjz">
@@ -37,6 +38,10 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="CWJ-QM-TlF"/>
+                        <outlet property="delegate" destination="-1" id="hxl-Sm-Np6"/>
+                    </connections>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,5 +63,10 @@
                 <action selector="_viewTapped:" destination="-1" id="uOA-kh-X2U"/>
             </connections>
         </tapGestureRecognizer>
+        <swipeGestureRecognizer direction="up" id="WHR-hd-r8C">
+            <connections>
+                <action selector="_viewTapped:" destination="-1" id="N0T-Jf-YPK"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
 </document>

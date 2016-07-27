@@ -11,21 +11,25 @@ import UIKit
 class ShowProfileState: MainPlayerState {
 	
 	// MARK: - Overridden
-	override func transition(duration duration: Double) -> MainPlayerState {
+	override func transition(duration duration: Double, completion: dispatch_block_t? = nil) -> MainPlayerState {
 		
 		guard !_delegate.currentState.isKindOfClass(self.dynamicType) else {
 			let state = DefaultMainPlayerState(delegate: _delegate)
 			return state.transition(duration: duration)
 		}
 		
-		_delegate.transition(from: _delegate.nextAvailableMediaViewController,
-		                     to: _delegate.smallCurrentTrackVotingViewController,
-		                     completion: nil)
+		let previousState = _delegate.currentState
+		_delegate.mainPlayerStateTransitionBegan(from: previousState, to: self, duration: duration)
 		
 		_delegate.bottomContainerHeightConstraint.constant = 80.0
-		UIView.animateWithDuration(duration) {
+		UIView.animateWithDuration(duration, animations: {
+			self._delegate.nextAvailablMediaContainer.alpha = 0
+			self._delegate.compactCurrentTrackContainer.alpha = 1
 			self._delegate.profileNavigationContainer.alpha = 1
 			self._delegate.view.layoutIfNeeded()
+		}) { finished in
+			self._delegate.mainPlayerStateTransitionEnded(from: previousState, to: self, duration: duration)
+			completion?()
 		}
 
 		return self

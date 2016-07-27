@@ -9,28 +9,8 @@
 import UIKit
 
 extension MainPlayerViewController: MainPlayerStateDelegate {
-	var parentFilterSelectionViewController: ParentFilterSelectionViewController {
-		return _parentFilterSelectionVC
-	}
-	
-	var smallCurrentTrackVotingViewController: CurrentTrackVotingSmallViewController {
-		return _smallCurrentTrackVotingVC
-	}
-	
-	var largeCurrentTrackVotingViewController: CurrentTrackVotingLargeViewController {
-		return _currentTrackVotingVC
-	}
-	
-	var nextAvailableMediaViewController: NextAvailableMediaViewController {
-		return _nextAvailableMediaVC
-	}
-	
-	var playerControlsViewController: PlayerControlsViewController {
-		return _playerControlsVC
-	}
-	
-	var subfilterSelectionViewController: SubfilterSelectionViewController {
-		return _subfilterSelectionVC
+	var largeCurrentTrackVotingViewController: LargeCurrentTrackViewController {
+		return _largeCurrentTrackVC
 	}
 	
 	var bottomContainerHeightConstraint: NSLayoutConstraint {
@@ -41,12 +21,12 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _subfilterSelectionContainer
 	}
 	
-	var profileNavigationController: UINavigationController {
-		return _profileNavController
+	var compactCurrentTrackContainer: UIView! {
+		return _compactCurrentTrackContainer
 	}
 	
-	var profileViewController: ProfileViewController {
-		return _profileViewController
+	var nextAvailablMediaContainer: UIView! {
+		return _nextAvailableMediaContainer
 	}
 	
 	var profileNavigationContainer: UIView! {
@@ -57,11 +37,31 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _middleContainer
 	}
 	
-	var bottomContainer: UIView! {
-		return _bottomContainer
-	}
-	
 	var currentState: MainPlayerState {
 		return _currentState
+	}
+	
+	func mainPlayerStateTransitionBegan(from from: MainPlayerState, to: MainPlayerState, duration: Double) {
+		view.userInteractionEnabled = false
+		
+		UIView.animateWithDuration(duration) {
+			if to.isKindOfClass(FilterSelectionMainPlayerState) {
+				self._largeCurrentTrackVC.setRatingViewControllerHidden(true)
+			} else {
+				self._largeCurrentTrackVC.setRatingViewControllerHidden(false)
+			}
+		}
+		
+		_statusBarStyle = to.isKindOfClass(ShowProfileState) ? .Default : .LightContent
+		setNeedsStatusBarAppearanceUpdate()
+	}
+	
+	func mainPlayerStateTransitionEnded(from from: MainPlayerState, to: MainPlayerState, duration: Double) {
+		view.userInteractionEnabled = true
+		
+		if let next = _stateAfterNextModelUpdate {
+			_currentState = next.transition(duration: duration)
+			_stateAfterNextModelUpdate = nil
+		}
 	}
 }

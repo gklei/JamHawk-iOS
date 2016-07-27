@@ -105,7 +105,7 @@ enum PlayerAPIOutputTrackRating: Int, JSONEncodable, JSONDecodable {
 	}
 }
 
-struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
+struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable, Equatable {
 	let mid: PlayerAPIMediaID?
 	let artist: String?
 	let album: String?
@@ -115,6 +115,26 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 	let rating: PlayerAPIOutputTrackRating?
 	let duration: Int?
 	let links: [String]?
+	
+	init(mid: PlayerAPIMediaID?,
+	     artist: String?,
+	     album: String?,
+	     title: String?,
+	     detailURL: String?,
+	     imageURL: String?,
+	     rating: PlayerAPIOutputTrackRating?,
+	     duration: Int?,
+	     links: [String]?) {
+		self.mid = mid
+		self.artist = artist
+		self.album = album
+		self.title = title
+		self.detailURL = detailURL
+		self.imageURL = imageURL
+		self.rating = rating
+		self.duration = duration
+		self.links = links
+	}
 	
 	init(json: JSON) throws {
 		mid = try json.int("mid", alongPath: .MissingKeyBecomesNil)
@@ -142,6 +162,14 @@ struct PlayerAPIOutputMetadata: JSONDecodable, JSONEncodable {
 		]
 		return JSON.withoutNullValues(json)
 	}
+	
+	func copy(withRating rating: PlayerAPIOutputTrackRating) -> PlayerAPIOutputMetadata {
+		return PlayerAPIOutputMetadata(mid: mid, artist: artist, album: album, title: title, detailURL: detailURL, imageURL: imageURL, rating: rating, duration: duration, links: links)
+	}
+}
+
+func ==(lhs: PlayerAPIOutputMetadata, rhs: PlayerAPIOutputMetadata) -> Bool {
+	return lhs.mid == rhs.mid
 }
 
 struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
@@ -161,8 +189,6 @@ struct PlayerAPIOutputMessage: JSONDecodable, JSONEncodable {
 		return JSON.withoutNullValues(json)
 	}
 }
-
-
 
 struct PlayerAPIOutputFilter: JSONEncodable, JSONDecodable, Equatable {
 	let category: String
