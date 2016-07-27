@@ -37,6 +37,8 @@ final class CompactCurrentTrackViewController: CurrentTrackViewController, Playe
 		}
 	}
 	
+	var swipeUpClosure: () -> Void = {}
+	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		let destController = segue.destinationViewController
 		switch destController {
@@ -57,6 +59,10 @@ final class CompactCurrentTrackViewController: CurrentTrackViewController, Playe
 	
 	func setRatingViewControllerHidden(hidden: Bool) {
 		_trackRatingVC?.view.alpha = hidden ? 0 : 1
+	}
+	
+	@IBAction private func _swipeRecognized(recognizer: UIGestureRecognizer) {
+		swipeUpClosure()
 	}
 }
 

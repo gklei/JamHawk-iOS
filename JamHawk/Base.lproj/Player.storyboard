@@ -426,6 +426,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DKY-Ai-uhh" secondAttribute="trailing" constant="20" id="3eb-3o-H6Z"/>
                             <constraint firstItem="P8a-IC-bDc" firstAttribute="leading" secondItem="chN-1W-Qlp" secondAttribute="leading" constant="20" id="4M0-t9-nNt"/>
@@ -439,6 +440,9 @@
                             <constraint firstItem="768-Hc-yGp" firstAttribute="top" secondItem="NGM-1p-PbW" secondAttribute="bottom" id="mkf-Zn-522"/>
                             <constraint firstItem="DKY-Ai-uhh" firstAttribute="leading" secondItem="Kng-G2-AJS" secondAttribute="trailing" constant="8" id="uh5-c3-er4"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="k9X-ER-CBn" appends="YES" id="74G-xY-suV"/>
+                        </connections>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -449,6 +453,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFD-b1-3Ra" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="k9X-ER-CBn">
+                    <connections>
+                        <action selector="_swipeRecognized:" destination="xaj-35-zse" id="hfw-ZG-36B"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1508" y="559"/>
         </scene>

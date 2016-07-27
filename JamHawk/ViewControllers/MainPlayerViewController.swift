@@ -60,6 +60,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_profileNavController.viewControllers = [_profileViewController]
 		_playerControlsVC.delegate = self
 		
+		_compactCurrentTrackVC.swipeUpClosure = _compactCurrentTrackSwipedUp
+		
 		// A little hacky..
 		_currentState = DefaultMainPlayerState(delegate: self)
 		_transition(toState: _currentState, duration: 0)
@@ -206,6 +208,15 @@ extension MainPlayerViewController: PlayerControlsDelegate {
 			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
 		} else {
 			let state = ShowProfileState(delegate: self)
+			_transition(toState: state, duration: 0.3)
+		}
+	}
+	
+	private func _compactCurrentTrackSwipedUp() {
+		if _currentState.isKindOfClass(FilterSelectionMainPlayerState) {
+			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
+		} else {
+			let state = DefaultMainPlayerState(delegate: self)
 			_transition(toState: state, duration: 0.3)
 		}
 	}
