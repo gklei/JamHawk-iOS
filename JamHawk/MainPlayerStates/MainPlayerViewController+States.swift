@@ -50,6 +50,9 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 				self._largeCurrentTrackVC.setRatingViewControllerHidden(false)
 			}
 		}
+		
+		_statusBarStyle = to.isKindOfClass(ShowProfileState) ? .Default : .LightContent
+		setNeedsStatusBarAppearanceUpdate()
 	}
 	
 	func mainPlayerStateTransitionEnded(from from: MainPlayerState, to: MainPlayerState, duration: Double) {

@@ -29,6 +29,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	// MARK: - Properties
 	internal var _currentState: MainPlayerState!
+	internal var _statusBarStyle = UIStatusBarStyle.LightContent
 	
 	private let _parentFilterSelectionVC = ParentFilterSelectionViewController.create()
 	private var _subfilterSelectionVC = SubfilterSelectionViewController()
@@ -39,8 +40,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	private let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
 	private let _playerControlsVC = PlayerControlsViewController.create()
 	
-	internal var _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
-	internal let _profileNavController = ProfileNavigationController()
+	private let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
+	private let _profileNavController = ProfileNavigationController()
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -57,6 +58,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_profileNavController.viewControllers = [_profileViewController]
 		_playerControlsVC.delegate = self
 		
+		// A little hacky..
 		_currentState = DefaultMainPlayerState(delegate: self)
 		_transition(toState: _currentState, duration: 0)
 	}
@@ -69,7 +71,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return _currentState.isKindOfClass(ShowProfileState) ? .Default : .LightContent
+		return _statusBarStyle
 	}
 	
 	// MARK: - System Setup
