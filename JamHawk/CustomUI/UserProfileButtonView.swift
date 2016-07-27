@@ -25,7 +25,7 @@ class UserProfileButtonView: UIButton {
 		self.init(frame: CGRect(x: 0, y: 0, width: 26, height: 26))
 		
 		let button = UIButton()
-		button.addTarget(target, action: selector, forControlEvents: .TouchDown)
+		button.addTarget(target, action: selector, forControlEvents: .TouchUpInside)
 		
 		addAndFill(subview: button)
 	}
