@@ -301,13 +301,13 @@
 		CE6CE9A21D3D67670029659F /* Main View Controller States */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEAD8F1D3D7EDD004D3CFC /* MainPlayerViewController+States.swift */,
+				CE6CE9A31D3D67D50029659F /* MainPlayerState.swift */,
 				CE5DA0D91D44936B00025C17 /* DefaultMainPlayerState.swift */,
 				CE5DA0DB1D4493D700025C17 /* FilterSelectionMainPlayerState.swift */,
-				CE6CE9A31D3D67D50029659F /* MainPlayerState.swift */,
 				CE5DA0DD1D44940200025C17 /* ShowProfileMainPlayerState.swift */,
 				CE5DA0E11D4494AE00025C17 /* ShowTrackDetailsState.swift */,
 				CE5DA0DF1D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift */,
+				CEFEAD8F1D3D7EDD004D3CFC /* MainPlayerViewController+States.swift */,
 			);
 			name = "Main View Controller States";
 			sourceTree = "<group>";

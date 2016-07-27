@@ -29,14 +29,6 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _nextAvailableMediaContainer
 	}
 	
-	var profileNavigationController: UINavigationController {
-		return _profileNavController
-	}
-	
-	var profileViewController: ProfileViewController {
-		return _profileViewController
-	}
-	
 	var profileNavigationContainer: UIView! {
 		return _profileNavigationContainer
 	}
@@ -47,5 +39,19 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	
 	var currentState: MainPlayerState {
 		return _currentState
+	}
+	
+	func mainPlayerStateTransitionBegan(from from: MainPlayerState, to: MainPlayerState, duration: Double) {
+		
+		UIView.animateWithDuration(duration) {
+			if to.isKindOfClass(FilterSelectionMainPlayerState) {
+				self._largeCurrentTrackVC.setRatingViewControllerHidden(true)
+			} else {
+				self._largeCurrentTrackVC.setRatingViewControllerHidden(false)
+			}
+		}
+	}
+	
+	func mainPlayerStateTransitionEnded(from from: MainPlayerState, to: MainPlayerState, duration: Double) {
 	}
 }

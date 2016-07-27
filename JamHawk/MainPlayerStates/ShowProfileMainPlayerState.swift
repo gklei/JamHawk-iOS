@@ -18,12 +18,17 @@ class ShowProfileState: MainPlayerState {
 			return state.transition(duration: duration)
 		}
 		
+		let previousState = _delegate.currentState
+		_delegate.mainPlayerStateTransitionBegan(from: previousState, to: self, duration: duration)
+		
 		_delegate.bottomContainerHeightConstraint.constant = 80.0
-		UIView.animateWithDuration(duration) {
+		UIView.animateWithDuration(duration, animations: {
 			self._delegate.nextAvailablMediaContainer.alpha = 0
 			self._delegate.compactCurrentTrackContainer.alpha = 1
 			self._delegate.profileNavigationContainer.alpha = 1
 			self._delegate.view.layoutIfNeeded()
+		}) { finished in
+			self._delegate.mainPlayerStateTransitionEnded(from: previousState, to: self, duration: duration)
 		}
 
 		return self

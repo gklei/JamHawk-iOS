@@ -12,19 +12,19 @@ protocol MainPlayerStateDelegate: class {
 	var view: UIView! { get }
 	
 	var largeCurrentTrackVotingViewController: LargeCurrentTrackViewController { get }
+	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
 	
 	var middleContainer: UIView! { get }
 	var subfilterSelectionContainer: UIView! { get }
 	var profileNavigationContainer: UIView! { get }
 	
-	var profileNavigationController: UINavigationController { get }
-	var bottomContainerHeightConstraint: NSLayoutConstraint { get }
-	
 	var compactCurrentTrackContainer: UIView! { get }
 	var nextAvailablMediaContainer: UIView! { get }
 	
 	var currentState: MainPlayerState { get }
-	func transition(from fromChildVC: UIViewController?, to toChildVC: UIViewController, completion: dispatch_block_t?)
+	
+	func mainPlayerStateTransitionBegan(from from: MainPlayerState, to: MainPlayerState, duration: Double)
+	func mainPlayerStateTransitionEnded(from from: MainPlayerState, to: MainPlayerState, duration: Double)
 }
 
 class MainPlayerState: NSObject {

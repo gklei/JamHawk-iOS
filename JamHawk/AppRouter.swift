@@ -11,6 +11,7 @@ import UIKit
 class AppRouter {
 	let window: UIWindow
 	let session: JamHawkSession
+	var coordinationController: SystemCoordinationController?
 	
 	let rootNavController = JamHawkNavigationController()
 	
@@ -27,7 +28,9 @@ class AppRouter {
 		_signInVC.signUpButtonPressed = _signUp
 		_signInVC.signInButtonPressed = _signIn
 		
-		_mainPlayerVC.playerAPIService = session
+		coordinationController = SystemCoordinationController(apiService: session)
+		
+		_mainPlayerVC.setup(withCoordinationController: coordinationController!)
 		
 		let _ = _tempInitialVC.view
 		_tempInitialVC.update(.SigningIn)
@@ -96,9 +99,8 @@ extension AppRouter {
 		}
 		
 		guard let output = output else { return }
+		coordinationController?.handle(apiOutput: output)
 		
-		let _ = _mainPlayerVC.view // load the view
-		_mainPlayerVC.update(withPlayerAPIOutput: output)
 		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}
 }

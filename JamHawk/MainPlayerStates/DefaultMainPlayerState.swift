@@ -13,14 +13,19 @@ class DefaultMainPlayerState: MainPlayerState {
 	// MARK: - Overridden
 	override func transition(duration duration: Double) -> MainPlayerState {
 		
+		let previousState = _delegate.currentState
+		_delegate.mainPlayerStateTransitionBegan(from: previousState, to: self, duration: duration)
+		
 		_delegate.bottomContainerHeightConstraint.constant = 150.0
-		UIView.animateWithDuration(duration) {
+		UIView.animateWithDuration(duration, animations: {
 			self._delegate.view.layoutIfNeeded()
 			self._delegate.nextAvailablMediaContainer.alpha = 1
 			self._delegate.subfilterSelectionContainer.alpha = 0
 			self._delegate.profileNavigationContainer.alpha = 0
 			self._delegate.compactCurrentTrackContainer.alpha = 0
 			self._delegate.largeCurrentTrackVotingViewController.setRatingViewControllerHidden(false)
+		}) { finished in
+			self._delegate.mainPlayerStateTransitionEnded(from: previousState, to: self, duration: duration)
 		}
 		
 		return self

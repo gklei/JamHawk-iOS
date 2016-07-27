@@ -14,37 +14,39 @@ class SystemCoordinationController {
 	// talks to JamhawkSession layer
 	// handle the API response, feed each respective part to system controllers
 	
-	private let _playerSystem: PlayerSystemController
-	private let _filterSystem: FilterSystemController
-	private let _currentTrackSystem: CurrentTrackSystemController
-	private let _nextAvailableSystem: NextAvailableMediaSystemController
-	private let _ratingSystem: TrackRatingSystemController
+	let playerSystem = PlayerSystemController()
+	let filterSystem = FilterSystemController()
+	let currentTrackSystem = CurrentTrackSystemController()
+	let nextAvailableSystem = NextAvailableMediaSystemController()
+	let ratingSystem = TrackRatingSystemController()
 	
-	// TAKE THIS OUT!
-	var currentNextTrack: PlayerAPIOutputMetadata? {
-		return _nextAvailableSystem.currentNextTrackSelection
-	}
+	private let _playerAPIService: PlayerAPIService
 	
-	init(playerSystem: PlayerSystemController,
-	     filterSystem: FilterSystemController,
-	     currentTrackSystem: CurrentTrackSystemController,
-	     nextAvailableSystem: NextAvailableMediaSystemController,
-	     ratingSystem: TrackRatingSystemController) {
-		_playerSystem = playerSystem
-		_filterSystem = filterSystem
-		_currentTrackSystem = currentTrackSystem
-		_nextAvailableSystem = nextAvailableSystem
-		_ratingSystem = ratingSystem
+	init(apiService: PlayerAPIService) {
+		_playerAPIService = apiService
+		playerSystem.delegate = self
 	}
 	
 	func handle(apiOutput output: PlayerAPIOutput) {
-		_playerSystem.update(withModel: output.media)
-		_filterSystem.update(withModel: output.filters)
-		_currentTrackSystem.update(withModel: output.track)
+		playerSystem.update(withModel: output.media)
+		filterSystem.update(withModel: output.filters)
+		currentTrackSystem.update(withModel: output.track)
+		nextAvailableSystem.update(withModel: output.next)
+		nextAvailableSystem.selectMedia(atIndex: 0)
+		ratingSystem.update(withModel: output.track)
+	}
+}
+
+extension SystemCoordinationController: PlayerSystemDelegate {
+	func playerSystemNextTrackRequested(system: PlayerSystemController) {
+		guard let next = nextAvailableSystem.currentNextTrackSelection else { return }
 		
-		_nextAvailableSystem.update(withModel: output.next)
-		_nextAvailableSystem.selectMedia(atIndex: 0)
-		
-		_ratingSystem.update(withModel: output.track)
+		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: next.mid, ratings: nil)
+		_playerAPIService.requestNextTrack(withUpdates: updates) { (error, output) in
+			
+			guard error == nil else { print(error); return }
+			guard let output = output else { print("No output in callback"); return }
+			self.handle(apiOutput: output)
+		}
 	}
 }
