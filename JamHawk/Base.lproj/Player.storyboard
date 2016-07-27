@@ -424,20 +424,32 @@
                                     <segue destination="NxN-Ss-Ild" kind="embed" id="Ma2-9Y-rmW"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJA-nr-uho">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TC3-RM-xRf" appends="YES" id="KrH-R9-UEy"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DKY-Ai-uhh" secondAttribute="trailing" constant="20" id="3eb-3o-H6Z"/>
                             <constraint firstItem="P8a-IC-bDc" firstAttribute="leading" secondItem="chN-1W-Qlp" secondAttribute="leading" constant="20" id="4M0-t9-nNt"/>
+                            <constraint firstItem="LJA-nr-uho" firstAttribute="leading" secondItem="chN-1W-Qlp" secondAttribute="leading" id="5E6-WM-dVa"/>
                             <constraint firstItem="DKY-Ai-uhh" firstAttribute="leading" secondItem="P8a-IC-bDc" secondAttribute="trailing" constant="8" id="Fey-tC-WEb"/>
                             <constraint firstItem="Kng-G2-AJS" firstAttribute="bottom" secondItem="DKY-Ai-uhh" secondAttribute="bottom" id="I9W-lW-j0x"/>
                             <constraint firstItem="Kng-G2-AJS" firstAttribute="top" secondItem="P8a-IC-bDc" secondAttribute="bottom" constant="4" id="LZI-2L-QkR"/>
+                            <constraint firstItem="DKY-Ai-uhh" firstAttribute="leading" secondItem="LJA-nr-uho" secondAttribute="trailing" constant="20" id="VCI-Lr-1ZV"/>
                             <constraint firstAttribute="trailing" secondItem="768-Hc-yGp" secondAttribute="trailing" id="ZYp-go-Mn5"/>
                             <constraint firstItem="768-Hc-yGp" firstAttribute="leading" secondItem="chN-1W-Qlp" secondAttribute="leading" id="a6h-6M-Mln"/>
                             <constraint firstItem="Kng-G2-AJS" firstAttribute="leading" secondItem="chN-1W-Qlp" secondAttribute="leading" constant="20" id="b62-Nl-Zef"/>
+                            <constraint firstItem="LJA-nr-uho" firstAttribute="top" secondItem="NGM-1p-PbW" secondAttribute="bottom" id="cSz-O8-NGe"/>
                             <constraint firstItem="DKY-Ai-uhh" firstAttribute="centerY" secondItem="chN-1W-Qlp" secondAttribute="centerY" id="fgz-If-WOJ"/>
                             <constraint firstItem="768-Hc-yGp" firstAttribute="top" secondItem="NGM-1p-PbW" secondAttribute="bottom" id="mkf-Zn-522"/>
+                            <constraint firstItem="DJV-9E-dbc" firstAttribute="top" secondItem="LJA-nr-uho" secondAttribute="bottom" id="s1f-Tv-2g7"/>
                             <constraint firstItem="DKY-Ai-uhh" firstAttribute="leading" secondItem="Kng-G2-AJS" secondAttribute="trailing" constant="8" id="uh5-c3-er4"/>
                         </constraints>
                         <connections>
@@ -458,8 +470,13 @@
                         <action selector="_swipeRecognized:" destination="xaj-35-zse" id="hfw-ZG-36B"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="TC3-RM-xRf">
+                    <connections>
+                        <action selector="_swipeRecognized:" destination="xaj-35-zse" id="baJ-rN-A04"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1508" y="559"/>
+            <point key="canvasLocation" x="1409" y="558"/>
         </scene>
         <!--Track Rating View Controller-->
         <scene sceneID="dhN-Oc-azI">
@@ -627,6 +644,6 @@
         <image name="play2" width="15" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1cG-68-Onq"/>
+        <segue reference="Ma2-9Y-rmW"/>
     </inferredMetricsTieBreakers>
 </document>
