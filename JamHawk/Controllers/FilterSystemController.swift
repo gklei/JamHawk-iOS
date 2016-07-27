@@ -21,14 +21,29 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	var didUpdateSelection: (controller: FilterSystemController) -> Void = {_ in}
 	
 	var selectedParentFilter: PlayerAPIOutputFilter?
+	private var _subfilterViewModels: [SubfilterViewModel] = []
 	
 	override func update(withModel model: PlayerAPIOutputFilters?) {
 		guard let model = model else { return }
 		_filters = model
+		
 		didUpdateModel(controller: self)
 	}
 	
 	func selectSubfilter(atIndex index: Int) {
+	}
+	
+	private func _generateSubfilterViewModels() -> [SubfilterViewModel]	{
+		guard let filter = selectedParentFilter else { return [] }
+		
+		var viewModels: [SubfilterViewModel] = []
+		for index in 0..<filter.filterIDs.count {
+			let name = filter.filterNames[index]
+			let id = filter.filterIDs[index]
+			let vm = SubfilterViewModel(category: filter.category, name: name, id: id)
+			viewModels.append(vm)
+		}
+		return viewModels
 	}
 }
 
@@ -50,27 +65,25 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		
 		let filter = available[index]
 		selectedParentFilter = filter
-		didUpdateSelection(controller: self)
+		_subfilterViewModels = _generateSubfilterViewModels()
+		
+		dispatch_async(dispatch_get_main_queue()) {
+			self.didUpdateSelection(controller: self)
+		}
 	}
 	
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
-		didUpdateSelection(controller: self)
+		_subfilterViewModels = []
+		
+		dispatch_async(dispatch_get_main_queue()) {
+			self.didUpdateSelection(controller: self)
+		}
 	}
 }
 
 extension FilterSystemController: SubfilterSelectionDataSource {
 	var subfilterViewModels: [SubfilterViewModel] {
-		guard let filter = selectedParentFilter else { return [] }
-		
-		var viewModels: [SubfilterViewModel] = []
-		for index in 0..<filter.filterIDs.count {
-			let name = filter.filterNames[index]
-			let id = filter.filterIDs[index]
-			let vm = SubfilterViewModel(category: filter.category, name: name, id: id)
-			viewModels.append(vm)
-		}
-		
-		return viewModels
+		return _subfilterViewModels
 	}
 }

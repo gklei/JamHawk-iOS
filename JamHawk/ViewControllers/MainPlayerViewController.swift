@@ -60,6 +60,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_profileNavController.viewControllers = [_profileViewController]
 		_playerControlsVC.delegate = self
 		
+		// TODO: put the swipe recognizer on the container view -- the view controller should know nothing about it
 		_compactCurrentTrackVC.swipeUpClosure = _compactCurrentTrackSwipedUp
 		
 		// A little hacky..
@@ -142,7 +143,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 // MARK: - Async Image Downloading
 extension MainPlayerViewController {
 	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
-		_backgroundImageView.image = image?.applyBlur(withRadius: 6.0, tintColor: nil, saturationDeltaFactor: 1.3)
+		_backgroundImageView.image = image?.applyBlur(withRadius: 4.0, tintColor: nil, saturationDeltaFactor: 1.3)
 	}
 }
 
@@ -172,9 +173,9 @@ extension MainPlayerViewController {
 		
 		if controller.selectedParentFilter != nil {
 			state = FilterSelectionMainPlayerState(delegate: self)
-			_subfilterSelectionVC.syncUI()
 		}
 		
+		_subfilterSelectionVC.syncUI()
 		_parentFilterSelectionVC.syncUI()
 		_transition(toState: state, duration: 0.3)
 	}

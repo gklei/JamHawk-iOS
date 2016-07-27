@@ -17,7 +17,7 @@ class AppRouter {
 	
 	private let _tempInitialVC = TemporaryInitialViewController.instantiate(fromStoryboard: "SignIn")
 	private let _signInVC = SignInViewController.instantiate(fromStoryboard: "SignIn")
-	private let _mainPlayerVC = MainPlayerViewController.instantiate(fromStoryboard: "Player")
+	private let _mainPlayerVC = MainPlayerViewController.create()
 	
 	init(window: UIWindow, session: JamHawkSession) {
 		self.window = window
@@ -29,7 +29,6 @@ class AppRouter {
 		_signInVC.signInButtonPressed = _signIn
 		
 		coordinationController = SystemCoordinationController(apiService: session)
-		
 		_mainPlayerVC.setup(withCoordinationController: coordinationController!)
 		
 		let _ = _tempInitialVC.view

@@ -547,6 +547,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="437"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QA7-nw-7Aa">
+                                <rect key="frame" x="152" y="373" width="110" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vTr-9J-ZgK"/>
+                                    <constraint firstAttribute="width" constant="110" id="yrV-cz-iqs"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="NxN-Ss-Ild" kind="embed" id="1cG-68-Onq"/>
+                                </connections>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOL-G7-MWg">
                                 <rect key="frame" x="0.0" y="20" width="414" height="333"/>
                                 <subviews>
@@ -585,16 +595,6 @@
                                     <constraint firstAttribute="trailing" secondItem="IUl-iN-34d" secondAttribute="trailing" id="v6K-cS-9rd"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QA7-nw-7Aa">
-                                <rect key="frame" x="152" y="373" width="110" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vTr-9J-ZgK"/>
-                                    <constraint firstAttribute="width" constant="110" id="yrV-cz-iqs"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="NxN-Ss-Ild" kind="embed" id="1cG-68-Onq"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -609,7 +609,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="437"/>
                     <connections>
-                        <outlet property="_albumArtContainerView" destination="wOL-G7-MWg" id="Usu-f1-vLH"/>
+                        <outlet property="_albumArtContainerView" destination="VnH-51-5eh" id="cki-el-aSg"/>
                         <outlet property="_albumArtImageView" destination="Qnm-3a-BXh" id="zJO-eV-orA"/>
                         <outlet property="_currentTrackLabel" destination="IUl-iN-34d" id="pg4-VB-K8e"/>
                     </connections>
@@ -627,6 +627,6 @@
         <image name="play2" width="15" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ma2-9Y-rmW"/>
+        <segue reference="1cG-68-Onq"/>
     </inferredMetricsTieBreakers>
 </document>

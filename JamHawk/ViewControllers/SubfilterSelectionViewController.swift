@@ -20,6 +20,8 @@ class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Properties
 	weak var dataSource: SubfilterSelectionDataSource?
+	private var _viewModels: [SubfilterViewModel] = []
+	private var _layout: UICollectionViewFlowLayout!
 	
 	var viewTappedClosure: () -> Void = {}
 	
@@ -53,31 +55,38 @@ class SubfilterSelectionViewController: UIViewController {
 		let size = UIScreen.mainScreen().bounds.width * 0.24
 		let inset = UIScreen.mainScreen().bounds.width * 0.08
 		
-		let layout = UICollectionViewFlowLayout()
-		layout.itemSize = CGSize(width: size, height: size)
-		layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+		_layout = UICollectionViewFlowLayout()
+		_layout.itemSize = CGSize(width: size, height: size)
+		_layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
 		
-		_collectionView.collectionViewLayout = layout
+		_collectionView.collectionViewLayout = _layout
+		view.setNeedsLayout()
 	}
 	
 	// MARK: - Public
 	func syncData() {
-		_collectionView.reloadData()
-		_updateCollectionViewHeight()
+		_viewModels = dataSource?.subfilterViewModels ?? []
+		
+		dispatch_async(dispatch_get_main_queue()) {
+			self._collectionView.reloadData()
+			self.view.setNeedsLayout()
+		}
 	}
 	
 	func syncUI() {
-		_collectionView.reloadData()
-		_updateCollectionViewHeight()
+		_viewModels = dataSource?.subfilterViewModels ?? []
+		
+		dispatch_async(dispatch_get_main_queue()) {
+			self._collectionView.reloadData()
+			self.view.setNeedsLayout()
+		}
 	}
 	
 	private func _updateCollectionViewHeight() {
-		guard let count = dataSource?.subfilterViewModels.count else { return }
+		let count = _viewModels.count
 		let numRows: CGFloat = ceil(CGFloat(count) / 3.0)
-		let layout = self._collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-		let height = layout.sectionInset.top + layout.sectionInset.bottom + (layout.itemSize.height * numRows)
+		let height = _layout.sectionInset.top + _layout.sectionInset.bottom + (_layout.itemSize.height * numRows)
 		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
-		self.view.setNeedsLayout()
 	}
 	
 	@IBAction private func _viewTapped(recognizer: UIGestureRecognizer) {
@@ -87,16 +96,14 @@ class SubfilterSelectionViewController: UIViewController {
 
 extension SubfilterSelectionViewController: UICollectionViewDataSource {
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return dataSource?.subfilterViewModels.count ?? 0
+		return _viewModels.count
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SubfilterCell.reuseID, forIndexPath: indexPath) as! SubfilterCell
 		
-		if let viewModels = dataSource?.subfilterViewModels {
-			let subfilter = viewModels[indexPath.row]
-			cell.update(name: subfilter.name)
-		}
+		let subfilter = _viewModels[indexPath.row]
+		cell.update(name: subfilter.name)
 		
 		return cell
 	}
