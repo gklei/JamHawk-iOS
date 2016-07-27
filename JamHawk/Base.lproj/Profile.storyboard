@@ -22,10 +22,10 @@
                                 <rect key="frame" x="226" y="534" width="148" height="42"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-ED-GSK">
-                                <rect key="frame" x="0.0" y="20" width="600" height="181"/>
-                                <color key="backgroundColor" red="0.84725560897435903" green="0.84725560897435903" blue="0.84725560897435903" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="183"/>
+                                <color key="backgroundColor" red="0.89411765336990356" green="0.89411765336990356" blue="0.89019608497619629" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="181" id="Luk-Wg-8g1"/>
+                                    <constraint firstAttribute="height" constant="183" id="Luk-Wg-8g1"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QMW-ye-IU1">
                                     <size key="itemSize" width="375" height="50"/>
@@ -42,13 +42,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCc-dB-aZG">
-                                                    <rect key="frame" x="128" y="14" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="28" y="14" width="36" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aju-AM-Qfs">
-                                                    <rect key="frame" x="229" y="14" width="8" height="22"/>
+                                                    <rect key="frame" x="336" y="14" width="11" height="22"/>
+                                                    <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <state key="normal" image="right_arrow"/>
                                                 </button>
                                             </subviews>
@@ -62,10 +63,10 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="aju-AM-Qfs" secondAttribute="bottom" constant="6" id="EtV-sg-Ury"/>
                                             <constraint firstItem="cCc-dB-aZG" firstAttribute="top" secondItem="cUh-My-sr8" secondAttribute="topMargin" constant="6" id="Jbt-oE-CNY"/>
                                             <constraint firstItem="aju-AM-Qfs" firstAttribute="top" secondItem="cUh-My-sr8" secondAttribute="topMargin" constant="6" id="NOW-6P-YvZ"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="aju-AM-Qfs" secondAttribute="trailing" constant="130" id="QOq-Ld-RUt"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="aju-AM-Qfs" secondAttribute="trailing" constant="20" id="QOq-Ld-RUt"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="cCc-dB-aZG" secondAttribute="bottom" constant="7" id="aOB-gC-sSs"/>
                                             <constraint firstItem="cCc-dB-aZG" firstAttribute="leading" secondItem="cUh-My-sr8" secondAttribute="leadingMargin" constant="19" id="eYK-6p-0zU"/>
-                                            <constraint firstItem="cCc-dB-aZG" firstAttribute="leading" secondItem="cUh-My-sr8" secondAttribute="leadingMargin" constant="120" id="gGt-ma-pay"/>
+                                            <constraint firstItem="cCc-dB-aZG" firstAttribute="leading" secondItem="cUh-My-sr8" secondAttribute="leadingMargin" constant="20" id="gGt-ma-pay"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="cCc-dB-aZG" secondAttribute="bottom" constant="7" id="gL3-5h-3dd"/>
                                             <constraint firstItem="cCc-dB-aZG" firstAttribute="top" secondItem="cUh-My-sr8" secondAttribute="topMargin" constant="15" id="rn8-TR-t5O"/>
                                         </constraints>
@@ -152,10 +153,99 @@
             </objects>
             <point key="canvasLocation" x="177" y="314"/>
         </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="3OI-YJ-nlC">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CPb-3F-2wt" customClass="EditProfileViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w9K-rW-k5v"/>
+                        <viewControllerLayoutGuide type="bottom" id="ysW-qm-kHr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aMS-s7-iCK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rPy-mQ-iQL">
+                                <rect key="frame" x="0.0" y="20" width="600" height="103"/>
+                                <color key="backgroundColor" red="0.89411765336990356" green="0.89411765336990356" blue="0.89019608497619629" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="ToF-zD-UgH"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HkY-bV-z9S">
+                                    <size key="itemSize" width="600" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EditProfileOptionCell" id="fhg-Ru-pFh" customClass="EditProfileOptionCell" customModule="JamHawk" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxU-va-Nfg">
+                                                    <rect key="frame" x="21" y="14" width="41" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="jdoe@gmail.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pas-DL-QPe">
+                                                    <rect key="frame" x="424" y="10" width="145" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="_optionInputTextField" destination="pas-DL-QPe" id="yO6-bt-Evl"/>
+                                            <outlet property="_optionLabel" destination="MxU-va-Nfg" id="HH8-0o-iSn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254902124404907" green="0.97254902124404907" blue="0.97254902124404907" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rPy-mQ-iQL" secondAttribute="trailing" id="Iu0-jv-gLw"/>
+                            <constraint firstItem="rPy-mQ-iQL" firstAttribute="leading" secondItem="aMS-s7-iCK" secondAttribute="leading" id="VQ9-Xc-eu0"/>
+                            <constraint firstItem="rPy-mQ-iQL" firstAttribute="top" secondItem="w9K-rW-k5v" secondAttribute="bottom" id="qW3-s3-LjV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="_editProfileOptionsCollectionView" destination="rPy-mQ-iQL" id="sns-Tt-yaY"/>
+                        <outlet property="_editProfileOptionsColletionView" destination="rPy-mQ-iQL" id="ihw-M4-ONP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bu3-nH-Nve" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="1011"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="55Z-WG-Vmc">
+            <objects>
+                <viewController id="axE-RW-cS1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z8c-wA-FgR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qs1-B7-yL4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rgD-aj-llc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Dl-dx-Lyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905" y="1011"/>
+        </scene>
     </scenes>
     <resources>
         <image name="jamhawk_logo_and_text" width="148" height="42"/>
-        <image name="right_arrow" width="8" height="12"/>
+        <image name="right_arrow" width="11" height="17"/>
         <image name="temp_profile_icon" width="51" height="51"/>
     </resources>
 </document>

@@ -14,10 +14,15 @@ enum ProfileOptionType {
    
    var title: String {
       switch self {
-      case .EditProfile:
-         return "Edit Profile"
-      case .Settings:
-         return "Settings"
+      case .EditProfile: return "Edit Profile"
+      case .Settings: return "Settings"
+      }
+   }
+   
+   var destinationVC: UIViewController? {
+      switch self {
+      case .EditProfile: return EditProfileViewController.instantiate(fromStoryboard: "Profile")
+      case .Settings: return nil
       }
    }
 }
@@ -25,17 +30,18 @@ enum ProfileOptionType {
 class ProfileViewController: UIViewController {
 	
    @IBOutlet weak var _profileOptionsCollectionView: UICollectionView!
-   private var _profileOptionTypes = [ProfileOptionType.EditProfile, ProfileOptionType.Settings]
+   private var _profileOptions = [ProfileOptionType.EditProfile, ProfileOptionType.Settings]
    
    
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
       let layout = UICollectionViewFlowLayout()
-      layout.itemSize = CGSize(width: _profileOptionsCollectionView.bounds.width, height: 50)
       layout.minimumLineSpacing = 1.0
       layout.scrollDirection = .Vertical
       layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 80)
+      layout.sectionInset.top = 1
+      layout.sectionInset.bottom = 1
       
       _profileOptionsCollectionView.dataSource = self
       _profileOptionsCollectionView.delegate = self
@@ -48,17 +54,31 @@ class ProfileViewController: UIViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
+      
+      let image = UIImage.imageWithColor(UIColor.jmhLightGrayColor())
+      navigationController?.navigationBar.shadowImage = image
 	}
+}
+
+extension ProfileViewController: UICollectionViewDelegate {
+   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+      return CGSize(width: collectionView.bounds.width, height: 50)
+   }
+   
+   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+      guard let vc = _profileOptions[indexPath.row].destinationVC else { return }
+      navigationController?.pushViewController(vc, animated: true)
+   }
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      return _profileOptionTypes.count
+      return _profileOptions.count
    }
    
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileOptionCell", forIndexPath: indexPath) as! ProfileOptionCell
-      cell.titleLabel.text = _profileOptionTypes[indexPath.row].title
+      cell.titleLabel.text = _profileOptions[indexPath.row].title
       return cell
    }
    
@@ -66,9 +86,6 @@ extension ProfileViewController: UICollectionViewDataSource {
       let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ProfileHeaderView", forIndexPath: indexPath)
       return header
    }
-}
-
-extension ProfileViewController: UICollectionViewDelegate {
 }
 
 class ProfileOptionCell: UICollectionViewCell {
