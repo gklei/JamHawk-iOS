@@ -21,29 +21,33 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	var didUpdateSelection: (controller: FilterSystemController) -> Void = {_ in}
 	
 	var selectedParentFilter: PlayerAPIOutputFilter?
-	private var _subfilterViewModels: [SubfilterViewModel] = []
+	private var _subfilterDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
 	
 	override func update(withModel model: PlayerAPIOutputFilters?) {
 		guard let model = model else { return }
 		_filters = model
 		
+		_generateSubfilterViewModels()
 		didUpdateModel(controller: self)
 	}
 	
 	func selectSubfilter(atIndex index: Int) {
 	}
 	
-	private func _generateSubfilterViewModels() -> [SubfilterViewModel]	{
-		guard let filter = selectedParentFilter else { return [] }
+	private func _generateSubfilterViewModels() {
+		_subfilterDictionary = [:]
 		
-		var viewModels: [SubfilterViewModel] = []
-		for index in 0..<filter.filterIDs.count {
-			let name = filter.filterNames[index]
-			let id = filter.filterIDs[index]
-			let vm = SubfilterViewModel(category: filter.category, name: name, id: id)
-			viewModels.append(vm)
+		_filters?.available?.forEach {
+			var viewModels: [SubfilterViewModel] = []
+			
+			for index in 0..<$0.filterIDs.count {
+				let name = $0.filterNames[index]
+				let id = $0.filterIDs[index]
+				let vm = SubfilterViewModel(category: $0.category, name: name, id: id)
+				viewModels.append(vm)
+			}
+			_subfilterDictionary[$0.category] = viewModels
 		}
-		return viewModels
 	}
 }
 
@@ -65,7 +69,6 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		
 		let filter = available[index]
 		selectedParentFilter = filter
-		_subfilterViewModels = _generateSubfilterViewModels()
 		
 		dispatch_async(dispatch_get_main_queue()) {
 			self.didUpdateSelection(controller: self)
@@ -74,7 +77,6 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 	
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
-		_subfilterViewModels = []
 		
 		dispatch_async(dispatch_get_main_queue()) {
 			self.didUpdateSelection(controller: self)
@@ -84,6 +86,7 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 
 extension FilterSystemController: SubfilterSelectionDataSource {
 	var subfilterViewModels: [SubfilterViewModel] {
-		return _subfilterViewModels
+		guard let parent = selectedParentFilter else { return [] }
+		return _subfilterDictionary[parent.category] ?? []
 	}
 }
