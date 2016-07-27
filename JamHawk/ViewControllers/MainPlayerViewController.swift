@@ -29,6 +29,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	// MARK: - Properties
 	internal var _currentState: MainPlayerState!
+	internal var _stateAfterNextModelUpdate: MainPlayerState?
+	
 	internal var _statusBarStyle = UIStatusBarStyle.LightContent
 	
 	private let _parentFilterSelectionVC = ParentFilterSelectionViewController.create()
@@ -199,7 +201,12 @@ extension MainPlayerViewController {
 
 extension MainPlayerViewController: PlayerControlsDelegate {
 	func playerControlsProfileButtonPressed() {
-		let state = ShowProfileState(delegate: self)
-		_transition(toState: state, duration: 0.3)
+		if _currentState.isKindOfClass(FilterSelectionMainPlayerState) {
+			_stateAfterNextModelUpdate = ShowProfileState(delegate: self)
+			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
+		} else {
+			let state = ShowProfileState(delegate: self)
+			_transition(toState: state, duration: 0.3)
+		}
 	}
 }

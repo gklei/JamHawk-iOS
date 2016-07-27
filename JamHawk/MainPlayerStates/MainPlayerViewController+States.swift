@@ -42,6 +42,8 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	}
 	
 	func mainPlayerStateTransitionBegan(from from: MainPlayerState, to: MainPlayerState, duration: Double) {
+		view.userInteractionEnabled = false
+		
 		UIView.animateWithDuration(duration) {
 			if to.isKindOfClass(FilterSelectionMainPlayerState) {
 				self._largeCurrentTrackVC.setRatingViewControllerHidden(true)
@@ -55,5 +57,11 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	}
 	
 	func mainPlayerStateTransitionEnded(from from: MainPlayerState, to: MainPlayerState, duration: Double) {
+		view.userInteractionEnabled = true
+		
+		if let next = _stateAfterNextModelUpdate {
+			_currentState = next.transition(duration: duration)
+			_stateAfterNextModelUpdate = nil
+		}
 	}
 }
