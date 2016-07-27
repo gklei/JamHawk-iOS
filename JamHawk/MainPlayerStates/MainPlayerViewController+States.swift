@@ -42,7 +42,6 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	}
 	
 	func mainPlayerStateTransitionBegan(from from: MainPlayerState, to: MainPlayerState, duration: Double) {
-		
 		UIView.animateWithDuration(duration) {
 			if to.isKindOfClass(FilterSelectionMainPlayerState) {
 				self._largeCurrentTrackVC.setRatingViewControllerHidden(true)
