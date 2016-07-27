@@ -49,6 +49,19 @@ class ParentFilterCell: UICollectionViewCell {
 		_filterNameLabel.text = vm.filterName
 		_filterSelectionLabel.text = "No Selection"
 	}
+	
+	func update(viewSubfilterViewModles viewModels: [SubfilterViewModel]) {
+		var filterSelectionText = ""
+		viewModels.forEach {
+			filterSelectionText += "\($0.name)"
+			if viewModels.last != $0 {
+				filterSelectionText += ", "
+			}
+		}
+		
+		filterSelectionText = filterSelectionText == "" ? "No Selection" : filterSelectionText
+		_filterSelectionLabel.text = filterSelectionText
+ 	}
 }
 
 extension ParentFilterCell {
