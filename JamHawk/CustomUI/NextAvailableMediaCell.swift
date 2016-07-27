@@ -29,6 +29,7 @@ class NextAvailableMediaCell: UICollectionViewCell {
 	
 	// MARK: - Public
 	func update(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
+		_backgroundImageView.image = nil
 		_backgroundImageView.imageURL = vm.albumArtworkURL
 	}
 	

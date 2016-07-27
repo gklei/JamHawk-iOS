@@ -83,6 +83,9 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		super.viewDidLoad()
 		
 		_albumArtImageView.backgroundColor = .clearColor()
+		_albumArtImageView.layer.cornerRadius = 3.0
+		_albumArtImageView.layer.masksToBounds = true
+		
 		_albumArtContainerView.backgroundColor = .clearColor()
 		
 		_albumArtContainerView.layer.shadowRadius = 12
