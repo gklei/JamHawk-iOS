@@ -68,8 +68,11 @@ extension EditProfileViewController: UICollectionViewDataSource {
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier("EditProfileOptionCell", forIndexPath: indexPath) as! EditProfileOptionCell
       cell._optionLabel.text = _editProfileOptions[indexPath.row].title
-      cell._optionInputTextField.text = _editProfileOptions[indexPath.row].placeholderText
-      cell._optionInputTextField.secureTextEntry = true
+      cell._optionInputTextField.placeholder = _editProfileOptions[indexPath.row].placeholderText
+      cell._optionInputTextField.textColor = UIColor.jmhLightGrayColor()
+      if _editProfileOptions[indexPath.row] == EditProfileFieldType.ChangePassword {
+         cell._optionInputTextField.secureTextEntry = true
+      }
       return cell
    }
 }

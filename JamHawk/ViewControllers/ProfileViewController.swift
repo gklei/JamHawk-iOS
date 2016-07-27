@@ -14,15 +14,15 @@ enum ProfileOptionType {
    
    var title: String {
       switch self {
-      case .EditProfile: return "Edit Profile"
-      case .Settings: return "Settings"
+         case .EditProfile: return "Edit Profile"
+         case .Settings: return "Settings"
       }
    }
    
    var destinationVC: UIViewController? {
       switch self {
-      case .EditProfile: return EditProfileViewController.instantiate(fromStoryboard: "Profile")
-      case .Settings: return nil
+         case .EditProfile: return EditProfileViewController.instantiate(fromStoryboard: "Profile")
+         case .Settings: return SettingsProfileViewController.instantiate(fromStoryboard: "Profile")
       }
    }
 }
