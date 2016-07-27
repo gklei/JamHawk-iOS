@@ -11,27 +11,21 @@ import UIKit
 class AppRouter {
 	let window: UIWindow
 	let session: JamHawkSession
-	var coordinationController: SystemCoordinationController?
+	private var _coordinationController: SystemCoordinationController?
 	
 	let rootNavController = JamHawkNavigationController()
 	
 	private let _tempInitialVC = TemporaryInitialViewController.instantiate(fromStoryboard: "SignIn")
-	private let _signInVC = SignInViewController.instantiate(fromStoryboard: "SignIn")
 	private let _mainPlayerVC = MainPlayerViewController.create()
 	
 	init(window: UIWindow, session: JamHawkSession) {
 		self.window = window
 		self.session = session
 		
+		_coordinationController = SystemCoordinationController(apiService: session)
+		_mainPlayerVC.setup(withCoordinationController: _coordinationController!)
+		
 		_setupWindow(withRootVC: _tempInitialVC)
-		
-		_signInVC.signUpButtonPressed = _signUp
-		_signInVC.signInButtonPressed = _signIn
-		
-		coordinationController = SystemCoordinationController(apiService: session)
-		_mainPlayerVC.setup(withCoordinationController: coordinationController!)
-		
-		let _ = _tempInitialVC.view
 		_tempInitialVC.update(.SigningIn)
 		
 		session.signInWithTestCreds { (error, output) in
@@ -83,8 +77,8 @@ extension AppRouter {
 			context.presentMessage(message)
 		}
 		if output.success {
-			self.session.instantiatePlayer({ (error, playerOutput) in
-				self._handlePlayerInstantiationCallback(error, output: playerOutput, context: context)
+			self._coordinationController?.instantiatePlayer({ (error, output) in
+				self._handlePlayerInstantiationCallback(error, output: output, context: context)
 			})
 		}
 	}
@@ -95,11 +89,9 @@ extension AppRouter {
 	private func _handlePlayerInstantiationCallback(error: NSError?, output: PlayerAPIOutput?, context: UIViewController) {
 		if let error = error {
 			context.present(error)
+		} else {
+			_coordinationController?.errorPresentationContext = _mainPlayerVC
+			rootNavController.pushViewController(_mainPlayerVC, animated: true)
 		}
-		
-		guard let output = output else { return }
-		coordinationController?.handle(apiOutput: output)
-		
-		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}
 }
