@@ -72,6 +72,8 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 	@IBOutlet internal var _albumArtImageView: AsyncImageView!
 	@IBOutlet internal var _albumArtContainerView: UIView!
 	
+	private var _viewTransformer: ViewTransformer!
+	
 	private var _trackRatingVC: TrackRatingViewController?
 	weak var trackRatingDataSource: TrackRatingDataSource? {
 		didSet {
@@ -92,6 +94,8 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		_albumArtContainerView.layer.shadowOpacity = 0.5
 		_albumArtContainerView.layer.shadowOffset = CGSize(width: 0, height: 2)
 		_albumArtContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+		
+		_viewTransformer = ViewTransformer(view: _albumArtContainerView)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -119,5 +123,34 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 	
 	func setRatingViewControllerHidden(hidden: Bool) {
 		_trackRatingVC?.view.alpha = hidden ? 0 : 1
+	}
+}
+
+extension LargeCurrentTrackViewController {
+	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		super.touchesBegan(touches, withEvent: event)
+		_viewTransformer.touchesBegan(touches)
+	}
+	
+	override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		super.touchesMoved(touches, withEvent: event)
+		
+		guard let point = touches.first?.locationInView(_albumArtContainerView) else { return }
+		guard _albumArtContainerView.bounds.contains(point) else {
+			_viewTransformer.resetViewWithDuration(0.5)
+			return
+		}
+		
+		_viewTransformer.touchesMoved(touches)
+	}
+	
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		super.touchesEnded(touches, withEvent: event)
+		_viewTransformer.resetViewWithDuration(0.5)
+	}
+	
+	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+		super.touchesCancelled(touches, withEvent: event)
+		_viewTransformer.resetViewWithDuration(0.5)
 	}
 }
