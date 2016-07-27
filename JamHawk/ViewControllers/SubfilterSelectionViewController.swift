@@ -10,6 +10,10 @@ import UIKit
 
 protocol SubfilterSelectionDataSource: class {
 	var subfilterViewModels: [SubfilterViewModel] { get }
+	var selectedSubfilterIndicies: [Int] { get }
+	
+	func selectSubfilter(atIndex index: Int)
+	func deselectSubfilter(atIndex index: Int)
 }
 
 class SubfilterSelectionViewController: UIViewController {
@@ -66,13 +70,11 @@ class SubfilterSelectionViewController: UIViewController {
 	func syncData() {
 		dispatch_async(dispatch_get_main_queue()) {
 			self._collectionView.reloadData()
-			self.view.setNeedsLayout()
-		}
-	}
-	
-	func syncUI() {
-		dispatch_async(dispatch_get_main_queue()) {
-			self._collectionView.reloadData()
+			
+			self.dataSource?.selectedSubfilterIndicies.forEach {
+				let ip = NSIndexPath(forRow: $0, inSection: 0)
+				self._collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .None)
+			}
 			self.view.setNeedsLayout()
 		}
 	}
@@ -107,4 +109,11 @@ extension SubfilterSelectionViewController: UICollectionViewDataSource {
 }
 
 extension SubfilterSelectionViewController: UICollectionViewDelegate {
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		dataSource?.selectSubfilter(atIndex: indexPath.row)
+	}
+	
+	func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+		dataSource?.deselectSubfilter(atIndex: indexPath.row)
+	}
 }

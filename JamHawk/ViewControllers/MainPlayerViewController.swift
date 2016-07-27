@@ -82,7 +82,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	// MARK: - System Setup
 	private func _setupFilterSystem(withController controller: SystemCoordinationController) {
 		controller.filterSystem.didUpdateModel = _filterModelChanged
-		controller.filterSystem.didUpdateSelection = _filterSelectionChanged
+		controller.filterSystem.didUpdateParentFilterSelection = _filterSelectionChanged
 		_parentFilterSelectionVC.dataSource = controller.filterSystem
 		_subfilterSelectionVC.dataSource = controller.filterSystem
 		
@@ -175,7 +175,7 @@ extension MainPlayerViewController {
 			state = FilterSelectionMainPlayerState(delegate: self)
 		}
 		
-		_subfilterSelectionVC.syncUI()
+		_subfilterSelectionVC.syncData()
 		_parentFilterSelectionVC.syncUI()
 		_transition(toState: state, duration: 0.3)
 	}

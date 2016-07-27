@@ -8,20 +8,28 @@
 
 import Foundation
 
-struct SubfilterViewModel {
+struct SubfilterViewModel: Equatable {
 	let category: String
 	let name: String
 	let id: String
+}
+
+func ==(lhs: SubfilterViewModel, rhs: SubfilterViewModel) -> Bool {
+	return lhs.category == rhs.category && lhs.id == rhs.id
 }
 
 final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	private var _filters: PlayerAPIOutputFilters?
 	
 	var didUpdateModel: (controller: FilterSystemController) -> Void = {_ in}
-	var didUpdateSelection: (controller: FilterSystemController) -> Void = {_ in}
+	
+	var didUpdateParentFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
+	var didUpdateSubfilterFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
 	
 	var selectedParentFilter: PlayerAPIOutputFilter?
-	private var _subfilterDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
+	
+	private var _subfilterViewModelsDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
+	private var _selectedSubfilterViewModelsDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
 	
 	override func update(withModel model: PlayerAPIOutputFilters?) {
 		guard let model = model else { return }
@@ -31,11 +39,8 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 		didUpdateModel(controller: self)
 	}
 	
-	func selectSubfilter(atIndex index: Int) {
-	}
-	
 	private func _generateSubfilterViewModels() {
-		_subfilterDictionary = [:]
+		_subfilterViewModelsDictionary = [:]
 		
 		_filters?.available?.forEach {
 			var viewModels: [SubfilterViewModel] = []
@@ -46,7 +51,7 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 				let vm = SubfilterViewModel(category: $0.category, name: name, id: id)
 				viewModels.append(vm)
 			}
-			_subfilterDictionary[$0.category] = viewModels
+			_subfilterViewModelsDictionary[$0.category] = viewModels
 		}
 	}
 }
@@ -71,7 +76,7 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		selectedParentFilter = filter
 		
 		dispatch_async(dispatch_get_main_queue()) {
-			self.didUpdateSelection(controller: self)
+			self.didUpdateParentFilterSelection(controller: self)
 		}
 	}
 	
@@ -79,7 +84,7 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		selectedParentFilter = nil
 		
 		dispatch_async(dispatch_get_main_queue()) {
-			self.didUpdateSelection(controller: self)
+			self.didUpdateParentFilterSelection(controller: self)
 		}
 	}
 }
@@ -87,6 +92,38 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 extension FilterSystemController: SubfilterSelectionDataSource {
 	var subfilterViewModels: [SubfilterViewModel] {
 		guard let parent = selectedParentFilter else { return [] }
-		return _subfilterDictionary[parent.category] ?? []
+		return _subfilterViewModelsDictionary[parent.category] ?? []
+	}
+	
+	var selectedSubfilterViewModels: [SubfilterViewModel] {
+		guard let parent = selectedParentFilter else { return [] }
+		return _selectedSubfilterViewModelsDictionary[parent.category] ?? []
+	}
+	
+	var selectedSubfilterIndicies: [Int] {
+		return selectedSubfilterViewModels.flatMap({ subfilterViewModels.indexOf($0) })
+	}
+	
+	func selectSubfilter(atIndex index: Int) {
+		guard subfilterViewModels.count > index else { return }
+		let vm = subfilterViewModels[index]
+		
+		if var selected = _selectedSubfilterViewModelsDictionary[vm.category] {
+			selected.append(vm)
+			_selectedSubfilterViewModelsDictionary[vm.category] = selected
+		} else {
+			_selectedSubfilterViewModelsDictionary[vm.category] = [vm]
+		}
+		didUpdateSubfilterFilterSelection(controller: self)
+	}
+	
+	func deselectSubfilter(atIndex index: Int) {
+		guard subfilterViewModels.count > index else { return }
+		let vm = subfilterViewModels[index]
+		
+		if let index = _selectedSubfilterViewModelsDictionary[vm.category]?.indexOf(vm) {
+			_selectedSubfilterViewModelsDictionary[vm.category]?.removeAtIndex(index)
+		}
+		didUpdateSubfilterFilterSelection(controller: self)
 	}
 }
