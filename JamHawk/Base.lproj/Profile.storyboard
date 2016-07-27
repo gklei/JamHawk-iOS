@@ -156,7 +156,7 @@
         <!--Edit Profile View Controller-->
         <scene sceneID="3OI-YJ-nlC">
             <objects>
-                <viewController storyboardIdentifier="EditProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CPb-3F-2wt" customClass="EditProfileViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CPb-3F-2wt" customClass="EditProfileViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w9K-rW-k5v"/>
                         <viewControllerLayoutGuide type="bottom" id="ysW-qm-kHr"/>
@@ -178,21 +178,21 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EditProfileOptionCell" id="fhg-Ru-pFh" customClass="EditProfileOptionCell" customModule="JamHawk" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EditProfileOptionCell" id="fhg-Ru-pFh" customClass="EditProfileOptionCell" customModule="JamHawk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxU-va-Nfg">
-                                                    <rect key="frame" x="21" y="14" width="41" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxU-va-Nfg">
+                                                    <rect key="frame" x="18" y="14" width="35" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="jdoe@gmail.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pas-DL-QPe">
-                                                    <rect key="frame" x="424" y="10" width="145" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="jdoe@gmail.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pas-DL-QPe">
+                                                    <rect key="frame" x="461" y="10" width="111" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -200,6 +200,14 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="MxU-va-Nfg" secondAttribute="bottom" constant="15" id="3Rl-cl-bMx"/>
+                                            <constraint firstItem="pas-DL-QPe" firstAttribute="top" secondItem="fhg-Ru-pFh" secondAttribute="top" constant="10" id="Ak1-z9-yPY"/>
+                                            <constraint firstItem="MxU-va-Nfg" firstAttribute="leading" secondItem="fhg-Ru-pFh" secondAttribute="leading" constant="17.5" id="NvF-jc-pqk"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="pas-DL-QPe" secondAttribute="trailing" constant="20" id="cnX-zO-bCK"/>
+                                            <constraint firstItem="MxU-va-Nfg" firstAttribute="top" secondItem="fhg-Ru-pFh" secondAttribute="top" constant="14" id="idW-Yp-ZJH"/>
+                                            <constraint firstAttribute="bottom" secondItem="pas-DL-QPe" secondAttribute="bottom" constant="10" id="vcU-eI-Drx"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="_optionInputTextField" destination="pas-DL-QPe" id="yO6-bt-Evl"/>
                                             <outlet property="_optionLabel" destination="MxU-va-Nfg" id="HH8-0o-iSn"/>
@@ -217,17 +225,16 @@
                     </view>
                     <connections>
                         <outlet property="_editProfileOptionsCollectionView" destination="rPy-mQ-iQL" id="sns-Tt-yaY"/>
-                        <outlet property="_editProfileOptionsColletionView" destination="rPy-mQ-iQL" id="ihw-M4-ONP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bu3-nH-Nve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="171" y="1011"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings Profile View Controller-->
         <scene sceneID="55Z-WG-Vmc">
             <objects>
-                <viewController id="axE-RW-cS1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsProfileViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="axE-RW-cS1" customClass="SettingsProfileViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z8c-wA-FgR"/>
                         <viewControllerLayoutGuide type="bottom" id="Qs1-B7-yL4"/>
@@ -235,8 +242,73 @@
                     <view key="view" contentMode="scaleToFill" id="rgD-aj-llc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FD1-ab-Ahk">
+                                <rect key="frame" x="0.0" y="20" width="600" height="125"/>
+                                <color key="backgroundColor" red="0.97254902124404907" green="0.97254902124404907" blue="0.97254902124404907" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="u3Q-bp-fs3"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GPU-Yk-gkz">
+                                    <size key="itemSize" width="600" height="57"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SettingsOptionCell" id="vwz-p4-daH" customClass="SettingsOptionCell" customModule="JamHawk" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Jamhawk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rze-eT-SVh">
+                                                    <rect key="frame" x="18" y="18" width="121" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="tci-8h-97y">
+                                                    <rect key="frame" x="568" y="20" width="11" height="17"/>
+                                                    <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="tci-8h-97y" secondAttribute="bottom" constant="12" id="4g8-Jn-AJN"/>
+                                            <constraint firstItem="tci-8h-97y" firstAttribute="centerY" secondItem="vwz-p4-daH" secondAttribute="centerY" id="Ide-iU-QXB"/>
+                                            <constraint firstItem="rze-eT-SVh" firstAttribute="top" secondItem="vwz-p4-daH" secondAttribute="top" constant="18" id="Opz-fy-UFQ"/>
+                                            <constraint firstItem="tci-8h-97y" firstAttribute="top" secondItem="vwz-p4-daH" secondAttribute="topMargin" constant="12" id="buF-Ds-mP5"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="tci-8h-97y" secondAttribute="trailing" constant="13" id="cdl-2p-amn"/>
+                                            <constraint firstAttribute="bottom" secondItem="rze-eT-SVh" secondAttribute="bottom" constant="18" id="mw6-o5-rZV"/>
+                                            <constraint firstItem="rze-eT-SVh" firstAttribute="leading" secondItem="vwz-p4-daH" secondAttribute="leading" constant="17.5" id="rNg-2r-kDs"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="4g8-Jn-AJN"/>
+                                                <exclude reference="buF-Ds-mP5"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="_label" destination="rze-eT-SVh" id="ch2-Mh-rwp"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254902124404907" green="0.97254902124404907" blue="0.97254902124404907" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FD1-ab-Ahk" firstAttribute="leading" secondItem="rgD-aj-llc" secondAttribute="leading" id="Kdi-sC-PgT"/>
+                            <constraint firstAttribute="trailing" secondItem="FD1-ab-Ahk" secondAttribute="trailing" id="Mxw-T5-UhH"/>
+                            <constraint firstItem="FD1-ab-Ahk" firstAttribute="top" secondItem="Z8c-wA-FgR" secondAttribute="bottom" id="xP0-Ot-g69"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="_settingsProfileCollectionView" destination="FD1-ab-Ahk" id="Ono-QR-0Lr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dl-dx-Lyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

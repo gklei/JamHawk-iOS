@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */; };
 		C65061F11D492A5100897A5B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65061F01D492A5100897A5B /* EditProfileViewController.swift */; };
+		C6606DF11D49475500834754 /* SettingsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6606DF01D49475500834754 /* SettingsProfileViewController.swift */; };
 		C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A52CC1D36F42900A5C150 /* PlayheadView.swift */; };
 		C67E317E1D4005D200D140D2 /* JHSignInSignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */; };
 		C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */; };
@@ -102,6 +103,7 @@
 		395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
 		B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65061F01D492A5100897A5B /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = JamHawk/ViewControllers/EditProfileViewController.swift; sourceTree = "<group>"; };
+		C6606DF01D49475500834754 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsProfileViewController.swift; path = JamHawk/ViewControllers/SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		C67A52CC1D36F42900A5C150 /* PlayheadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayheadView.swift; path = JamHawk/CustomUI/PlayheadView.swift; sourceTree = "<group>"; };
 		C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignInSignUpTextField.swift; path = JamHawk/CustomUI/JHSignInSignUpTextField.swift; sourceTree = "<group>"; };
 		C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignUpViewController.swift; path = JamHawk/ViewControllers/JHSignUpViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			children = (
 				CE5DA0D71D44861D00025C17 /* ProfileViewController.swift */,
 				C65061F01D492A5100897A5B /* EditProfileViewController.swift */,
+				C6606DF01D49475500834754 /* SettingsProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				CE5DA1041D4882C100025C17 /* ViewTransformer.swift in Sources */,
 				CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */,
 				CE5DA0E41D455EAA00025C17 /* JamhawkRequestController.swift in Sources */,
+				C6606DF11D49475500834754 /* SettingsProfileViewController.swift in Sources */,
 				CE5DA0B11D400C8E00025C17 /* UserProfileButtonView.swift in Sources */,
 				CE2B69411D2EE1FD00EAFF16 /* PlayerAPITypes.swift in Sources */,
 				CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */,
