@@ -24,6 +24,7 @@
 		CE2B69411D2EE1FD00EAFF16 /* PlayerAPITypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69401D2EE1FD00EAFF16 /* PlayerAPITypes.swift */; };
 		CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69451D2EF05500EAFF16 /* Freddy+Extensions.swift */; };
 		CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */; };
+		CE32971B1D49DDB7001CF512 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32971A1D49DDB7001CF512 /* QuartzCore.framework */; };
 		CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */; };
 		CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */; };
 		CE5DA0B11D400C8E00025C17 /* UserProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */; };
@@ -111,6 +112,7 @@
 		CE2B69401D2EE1FD00EAFF16 /* PlayerAPITypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPITypes.swift; path = JamHawk/Models/PlayerAPITypes.swift; sourceTree = "<group>"; };
 		CE2B69451D2EF05500EAFF16 /* Freddy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Freddy+Extensions.swift"; path = "JamHawk/Extensions/Freddy+Extensions.swift"; sourceTree = "<group>"; };
 		CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIOutput.swift; path = JamHawk/Models/PlayerAPIOutput.swift; sourceTree = "<group>"; };
+		CE32971A1D49DDB7001CF512 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputModels.swift; path = JamHawk/Models/PlayerAPIInputModels.swift; sourceTree = "<group>"; };
 		CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Jamhawk.swift"; path = "JamHawk/Extensions/UIColor+Jamhawk.swift"; sourceTree = "<group>"; };
 		CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileButtonView.swift; path = JamHawk/CustomUI/UserProfileButtonView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE32971B1D49DDB7001CF512 /* QuartzCore.framework in Frameworks */,
 				C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +492,7 @@
 		E51EB60DCDCD65CE4B97C96B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE32971A1D49DDB7001CF512 /* QuartzCore.framework */,
 				B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */,
 			);
 			name = Frameworks;
