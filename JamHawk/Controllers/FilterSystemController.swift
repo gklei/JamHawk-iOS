@@ -63,6 +63,11 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		return available.indexOf(filter)
 	}
 	
+	var selectedSubfilterViewModels: [SubfilterViewModel] {
+		guard let parent = selectedParentFilter else { return [] }
+		return _selectedSubfilterViewModelsDictionary[parent.category] ?? []
+	}
+
 	var parentFilterViewModels: [PlayerAPIOutputFilterViewModel] {
 		guard let parentFilters = _filters?.available else { return [] }
 		return parentFilters.flatMap({ PlayerAPIOutputFilterViewModel(filter: $0) })
@@ -83,9 +88,9 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
 		
-		dispatch_async(dispatch_get_main_queue()) {
+//		dispatch_async(dispatch_get_main_queue()) {
 			self.didUpdateParentFilterSelection(controller: self)
-		}
+//		}
 	}
 }
 
@@ -93,11 +98,6 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 	var subfilterViewModels: [SubfilterViewModel] {
 		guard let parent = selectedParentFilter else { return [] }
 		return _subfilterViewModelsDictionary[parent.category] ?? []
-	}
-	
-	var selectedSubfilterViewModels: [SubfilterViewModel] {
-		guard let parent = selectedParentFilter else { return [] }
-		return _selectedSubfilterViewModelsDictionary[parent.category] ?? []
 	}
 	
 	var selectedSubfilterIndicies: [Int] {

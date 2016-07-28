@@ -12,6 +12,7 @@ protocol ParentFilterSelectionDataSource: class {
 	var selectedParentFilterIndex: Int? { get }
 	var parentFilterViewModels: [PlayerAPIOutputFilterViewModel] { get }
 	var selectedSubfilterViewModels: [SubfilterViewModel] { get }
+	
 	func selectFilter(atIndex index: Int)
 	func resetParentFilterSelection()
 }
