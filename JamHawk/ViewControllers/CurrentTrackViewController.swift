@@ -8,6 +8,7 @@
 
 import UIKit
 import AsyncImageView
+import MarqueeLabel
 
 protocol CurrentTrackDataSource: class {
 	var currentTrackViewModel: PlayerAPIOutputMetadataViewModel? { get }
@@ -68,7 +69,7 @@ final class CompactCurrentTrackViewController: CurrentTrackViewController, Playe
 
 final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerStoryboardInstantiable {
 	
-	@IBOutlet internal var _currentTrackLabel: UILabel!
+	@IBOutlet internal var _currentTrackLabel: MarqueeLabel!
 	@IBOutlet internal var _albumArtImageView: AsyncImageView!
 	@IBOutlet internal var _albumArtContainerView: UIView!
 	
@@ -96,6 +97,7 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		_albumArtContainerView.layer.shadowColor = UIColor.blackColor().CGColor
 		
 		_viewTransformer = ViewTransformer(view: _albumArtContainerView)
+		_currentTrackLabel.fadeLength = 10
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -118,6 +120,7 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		
 		guard let vm = dataSource?.currentTrackViewModel else { return }
 		_currentTrackLabel.text = vm.artistAndSongTitle
+		_currentTrackLabel.restartLabel()
 		_albumArtImageView.imageURL = vm.albumArtworkURL
 	}
 	
