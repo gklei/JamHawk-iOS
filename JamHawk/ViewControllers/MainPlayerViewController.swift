@@ -171,7 +171,6 @@ extension MainPlayerViewController {
 	
 	private func _filterSelectionChanged(controller: FilterSystemController) {
 		var state: MainPlayerState = DefaultMainPlayerState(delegate: self)
-		
 		if controller.selectedParentFilter != nil {
 			state = FilterSelectionMainPlayerState(delegate: self)
 		}
