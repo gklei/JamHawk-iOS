@@ -48,6 +48,17 @@ class ParentFilterCell: UICollectionViewCell {
 	func update(withViewModel vm: PlayerAPIOutputFilterViewModel) {
 		_filterNameLabel.text = vm.filterName
 		_filterSelectionLabel.text = "No Selection"
+		
+		var filterSelectionText = ""
+		vm.selectedSubfilterNames.forEach {
+			filterSelectionText += "\($0)"
+			if vm.selectedSubfilterNames.last != $0 {
+				filterSelectionText += ", "
+			}
+		}
+		
+		filterSelectionText = filterSelectionText == "" ? "No Selection" : filterSelectionText
+		_filterSelectionLabel.text = filterSelectionText
 	}
 	
 	func update(viewSubfilterViewModles viewModels: [SubfilterViewModel]) {
