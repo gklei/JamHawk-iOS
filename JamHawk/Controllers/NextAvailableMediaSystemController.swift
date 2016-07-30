@@ -10,7 +10,6 @@ import Foundation
 
 final class NextAvailableMediaSystemController: SystemController<[PlayerAPIOutputMetadata]> {
 	private var _next: [PlayerAPIOutputMetadata]?
-	var needNext: Bool = false
 	
 	var didUpdateModel: (controller: NextAvailableMediaSystemController) -> Void = {_ in}
 	var didUpdateSelection: (controller: NextAvailableMediaSystemController) -> Void = {_ in}
