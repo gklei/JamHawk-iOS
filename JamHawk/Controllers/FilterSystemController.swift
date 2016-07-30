@@ -8,26 +8,29 @@
 
 import Foundation
 
-struct SubfilterViewModel: Equatable {
-	let category: String
-	let name: String
-	let id: String
-}
-
-func ==(lhs: SubfilterViewModel, rhs: SubfilterViewModel) -> Bool {
-	return lhs.category == rhs.category && lhs.id == rhs.id
-}
-
 final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	private var _filters: PlayerAPIOutputFilters?
 	
+	// MARK: - Closurees
 	var didUpdateModel: (controller: FilterSystemController) -> Void = {_ in}
-	
 	var didUpdateParentFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
 	var didUpdateSubfilterFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
 	
-	var selectedParentFilter: PlayerAPIOutputFilter?
+	internal(set) var selectedParentFilter: PlayerAPIOutputFilter?
 	
+	var selectedSubfilterIDs: [PlayerAPIFilterID] {
+		return _selectedSubfilterViewModelsDictionary.values.flatMap({ $0.flatMap({ $0.id }) })
+	}
+	
+	var filterSelection: PlayerAPIFilterSelection {
+		var selection: PlayerAPIFilterSelection = [:]
+		for (category, vms) in _selectedSubfilterViewModelsDictionary {
+			selection[category] = vms.flatMap({ $0.id })
+		}
+		return selection
+	}
+	
+	// MARK: - Caching
 	private var _subfilterViewModelsDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
 	private var _selectedSubfilterViewModelsDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
 	
@@ -70,7 +73,8 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 
 	var parentFilterViewModels: [PlayerAPIOutputFilterViewModel] {
 		guard let parentFilters = _filters?.available else { return [] }
-		return parentFilters.flatMap({ PlayerAPIOutputFilterViewModel(filter: $0) })
+		let selectedIDs = _filters?.selected ?? []
+		return parentFilters.flatMap({ PlayerAPIOutputFilterViewModel(filter: $0, selectedSubfilterIDs: selectedIDs) })
 	}
 	
 	func selectFilter(atIndex index: Int) {
@@ -87,10 +91,7 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 	
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
-		
-//		dispatch_async(dispatch_get_main_queue()) {
-			self.didUpdateParentFilterSelection(controller: self)
-//		}
+		didUpdateParentFilterSelection(controller: self)
 	}
 }
 
