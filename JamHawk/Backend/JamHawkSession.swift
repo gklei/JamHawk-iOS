@@ -7,13 +7,19 @@
 //
 
 import Foundation
-import Freddy
+
+protocol PlayerAPIService {
+	func instantiatePlayer(callback: PlayerAPICallback)
+	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates?, callback: PlayerAPICallback)
+	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, callback: PlayerAPICallback)
+}
 
 class JamHawkSession: PlayerAPIService {
 	
 	// MARK: - Properties
 	private let _userSession: UserAccessSession
 	private let _playerSession: PlayerSession
+	internal(set) var requestID: Int = 0
 	
 	init() {
 		let config = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -51,9 +57,16 @@ class JamHawkSession: PlayerAPIService {
 	// MARK: - Public: Player
 	func instantiatePlayer(callback: PlayerAPICallback) {
 		_playerSession.instantiatePlayer(callback)
+		requestID = requestID + 1
 	}
 	
 	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates? = nil, callback: PlayerAPICallback) {
-		_playerSession.requestNextTrack(withUpdates: updates, callback: callback)
+		_playerSession.requestNextTrack(withUpdates: updates, callback: callback, requestID: requestID)
+		requestID = requestID + 1
+	}
+	
+	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, callback: PlayerAPICallback) {
+		_playerSession.sendRequest(needNext: needNext, needMedia: needMedia, needFilters: needFilters, updates: updates, requestID: requestID, callback: callback)
+		requestID = requestID + 1
 	}
 }
