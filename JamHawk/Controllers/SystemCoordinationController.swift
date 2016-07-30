@@ -44,10 +44,10 @@ class SystemCoordinationController {
 		ratingSystem.update(withModel: output.track)
 	}
 	
-	func instantiatePlayer(callback: PlayerAPICallback) {
+	func instantiatePlayer(completion: ((error: NSError?) -> Void)?) {
 		_playerAPIService.instantiatePlayer { (error, output) in
 			self._handlePlayerAPICallback(error, output: output)
-			callback(error: error, output: output)
+			completion?(error: error)
 		}
 	}
 }
