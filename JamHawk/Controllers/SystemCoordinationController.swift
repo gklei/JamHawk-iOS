@@ -40,7 +40,12 @@ class SystemCoordinationController {
 		guard let output = output else { return }
 		
 		playerSystem.update(withModel: output.media)
-		filterSystem.update(withModel: output.filters)
+		
+		if output.filters != nil {
+			print(output.filters!) 
+			filterSystem.update(withModel: output.filters)
+		}
+		
 		currentTrackSystem.update(withModel: output.track)
 		
 		if output.next != nil {
@@ -82,10 +87,16 @@ extension SystemCoordinationController {
 	}
 	
 	@objc internal func _sendRequestToPlayerAPI(timer: NSTimer) {
-		let selection = _generateFilterSelectionIfChanged()
+		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
-		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: selection, select: next, ratings: nil)
-		_playerAPIService.sendRequest(needNext: (selection != nil),
+		
+		let updates = PlayerAPIInputUpdates(abandonedRequests: nil,
+		                                    canPlay: true,
+		                                    filter: filterSelection,
+		                                    select: next,
+		                                    ratings: nil)
+		
+		_playerAPIService.sendRequest(needNext: (filterSelection != nil),
 		                              needMedia: false,
 		                              needFilters: false,
 		                              updates: updates,
