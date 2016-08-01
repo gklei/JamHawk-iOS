@@ -58,14 +58,22 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 			guard let cell = _collectionView.cellForItemAtIndexPath(ip) as? ParentFilterCell else { return }
 			guard let subfilterViewModels = dataSource?.selectedSubfilterViewModels else { return }
 			cell.update(viewSubfilterViewModles: subfilterViewModels)
-			
 		} else {
 			_collectionView.deselectAllItems()
 		}
 	}
 	
 	func syncData() {
-		_collectionView.reloadData()
+		if let selectedIndex = dataSource?.selectedParentFilterIndex {
+			let ip = NSIndexPath(forRow: selectedIndex, inSection: 0)
+			_collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .CenteredHorizontally)
+			
+			guard let cell = _collectionView.cellForItemAtIndexPath(ip) as? ParentFilterCell else { return }
+			guard let subfilterViewModels = dataSource?.selectedSubfilterViewModels else { return }
+			cell.update(viewSubfilterViewModles: subfilterViewModels)
+		} else {
+			_collectionView.reloadData()
+		}
 	}
 }
 
