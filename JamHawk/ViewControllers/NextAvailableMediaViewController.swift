@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MarqueeLabel
 
 protocol NextAvailableMediaSelectionDataSource: class {
 	var selectedMediaIndex: Int? { get }
@@ -18,7 +19,7 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!
-	@IBOutlet private var _nextSongInfoLabel: UILabel!
+	@IBOutlet private var _nextSongInfoLabel: MarqueeLabel!
 	
 	// MARK: - Properties
 	weak var dataSource: NextAvailableMediaSelectionDataSource?
@@ -32,6 +33,8 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
+		
+		_nextSongInfoLabel.fadeLength = 10
 		
 		let topBorder = view.addBorder(withSize: 1, toEdge: .Top)
 		topBorder?.backgroundColor = UIColor(white: 1, alpha: 0.4)
@@ -73,6 +76,7 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		guard let artistAndSongTitle = viewModel.artistAndSongTitle else { return }
 		
 		_nextSongInfoLabel.text = "Next Song: \(artistAndSongTitle)"
+		_nextSongInfoLabel.restartLabel()
 	}
 }
 

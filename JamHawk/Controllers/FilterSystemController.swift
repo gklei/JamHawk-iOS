@@ -8,20 +8,37 @@
 
 import Foundation
 
-struct SubfilterViewModel {
-	let category: String
-	let name: String
-	let id: String
-}
-
 final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	private var _filters: PlayerAPIOutputFilters?
 	
+	// MARK: - Closurees
 	var didUpdateModel: (controller: FilterSystemController) -> Void = {_ in}
-	var didUpdateSelection: (controller: FilterSystemController) -> Void = {_ in}
+	var didUpdateParentFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
+	var didUpdateSubfilterFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
 	
-	var selectedParentFilter: PlayerAPIOutputFilter?
-	private var _subfilterDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
+	internal(set) var selectedParentFilter: PlayerAPIOutputFilter?
+	
+	var selectedSubfilterIDs: [PlayerAPIFilterID] {
+		return _selectedSubfilterViewModelsDictionary.values.flatMap({ $0.flatMap({ $0.id }) })
+	}
+	
+	var filterSelection: PlayerAPIFilterSelection {
+		var selection: PlayerAPIFilterSelection = [:]
+		
+		let categories = _filters?.available?.flatMap({ $0.category })
+		categories?.forEach { category in
+			selection[category] = []
+		}
+		
+		for (category, vms) in _selectedSubfilterViewModelsDictionary {
+			selection[category] = vms.flatMap({ $0.id })
+		}
+		return selection
+	}
+	
+	// MARK: - Caching
+	private var _subfilterViewModelsDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
+	private var _selectedSubfilterViewModelsDictionary: [PlayerAPIFilterCategory : [SubfilterViewModel]] = [:]
 	
 	override func update(withModel model: PlayerAPIOutputFilters?) {
 		guard let model = model else { return }
@@ -31,11 +48,8 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 		didUpdateModel(controller: self)
 	}
 	
-	func selectSubfilter(atIndex index: Int) {
-	}
-	
 	private func _generateSubfilterViewModels() {
-		_subfilterDictionary = [:]
+		_subfilterViewModelsDictionary = [:]
 		
 		_filters?.available?.forEach {
 			var viewModels: [SubfilterViewModel] = []
@@ -46,7 +60,7 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 				let vm = SubfilterViewModel(category: $0.category, name: name, id: id)
 				viewModels.append(vm)
 			}
-			_subfilterDictionary[$0.category] = viewModels
+			_subfilterViewModelsDictionary[$0.category] = viewModels
 		}
 	}
 }
@@ -58,9 +72,15 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		return available.indexOf(filter)
 	}
 	
+	var selectedSubfilterViewModels: [SubfilterViewModel] {
+		guard let parent = selectedParentFilter else { return [] }
+		return _selectedSubfilterViewModelsDictionary[parent.category] ?? []
+	}
+
 	var parentFilterViewModels: [PlayerAPIOutputFilterViewModel] {
 		guard let parentFilters = _filters?.available else { return [] }
-		return parentFilters.flatMap({ PlayerAPIOutputFilterViewModel(filter: $0) })
+		let selectedIDs = _filters?.selected ?? []
+		return parentFilters.flatMap({ PlayerAPIOutputFilterViewModel(filter: $0, selectedSubfilterIDs: selectedIDs) })
 	}
 	
 	func selectFilter(atIndex index: Int) {
@@ -71,22 +91,47 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		selectedParentFilter = filter
 		
 		dispatch_async(dispatch_get_main_queue()) {
-			self.didUpdateSelection(controller: self)
+			self.didUpdateParentFilterSelection(controller: self)
 		}
 	}
 	
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
-		
-		dispatch_async(dispatch_get_main_queue()) {
-			self.didUpdateSelection(controller: self)
-		}
+		didUpdateParentFilterSelection(controller: self)
 	}
 }
 
 extension FilterSystemController: SubfilterSelectionDataSource {
 	var subfilterViewModels: [SubfilterViewModel] {
 		guard let parent = selectedParentFilter else { return [] }
-		return _subfilterDictionary[parent.category] ?? []
+		return _subfilterViewModelsDictionary[parent.category] ?? []
+	}
+	
+	var selectedSubfilterIndicies: [Int] {
+		return selectedSubfilterViewModels.flatMap({ subfilterViewModels.indexOf($0) })
+	}
+	
+	func selectSubfilter(atIndex index: Int) {
+		guard subfilterViewModels.count > index else { return }
+		let vm = subfilterViewModels[index]
+		
+		if _selectedSubfilterViewModelsDictionary[vm.category] != nil {
+			_selectedSubfilterViewModelsDictionary[vm.category]?.append(vm)
+		} else {
+			_selectedSubfilterViewModelsDictionary[vm.category] = [vm]
+		}
+		didUpdateSubfilterFilterSelection(controller: self)
+		
+		// Sends notification about subfilters changing
+	}
+	
+	func deselectSubfilter(atIndex index: Int) {
+		guard subfilterViewModels.count > index else { return }
+		let vm = subfilterViewModels[index]
+		
+		if let index = _selectedSubfilterViewModelsDictionary[vm.category]?.indexOf(vm) {
+			_selectedSubfilterViewModelsDictionary[vm.category]?.removeAtIndex(index)
+		}
+		didUpdateSubfilterFilterSelection(controller: self)
 	}
 }

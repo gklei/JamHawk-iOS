@@ -6,7 +6,6 @@
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct PlayerAPIOutputMediaViewModel {
@@ -20,6 +19,7 @@ struct PlayerAPIOutputMediaViewModel {
 
 struct PlayerAPIOutputFilterViewModel: Equatable {
 	let filter: PlayerAPIOutputFilter
+	let selectedSubfilterIDs: [PlayerAPIFilterID]
 	
 	var filterName: String {
 		return filter.label.uppercaseString
@@ -27,6 +27,18 @@ struct PlayerAPIOutputFilterViewModel: Equatable {
 	
 	var subFilterNames: [String] {
 		return filter.filterNames
+	}
+	
+	var selectedSubfilterNames: [String] {		
+		var names: [String] = []
+		for index in 0..<selectedSubfilterIDs.count {
+			guard filter.filterIDs.count > index else { break }
+			guard filter.filterIDs[index] == selectedSubfilterIDs[index] else { continue }
+			
+			let name = filter.filterNames[index]
+			names.append(name)
+		}
+		return names
 	}
 }
 

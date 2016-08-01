@@ -62,11 +62,13 @@ struct PlayerAPIInputInstance: JSONEncodable {
 
 struct PlayerAPIInputFilterSelection: JSONEncodable {
 	let selection: PlayerAPIFilterSelection
+	
 	func toJSON() -> JSON {
 		var json: [String : JSON] = [:]
 		for (category, filterIDs) in selection {
 			json[category] = filterIDs.toJSON()
 		}
-		return JSON.withoutNullValues(json)
+		
+		return ["any" : JSON.withoutNullValues(json)]
 	}
 }

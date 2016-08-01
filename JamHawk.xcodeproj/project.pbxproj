@@ -71,6 +71,7 @@
 		CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948D1D26B67600B0F53D /* Assets.xcassets */; };
 		CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */; };
 		CE9B949C1D26B67700B0F53D /* JamHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */; };
+		CED3AC781D4D676D001E488D /* SubfilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AC771D4D676D001E488D /* SubfilterViewModel.swift */; };
 		CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E01D26D49B0083365F /* SignInViewController.swift */; };
 		CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E31D26E6350083365F /* BottomBorderTextField.swift */; };
 		CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404EB1D26F20E0083365F /* JamHawkSession.swift */; };
@@ -163,6 +164,7 @@
 		CE9B94971D26B67700B0F53D /* JamHawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHawkTests.swift; sourceTree = "<group>"; };
 		CE9B949D1D26B67700B0F53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED3AC771D4D676D001E488D /* SubfilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubfilterViewModel.swift; path = JamHawk/ViewModels/SubfilterViewModel.swift; sourceTree = "<group>"; };
 		CED404E01D26D49B0083365F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CED404E31D26E6350083365F /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = JamHawk/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
 		CED404EB1D26F20E0083365F /* JamHawkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkSession.swift; path = JamHawk/Backend/JamHawkSession.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */,
+				CED3AC771D4D676D001E488D /* SubfilterViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */,
 				CE5DA0E01D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift in Sources */,
 				CE5DA0EB1D4677D800025C17 /* FilterSystemController.swift in Sources */,
+				CED3AC781D4D676D001E488D /* SubfilterViewModel.swift in Sources */,
 				CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */,
 				CE5DA1041D4882C100025C17 /* ViewTransformer.swift in Sources */,
 				CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */,

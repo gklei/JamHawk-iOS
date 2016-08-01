@@ -9,6 +9,9 @@
 import Foundation
 import AVFoundation
 
+// TODO:
+// Pull the event queue/system out of here!
+
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
 protocol PlayerSystemDelegate: class {
@@ -49,6 +52,7 @@ final class PlayerSystemController: SystemController<PlayerAPIOutputMedia> {
 	}
 	
 	private func _updateProgress(withCurrentTime time: CMTime) {
+		// TODO: Get the actual duration...
 		let totalDuration = 180
 		let seconds = CMTimeGetSeconds(time)
 		let progress = CGFloat(seconds) / CGFloat(totalDuration)

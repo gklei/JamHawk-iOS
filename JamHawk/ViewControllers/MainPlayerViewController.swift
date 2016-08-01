@@ -82,7 +82,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	// MARK: - System Setup
 	private func _setupFilterSystem(withController controller: SystemCoordinationController) {
 		controller.filterSystem.didUpdateModel = _filterModelChanged
-		controller.filterSystem.didUpdateSelection = _filterSelectionChanged
+		controller.filterSystem.didUpdateParentFilterSelection = _filterSelectionChanged
+		controller.filterSystem.didUpdateSubfilterFilterSelection = _subfilterSelectionChanged
 		_parentFilterSelectionVC.dataSource = controller.filterSystem
 		_subfilterSelectionVC.dataSource = controller.filterSystem
 		
@@ -129,7 +130,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	// MARK: - Public
-	func setup(withCoordinationController controller: SystemCoordinationController) {
+	func setupSystems(withCoordinationController controller: SystemCoordinationController) {
 		let _ = view // load the view
 		
 		_setupFilterSystem(withController: controller)
@@ -143,7 +144,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 // MARK: - Async Image Downloading
 extension MainPlayerViewController {
 	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
-		_backgroundImageView.image = image?.applyBlur(withRadius: 4.0, tintColor: nil, saturationDeltaFactor: 1.3)
+		_backgroundImageView.image = image?.applyBlur(withRadius: 2.5, tintColor: nil, saturationDeltaFactor: 2)
 	}
 }
 
@@ -170,14 +171,17 @@ extension MainPlayerViewController {
 	
 	private func _filterSelectionChanged(controller: FilterSystemController) {
 		var state: MainPlayerState = DefaultMainPlayerState(delegate: self)
-		
 		if controller.selectedParentFilter != nil {
 			state = FilterSelectionMainPlayerState(delegate: self)
 		}
 		
-		_subfilterSelectionVC.syncUI()
+		_subfilterSelectionVC.syncData()
 		_parentFilterSelectionVC.syncUI()
 		_transition(toState: state, duration: 0.3)
+	}
+	
+	private func _subfilterSelectionChanged(controller: FilterSystemController) {
+		_parentFilterSelectionVC.syncUI()
 	}
 	
 	// MARK: - Next Available System

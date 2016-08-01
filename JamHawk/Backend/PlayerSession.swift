@@ -8,20 +8,13 @@
 
 import Foundation
 
-protocol PlayerAPIService {
-	func instantiatePlayer(callback: PlayerAPICallback)
-	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates?, callback: PlayerAPICallback)
-}
-
-class PlayerSession: PlayerAPIService {
+class PlayerSession {
 	// MARK: - Properties
 	private let _session: NSURLSession
 	private var _playerDataTask: NSURLSessionDataTask?
 	
 	private var _playerID: String?
 	private var _playerStatus: PlayerAPIInputStatus?
-	
-	private var _currentRequestID = 0
 	
 	init(session: NSURLSession) {
 		_session = session
@@ -34,9 +27,7 @@ class PlayerSession: PlayerAPIService {
 		let input = PlayerAPIInput(instance: instanceInput, status: statusInput, updates: nil, events: nil)
 		guard let request = input.generateRequest() else { return }
 		
-		_playerDataTask?.cancel()
 		_playerDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
-			
 			let output = PlayerAPIOutput(jsonData: data)
 			dispatch_async(dispatch_get_main_queue()) {
 				
@@ -47,21 +38,38 @@ class PlayerSession: PlayerAPIService {
 		_playerDataTask?.resume()
 	}
 	
-	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates? = nil, callback: PlayerAPICallback) {
+	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates? = nil, callback: PlayerAPICallback, requestID: Int) {
 		
 		guard let id = _playerID else { return }
-		let status = PlayerAPIInputStatus.requestNextTrackStatus(id)
+		
+		let status = PlayerAPIInputStatus(playerID: id, requestID: requestID, needInstance: false, needMedia: true, needNext: true, needFilters: false)
 		let input = PlayerAPIInput(instance: nil, status: status, updates: updates, events: nil)
 		guard let request = input.generateRequest() else { return }
 		
-		_playerDataTask?.cancel()
 		_playerDataTask = _session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-			
 			let output = PlayerAPIOutput(jsonData: data)
 			dispatch_async(dispatch_get_main_queue()) {
 				callback(error: error, output: output)
 			}
 		})
 		_playerDataTask?.resume()
+	}
+	
+	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, requestID: Int, callback: PlayerAPICallback) {
+		
+		guard let id = _playerID else { return }
+		
+		let status = PlayerAPIInputStatus(playerID: id, requestID: requestID, needInstance: false, needMedia: needMedia, needNext: needNext, needFilters: needFilters)
+		let input = PlayerAPIInput(instance: nil, status: status, updates: updates, events: nil)
+		guard let request = input.generateRequest() else { return }
+		
+		_playerDataTask = _session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+			let output = PlayerAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
+		})
+		_playerDataTask?.resume()
+
 	}
 }

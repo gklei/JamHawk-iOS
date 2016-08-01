@@ -23,7 +23,9 @@ class AppRouter {
 		self.session = session
 		
 		_coordinationController = SystemCoordinationController(apiService: session)
-		_mainPlayerVC.setup(withCoordinationController: _coordinationController!)
+		_coordinationController?.errorPresentationContext = _tempInitialVC
+		
+		_mainPlayerVC.setupSystems(withCoordinationController: _coordinationController!)
 		
 		_setupWindow(withRootVC: _tempInitialVC)
 		_tempInitialVC.update(.SigningIn)
@@ -77,21 +79,10 @@ extension AppRouter {
 			context.presentMessage(message)
 		}
 		if output.success {
-			self._coordinationController?.instantiatePlayer({ (error, output) in
-				self._handlePlayerInstantiationCallback(error, output: output, context: context)
-			})
-		}
-	}
-}
-
-// MARK: - Main Player
-extension AppRouter {
-	private func _handlePlayerInstantiationCallback(error: NSError?, output: PlayerAPIOutput?, context: UIViewController) {
-		if let error = error {
-			context.present(error)
-		} else {
-			_coordinationController?.errorPresentationContext = _mainPlayerVC
-			rootNavController.pushViewController(_mainPlayerVC, animated: true)
+			self._coordinationController?.instantiatePlayer { error in
+				self._coordinationController?.errorPresentationContext = self._mainPlayerVC
+				self.rootNavController.pushViewController(self._mainPlayerVC, animated: true)
+			}
 		}
 	}
 }

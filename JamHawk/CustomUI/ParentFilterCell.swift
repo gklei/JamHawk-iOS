@@ -48,32 +48,42 @@ class ParentFilterCell: UICollectionViewCell {
 	func update(withViewModel vm: PlayerAPIOutputFilterViewModel) {
 		_filterNameLabel.text = vm.filterName
 		_filterSelectionLabel.text = "No Selection"
+		
+		var filterSelectionText = ""
+		vm.selectedSubfilterNames.forEach {
+			filterSelectionText += "\($0)"
+			if vm.selectedSubfilterNames.last != $0 {
+				filterSelectionText += ", "
+			}
+		}
+		
+		filterSelectionText = filterSelectionText == "" ? "No Selection" : filterSelectionText
+		_filterSelectionLabel.text = filterSelectionText
 	}
+	
+	func update(viewSubfilterViewModles viewModels: [SubfilterViewModel]) {
+		var filterSelectionText = ""
+		viewModels.forEach {
+			filterSelectionText += "\($0.name)"
+			if viewModels.last != $0 {
+				filterSelectionText += ", "
+			}
+		}
+		
+		filterSelectionText = filterSelectionText == "" ? "No Selection" : filterSelectionText
+		_filterSelectionLabel.text = filterSelectionText
+ 	}
 }
 
 extension ParentFilterCell {
 	private func _setupBorders() {
 		let halfPixelWidth = ((1.0 / UIScreen.mainScreen().scale) / 2) * 2
 		
-		let bottomBorder = UIView()
-		bottomBorder.backgroundColor = _borderColor
-		addSubview(bottomBorder)
+		let bottomBorder = addBorder(withSize: 1, toEdge: .Bottom)
+		bottomBorder?.backgroundColor = _borderColor
 		
-		bottomBorder.translatesAutoresizingMaskIntoConstraints = false
-		bottomBorder.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
-		bottomBorder.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
-		bottomBorder.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-		bottomBorder.heightAnchor.constraintEqualToConstant(1).active = true
-		
-		let topBorder = UIView()
-		topBorder.backgroundColor = _borderColor
-		addSubview(topBorder)
-		
-		topBorder.translatesAutoresizingMaskIntoConstraints = false
-		topBorder.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-		topBorder.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
-		topBorder.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-		topBorder.heightAnchor.constraintEqualToConstant(1).active = true
+		let topBorder = addBorder(withSize: 1, toEdge: .Top)
+		topBorder?.backgroundColor = _borderColor
 		
 		_leftBorder.backgroundColor = _borderColor
 		addSubview(_leftBorder)
@@ -95,9 +105,9 @@ extension ParentFilterCell {
 		insertSubview(_highlightedBackgroundView, atIndex: 0)
 		_highlightedBackgroundView.translatesAutoresizingMaskIntoConstraints = false
 		_highlightedBackgroundView.leftAnchor.constraintEqualToAnchor(_leftBorder.rightAnchor).active = true
-		_highlightedBackgroundView.topAnchor.constraintEqualToAnchor(topBorder.bottomAnchor).active = true
+		_highlightedBackgroundView.topAnchor.constraintEqualToAnchor(topBorder!.bottomAnchor).active = true
 		_highlightedBackgroundView.rightAnchor.constraintEqualToAnchor(_rightBorder.leftAnchor).active = true
-		_highlightedBackgroundView.bottomAnchor.constraintEqualToAnchor(bottomBorder.topAnchor).active = true
+		_highlightedBackgroundView.bottomAnchor.constraintEqualToAnchor(bottomBorder!.topAnchor).active = true
 	}
 	
 	override var selected: Bool {
@@ -106,12 +116,20 @@ extension ParentFilterCell {
 			_filterNameLabel.textColor = selected ? .jmhTurquoiseColor() : .whiteColor()
 			_filterSelectionLabel.textColor = selected ? .jmhTurquoiseColor() : .whiteColor()
 			_downArrowImageView.tintColor = selected ? .jmhTurquoiseColor() : .whiteColor()
+			
+			let t = selected ? CGAffineTransformMakeRotation(CGFloat(M_PI)) : CGAffineTransformIdentity
+			UIView.animateWithDuration(0.3) {
+				self._downArrowImageView.transform = t
+			}
 		}
 	}
 	
 	override var highlighted: Bool {
 		didSet {
-			_highlightedBackgroundView.backgroundColor = highlighted ? _borderColor : .clearColor()
+			contentView.backgroundColor = highlighted ? .whiteColor() : .clearColor()
+			_filterNameLabel.textColor = highlighted ? .jmhTurquoiseColor() : .whiteColor()
+			_filterSelectionLabel.textColor = highlighted ? .jmhTurquoiseColor() : .whiteColor()
+			_downArrowImageView.tintColor = highlighted ? .jmhTurquoiseColor() : .whiteColor()
 		}
 	}
 }

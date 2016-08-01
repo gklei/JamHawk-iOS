@@ -11,6 +11,9 @@ import UIKit
 protocol ParentFilterSelectionDataSource: class {
 	var selectedParentFilterIndex: Int? { get }
 	var parentFilterViewModels: [PlayerAPIOutputFilterViewModel] { get }
+	
+	var selectedSubfilterViewModels: [SubfilterViewModel] { get }
+	
 	func selectFilter(atIndex index: Int)
 	func resetParentFilterSelection()
 }
@@ -51,13 +54,26 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 		if let selectedIndex = dataSource?.selectedParentFilterIndex {
 			let ip = NSIndexPath(forRow: selectedIndex, inSection: 0)
 			_collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .CenteredHorizontally)
+			
+			guard let cell = _collectionView.cellForItemAtIndexPath(ip) as? ParentFilterCell else { return }
+			guard let subfilterViewModels = dataSource?.selectedSubfilterViewModels else { return }
+			cell.update(viewSubfilterViewModles: subfilterViewModels)
 		} else {
 			_collectionView.deselectAllItems()
 		}
 	}
 	
 	func syncData() {
-		_collectionView.reloadData()
+		if let selectedIndex = dataSource?.selectedParentFilterIndex {
+			let ip = NSIndexPath(forRow: selectedIndex, inSection: 0)
+			_collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .CenteredHorizontally)
+			
+			guard let cell = _collectionView.cellForItemAtIndexPath(ip) as? ParentFilterCell else { return }
+			guard let subfilterViewModels = dataSource?.selectedSubfilterViewModels else { return }
+			cell.update(viewSubfilterViewModles: subfilterViewModels)
+		} else {
+			_collectionView.reloadData()
+		}
 	}
 }
 

@@ -14,6 +14,7 @@ class PlayerControlsToolbar: UIToolbar {
 		
 		translucent = false
 		makeShadowTransparent()
-		update(backgroundColor: UIColor(white: (26.0 / 255.0), alpha: 1))
+		let color = UIColor(white: 0, alpha: 0.5)
+		update(backgroundColor: color)
 	}
 }

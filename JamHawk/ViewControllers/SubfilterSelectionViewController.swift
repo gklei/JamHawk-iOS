@@ -10,6 +10,10 @@ import UIKit
 
 protocol SubfilterSelectionDataSource: class {
 	var subfilterViewModels: [SubfilterViewModel] { get }
+	var selectedSubfilterIndicies: [Int] { get }
+	
+	func selectSubfilter(atIndex index: Int)
+	func deselectSubfilter(atIndex index: Int)
 }
 
 class SubfilterSelectionViewController: UIViewController {
@@ -20,7 +24,6 @@ class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Properties
 	weak var dataSource: SubfilterSelectionDataSource?
-	private var _viewModels: [SubfilterViewModel] = []
 	private var _layout: UICollectionViewFlowLayout!
 	
 	var viewTappedClosure: () -> Void = {}
@@ -58,6 +61,7 @@ class SubfilterSelectionViewController: UIViewController {
 		_layout = UICollectionViewFlowLayout()
 		_layout.itemSize = CGSize(width: size, height: size)
 		_layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+		_layout.minimumLineSpacing = inset * 0.5
 		
 		_collectionView.collectionViewLayout = _layout
 		view.setNeedsLayout()
@@ -65,27 +69,20 @@ class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Public
 	func syncData() {
-		_viewModels = dataSource?.subfilterViewModels ?? []
-		
 		dispatch_async(dispatch_get_main_queue()) {
 			self._collectionView.reloadData()
-			self.view.setNeedsLayout()
-		}
-	}
-	
-	func syncUI() {
-		_viewModels = dataSource?.subfilterViewModels ?? []
-		
-		dispatch_async(dispatch_get_main_queue()) {
-			self._collectionView.reloadData()
+			self.dataSource?.selectedSubfilterIndicies.forEach {
+				let ip = NSIndexPath(forRow: $0, inSection: 0)
+				self._collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .None)
+			}
 			self.view.setNeedsLayout()
 		}
 	}
 	
 	private func _updateCollectionViewHeight() {
-		let count = _viewModels.count
+		let count = dataSource?.subfilterViewModels.count ?? 0
 		let numRows: CGFloat = ceil(CGFloat(count) / 3.0)
-		let height = _layout.sectionInset.top + _layout.sectionInset.bottom + (_layout.itemSize.height * numRows)
+		let height = _layout.sectionInset.top + _layout.sectionInset.bottom + (_layout.itemSize.height * numRows) + (_layout.minimumLineSpacing * (numRows - 1))
 		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
 	}
 	
@@ -96,18 +93,27 @@ class SubfilterSelectionViewController: UIViewController {
 
 extension SubfilterSelectionViewController: UICollectionViewDataSource {
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return _viewModels.count
+		return dataSource?.subfilterViewModels.count ?? 0
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SubfilterCell.reuseID, forIndexPath: indexPath) as! SubfilterCell
 		
-		let subfilter = _viewModels[indexPath.row]
-		cell.update(name: subfilter.name)
+		if let viewModels = dataSource?.subfilterViewModels {
+			let subfilter = viewModels[indexPath.row]
+			cell.update(name: subfilter.name)
+		}
 		
 		return cell
 	}
 }
 
 extension SubfilterSelectionViewController: UICollectionViewDelegate {
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		dataSource?.selectSubfilter(atIndex: indexPath.row)
+	}
+	
+	func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+		dataSource?.deselectSubfilter(atIndex: indexPath.row)
+	}
 }
