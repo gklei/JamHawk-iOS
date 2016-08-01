@@ -144,7 +144,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 // MARK: - Async Image Downloading
 extension MainPlayerViewController {
 	internal func _imageFinishedLoading(image: UIImage?, url: NSURL?) {
-		_backgroundImageView.image = image?.applyBlur(withRadius: 3.5, tintColor: nil, saturationDeltaFactor: 1.2)
+		_backgroundImageView.image = image?.applyBlur(withRadius: 2.5, tintColor: nil, saturationDeltaFactor: 1.2)
 	}
 }
 
