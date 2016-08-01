@@ -6,7 +6,6 @@
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct PlayerAPIOutputMediaViewModel {
