@@ -24,6 +24,12 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	
 	var filterSelection: PlayerAPIFilterSelection {
 		var selection: PlayerAPIFilterSelection = [:]
+		
+		let categories = _filters?.available?.flatMap({ $0.category })
+		categories?.forEach { category in
+			selection[category] = []
+		}
+		
 		for (category, vms) in _selectedSubfilterViewModelsDictionary {
 			selection[category] = vms.flatMap({ $0.id })
 		}
@@ -109,9 +115,8 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 		guard subfilterViewModels.count > index else { return }
 		let vm = subfilterViewModels[index]
 		
-		if var selected = _selectedSubfilterViewModelsDictionary[vm.category] {
-			selected.append(vm)
-			_selectedSubfilterViewModelsDictionary[vm.category] = selected
+		if _selectedSubfilterViewModelsDictionary[vm.category] != nil {
+			_selectedSubfilterViewModelsDictionary[vm.category]?.append(vm)
 		} else {
 			_selectedSubfilterViewModelsDictionary[vm.category] = [vm]
 		}
