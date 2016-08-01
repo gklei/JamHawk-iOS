@@ -49,6 +49,7 @@ final class PlayerSystemController: SystemController<PlayerAPIOutputMedia> {
 	}
 	
 	private func _updateProgress(withCurrentTime time: CMTime) {
+		// TODO: Get the actual duration...
 		let totalDuration = 180
 		let seconds = CMTimeGetSeconds(time)
 		let progress = CGFloat(seconds) / CGFloat(totalDuration)
