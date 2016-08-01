@@ -45,7 +45,7 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 		let selector = #selector(PlayerControlsViewController._profileButtonPressed)
 		_profileItem.customView = UserProfileButtonView(target: self, selector: selector)
 		
-		let color = UIColor(white: 0, alpha: 0.7)
+		let color = UIColor(white: 0, alpha: 0.5)
 		_topPaddingView.backgroundColor = color
 		_bottomPaddingView.backgroundColor = color
 		
