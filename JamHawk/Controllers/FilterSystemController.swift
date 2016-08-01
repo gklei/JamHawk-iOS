@@ -121,6 +121,8 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 			_selectedSubfilterViewModelsDictionary[vm.category] = [vm]
 		}
 		didUpdateSubfilterFilterSelection(controller: self)
+		
+		// Sends notification about subfilters changing
 	}
 	
 	func deselectSubfilter(atIndex index: Int) {

@@ -9,6 +9,9 @@
 import Foundation
 import AVFoundation
 
+// TODO:
+// Pull the event queue/system out of here!
+
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
 protocol PlayerSystemDelegate: class {

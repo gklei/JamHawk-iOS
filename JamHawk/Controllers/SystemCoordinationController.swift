@@ -8,6 +8,14 @@
 
 import UIKit
 
+/*
+   Prioritized tasks
+	* download media files
+	* automatically play the next song when the current song ends
+	* change the UI for anything that doesn't look right
+	* replace the automatic sign in UI with the actual sign in UI
+*/
+
 class SystemCoordinationController {
 	
 	// deals with the relationships between system controllers
@@ -38,11 +46,10 @@ class SystemCoordinationController {
 		}
 		
 		guard let output = output else { return }
-		
 		playerSystem.update(withModel: output.media)
 		
 		if output.filters != nil {
-			print(output.filters!) 
+			print(output.filters!)
 			filterSystem.update(withModel: output.filters)
 		}
 		
@@ -77,6 +84,11 @@ extension SystemCoordinationController: PlayerSystemDelegate {
 
 extension SystemCoordinationController {
 	
+	/*
+		When something happens that isn't immediate, set up a timer
+		When something more immediate happens, replace the timer
+	*/
+	
 	private func _setupRequestTimer(withInterval seconds: NSTimeInterval) {
 		guard _timer == nil else { return }
 		
@@ -87,8 +99,12 @@ extension SystemCoordinationController {
 	}
 	
 	@objc internal func _sendRequestToPlayerAPI(timer: NSTimer) {
+		
 		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
+		
+		// gather events using the event queue (clear queue right after we send)
+		// get song rating information (use request id)
 		
 		let updates = PlayerAPIInputUpdates(abandonedRequests: nil,
 		                                    canPlay: true,
@@ -105,9 +121,12 @@ extension SystemCoordinationController {
 	
 	private func _generateFilterSelectionIfChanged() -> PlayerAPIInputFilterSelection? {
 		var selection: PlayerAPIInputFilterSelection?
-		let selectedSubfilterIDs = filterSystem.selectedSubfilterIDs
-		if _subfilterIDsSinceLastRequest != selectedSubfilterIDs {
-			_subfilterIDsSinceLastRequest = selectedSubfilterIDs
+		let currentSelectedSubfilterIDs = filterSystem.selectedSubfilterIDs
+		
+		// TODO: use the request ID at the time the request is sent and at the time that it's received to determine
+		// whether the server is in sync with the client
+		if _subfilterIDsSinceLastRequest != currentSelectedSubfilterIDs {
+			_subfilterIDsSinceLastRequest = currentSelectedSubfilterIDs
 			selection = PlayerAPIInputFilterSelection(selection: filterSystem.filterSelection)
 		}
 		return selection
