@@ -61,6 +61,7 @@ class SubfilterSelectionViewController: UIViewController {
 		_layout = UICollectionViewFlowLayout()
 		_layout.itemSize = CGSize(width: size, height: size)
 		_layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+		_layout.minimumLineSpacing = inset * 0.5
 		
 		_collectionView.collectionViewLayout = _layout
 		view.setNeedsLayout()
@@ -70,7 +71,6 @@ class SubfilterSelectionViewController: UIViewController {
 	func syncData() {
 		dispatch_async(dispatch_get_main_queue()) {
 			self._collectionView.reloadData()
-			
 			self.dataSource?.selectedSubfilterIndicies.forEach {
 				let ip = NSIndexPath(forRow: $0, inSection: 0)
 				self._collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .None)
@@ -82,7 +82,7 @@ class SubfilterSelectionViewController: UIViewController {
 	private func _updateCollectionViewHeight() {
 		let count = dataSource?.subfilterViewModels.count ?? 0
 		let numRows: CGFloat = ceil(CGFloat(count) / 3.0)
-		let height = _layout.sectionInset.top + _layout.sectionInset.bottom + (_layout.itemSize.height * numRows)
+		let height = _layout.sectionInset.top + _layout.sectionInset.bottom + (_layout.itemSize.height * numRows) + (_layout.minimumLineSpacing * (numRows - 1))
 		_collectionViewHeightConstraint.constant = min(view.bounds.height, height)
 	}
 	
