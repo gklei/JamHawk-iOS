@@ -1,5 +1,5 @@
 //
-//  TrackRatingSystemController.swift
+//  TrackRatingSystem.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/25/16.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-final class TrackRatingSystemController: SystemController<PlayerAPIOutputMetadata> {
+final class TrackRatingSystem: SystemController<PlayerAPIOutputMetadata> {
 	private var _track: PlayerAPIOutputMetadata?
 	
-	var didUpdateModel: (controller: TrackRatingSystemController) -> Void = {_ in}
-	var didUpdateSelection: (controller: TrackRatingSystemController) -> Void = {_ in}
+	var didUpdateModel: (controller: TrackRatingSystem) -> Void = {_ in}
+	var didUpdateSelection: (controller: TrackRatingSystem) -> Void = {_ in}
 	
 	var currentTrackViewModel: PlayerAPIOutputMetadataViewModel? {
 		guard let track = _track else { return nil }
@@ -27,7 +27,7 @@ final class TrackRatingSystemController: SystemController<PlayerAPIOutputMetadat
 	}
 }
 
-extension TrackRatingSystemController: TrackRatingDataSource {
+extension TrackRatingSystem: TrackRatingDataSource {
 	var ratingOptions: [PlayerAPIOutputTrackRating] {
 		return [.Negative, .Positive]
 	}

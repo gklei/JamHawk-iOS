@@ -26,7 +26,7 @@ class SystemCoordinationController {
 	let filterSystem = FilterSystem()
 	let currentTrackSystem = CurrentTrackSystem()
 	let nextAvailableSystem = NextAvailableMediaSystem()
-	let ratingSystem = TrackRatingSystemController()
+	let ratingSystem = TrackRatingSystem()
 	
 	private var _timer: NSTimer?
 	private let _playerAPIService: PlayerAPIService

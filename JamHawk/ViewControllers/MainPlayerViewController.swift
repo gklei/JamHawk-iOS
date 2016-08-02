@@ -209,7 +209,7 @@ extension MainPlayerViewController {
 	}
 	
 	// MARK: - Current Track Rating System
-	private func _currentTrackRatingChanged(controller: TrackRatingSystemController) {
+	private func _currentTrackRatingChanged(controller: TrackRatingSystem) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
 	}
