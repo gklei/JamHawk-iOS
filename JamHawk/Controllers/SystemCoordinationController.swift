@@ -22,7 +22,7 @@ class SystemCoordinationController {
 	// talks to JamhawkSession layer
 	// handle the API response, feed each respective part to system controllers
 	
-	let playerSystem = PlayerSystemController()
+	let playerSystem = PlayerSystem()
 	let filterSystem = FilterSystem()
 	let currentTrackSystem = CurrentTrackSystemController()
 	let nextAvailableSystem = NextAvailableMediaSystemController()
@@ -74,7 +74,7 @@ class SystemCoordinationController {
 }
 
 extension SystemCoordinationController: PlayerSystemDelegate {
-	func playerSystemNextTrackRequested(system: PlayerSystemController) {
+	func playerSystemNextTrackRequested(system: PlayerSystem) {
 		guard let next = nextAvailableSystem.currentNextTrackSelection else { return }
 		
 		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: next.mid, ratings: nil)

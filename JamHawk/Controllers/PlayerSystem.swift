@@ -1,5 +1,5 @@
 //
-//  PlayerSystemController.swift
+//  PlayerSystem.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/25/16.
@@ -15,17 +15,17 @@ import AVFoundation
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
 protocol PlayerSystemDelegate: class {
-	func playerSystemNextTrackRequested(system: PlayerSystemController)
+	func playerSystemNextTrackRequested(system: PlayerSystem)
 }
 
-final class PlayerSystemController: SystemController<PlayerAPIOutputMedia> {
+final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	private var _media: PlayerAPIOutputMedia?
 	
 	private var _timeObserver: AnyObject?
 	private let _player = AVPlayer()
 	
 	weak var delegate: PlayerSystemDelegate?
-	var didUpdateModel: (controller: PlayerSystemController) -> Void = {_ in}
+	var didUpdateModel: (controller: PlayerSystem) -> Void = {_ in}
 	var playerProgressClosure: (progress: CGFloat) -> Void = {_ in}
 	
 	var currentMediaViewModel: PlayerAPIOutputMediaViewModel? {
@@ -71,7 +71,7 @@ final class PlayerSystemController: SystemController<PlayerAPIOutputMedia> {
 	}
 }
 
-extension PlayerSystemController: PlayerDataSource {
+extension PlayerSystem: PlayerDataSource {
 	var paused: Bool {
 		return _player.paused
 	}

@@ -159,7 +159,7 @@ extension MainPlayerViewController {
 extension MainPlayerViewController {
 	
 	// MARK: - Player System
-	private func _playerModelChanged(controller: PlayerSystemController) {
+	private func _playerModelChanged(controller: PlayerSystem) {
 		_playerControlsVC.syncUI()
 		
 		guard let viewModel = controller.currentMediaViewModel else { return }
