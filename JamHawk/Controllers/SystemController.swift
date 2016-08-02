@@ -31,6 +31,10 @@ public extension Notifier where Notification.RawValue == String, Self: AnyObject
 		Self.postNotification(notification, object: self)
 	}
 	
+	func postNotification(notification: Notification, userInfo: [String: AnyObject]) {
+		Self.postNotification(notification, object: self, userInfo: userInfo)
+	}
+	
 	// MARK: - Static Functions
 	
 	// Post

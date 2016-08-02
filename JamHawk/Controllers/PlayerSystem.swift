@@ -19,14 +19,14 @@ protocol PlayerSystemDelegate: class {
 }
 
 final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
+	
 	private var _media: PlayerAPIOutputMedia?
 	
 	private var _timeObserver: AnyObject?
 	private let _player = AVPlayer()
 	
 	weak var delegate: PlayerSystemDelegate?
-	var didUpdateModel: (controller: PlayerSystem) -> Void = {_ in}
-	var playerProgressClosure: (progress: CGFloat) -> Void = {_ in}
+	internal(set) var playerProgress: CGFloat = 0
 	
 	var currentMediaViewModel: PlayerAPIOutputMediaViewModel? {
 		guard let media = _media else { return nil }
@@ -42,22 +42,17 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	private func _startObservingPlayer() {
 		_timeObserver = _player.addPeriodicTimeObserverForInterval(k60FramesPerSec, queue: nil) {
 			[weak self] time in
-			self?._updateProgress(withCurrentTime: time)
+			
+			let totalDuration = 180
+			let seconds = CMTimeGetSeconds(time)
+			self?.playerProgress = CGFloat(seconds) / CGFloat(totalDuration)
+			self?.postNotification(.didUpdateProgress)
 		}
 	}
 	
 	private func _stopObserving(player player: AVPlayer) {
 		guard let timeObserver = _timeObserver else { return }
 		player.removeTimeObserver(timeObserver)
-	}
-	
-	private func _updateProgress(withCurrentTime time: CMTime) {
-		// TODO: Get the actual duration...
-		let totalDuration = 180
-		let seconds = CMTimeGetSeconds(time)
-		let progress = CGFloat(seconds) / CGFloat(totalDuration)
-		
-		playerProgressClosure(progress: progress)
 	}
 	
 	override func update(withModel model: PlayerAPIOutputMedia?) {
@@ -67,7 +62,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 		_player.replaceCurrentItemWithPlayerItem(updatedItem)
 		_player.play()
 		
-		didUpdateModel(controller: self)
+		postNotification(.didUpdateModel)
 	}
 }
 
@@ -92,7 +87,14 @@ extension PlayerSystem: PlayerDataSource {
 		}
 		
 		if didUpdate {
-			didUpdateModel(controller: self)
+			postNotification(.didUpdateModel)
 		}
+	}
+}
+
+extension PlayerSystem: Notifier {
+	enum Notification: String {
+		case didUpdateModel
+		case didUpdateProgress
 	}
 }

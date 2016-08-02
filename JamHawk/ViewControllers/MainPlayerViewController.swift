@@ -15,6 +15,9 @@ extension Selector {
 	static let filterModelUpdated = #selector(MainPlayerViewController._filterModelUpdated(_:))
 	static let parentFilterSelectionUpdated = #selector(MainPlayerViewController._parentFilterSelectionUpdated(_:))
 	static let subfilterSelectionUpdated = #selector(MainPlayerViewController._subfilterSelectionUpdated(_:))
+	
+	static let playerModelUpdated = #selector(MainPlayerViewController._playerModelUpdated(_:))
+	static let playerProgressUpdated = #selector(MainPlayerViewController._playerProgressUpdated(_:))
 }
 
 final class MainPlayerViewController: UIViewController, PlayerStoryboardInstantiable {
@@ -76,6 +79,9 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		FilterSystem.addObserver(self, selector: .filterModelUpdated, notification: .didUpdateModel)
 		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .didUpdateParentFilterSelection)
 		FilterSystem.addObserver(self, selector: .subfilterSelectionUpdated, notification: .didUpdateSubfilterSelection)
+		
+		PlayerSystem.addObserver(self, selector: .playerModelUpdated, notification: .didUpdateModel)
+		PlayerSystem.addObserver(self, selector: .playerProgressUpdated, notification: .didUpdateProgress)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -90,15 +96,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	// MARK: - System Setup
-	private func _setupFilterSystem(withController controller: SystemCoordinationController) {
-		_parentFilterSelectionVC.dataSource = controller.filterSystem
-		_subfilterSelectionVC.dataSource = controller.filterSystem
-		
-		_subfilterSelectionVC.viewTappedClosure = {
-			controller.filterSystem.resetParentFilterSelection()
-		}
-	}
-	
 	private func _setupNextAvailableMediaSystem(withController controller: SystemCoordinationController) {
 		controller.nextAvailableSystem.didUpdateModel = _nextAvailableMediaChanged
 		controller.nextAvailableSystem.didUpdateSelection = _nextAvailableMediaSelectionChanged
@@ -115,12 +112,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		controller.ratingSystem.didUpdateModel = _currentTrackRatingChanged
 		_largeCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
 		_compactCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
-	}
-	
-	private func _setupPlayerSystem(withController controller: SystemCoordinationController) {
-		controller.playerSystem.didUpdateModel = _playerModelChanged
-		controller.playerSystem.playerProgressClosure = _playerProgressUpdated
-		_playerControlsVC.dataSource = controller.playerSystem
 	}
 	
 	// MARK: - Private
@@ -140,11 +131,15 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	func setupSystems(withCoordinationController controller: SystemCoordinationController) {
 		let _ = view // load the view
 		
-		_setupFilterSystem(withController: controller)
 		_setupNextAvailableMediaSystem(withController: controller)
 		_setupCurrentTrackSystem(withController: controller)
 		_setupRatingSystem(withController: controller)
-		_setupPlayerSystem(withController: controller)
+		
+		_parentFilterSelectionVC.dataSource = controller.filterSystem
+		_subfilterSelectionVC.dataSource = controller.filterSystem
+		_subfilterSelectionVC.viewTappedClosure = controller.filterSystem.resetParentFilterSelection
+		
+		_playerControlsVC.dataSource = controller.playerSystem
 	}
 }
 
@@ -159,15 +154,17 @@ extension MainPlayerViewController {
 extension MainPlayerViewController {
 	
 	// MARK: - Player System
-	private func _playerModelChanged(controller: PlayerSystem) {
-		_playerControlsVC.syncUI()
+	internal func _playerModelUpdated(notification: NSNotification) {
+		guard let system = notification.object as? PlayerSystem else { return }
+		guard let vm = system.currentMediaViewModel else { return }
 		
-		guard let viewModel = controller.currentMediaViewModel else { return }
-		_updateUI(withCurrentTrackViewModel: viewModel)
+		_updateUI(withCurrentTrackViewModel: vm)
+		_playerControlsVC.syncUI()
 	}
 	
-	private func _playerProgressUpdated(progress: CGFloat) {
-		_playerControlsVC.updateProgress(progress)
+	internal func _playerProgressUpdated(notification: NSNotification) {
+		guard let system = notification.object as? PlayerSystem else { return }
+		_playerControlsVC.updateProgress(system.playerProgress)
 	}
 	
 	// MARK: - Filter System
