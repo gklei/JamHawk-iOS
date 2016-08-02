@@ -42,7 +42,7 @@
 		CE5DA0EB1D4677D800025C17 /* FilterSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EA1D4677D800025C17 /* FilterSystem.swift */; };
 		CE5DA0ED1D4683EE00025C17 /* PlayerSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EC1D4683EE00025C17 /* PlayerSystem.swift */; };
 		CE5DA0EF1D46841300025C17 /* CurrentTrackSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EE1D46841300025C17 /* CurrentTrackSystem.swift */; };
-		CE5DA0F11D46843000025C17 /* NextAvailableMediaSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0F01D46843000025C17 /* NextAvailableMediaSystemController.swift */; };
+		CE5DA0F11D46843000025C17 /* NextAvailableMediaSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0F01D46843000025C17 /* NextAvailableMediaSystem.swift */; };
 		CE5DA0F51D46847C00025C17 /* SystemCoordinationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */; };
 		CE5DA0FE1D47B8A300025C17 /* TrackRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0FD1D47B8A300025C17 /* TrackRatingViewController.swift */; };
 		CE5DA1001D47B8B000025C17 /* TrackRatingSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0FF1D47B8B000025C17 /* TrackRatingSystemController.swift */; };
@@ -131,7 +131,7 @@
 		CE5DA0EA1D4677D800025C17 /* FilterSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterSystem.swift; path = JamHawk/Controllers/FilterSystem.swift; sourceTree = "<group>"; };
 		CE5DA0EC1D4683EE00025C17 /* PlayerSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSystem.swift; path = JamHawk/Controllers/PlayerSystem.swift; sourceTree = "<group>"; };
 		CE5DA0EE1D46841300025C17 /* CurrentTrackSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTrackSystem.swift; path = JamHawk/Controllers/CurrentTrackSystem.swift; sourceTree = "<group>"; };
-		CE5DA0F01D46843000025C17 /* NextAvailableMediaSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaSystemController.swift; path = JamHawk/Controllers/NextAvailableMediaSystemController.swift; sourceTree = "<group>"; };
+		CE5DA0F01D46843000025C17 /* NextAvailableMediaSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaSystem.swift; path = JamHawk/Controllers/NextAvailableMediaSystem.swift; sourceTree = "<group>"; };
 		CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemCoordinationController.swift; path = JamHawk/Controllers/SystemCoordinationController.swift; sourceTree = "<group>"; };
 		CE5DA0FD1D47B8A300025C17 /* TrackRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackRatingViewController.swift; path = JamHawk/ViewControllers/TrackRatingViewController.swift; sourceTree = "<group>"; };
 		CE5DA0FF1D47B8B000025C17 /* TrackRatingSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackRatingSystemController.swift; path = JamHawk/Controllers/TrackRatingSystemController.swift; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 				CE5DA0EA1D4677D800025C17 /* FilterSystem.swift */,
 				CE5DA0EC1D4683EE00025C17 /* PlayerSystem.swift */,
 				CE5DA0EE1D46841300025C17 /* CurrentTrackSystem.swift */,
-				CE5DA0F01D46843000025C17 /* NextAvailableMediaSystemController.swift */,
+				CE5DA0F01D46843000025C17 /* NextAvailableMediaSystem.swift */,
 				CE5DA0FF1D47B8B000025C17 /* TrackRatingSystemController.swift */,
 				CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */,
 			);
@@ -675,7 +675,7 @@
 				CEFFF79C1D359A1500D083F1 /* AVPlayer+Extensions.swift in Sources */,
 				CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */,
 				CE6CE9A01D3D262F0029659F /* PlayerSubfilterCell.swift in Sources */,
-				CE5DA0F11D46843000025C17 /* NextAvailableMediaSystemController.swift in Sources */,
+				CE5DA0F11D46843000025C17 /* NextAvailableMediaSystem.swift in Sources */,
 				CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */,
 				CE5DA0E01D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift in Sources */,
 				CE5DA0EB1D4677D800025C17 /* FilterSystem.swift in Sources */,

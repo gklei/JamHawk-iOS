@@ -194,11 +194,11 @@ extension MainPlayerViewController {
 	}
 	
 	// MARK: - Next Available System
-	private func _nextAvailableMediaChanged(controller: NextAvailableMediaSystemController) {
+	private func _nextAvailableMediaChanged(controller: NextAvailableMediaSystem) {
 		_nextAvailableMediaVC.syncData()
 	}
 	
-	private func _nextAvailableMediaSelectionChanged(controller: NextAvailableMediaSystemController) {
+	private func _nextAvailableMediaSelectionChanged(controller: NextAvailableMediaSystem) {
 		_nextAvailableMediaVC.syncUI()
 	}
 	
