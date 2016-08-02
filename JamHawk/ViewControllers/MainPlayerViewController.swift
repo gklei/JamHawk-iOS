@@ -11,6 +11,12 @@ import AVFoundation
 import AsyncImageView
 import IncipiaKit
 
+extension Selector {
+	static let filterModelUpdated = #selector(MainPlayerViewController._filterModelUpdated(_:))
+	static let parentFilterSelectionUpdated = #selector(MainPlayerViewController._parentFilterSelectionUpdated(_:))
+	static let subfilterSelectionUpdated = #selector(MainPlayerViewController._subfilterSelectionUpdated(_:))
+}
+
 final class MainPlayerViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
@@ -66,6 +72,10 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		// A little hacky..
 		_currentState = DefaultMainPlayerState(delegate: self)
 		_transition(toState: _currentState, duration: 0)
+		
+		FilterSystemController.addObserver(self, selector: .filterModelUpdated, notification: .didUpdateModel)
+		FilterSystemController.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .didUpdateParentFilterSelection)
+		FilterSystemController.addObserver(self, selector: .subfilterSelectionUpdated, notification: .didUpdateSubfilterSelection)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -81,9 +91,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	// MARK: - System Setup
 	private func _setupFilterSystem(withController controller: SystemCoordinationController) {
-		controller.filterSystem.didUpdateModel = _filterModelChanged
-		controller.filterSystem.didUpdateParentFilterSelection = _filterSelectionChanged
-		controller.filterSystem.didUpdateSubfilterFilterSelection = _subfilterSelectionChanged
 		_parentFilterSelectionVC.dataSource = controller.filterSystem
 		_subfilterSelectionVC.dataSource = controller.filterSystem
 		
@@ -164,12 +171,14 @@ extension MainPlayerViewController {
 	}
 	
 	// MARK: - Filter System
-	private func _filterModelChanged(controller: FilterSystemController) {
+	internal func _filterModelUpdated(notification: NSNotification) {
 		_parentFilterSelectionVC.syncData()
 		_subfilterSelectionVC.syncData()
 	}
 	
-	private func _filterSelectionChanged(controller: FilterSystemController) {
+	internal func _parentFilterSelectionUpdated(notification: NSNotification) {
+		guard let controller = notification.object as? FilterSystemController else { return }
+		
 		var state: MainPlayerState = DefaultMainPlayerState(delegate: self)
 		if controller.selectedParentFilter != nil {
 			state = FilterSelectionMainPlayerState(delegate: self)
@@ -180,7 +189,7 @@ extension MainPlayerViewController {
 		_transition(toState: state, duration: 0.3)
 	}
 	
-	private func _subfilterSelectionChanged(controller: FilterSystemController) {
+	internal func _subfilterSelectionUpdated(notification: NSNotification) {
 		_parentFilterSelectionVC.syncUI()
 	}
 	
