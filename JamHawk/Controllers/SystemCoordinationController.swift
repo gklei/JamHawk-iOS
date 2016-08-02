@@ -23,7 +23,7 @@ class SystemCoordinationController {
 	// handle the API response, feed each respective part to system controllers
 	
 	let playerSystem = PlayerSystemController()
-	let filterSystem = FilterSystemController()
+	let filterSystem = FilterSystem()
 	let currentTrackSystem = CurrentTrackSystemController()
 	let nextAvailableSystem = NextAvailableMediaSystemController()
 	let ratingSystem = TrackRatingSystemController()

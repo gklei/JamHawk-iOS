@@ -1,5 +1,5 @@
 //
-//  FilterSystemController.swift
+//  FilterSystem.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/25/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
+final class FilterSystem: SystemController<PlayerAPIOutputFilters> {
 	
 	// MARK: - Properties
 	private var _filters: PlayerAPIOutputFilters?
@@ -62,7 +62,7 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	}
 }
 
-extension FilterSystemController: ParentFilterSelectionDataSource {
+extension FilterSystem: ParentFilterSelectionDataSource {
 	var selectedParentFilterIndex: Int? {
 		guard let available = _filters?.available else { return nil }
 		guard let filter = selectedParentFilter else { return nil }
@@ -95,7 +95,7 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 	}
 }
 
-extension FilterSystemController: SubfilterSelectionDataSource {
+extension FilterSystem: SubfilterSelectionDataSource {
 	var subfilterViewModels: [SubfilterViewModel] {
 		guard let parent = selectedParentFilter else { return [] }
 		return _subfilterViewModelsDictionary[parent.category] ?? []
@@ -130,7 +130,7 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 	}
 }
 
-extension FilterSystemController: Notifier {
+extension FilterSystem: Notifier {
 	enum Notification: String {
 		case didUpdateModel
 		case didUpdateParentFilterSelection

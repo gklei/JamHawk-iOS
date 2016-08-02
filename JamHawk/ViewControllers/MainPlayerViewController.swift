@@ -73,9 +73,9 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_currentState = DefaultMainPlayerState(delegate: self)
 		_transition(toState: _currentState, duration: 0)
 		
-		FilterSystemController.addObserver(self, selector: .filterModelUpdated, notification: .didUpdateModel)
-		FilterSystemController.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .didUpdateParentFilterSelection)
-		FilterSystemController.addObserver(self, selector: .subfilterSelectionUpdated, notification: .didUpdateSubfilterSelection)
+		FilterSystem.addObserver(self, selector: .filterModelUpdated, notification: .didUpdateModel)
+		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .didUpdateParentFilterSelection)
+		FilterSystem.addObserver(self, selector: .subfilterSelectionUpdated, notification: .didUpdateSubfilterSelection)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -177,10 +177,10 @@ extension MainPlayerViewController {
 	}
 	
 	internal func _parentFilterSelectionUpdated(notification: NSNotification) {
-		guard let controller = notification.object as? FilterSystemController else { return }
+		guard let system = notification.object as? FilterSystem else { return }
 		
 		var state: MainPlayerState = DefaultMainPlayerState(delegate: self)
-		if controller.selectedParentFilter != nil {
+		if system.selectedParentFilter != nil {
 			state = FilterSelectionMainPlayerState(delegate: self)
 		}
 		

@@ -245,7 +245,7 @@
 			name = UIKit;
 			sourceTree = "<group>";
 		};
-		CE5DA0E71D455F5A00025C17 /* Controllers */ = {
+		CE5DA0E71D455F5A00025C17 /* Systems */ = {
 			isa = PBXGroup;
 			children = (
 				CE5DA0E81D455F8800025C17 /* SystemController.swift */,
@@ -256,7 +256,7 @@
 				CE5DA0FF1D47B8B000025C17 /* TrackRatingSystemController.swift */,
 				CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */,
 			);
-			name = Controllers;
+			name = Systems;
 			sourceTree = "<group>";
 		};
 		CE5DA0F61D469A3F00025C17 /* Filters */ = {
@@ -342,7 +342,7 @@
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
-				CE5DA0E71D455F5A00025C17 /* Controllers */,
+				CE5DA0E71D455F5A00025C17 /* Systems */,
 				CE6CE9A21D3D67670029659F /* Main View Controller States */,
 				CED404ED1D26F7500083365F /* Backend */,
 				CED404E21D26E6210083365F /* Custom UI */,
