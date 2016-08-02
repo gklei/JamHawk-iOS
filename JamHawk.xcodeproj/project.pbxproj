@@ -38,7 +38,7 @@
 		CE5DA0E21D4494AE00025C17 /* ShowTrackDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0E11D4494AE00025C17 /* ShowTrackDetailsState.swift */; };
 		CE5DA0E41D455EAA00025C17 /* JamhawkRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0E31D455EAA00025C17 /* JamhawkRequestController.swift */; };
 		CE5DA0E61D455EC500025C17 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0E51D455EC500025C17 /* UIViewController+Extensions.swift */; };
-		CE5DA0E91D455F8800025C17 /* SystemControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0E81D455F8800025C17 /* SystemControllers.swift */; };
+		CE5DA0E91D455F8800025C17 /* SystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0E81D455F8800025C17 /* SystemController.swift */; };
 		CE5DA0EB1D4677D800025C17 /* FilterSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EA1D4677D800025C17 /* FilterSystemController.swift */; };
 		CE5DA0ED1D4683EE00025C17 /* PlayerSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EC1D4683EE00025C17 /* PlayerSystemController.swift */; };
 		CE5DA0EF1D46841300025C17 /* CurrentTrackSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EE1D46841300025C17 /* CurrentTrackSystemController.swift */; };
@@ -127,7 +127,7 @@
 		CE5DA0E11D4494AE00025C17 /* ShowTrackDetailsState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowTrackDetailsState.swift; path = JamHawk/MainPlayerStates/ShowTrackDetailsState.swift; sourceTree = "<group>"; };
 		CE5DA0E31D455EAA00025C17 /* JamhawkRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamhawkRequestController.swift; path = JamHawk/Backend/JamhawkRequestController.swift; sourceTree = "<group>"; };
 		CE5DA0E51D455EC500025C17 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "JamHawk/Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		CE5DA0E81D455F8800025C17 /* SystemControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemControllers.swift; path = JamHawk/Controllers/SystemControllers.swift; sourceTree = "<group>"; };
+		CE5DA0E81D455F8800025C17 /* SystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemController.swift; path = JamHawk/Controllers/SystemController.swift; sourceTree = "<group>"; };
 		CE5DA0EA1D4677D800025C17 /* FilterSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterSystemController.swift; path = JamHawk/Controllers/FilterSystemController.swift; sourceTree = "<group>"; };
 		CE5DA0EC1D4683EE00025C17 /* PlayerSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSystemController.swift; path = JamHawk/Controllers/PlayerSystemController.swift; sourceTree = "<group>"; };
 		CE5DA0EE1D46841300025C17 /* CurrentTrackSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTrackSystemController.swift; path = JamHawk/Controllers/CurrentTrackSystemController.swift; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 		CE5DA0E71D455F5A00025C17 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE5DA0E81D455F8800025C17 /* SystemControllers.swift */,
+				CE5DA0E81D455F8800025C17 /* SystemController.swift */,
 				CE5DA0EA1D4677D800025C17 /* FilterSystemController.swift */,
 				CE5DA0EC1D4683EE00025C17 /* PlayerSystemController.swift */,
 				CE5DA0EE1D46841300025C17 /* CurrentTrackSystemController.swift */,
@@ -705,7 +705,7 @@
 				CE5DA1001D47B8B000025C17 /* TrackRatingSystemController.swift in Sources */,
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
 				CE5DA0D81D44861D00025C17 /* ProfileViewController.swift in Sources */,
-				CE5DA0E91D455F8800025C17 /* SystemControllers.swift in Sources */,
+				CE5DA0E91D455F8800025C17 /* SystemController.swift in Sources */,
 				C6EFB1EA1D3ECE1000B57397 /* JHSignInViewController.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CEFEAD901D3D7EDD004D3CFC /* MainPlayerViewController+States.swift in Sources */,

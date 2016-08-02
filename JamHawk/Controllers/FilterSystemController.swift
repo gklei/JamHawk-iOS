@@ -9,12 +9,9 @@
 import Foundation
 
 final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
-	private var _filters: PlayerAPIOutputFilters?
 	
-	// MARK: - Closurees
-	var didUpdateModel: (controller: FilterSystemController) -> Void = {_ in}
-	var didUpdateParentFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
-	var didUpdateSubfilterFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
+	// MARK: - Properties
+	private var _filters: PlayerAPIOutputFilters?
 	
 	internal(set) var selectedParentFilter: PlayerAPIOutputFilter?
 	
@@ -45,7 +42,7 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 		_filters = model
 		
 		_generateSubfilterViewModels()
-		didUpdateModel(controller: self)
+		postNotification(.didUpdateModel)
 	}
 	
 	private func _generateSubfilterViewModels() {
@@ -89,15 +86,12 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		
 		let filter = available[index]
 		selectedParentFilter = filter
-		
-		dispatch_async(dispatch_get_main_queue()) {
-			self.didUpdateParentFilterSelection(controller: self)
-		}
+		postNotification(.didUpdateParentFilterSelection)
 	}
 	
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
-		didUpdateParentFilterSelection(controller: self)
+		postNotification(.didUpdateParentFilterSelection)
 	}
 }
 
@@ -120,9 +114,8 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 		} else {
 			_selectedSubfilterViewModelsDictionary[vm.category] = [vm]
 		}
-		didUpdateSubfilterFilterSelection(controller: self)
 		
-		// Sends notification about subfilters changing
+		postNotification(.didUpdateSubfilterSelection)
 	}
 	
 	func deselectSubfilter(atIndex index: Int) {
@@ -132,6 +125,15 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 		if let index = _selectedSubfilterViewModelsDictionary[vm.category]?.indexOf(vm) {
 			_selectedSubfilterViewModelsDictionary[vm.category]?.removeAtIndex(index)
 		}
-		didUpdateSubfilterFilterSelection(controller: self)
+		
+		postNotification(.didUpdateSubfilterSelection)
+	}
+}
+
+extension FilterSystemController: Notifier {
+	enum Notification: String {
+		case didUpdateModel
+		case didUpdateParentFilterSelection
+		case didUpdateSubfilterSelection
 	}
 }

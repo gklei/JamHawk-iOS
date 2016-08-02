@@ -49,7 +49,7 @@ class SystemCoordinationController {
 		playerSystem.update(withModel: output.media)
 		
 		if output.filters != nil {
-			print(output.filters!)
+//			print(output.filters!)
 			filterSystem.update(withModel: output.filters)
 		}
 		
