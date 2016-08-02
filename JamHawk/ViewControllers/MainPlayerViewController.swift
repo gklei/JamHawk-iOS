@@ -203,7 +203,7 @@ extension MainPlayerViewController {
 	}
 	
 	// MARK: - Current Track System
-	private func _currentTrackModelChanged(controller: CurrentTrackSystemController) {
+	private func _currentTrackModelChanged(controller: CurrentTrackSystem) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
 	}

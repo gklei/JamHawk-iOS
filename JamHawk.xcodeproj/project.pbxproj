@@ -41,7 +41,7 @@
 		CE5DA0E91D455F8800025C17 /* SystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0E81D455F8800025C17 /* SystemController.swift */; };
 		CE5DA0EB1D4677D800025C17 /* FilterSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EA1D4677D800025C17 /* FilterSystem.swift */; };
 		CE5DA0ED1D4683EE00025C17 /* PlayerSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EC1D4683EE00025C17 /* PlayerSystem.swift */; };
-		CE5DA0EF1D46841300025C17 /* CurrentTrackSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EE1D46841300025C17 /* CurrentTrackSystemController.swift */; };
+		CE5DA0EF1D46841300025C17 /* CurrentTrackSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0EE1D46841300025C17 /* CurrentTrackSystem.swift */; };
 		CE5DA0F11D46843000025C17 /* NextAvailableMediaSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0F01D46843000025C17 /* NextAvailableMediaSystemController.swift */; };
 		CE5DA0F51D46847C00025C17 /* SystemCoordinationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */; };
 		CE5DA0FE1D47B8A300025C17 /* TrackRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA0FD1D47B8A300025C17 /* TrackRatingViewController.swift */; };
@@ -130,7 +130,7 @@
 		CE5DA0E81D455F8800025C17 /* SystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemController.swift; path = JamHawk/Controllers/SystemController.swift; sourceTree = "<group>"; };
 		CE5DA0EA1D4677D800025C17 /* FilterSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterSystem.swift; path = JamHawk/Controllers/FilterSystem.swift; sourceTree = "<group>"; };
 		CE5DA0EC1D4683EE00025C17 /* PlayerSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSystem.swift; path = JamHawk/Controllers/PlayerSystem.swift; sourceTree = "<group>"; };
-		CE5DA0EE1D46841300025C17 /* CurrentTrackSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTrackSystemController.swift; path = JamHawk/Controllers/CurrentTrackSystemController.swift; sourceTree = "<group>"; };
+		CE5DA0EE1D46841300025C17 /* CurrentTrackSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTrackSystem.swift; path = JamHawk/Controllers/CurrentTrackSystem.swift; sourceTree = "<group>"; };
 		CE5DA0F01D46843000025C17 /* NextAvailableMediaSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaSystemController.swift; path = JamHawk/Controllers/NextAvailableMediaSystemController.swift; sourceTree = "<group>"; };
 		CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemCoordinationController.swift; path = JamHawk/Controllers/SystemCoordinationController.swift; sourceTree = "<group>"; };
 		CE5DA0FD1D47B8A300025C17 /* TrackRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackRatingViewController.swift; path = JamHawk/ViewControllers/TrackRatingViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 				CE5DA0E81D455F8800025C17 /* SystemController.swift */,
 				CE5DA0EA1D4677D800025C17 /* FilterSystem.swift */,
 				CE5DA0EC1D4683EE00025C17 /* PlayerSystem.swift */,
-				CE5DA0EE1D46841300025C17 /* CurrentTrackSystemController.swift */,
+				CE5DA0EE1D46841300025C17 /* CurrentTrackSystem.swift */,
 				CE5DA0F01D46843000025C17 /* NextAvailableMediaSystemController.swift */,
 				CE5DA0FF1D47B8B000025C17 /* TrackRatingSystemController.swift */,
 				CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */,
@@ -695,7 +695,7 @@
 				CE5DA0FE1D47B8A300025C17 /* TrackRatingViewController.swift in Sources */,
 				CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */,
 				CE5DA0DC1D4493D700025C17 /* FilterSelectionMainPlayerState.swift in Sources */,
-				CE5DA0EF1D46841300025C17 /* CurrentTrackSystemController.swift in Sources */,
+				CE5DA0EF1D46841300025C17 /* CurrentTrackSystem.swift in Sources */,
 				CE747BFC1D3839BB0006D1B6 /* ParentFilterSelectionViewController.swift in Sources */,
 				CE5DA0ED1D4683EE00025C17 /* PlayerSystem.swift in Sources */,
 				C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */,

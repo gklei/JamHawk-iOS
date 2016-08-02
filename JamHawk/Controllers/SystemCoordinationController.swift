@@ -24,7 +24,7 @@ class SystemCoordinationController {
 	
 	let playerSystem = PlayerSystem()
 	let filterSystem = FilterSystem()
-	let currentTrackSystem = CurrentTrackSystemController()
+	let currentTrackSystem = CurrentTrackSystem()
 	let nextAvailableSystem = NextAvailableMediaSystemController()
 	let ratingSystem = TrackRatingSystemController()
 	
