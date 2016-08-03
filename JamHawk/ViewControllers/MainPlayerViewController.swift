@@ -20,6 +20,7 @@ extension Selector {
 	static let currentTrackUpdated = #selector(MainPlayerViewController._currentTrackUpdated(_:))
 	static let nextAvailableMediaUpdated = #selector(MainPlayerViewController._nextAvailableMediaUpdated(_:))
 	static let nextAvailableMediaSelectionUpdated = #selector(MainPlayerViewController._nextAvailableMediaSelectionUpdated(_:))
+	static let currentTrackRatingUpdated = #selector(MainPlayerViewController._currentTrackRatingUpdated(_:))
 }
 
 final class MainPlayerViewController: UIViewController, PlayerStoryboardInstantiable {
@@ -89,6 +90,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaUpdated, notification: .modelDidUpdate)
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaSelectionUpdated, notification: .selectionDidUpdate)
+		
+		TrackRatingSystem.addObserver(self, selector: .currentTrackRatingUpdated, notification: .modelDidUpdate)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -100,13 +103,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return _statusBarStyle
-	}
-	
-	// MARK: - System Setup
-	private func _setupRatingSystem(withController controller: SystemCoordinationController) {
-		controller.ratingSystem.didUpdateModel = _currentTrackRatingChanged
-		_largeCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
-		_compactCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
 	}
 	
 	// MARK: - Private
@@ -126,8 +122,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	func setupSystems(withCoordinationController controller: SystemCoordinationController) {
 		let _ = view // load the view
 		
-		_setupRatingSystem(withController: controller)
-		
 		_parentFilterSelectionVC.dataSource = controller.filterSystem
 		_subfilterSelectionVC.dataSource = controller.filterSystem
 		_subfilterSelectionVC.viewTappedClosure = controller.filterSystem.resetParentFilterSelection
@@ -135,6 +129,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_largeCurrentTrackVC.dataSource = controller.currentTrackSystem
 		_compactCurrentTrackVC.dataSource = controller.currentTrackSystem
 		_nextAvailableMediaVC.dataSource = controller.nextAvailableSystem
+		_largeCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
+		_compactCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
 	}
 }
 
@@ -201,7 +197,7 @@ extension MainPlayerViewController {
 	}
 	
 	// MARK: - Current Track Rating System
-	private func _currentTrackRatingChanged(controller: TrackRatingSystem) {
+	internal func _currentTrackRatingUpdated(notification: NSNotification) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
 	}

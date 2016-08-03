@@ -11,9 +11,6 @@ import Foundation
 final class TrackRatingSystem: SystemController<PlayerAPIOutputMetadata> {
 	private var _track: PlayerAPIOutputMetadata?
 	
-	var didUpdateModel: (controller: TrackRatingSystem) -> Void = {_ in}
-	var didUpdateSelection: (controller: TrackRatingSystem) -> Void = {_ in}
-	
 	var currentTrackViewModel: PlayerAPIOutputMetadataViewModel? {
 		guard let track = _track else { return nil }
 		return PlayerAPIOutputMetadataViewModel(metadata: track)
@@ -23,7 +20,7 @@ final class TrackRatingSystem: SystemController<PlayerAPIOutputMetadata> {
 		guard let model = model else { return }
 		_track = model
 		
-		didUpdateModel(controller: self)
+		post(notification: .modelDidUpdate)
 	}
 }
 
@@ -41,6 +38,12 @@ extension TrackRatingSystem: TrackRatingDataSource {
 		guard let current = _track else { return }
 		_track = current.copy(withRating: rating)
 		
-		didUpdateModel(controller: self)
+		post(notification: .modelDidUpdate)
+	}
+}
+
+extension TrackRatingSystem: Notifier {
+	enum Notification: String {
+		case modelDidUpdate
 	}
 }
