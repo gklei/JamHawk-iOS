@@ -78,12 +78,12 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_currentState = DefaultMainPlayerState(delegate: self)
 		_transition(toState: _currentState, duration: 0)
 		
-		FilterSystem.addObserver(self, selector: .filterModelUpdated, notification: .didUpdateModel)
-		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .didUpdateParentFilterSelection)
-		FilterSystem.addObserver(self, selector: .subfilterSelectionUpdated, notification: .didUpdateSubfilterSelection)
+		FilterSystem.addObserver(self, selector: .filterModelUpdated, notification: .modelDidUpdate)
+		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .parentFilterSelectionDidUpdate)
+		FilterSystem.addObserver(self, selector: .subfilterSelectionUpdated, notification: .subfilterSelectionDidUpdate)
 		
-		PlayerSystem.addObserver(self, selector: .playerModelUpdated, notification: .didUpdateModel)
-		PlayerSystem.addObserver(self, selector: .playerProgressUpdated, notification: .didUpdateProgress)
+		PlayerSystem.addObserver(self, selector: .playerModelUpdated, notification: .modelDidUpdate)
+		PlayerSystem.addObserver(self, selector: .playerProgressUpdated, notification: .progressDidUpdate)
 		
 		CurrentTrackSystem.addObserver(self, selector: .currentTrackModelUpdated, notification: .modelDidUpdate)
 	}

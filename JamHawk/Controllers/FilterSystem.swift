@@ -42,7 +42,7 @@ final class FilterSystem: SystemController<PlayerAPIOutputFilters> {
 		_filters = model
 		
 		_generateSubfilterViewModels()
-		postNotification(.didUpdateModel)
+		postNotification(.modelDidUpdate)
 	}
 	
 	private func _generateSubfilterViewModels() {
@@ -86,12 +86,12 @@ extension FilterSystem: ParentFilterSelectionDataSource {
 		
 		let filter = available[index]
 		selectedParentFilter = filter
-		postNotification(.didUpdateParentFilterSelection)
+		postNotification(.parentFilterSelectionDidUpdate)
 	}
 	
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
-		postNotification(.didUpdateParentFilterSelection)
+		postNotification(.parentFilterSelectionDidUpdate)
 	}
 }
 
@@ -115,7 +115,7 @@ extension FilterSystem: SubfilterSelectionDataSource {
 			_selectedSubfilterViewModelsDictionary[vm.category] = [vm]
 		}
 		
-		postNotification(.didUpdateSubfilterSelection)
+		postNotification(.subfilterSelectionDidUpdate)
 	}
 	
 	func deselectSubfilter(atIndex index: Int) {
@@ -126,14 +126,14 @@ extension FilterSystem: SubfilterSelectionDataSource {
 			_selectedSubfilterViewModelsDictionary[vm.category]?.removeAtIndex(index)
 		}
 		
-		postNotification(.didUpdateSubfilterSelection)
+		postNotification(.subfilterSelectionDidUpdate)
 	}
 }
 
 extension FilterSystem: Notifier {
 	enum Notification: String {
-		case didUpdateModel
-		case didUpdateParentFilterSelection
-		case didUpdateSubfilterSelection
+		case modelDidUpdate
+		case parentFilterSelectionDidUpdate
+		case subfilterSelectionDidUpdate
 	}
 }
