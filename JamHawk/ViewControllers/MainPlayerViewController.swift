@@ -12,14 +12,14 @@ import AsyncImageView
 import IncipiaKit
 
 extension Selector {
-	static let filterModelUpdated = #selector(MainPlayerViewController._filterModelUpdated(_:))
+	static let filterUpdated = #selector(MainPlayerViewController._filterModelUpdated(_:))
 	static let parentFilterSelectionUpdated = #selector(MainPlayerViewController._parentFilterSelectionUpdated(_:))
 	static let subfilterSelectionUpdated = #selector(MainPlayerViewController._subfilterSelectionUpdated(_:))
-	
-	static let playerModelUpdated = #selector(MainPlayerViewController._playerModelUpdated(_:))
+	static let playerUpdated = #selector(MainPlayerViewController._playerModelUpdated(_:))
 	static let playerProgressUpdated = #selector(MainPlayerViewController._playerProgressUpdated(_:))
-	
-	static let currentTrackModelUpdated = #selector(MainPlayerViewController._currentTrackModelUpdated(_:))
+	static let currentTrackUpdated = #selector(MainPlayerViewController._currentTrackUpdated(_:))
+	static let nextAvailableMediaUpdated = #selector(MainPlayerViewController._nextAvailableMediaUpdated(_:))
+	static let nextAvailableMediaSelectionUpdated = #selector(MainPlayerViewController._nextAvailableMediaSelectionUpdated(_:))
 }
 
 final class MainPlayerViewController: UIViewController, PlayerStoryboardInstantiable {
@@ -78,14 +78,17 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_currentState = DefaultMainPlayerState(delegate: self)
 		_transition(toState: _currentState, duration: 0)
 		
-		FilterSystem.addObserver(self, selector: .filterModelUpdated, notification: .modelDidUpdate)
+		FilterSystem.addObserver(self, selector: .filterUpdated, notification: .modelDidUpdate)
 		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .parentFilterSelectionDidUpdate)
 		FilterSystem.addObserver(self, selector: .subfilterSelectionUpdated, notification: .subfilterSelectionDidUpdate)
 		
-		PlayerSystem.addObserver(self, selector: .playerModelUpdated, notification: .modelDidUpdate)
+		PlayerSystem.addObserver(self, selector: .playerUpdated, notification: .modelDidUpdate)
 		PlayerSystem.addObserver(self, selector: .playerProgressUpdated, notification: .progressDidUpdate)
 		
-		CurrentTrackSystem.addObserver(self, selector: .currentTrackModelUpdated, notification: .modelDidUpdate)
+		CurrentTrackSystem.addObserver(self, selector: .currentTrackUpdated, notification: .modelDidUpdate)
+		
+		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaUpdated, notification: .modelDidUpdate)
+		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaSelectionUpdated, notification: .selectionDidUpdate)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -100,12 +103,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	// MARK: - System Setup
-	private func _setupNextAvailableMediaSystem(withController controller: SystemCoordinationController) {
-		controller.nextAvailableSystem.didUpdateModel = _nextAvailableMediaChanged
-		controller.nextAvailableSystem.didUpdateSelection = _nextAvailableMediaSelectionChanged
-		_nextAvailableMediaVC.dataSource = controller.nextAvailableSystem
-	}
-	
 	private func _setupRatingSystem(withController controller: SystemCoordinationController) {
 		controller.ratingSystem.didUpdateModel = _currentTrackRatingChanged
 		_largeCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
@@ -129,7 +126,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	func setupSystems(withCoordinationController controller: SystemCoordinationController) {
 		let _ = view // load the view
 		
-		_setupNextAvailableMediaSystem(withController: controller)
 		_setupRatingSystem(withController: controller)
 		
 		_parentFilterSelectionVC.dataSource = controller.filterSystem
@@ -138,6 +134,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_playerControlsVC.dataSource = controller.playerSystem
 		_largeCurrentTrackVC.dataSource = controller.currentTrackSystem
 		_compactCurrentTrackVC.dataSource = controller.currentTrackSystem
+		_nextAvailableMediaVC.dataSource = controller.nextAvailableSystem
 	}
 }
 
@@ -189,16 +186,16 @@ extension MainPlayerViewController {
 	}
 	
 	// MARK: - Next Available System
-	private func _nextAvailableMediaChanged(controller: NextAvailableMediaSystem) {
+	internal func _nextAvailableMediaUpdated(notification: NSNotification) {
 		_nextAvailableMediaVC.syncData()
 	}
 	
-	private func _nextAvailableMediaSelectionChanged(controller: NextAvailableMediaSystem) {
+	internal func _nextAvailableMediaSelectionUpdated(notification: NSNotification) {
 		_nextAvailableMediaVC.syncUI()
 	}
 	
 	// MARK: - Current Track System
-	internal func _currentTrackModelUpdated(notification: NSNotification) {
+	internal func _currentTrackUpdated(notification: NSNotification) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
 	}

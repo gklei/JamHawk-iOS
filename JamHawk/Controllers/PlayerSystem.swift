@@ -46,7 +46,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 			let totalDuration = 180
 			let seconds = CMTimeGetSeconds(time)
 			self?.playerProgress = CGFloat(seconds) / CGFloat(totalDuration)
-			self?.postNotification(.progressDidUpdate)
+			self?.post(notification: .progressDidUpdate)
 		}
 	}
 	
@@ -62,7 +62,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 		_player.replaceCurrentItemWithPlayerItem(updatedItem)
 		_player.play()
 		
-		postNotification(.modelDidUpdate)
+		post(notification: .modelDidUpdate)
 	}
 }
 
@@ -87,7 +87,7 @@ extension PlayerSystem: PlayerDataSource {
 		}
 		
 		if didUpdate {
-			postNotification(.modelDidUpdate)
+			post(notification: .modelDidUpdate)
 		}
 	}
 }

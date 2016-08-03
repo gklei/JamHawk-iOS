@@ -17,7 +17,7 @@ final class CurrentTrackSystem: SystemController<PlayerAPIOutputMetadata> {
 		guard let model = model else { return }
 		_track = model
 		
-		postNotification(.modelDidUpdate)
+		post(notification: .modelDidUpdate)
 	}
 }
 

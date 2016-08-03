@@ -20,7 +20,7 @@ final class NextAvailableMediaSystem: SystemController<[PlayerAPIOutputMetadata]
 		guard let model = model else { return }
 		_next = model
 		
-		didUpdateModel(controller: self)
+		post(notification: .modelDidUpdate)
 	}
 }
 
@@ -42,6 +42,13 @@ extension NextAvailableMediaSystem: NextAvailableMediaSelectionDataSource {
 		let selection = next[index]
 		currentNextTrackSelection = selection
 		
-		didUpdateSelection(controller: self)
+		post(notification: .selectionDidUpdate)
+	}
+}
+
+extension NextAvailableMediaSystem: Notifier {
+	enum Notification: String {
+		case modelDidUpdate
+		case selectionDidUpdate
 	}
 }
