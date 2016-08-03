@@ -18,6 +18,8 @@ extension Selector {
 	
 	static let playerModelUpdated = #selector(MainPlayerViewController._playerModelUpdated(_:))
 	static let playerProgressUpdated = #selector(MainPlayerViewController._playerProgressUpdated(_:))
+	
+	static let currentTrackModelUpdated = #selector(MainPlayerViewController._currentTrackModelUpdated(_:))
 }
 
 final class MainPlayerViewController: UIViewController, PlayerStoryboardInstantiable {
@@ -82,6 +84,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		
 		PlayerSystem.addObserver(self, selector: .playerModelUpdated, notification: .didUpdateModel)
 		PlayerSystem.addObserver(self, selector: .playerProgressUpdated, notification: .didUpdateProgress)
+		
+		CurrentTrackSystem.addObserver(self, selector: .currentTrackModelUpdated, notification: .modelDidUpdate)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -100,12 +104,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		controller.nextAvailableSystem.didUpdateModel = _nextAvailableMediaChanged
 		controller.nextAvailableSystem.didUpdateSelection = _nextAvailableMediaSelectionChanged
 		_nextAvailableMediaVC.dataSource = controller.nextAvailableSystem
-	}
-	
-	private func _setupCurrentTrackSystem(withController controller: SystemCoordinationController)  {
-		controller.currentTrackSystem.didUpdateModel = _currentTrackModelChanged
-		_largeCurrentTrackVC.dataSource = controller.currentTrackSystem
-		_compactCurrentTrackVC.dataSource = controller.currentTrackSystem
 	}
 	
 	private func _setupRatingSystem(withController controller: SystemCoordinationController) {
@@ -132,14 +130,14 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		let _ = view // load the view
 		
 		_setupNextAvailableMediaSystem(withController: controller)
-		_setupCurrentTrackSystem(withController: controller)
 		_setupRatingSystem(withController: controller)
 		
 		_parentFilterSelectionVC.dataSource = controller.filterSystem
 		_subfilterSelectionVC.dataSource = controller.filterSystem
 		_subfilterSelectionVC.viewTappedClosure = controller.filterSystem.resetParentFilterSelection
-		
 		_playerControlsVC.dataSource = controller.playerSystem
+		_largeCurrentTrackVC.dataSource = controller.currentTrackSystem
+		_compactCurrentTrackVC.dataSource = controller.currentTrackSystem
 	}
 }
 
@@ -200,7 +198,7 @@ extension MainPlayerViewController {
 	}
 	
 	// MARK: - Current Track System
-	private func _currentTrackModelChanged(controller: CurrentTrackSystem) {
+	internal func _currentTrackModelUpdated(notification: NSNotification) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
 	}
