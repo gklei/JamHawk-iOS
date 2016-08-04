@@ -1,5 +1,5 @@
 //
-//  NextAvailableMediaSystemController.swift
+//  NextAvailableMediaSystem.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/25/16.
@@ -8,11 +8,8 @@
 
 import Foundation
 
-final class NextAvailableMediaSystemController: SystemController<[PlayerAPIOutputMetadata]> {
+final class NextAvailableMediaSystem: SystemController<[PlayerAPIOutputMetadata]> {
 	private var _next: [PlayerAPIOutputMetadata]?
-	
-	var didUpdateModel: (controller: NextAvailableMediaSystemController) -> Void = {_ in}
-	var didUpdateSelection: (controller: NextAvailableMediaSystemController) -> Void = {_ in}
 	
 	var currentNextTrackSelection: PlayerAPIOutputMetadata?
 	
@@ -20,11 +17,11 @@ final class NextAvailableMediaSystemController: SystemController<[PlayerAPIOutpu
 		guard let model = model else { return }
 		_next = model
 		
-		didUpdateModel(controller: self)
+		post(notification: .modelDidUpdate)
 	}
 }
 
-extension NextAvailableMediaSystemController: NextAvailableMediaSelectionDataSource {
+extension NextAvailableMediaSystem: NextAvailableMediaSelectionDataSource {
 	var nextAvailableMediaViewModels: [PlayerAPIOutputMetadataViewModel] {
 		guard let next = _next else { return [] }
 		return next.flatMap({ PlayerAPIOutputMetadataViewModel(metadata: $0) })
@@ -42,6 +39,13 @@ extension NextAvailableMediaSystemController: NextAvailableMediaSelectionDataSou
 		let selection = next[index]
 		currentNextTrackSelection = selection
 		
-		didUpdateSelection(controller: self)
+		post(notification: .selectionDidUpdate)
+	}
+}
+
+extension NextAvailableMediaSystem: Notifier {
+	enum Notification: String {
+		case modelDidUpdate
+		case selectionDidUpdate
 	}
 }
