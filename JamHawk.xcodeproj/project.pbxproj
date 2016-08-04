@@ -84,6 +84,7 @@
 		CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7951D358DC500D083F1 /* PlayerAPIOutputViewModel.swift */; };
 		CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */; };
 		CEFFF79C1D359A1500D083F1 /* AVPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */; };
+		E9F41F0C1D52982A00F28D1B /* EventSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F41F0B1D52982A00F28D1B /* EventSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerProgressViewController.swift; path = JamHawk/ViewControllers/PlayerProgressViewController.swift; sourceTree = "<group>"; };
 		CEFFF79B1D359A1500D083F1 /* AVPlayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AVPlayer+Extensions.swift"; path = "JamHawk/Extensions/AVPlayer+Extensions.swift"; sourceTree = "<group>"; };
 		E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.debug.xcconfig"; sourceTree = "<group>"; };
+		E9F41F0B1D52982A00F28D1B /* EventSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventSystem.swift; path = JamHawk/Controllers/EventSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 				CE5DA0EE1D46841300025C17 /* CurrentTrackSystem.swift */,
 				CE5DA0F01D46843000025C17 /* NextAvailableMediaSystem.swift */,
 				CE5DA0FF1D47B8B000025C17 /* TrackRatingSystem.swift */,
+				E9F41F0B1D52982A00F28D1B /* EventSystem.swift */,
 				CE5DA0F41D46847C00025C17 /* SystemCoordinationController.swift */,
 			);
 			name = Systems;
@@ -719,6 +722,7 @@
 				CEFEAD901D3D7EDD004D3CFC /* MainPlayerViewController+States.swift in Sources */,
 				CE747BF81D382B0F0006D1B6 /* PlayerControlsToolbar.swift in Sources */,
 				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
+				E9F41F0C1D52982A00F28D1B /* EventSystem.swift in Sources */,
 				CE5DA0B51D41A52900025C17 /* UpdatesTracker.swift in Sources */,
 				CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */,
 				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */,
