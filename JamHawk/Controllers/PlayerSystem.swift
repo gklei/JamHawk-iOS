@@ -86,6 +86,10 @@ extension PlayerSystem: PlayerDataSource {
 			post(notification: .modelDidUpdate)
 		}
 	}
+	
+	func update(playerVolume volume: Float) {
+		_player.volume = volume
+	}
 }
 
 extension PlayerSystem: Notifier {

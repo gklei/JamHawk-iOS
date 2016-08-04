@@ -15,6 +15,8 @@ enum PlayerControlsEventType {
 protocol PlayerDataSource: class {
 	var paused: Bool { get }
 	var muted: Bool { get }
+	
+	func update(playerVolume volume: Float)
 	func register(event event: PlayerControlsEventType)
 }
 
@@ -37,6 +39,7 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	weak var delegate: PlayerControlsDelegate?
 	
 	private var _playerProgressVC: PlayerProgressViewController?
+	private let _volumeAdjustmentVC = VolumeAdjustmentViewController.create()
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -50,6 +53,8 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 		_bottomPaddingView.backgroundColor = color
 		
 		_toggleMuteItem.tintColor = .whiteColor()
+		
+		_volumeAdjustmentVC.delegate = self
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -82,6 +87,10 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 		dataSource.register(event: event)
 	}
 	
+	@IBAction private func _volumeButtonPressed() {
+		presentViewController(_volumeAdjustmentVC, animated: true, completion: nil)
+	}
+	
 	private func _updateBarButtonItems() {
 		guard let dataSource = dataSource else { return }
 		
@@ -99,5 +108,11 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	
 	func updateProgress(progress: CGFloat) {
 		_playerProgressVC?.updateProgress(progress)
+	}
+}
+
+extension PlayerControlsViewController: VolumeAdjustmentDelegate {
+	func volumeAdjustmentViewControllerDidUpdateVolume(volume: Float) {
+		dataSource?.update(playerVolume: volume)
 	}
 }
