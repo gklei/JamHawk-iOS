@@ -98,11 +98,30 @@ extension PlayerSystem: PlayerDataSource {
 			post(notification: .modelDidUpdate)
 		}
 	}
+	
+	func register(event event: PlayerControlsEventType) {
+		var didUpdate = true
+		switch event {
+		case .Play:
+			_player.play()
+			post(notification: .play)
+		case .Pause: _player.pause()
+		case .Mute: _player.muted = true
+		case .Unmute: _player.muted = false
+		case .NextTrack: wantsToAdvance = true
+		case .UserProfile: didUpdate = false
+		}
+		
+		if didUpdate {
+			post(notification: .modelDidUpdate)
+		}
+	}
 }
 
 extension PlayerSystem: Notifier {
 	enum Notification: String {
 		case modelDidUpdate
 		case progressDidUpdate
+        case play
 	}
 }

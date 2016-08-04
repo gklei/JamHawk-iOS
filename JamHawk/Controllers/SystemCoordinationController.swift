@@ -27,6 +27,7 @@ class SystemCoordinationController {
 	let currentTrackSystem = CurrentTrackSystem()
 	let nextAvailableSystem = NextAvailableMediaSystem()
 	let ratingSystem = TrackRatingSystem()
+    let eventSystem = EventSystem()
 	
 	private var _timer: NSTimer?
 	private let _playerAPIService: PlayerAPIService
@@ -37,7 +38,6 @@ class SystemCoordinationController {
 	
 	init(apiService: PlayerAPIService) {
 		_playerAPIService = apiService
-		
 		let sel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
 		PlayerSystem.addObserver(self, selector: sel, notification: .modelDidUpdate)
 	}
@@ -93,6 +93,9 @@ extension SystemCoordinationController {
 	@objc internal func sendRequestToPlayerAPI(timer: NSTimer? = nil) {
 		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
+        let events = eventSystem.emptyQueue()
+        print("event count: \(events?.count ?? 0)")
+        // add the events to the request
 		
 		// gather events using the event queue (clear queue right after we send)
 		// get song rating information (use request id)
