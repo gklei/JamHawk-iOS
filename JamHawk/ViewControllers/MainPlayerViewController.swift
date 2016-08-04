@@ -28,8 +28,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	// MARK: - Outlets
 	@IBOutlet private var _backgroundImageView: AsyncImageView!
 	
-	@IBOutlet internal var _topContainer: UIView!
-	@IBOutlet internal var _middleContainer: UIView!
+	@IBOutlet internal var _parentFilterSelectionContainer: UIView!
+	@IBOutlet internal var _largeCurrentTrackContainer: UIView!
 	
 	@IBOutlet internal var _compactCurrentTrackContainer: UIView!
 	@IBOutlet internal var _nextAvailableMediaContainer: UIView!
@@ -45,24 +45,24 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	internal var _statusBarStyle = UIStatusBarStyle.LightContent
 	
-	private let _parentFilterSelectionVC = ParentFilterSelectionViewController.create()
-	private var _subfilterSelectionVC = SubfilterSelectionViewController()
+	internal let _parentFilterSelectionVC = ParentFilterSelectionViewController.create()
+	internal var _subfilterSelectionVC = SubfilterSelectionViewController()
 	
-	private let _compactCurrentTrackVC = CompactCurrentTrackViewController.create()
+	internal let _compactCurrentTrackVC = CompactCurrentTrackViewController.create()
 	internal let _largeCurrentTrackVC = LargeCurrentTrackViewController.create()
 	
-	private let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
-	private let _playerControlsVC = PlayerControlsViewController.create()
+	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
+	internal let _playerControlsVC = PlayerControlsViewController.create()
 	
-	private let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
-	private let _profileNavController = ProfileNavigationController()
+	internal let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
+	internal let _profileNavController = ProfileNavigationController()
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		add(childViewController: _parentFilterSelectionVC, toContainer: _topContainer)
-		add(childViewController: _largeCurrentTrackVC, toContainer: _middleContainer)
+		add(childViewController: _parentFilterSelectionVC, toContainer: _parentFilterSelectionContainer)
+		add(childViewController: _largeCurrentTrackVC, toContainer: _largeCurrentTrackContainer)
 		add(childViewController: _nextAvailableMediaVC, toContainer: _nextAvailableMediaContainer)
 		add(childViewController: _compactCurrentTrackVC, toContainer: _compactCurrentTrackContainer)
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
@@ -118,6 +118,15 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_currentState = state.transition(duration: duration)
 	}
 	
+	private func _compactCurrentTrackSwipedUp() {
+		if _currentState.isKindOfClass(FilterSelectionMainPlayerState) {
+			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
+		} else {
+			let state = DefaultMainPlayerState(delegate: self)
+			_transition(toState: state, duration: 0.3)
+		}
+	}
+	
 	// MARK: - Public
 	func setupSystems(withCoordinationController controller: SystemCoordinationController) {
 		let _ = view // load the view
@@ -141,7 +150,7 @@ extension MainPlayerViewController {
 	}
 }
 
-// MARK: - System Controllers
+// MARK: - Systems
 extension MainPlayerViewController {
 	
 	// MARK: - Player System
@@ -210,15 +219,6 @@ extension MainPlayerViewController: PlayerControlsDelegate {
 			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
 		} else {
 			let state = ShowProfileState(delegate: self)
-			_transition(toState: state, duration: 0.3)
-		}
-	}
-	
-	private func _compactCurrentTrackSwipedUp() {
-		if _currentState.isKindOfClass(FilterSelectionMainPlayerState) {
-			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
-		} else {
-			let state = DefaultMainPlayerState(delegate: self)
 			_transition(toState: state, duration: 0.3)
 		}
 	}

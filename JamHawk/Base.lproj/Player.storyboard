@@ -22,14 +22,14 @@
                             <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ffU-sH-OeD" customClass="AsyncImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rB-2F-63i">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rB-2F-63i" userLabel="Large Current Track Container">
                                 <rect key="frame" x="0.0" y="88" width="414" height="445"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igk-xx-ASo" userLabel="Subfilter Selection Container">
                                 <rect key="frame" x="0.0" y="88" width="414" height="445"/>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27" userLabel="Parent Filter Selection Container">
                                 <rect key="frame" x="0.0" y="20" width="414" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -97,12 +97,12 @@
                         <outlet property="_backgroundImageView" destination="ffU-sH-OeD" id="E0G-jS-GQQ"/>
                         <outlet property="_bottomContainerHeightConstraint" destination="1K6-M2-aqZ" id="vGL-bi-2K7"/>
                         <outlet property="_compactCurrentTrackContainer" destination="Sx4-ve-drH" id="Pl1-bS-OpZ"/>
-                        <outlet property="_middleContainer" destination="4rB-2F-63i" id="VI4-Yw-sie"/>
+                        <outlet property="_largeCurrentTrackContainer" destination="4rB-2F-63i" id="VI4-Yw-sie"/>
                         <outlet property="_nextAvailableMediaContainer" destination="0Hh-7i-2we" id="Qe6-OX-fks"/>
+                        <outlet property="_parentFilterSelectionContainer" destination="mlp-ow-Z27" id="KSe-bH-FDW"/>
                         <outlet property="_playerControlsContainer" destination="2Ww-DI-mLh" id="Anb-6a-F58"/>
                         <outlet property="_profileNavigationContainer" destination="tZr-Io-xNp" id="rP5-aa-r5K"/>
                         <outlet property="_subfilterSelectionContainer" destination="igk-xx-ASo" id="Pmh-RN-zvm"/>
-                        <outlet property="_topContainer" destination="mlp-ow-Z27" id="KSe-bH-FDW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WH-fG-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAu-Qb-NW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="533"/>
+            <point key="canvasLocation" x="481" y="760"/>
         </scene>
         <!--Player Controls View Controller-->
         <scene sceneID="h63-B4-F2v">
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agT-e7-aDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="753"/>
+            <point key="canvasLocation" x="-104" y="715"/>
         </scene>
         <!--Player Progress View Controller-->
         <scene sceneID="umN-24-4Ca">
@@ -325,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVc-EO-YAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="902"/>
+            <point key="canvasLocation" x="-104" y="903"/>
         </scene>
         <!--Parent Filter Selection View Controller-->
         <scene sceneID="k0Q-Tg-a71">
@@ -381,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMc-Tf-wCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821" y="-42"/>
+            <point key="canvasLocation" x="712" y="-58"/>
         </scene>
         <!--Compact Current Track View Controller-->
         <scene sceneID="O7g-33-mZk">
@@ -476,7 +476,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1409" y="558"/>
+            <point key="canvasLocation" x="1384" y="589"/>
         </scene>
         <!--Track Rating View Controller-->
         <scene sceneID="dhN-Oc-azI">
@@ -643,6 +643,6 @@
         <image name="play2" width="15" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1cG-68-Onq"/>
+        <segue reference="Ma2-9Y-rmW"/>
     </inferredMetricsTieBreakers>
 </document>
