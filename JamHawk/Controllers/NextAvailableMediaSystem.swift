@@ -11,9 +11,6 @@ import Foundation
 final class NextAvailableMediaSystem: SystemController<[PlayerAPIOutputMetadata]> {
 	private var _next: [PlayerAPIOutputMetadata]?
 	
-	var didUpdateModel: (controller: NextAvailableMediaSystem) -> Void = {_ in}
-	var didUpdateSelection: (controller: NextAvailableMediaSystem) -> Void = {_ in}
-	
 	var currentNextTrackSelection: PlayerAPIOutputMetadata?
 	
 	override func update(withModel model: [PlayerAPIOutputMetadata]?) {
