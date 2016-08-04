@@ -74,6 +74,12 @@ class SystemCoordinationController {
 	}
 }
 
+extension SystemCoordinationController: PlayerSystemDelegate {
+    func playerSystemCurrentTrackMID() -> Int? {
+        return currentTrackSystem.currentMID
+    }
+}
+
 extension SystemCoordinationController {
 	
 	/*
@@ -93,7 +99,7 @@ extension SystemCoordinationController {
 	@objc internal func sendRequestToPlayerAPI(timer: NSTimer? = nil) {
 		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
-        let events = eventSystem.emptyQueue()
+        let events = eventSystem.dequeueEvents()
         print("event count: \(events?.count ?? 0)")
         // add the events to the request
 		

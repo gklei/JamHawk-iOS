@@ -10,6 +10,7 @@ import Foundation
 
 final class CurrentTrackSystem: SystemController<PlayerAPIOutputMetadata> {
 	private var _track: PlayerAPIOutputMetadata?
+    var currentMID: Int? { return _track?.mid }
 	
 	override func update(withModel model: PlayerAPIOutputMetadata?) {
 		guard let model = model else { return }

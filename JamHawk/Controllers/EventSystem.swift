@@ -28,11 +28,11 @@ final class EventSystem: SystemController<EventSystemNotificationModel> {
     }
     @objc func eventNotification(notification: NSNotification) {
         if let eventName = _map?[notification.name] {
-            queue.append(PlayerAPIInputEvent(name: eventName, timestamp: Int(NSDate().timeIntervalSince1970), mid: nil, description: nil))
+            queue.append(PlayerAPIInputEvent(name: eventName, timestamp: Int(NSDate().timeIntervalSince1970), mid: notification.userInfo?[SystemControllerNotificationMIDKey] as? Int, description: notification.userInfo?[SystemControllerNotificationDescriptionKey] as? String))
             post(notification: .didQueueEvent)
         }
     }
-    func emptyQueue() -> [PlayerAPIInputEvent]? {
+    func dequeueEvents() -> [PlayerAPIInputEvent]? {
         post(notification: .willEmptyEventQueue)
         let events = queue
         queue.removeAll()
