@@ -1,5 +1,5 @@
 //
-//  PlayerSystemController.swift
+//  PlayerSystem.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/25/16.
@@ -14,19 +14,15 @@ import AVFoundation
 
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
-protocol PlayerSystemDelegate: class {
-	func playerSystemNextTrackRequested(system: PlayerSystemController)
-}
-
-final class PlayerSystemController: SystemController<PlayerAPIOutputMedia> {
+final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
+	
 	private var _media: PlayerAPIOutputMedia?
 	
 	private var _timeObserver: AnyObject?
 	private let _player = AVPlayer()
 	
-	weak var delegate: PlayerSystemDelegate?
-	var didUpdateModel: (controller: PlayerSystemController) -> Void = {_ in}
-	var playerProgressClosure: (progress: CGFloat) -> Void = {_ in}
+	var wantsToAdvance = false
+	internal(set) var playerProgress: CGFloat = 0
 	
 	var currentMediaViewModel: PlayerAPIOutputMediaViewModel? {
 		guard let media = _media else { return nil }
@@ -42,22 +38,17 @@ final class PlayerSystemController: SystemController<PlayerAPIOutputMedia> {
 	private func _startObservingPlayer() {
 		_timeObserver = _player.addPeriodicTimeObserverForInterval(k60FramesPerSec, queue: nil) {
 			[weak self] time in
-			self?._updateProgress(withCurrentTime: time)
+			
+			let totalDuration = 180
+			let seconds = CMTimeGetSeconds(time)
+			self?.playerProgress = CGFloat(seconds) / CGFloat(totalDuration)
+			self?.post(notification: .progressDidUpdate)
 		}
 	}
 	
 	private func _stopObserving(player player: AVPlayer) {
 		guard let timeObserver = _timeObserver else { return }
 		player.removeTimeObserver(timeObserver)
-	}
-	
-	private func _updateProgress(withCurrentTime time: CMTime) {
-		// TODO: Get the actual duration...
-		let totalDuration = 180
-		let seconds = CMTimeGetSeconds(time)
-		let progress = CGFloat(seconds) / CGFloat(totalDuration)
-		
-		playerProgressClosure(progress: progress)
 	}
 	
 	override func update(withModel model: PlayerAPIOutputMedia?) {
@@ -67,11 +58,11 @@ final class PlayerSystemController: SystemController<PlayerAPIOutputMedia> {
 		_player.replaceCurrentItemWithPlayerItem(updatedItem)
 		_player.play()
 		
-		didUpdateModel(controller: self)
+		post(notification: .modelDidUpdate)
 	}
 }
 
-extension PlayerSystemController: PlayerDataSource {
+extension PlayerSystem: PlayerDataSource {
 	var paused: Bool {
 		return _player.paused
 	}
@@ -87,12 +78,19 @@ extension PlayerSystemController: PlayerDataSource {
 		case .Pause: _player.pause()
 		case .Mute: _player.muted = true
 		case .Unmute: _player.muted = false
-		case .NextTrack: delegate?.playerSystemNextTrackRequested(self)
+		case .NextTrack: wantsToAdvance = true
 		case .UserProfile: didUpdate = false
 		}
 		
 		if didUpdate {
-			didUpdateModel(controller: self)
+			post(notification: .modelDidUpdate)
 		}
+	}
+}
+
+extension PlayerSystem: Notifier {
+	enum Notification: String {
+		case modelDidUpdate
+		case progressDidUpdate
 	}
 }
