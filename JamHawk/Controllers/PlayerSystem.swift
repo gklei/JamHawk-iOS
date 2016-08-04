@@ -14,10 +14,6 @@ import AVFoundation
 
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
-protocol PlayerSystemDelegate: class {
-	func playerSystemNextTrackRequested(system: PlayerSystem)
-}
-
 final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	
 	private var _media: PlayerAPIOutputMedia?
@@ -25,7 +21,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	private var _timeObserver: AnyObject?
 	private let _player = AVPlayer()
 	
-	weak var delegate: PlayerSystemDelegate?
+	var wantsToAdvance = false
 	internal(set) var playerProgress: CGFloat = 0
 	
 	var currentMediaViewModel: PlayerAPIOutputMediaViewModel? {
@@ -82,7 +78,7 @@ extension PlayerSystem: PlayerDataSource {
 		case .Pause: _player.pause()
 		case .Mute: _player.muted = true
 		case .Unmute: _player.muted = false
-		case .NextTrack: delegate?.playerSystemNextTrackRequested(self)
+		case .NextTrack: wantsToAdvance = true
 		case .UserProfile: didUpdate = false
 		}
 		

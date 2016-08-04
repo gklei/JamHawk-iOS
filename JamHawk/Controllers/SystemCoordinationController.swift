@@ -37,7 +37,9 @@ class SystemCoordinationController {
 	
 	init(apiService: PlayerAPIService) {
 		_playerAPIService = apiService
-		playerSystem.delegate = self
+		
+		let sel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
+		PlayerSystem.addObserver(self, selector: sel, notification: .modelDidUpdate)
 	}
 	
 	private func _handlePlayerAPICallback(error: NSError?, output: PlayerAPIOutput?) {
@@ -49,7 +51,6 @@ class SystemCoordinationController {
 		playerSystem.update(withModel: output.media)
 		
 		if output.filters != nil {
-//			print(output.filters!)
 			filterSystem.update(withModel: output.filters)
 		}
 		
@@ -73,15 +74,6 @@ class SystemCoordinationController {
 	}
 }
 
-extension SystemCoordinationController: PlayerSystemDelegate {
-	func playerSystemNextTrackRequested(system: PlayerSystem) {
-		guard let next = nextAvailableSystem.currentNextTrackSelection else { return }
-		
-		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: next.mid, ratings: nil)
-		_playerAPIService.requestNextTrack(withUpdates: updates, callback: _handlePlayerAPICallback)
-	}
-}
-
 extension SystemCoordinationController {
 	
 	/*
@@ -93,13 +85,12 @@ extension SystemCoordinationController {
 		guard _timer == nil else { return }
 		
 		let fireDate = NSDate(timeIntervalSinceNow: 3)
-		let selector = #selector(_sendRequestToPlayerAPI(_:))
+		let selector = #selector(sendRequestToPlayerAPI(_:))
 		_timer = NSTimer(fireDate: fireDate, interval: seconds, target: self, selector: selector, userInfo: nil, repeats: true)
 		NSRunLoop.mainRunLoop().addTimer(_timer!, forMode: NSDefaultRunLoopMode)
 	}
 	
-	@objc internal func _sendRequestToPlayerAPI(timer: NSTimer) {
-		
+	@objc internal func sendRequestToPlayerAPI(timer: NSTimer? = nil) {
 		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
 		
@@ -112,8 +103,8 @@ extension SystemCoordinationController {
 		                                    select: next,
 		                                    ratings: nil)
 		
-		_playerAPIService.sendRequest(needNext: (filterSelection != nil),
-		                              needMedia: false,
+		_playerAPIService.sendRequest(needNext: (filterSelection != nil) || playerSystem.wantsToAdvance,
+		                              needMedia: playerSystem.wantsToAdvance,
 		                              needFilters: false,
 		                              updates: updates,
 		                              callback: _handlePlayerAPICallback)
@@ -130,5 +121,21 @@ extension SystemCoordinationController {
 			selection = PlayerAPIInputFilterSelection(selection: filterSystem.filterSelection)
 		}
 		return selection
+	}
+}
+
+extension SystemCoordinationController {
+	@objc func playerSystemUpdated(notification: NSNotification) {
+		if playerSystem.wantsToAdvance {
+			_killRequestTimer()
+			sendRequestToPlayerAPI()
+			playerSystem.wantsToAdvance = false
+			_setupRequestTimer(withInterval: 3.0)
+		}
+	}
+	
+	private func _killRequestTimer() {
+		_timer?.invalidate()
+		_timer = nil
 	}
 }
