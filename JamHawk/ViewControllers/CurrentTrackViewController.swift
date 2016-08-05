@@ -72,8 +72,15 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 	@IBOutlet internal var _currentTrackLabel: MarqueeLabel!
 	@IBOutlet internal var _albumArtImageView: AsyncImageView!
 	@IBOutlet internal var _albumArtContainerView: UIView!
+	@IBOutlet internal var _albumArtShadowView: UIView!
 	
 	private var _viewTransformer: ViewTransformer!
+	
+	private var _currentArtworkImage: UIImage?
+	private var _currentFilter: CIFilter?
+	private var _duration = 0.0
+	private var _transitionStartTime = CACurrentMediaTime()
+	private var _originalImageExtent: CGRect?
 	
 	private var _trackRatingVC: TrackRatingViewController?
 	weak var trackRatingDataSource: TrackRatingDataSource? {
@@ -86,23 +93,24 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		super.viewDidLoad()
 		
 		_albumArtImageView.backgroundColor = .clearColor()
-		_albumArtImageView.layer.cornerRadius = 3.0
-		_albumArtImageView.layer.masksToBounds = true
 		
 		_albumArtContainerView.backgroundColor = .clearColor()
 		
-		_albumArtContainerView.layer.shadowRadius = 12
-		_albumArtContainerView.layer.shadowOpacity = 0.5
-		_albumArtContainerView.layer.shadowOffset = CGSize(width: 0, height: 2)
-		_albumArtContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+		_albumArtContainerView.layer.cornerRadius = 3.0
+		_albumArtContainerView.layer.masksToBounds = true
 		
-		_viewTransformer = ViewTransformer(view: _albumArtContainerView)
+		_albumArtShadowView.layer.shadowRadius = 12
+		_albumArtShadowView.layer.shadowOpacity = 0.5
+		_albumArtShadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
+		_albumArtShadowView.layer.shadowColor = UIColor.blackColor().CGColor
+		
+		_viewTransformer = ViewTransformer(view: _albumArtShadowView)
 		_currentTrackLabel.fadeLength = 10
 	}
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-		_albumArtContainerView.layer.shadowPath = UIBezierPath(rect: _albumArtContainerView.bounds).CGPath
+		_albumArtShadowView.layer.shadowPath = UIBezierPath(rect: _albumArtShadowView.bounds).CGPath
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -121,11 +129,46 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		guard let vm = dataSource?.currentTrackViewModel else { return }
 		_currentTrackLabel.text = vm.artistAndSongTitle
 		_currentTrackLabel.restartLabel()
+		
+		_currentArtworkImage = nil
+		_albumArtImageView.crossfadeDuration = 0.4
 		_albumArtImageView.imageURL = vm.albumArtworkURL
 	}
 	
 	func setRatingViewControllerHidden(hidden: Bool) {
 		_trackRatingVC?.view.alpha = hidden ? 0 : 1
+	}
+	
+	private func _currentAlbumArtImage() -> UIImage? {
+		let rect = _albumArtImageView.bounds
+		UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+		
+		_albumArtImageView.drawViewHierarchyInRect(rect, afterScreenUpdates: true)
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		
+		UIGraphicsEndImageContext()
+		return image
+	}
+	
+	@IBAction private func _longPressRecognized(recognizer: UIGestureRecognizer) {
+		guard recognizer.state == .Began && _duration == 0 else { return }
+		if _currentArtworkImage == nil {
+			_currentArtworkImage = _currentAlbumArtImage()
+			_currentFilter = _filter(forImage: _currentArtworkImage)
+		}
+		
+		let location = recognizer.locationInView(_albumArtImageView)
+		let xPercentage = location.x / _albumArtImageView.bounds.width
+		let yPercentage = location.y / _albumArtImageView.bounds.height
+		
+		let xPos = _originalImageExtent!.size.width * xPercentage
+		let yPos = _originalImageExtent!.size.height * (1 - yPercentage)
+		
+		let centerPoint = CGPoint(x: xPos, y: yPos)
+		let inputCenter = CIVector(CGPoint: centerPoint)
+		_currentFilter?.setValue(inputCenter, forKey: kCIInputCenterKey)
+		
+		rippleImage(1.3)
 	}
 }
 
@@ -138,8 +181,8 @@ extension LargeCurrentTrackViewController {
 	override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		super.touchesMoved(touches, withEvent: event)
 		
-		guard let point = touches.first?.locationInView(_albumArtContainerView) else { return }
-		guard _albumArtContainerView.bounds.contains(point) else {
+		guard let point = touches.first?.locationInView(_albumArtShadowView) else { return }
+		guard _albumArtShadowView.bounds.contains(point) else {
 			_viewTransformer.resetViewWithDuration(0.5)
 			return
 		}
@@ -155,5 +198,70 @@ extension LargeCurrentTrackViewController {
 	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
 		super.touchesCancelled(touches, withEvent: event)
 		_viewTransformer.resetViewWithDuration(0.5)
+	}
+}
+
+extension LargeCurrentTrackViewController {
+	
+	private func _filter(forImage image: UIImage?) -> CIFilter? {
+		guard let image = image else { return nil }
+		
+		let coreImage = CIImage(CGImage: image.CGImage!)
+		_originalImageExtent = coreImage.extent
+		
+		let clampedImage = coreImage.imageByClampingToExtent()
+		let filter = CIFilter(name: "CIRippleTransition")
+		filter?.setValue(clampedImage, forKey: kCIInputImageKey)
+		
+		//If you want to transition to another image, you would supply a different image value here.
+		filter?.setValue(clampedImage, forKey: kCIInputTargetImageKey)
+		filter?.setValue(CIImage(), forKey: kCIInputShadingImageKey)
+		
+		let center = _originalImageExtent!.size.width * 0.5
+		let centerPoint = CGPoint(x: center, y: center)
+		let inputCenter = CIVector(CGPoint: centerPoint)
+		
+		filter?.setValue(inputCenter, forKey: kCIInputCenterKey)
+		
+		return filter
+	}
+	
+	func rippleImage(duration: Double) {
+		//Don't forget to keep track of your duration for calculations later.
+		_duration = duration
+		
+		//Update our start time since we immediately fire off our display link after this line.
+		_transitionStartTime = CACurrentMediaTime()
+		
+		let selector = #selector(LargeCurrentTrackViewController.timerFired(_:))
+		let displayLink = CADisplayLink(target: self, selector: selector)
+		displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+	}
+	
+	func timerFired(displayLink: CADisplayLink) {
+		guard let filter = _currentFilter, extent = _originalImageExtent else {
+			//If the filter is nil, invalidate our display link.
+			displayLink.invalidate()
+			return
+		}
+		
+		//Grab the difference of the current time and our transitionStartTime and see the percentage of that against our duration. Using min(), we guarantee that our percentage doesn't go over 1.0.
+		let progress = min((CACurrentMediaTime() - _transitionStartTime) / _duration, 1.0)
+		filter.setValue(progress, forKey: kCIInputTimeKey)
+		
+		//After we set a value on our filter, the filter applies that value to the image and filters it accordingly so we get a new outputImage immediately after the setValue finishes running.
+		let CIImage = filter.outputImage!.imageByCroppingToRect(extent)
+		let scale = UIScreen.mainScreen().scale
+		
+		let context = CIContext(options: nil) //You can also create a context from an OpenGL context bee-tee-dubs.
+		let cgImage = context.createCGImage(CIImage, fromRect: extent)
+		_albumArtImageView.image = UIImage(CGImage: cgImage, scale: scale, orientation: .Up)
+		
+		if progress >= 1.0 {
+			_duration = 0
+			_albumArtImageView.crossfadeDuration = 0
+			_albumArtImageView.image = _currentArtworkImage
+			displayLink.invalidate()
+		}
 	}
 }
