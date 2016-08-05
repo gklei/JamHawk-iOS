@@ -15,6 +15,7 @@ enum PlayerControlsEventType {
 protocol PlayerDataSource: class {
 	var paused: Bool { get }
 	var muted: Bool { get }
+	var volume: Float { get }
 	
 	func update(playerVolume volume: Float)
 	func register(event event: PlayerControlsEventType)
@@ -81,13 +82,8 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 		dataSource?.register(event: .NextTrack)
 	}
 	
-	@IBAction private func _toggleMuteButtonPressed() {
-		guard let dataSource = dataSource else { return }
-		let event: PlayerControlsEventType = dataSource.muted ? .Unmute : .Mute
-		dataSource.register(event: event)
-	}
-	
 	@IBAction private func _volumeButtonPressed() {
+		_volumeAdjustmentVC.update(volume: dataSource?.volume ?? 0)
 		presentViewController(_volumeAdjustmentVC, animated: true, completion: nil)
 	}
 	

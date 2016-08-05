@@ -28,9 +28,6 @@ final class VolumeAdjustmentViewController: UIViewController, PlayerStoryboardIn
 		
 		let selector = #selector(VolumeAdjustmentViewController.sliderValueChanged(_:))
 		_volumeSlider.addTarget(self, action: selector, forControlEvents: .ValueChanged)
-		
-		// For now...
-		_volumeSlider.value = 1
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -70,5 +67,9 @@ final class VolumeAdjustmentViewController: UIViewController, PlayerStoryboardIn
 	
 	internal func sliderValueChanged(slider: UISlider) {
 		delegate?.volumeAdjustmentViewControllerDidUpdateVolume(slider.value)
+	}
+	
+	func update(volume volume: Float) {
+		_volumeSlider.setValue(volume, animated: false)
 	}
 }

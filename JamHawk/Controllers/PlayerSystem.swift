@@ -32,6 +32,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	override init() {
 		super.init()
 		_startObservingPlayer()
+		_player.volume = 0.75
 	}
 	
 	// MARK: - Private
@@ -69,6 +70,10 @@ extension PlayerSystem: PlayerDataSource {
 	
 	var muted: Bool {
 		return _player.muted
+	}
+	
+	var volume: Float {
+		return _player.volume
 	}
 	
 	func register(event event: PlayerControlsEventType) {
