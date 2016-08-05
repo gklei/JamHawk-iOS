@@ -157,17 +157,18 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 			_currentFilter = _filter(forImage: _currentArtworkImage)
 		}
 		
-		let location = recognizer.locationInView(_albumArtImageView)
-		let xPercentage = location.x / _albumArtImageView.bounds.width
-		let yPercentage = location.y / _albumArtImageView.bounds.height
+//		let location = recognizer.locationInView(_albumArtImageView)
+//		let xPercentage = location.x / _albumArtImageView.bounds.width
+//		let yPercentage = location.y / _albumArtImageView.bounds.height
+//		
+//		let xPos = _originalImageExtent!.size.width * xPercentage
+//		let yPos = _originalImageExtent!.size.height * (1 - yPercentage)
+//		
+//		let centerPoint = CGPoint(x: xPos, y: yPos)
+//		let inputCenter = CIVector(CGPoint: centerPoint)
+//		_currentFilter?.setValue(inputCenter, forKey: kCIInputCenterKey)
 		
-		let xPos = _originalImageExtent!.size.width * xPercentage
-		let yPos = _originalImageExtent!.size.height * (1 - yPercentage)
-		
-		let centerPoint = CGPoint(x: xPos, y: yPos)
-		let inputCenter = CIVector(CGPoint: centerPoint)
-		_currentFilter?.setValue(inputCenter, forKey: kCIInputCenterKey)
-		
+		_albumArtImageView.crossfadeDuration = 0
 		rippleImage(1.3)
 	}
 }
@@ -209,8 +210,9 @@ extension LargeCurrentTrackViewController {
 		let coreImage = CIImage(CGImage: image.CGImage!)
 		_originalImageExtent = coreImage.extent
 		
-		let clampedImage = coreImage.imageByClampingToExtent()
 		let filter = CIFilter(name: "CIRippleTransition")
+		
+		let clampedImage = coreImage.imageByClampingToExtent()
 		filter?.setValue(clampedImage, forKey: kCIInputImageKey)
 		
 		//If you want to transition to another image, you would supply a different image value here.
@@ -222,6 +224,9 @@ extension LargeCurrentTrackViewController {
 		let inputCenter = CIVector(CGPoint: centerPoint)
 		
 		filter?.setValue(inputCenter, forKey: kCIInputCenterKey)
+		
+		let scale = NSNumber(float: 80)
+		filter?.setValue(scale, forKey: kCIInputScaleKey)
 		
 		return filter
 	}
@@ -259,7 +264,7 @@ extension LargeCurrentTrackViewController {
 		
 		if progress >= 1.0 {
 			_duration = 0
-			_albumArtImageView.crossfadeDuration = 0
+//			_albumArtImageView.crossfadeDuration = 0
 			_albumArtImageView.image = _currentArtworkImage
 			displayLink.invalidate()
 		}
