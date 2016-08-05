@@ -32,6 +32,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	override init() {
 		super.init()
 		_startObservingPlayer()
+		_player.volume = 0.75
 	}
 	
 	// MARK: - Private
@@ -68,21 +69,32 @@ extension PlayerSystem: PlayerDataSource {
 	}
 	
 	var muted: Bool {
-		return _player.muted
+		return _player.muted || _player.volume == 0
 	}
 	
-	func register(event event: PlayerControlsEventType) {
-		var didUpdate = true
-		switch event {
-		case .Play: _player.play()
-		case .Pause: _player.pause()
-		case .Mute: _player.muted = true
-		case .Unmute: _player.muted = false
-		case .NextTrack: wantsToAdvance = true
-		case .UserProfile: didUpdate = false
-		}
+	var volume: Float {
+		return _player.volume
+	}
+	
+	func play() {
+		_player.play()
+		post(notification: .modelDidUpdate)
+	}
+	
+	func pause() {
+		_player.pause()
+		post(notification: .modelDidUpdate)
+	}
+	
+	func advanceTrack() {
+		wantsToAdvance = true
+		post(notification: .modelDidUpdate)
+	}
+	
+	func update(playerVolume volume: Float, inProgress: Bool = false) {
+		_player.volume = volume
 		
-		if didUpdate {
+		if !inProgress {
 			post(notification: .modelDidUpdate)
 		}
 	}

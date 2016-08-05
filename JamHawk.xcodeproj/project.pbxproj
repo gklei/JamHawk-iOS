@@ -75,6 +75,8 @@
 		CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E01D26D49B0083365F /* SignInViewController.swift */; };
 		CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E31D26E6350083365F /* BottomBorderTextField.swift */; };
 		CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404EB1D26F20E0083365F /* JamHawkSession.swift */; };
+		CEF9E48C1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */; };
+		CEF9E48E1D53CB9100DB6B2C /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */; };
 		CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD86991D300F34005313AD /* AppRouter.swift */; };
 		CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */; };
 		CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */; };
@@ -168,6 +170,8 @@
 		CED404E01D26D49B0083365F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CED404E31D26E6350083365F /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = JamHawk/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
 		CED404EB1D26F20E0083365F /* JamHawkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkSession.swift; path = JamHawk/Backend/JamHawkSession.swift; sourceTree = "<group>"; };
+		CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeAdjustmentViewController.swift; path = JamHawk/ViewControllers/VolumeAdjustmentViewController.swift; sourceTree = "<group>"; };
+		CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeSlider.swift; path = JamHawk/CustomUI/VolumeSlider.swift; sourceTree = "<group>"; };
 		CEFD86991D300F34005313AD /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkNavigationController.swift; path = JamHawk/CustomUI/JamHawkNavigationController.swift; sourceTree = "<group>"; };
 		CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPlayerViewController.swift; path = JamHawk/ViewControllers/MainPlayerViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 			children = (
 				CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */,
 				CEFFF7991D35930800D083F1 /* PlayerProgressViewController.swift */,
+				CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */,
 			);
 			name = "Player Controls & Progress";
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */,
 				CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */,
 				CE5DA1011D47F06400025C17 /* TrackRatingCell.swift */,
+				CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -665,6 +671,7 @@
 				CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */,
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
 				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,
+				CEF9E48E1D53CB9100DB6B2C /* VolumeSlider.swift in Sources */,
 				CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
@@ -697,6 +704,7 @@
 				CE5DA0DC1D4493D700025C17 /* FilterSelectionMainPlayerState.swift in Sources */,
 				CE5DA0EF1D46841300025C17 /* CurrentTrackSystem.swift in Sources */,
 				CE747BFC1D3839BB0006D1B6 /* ParentFilterSelectionViewController.swift in Sources */,
+				CEF9E48C1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift in Sources */,
 				CE5DA0ED1D4683EE00025C17 /* PlayerSystem.swift in Sources */,
 				C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */,
 				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
