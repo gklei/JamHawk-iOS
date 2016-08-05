@@ -17,8 +17,11 @@ protocol PlayerDataSource: class {
 	var muted: Bool { get }
 	var volume: Float { get }
 	
-	func update(playerVolume volume: Float)
-	func register(event event: PlayerControlsEventType)
+	func play()
+	func pause()
+	func advanceTrack()
+	
+	func update(playerVolume volume: Float, inProgress: Bool)
 }
 
 protocol PlayerControlsDelegate: class {
@@ -68,18 +71,21 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	
 	// MARK: - Private
 	internal func _profileButtonPressed() {
-		dataSource?.register(event: .UserProfile)
 		delegate?.playerControlsProfileButtonPressed()
 	}
 	
 	@IBAction private func _playPauseButtonPressed() {
 		guard let dataSource = dataSource else { return }
-		let event: PlayerControlsEventType = dataSource.paused ? .Play : .Pause
-		dataSource.register(event: event)
+		
+		if dataSource.paused {
+			dataSource.play()
+		} else {
+			dataSource.pause()
+		}
 	}
 	
 	@IBAction private func _nextTrackButtonPressed() {
-		dataSource?.register(event: .NextTrack)
+		dataSource?.advanceTrack()
 	}
 	
 	@IBAction private func _volumeButtonPressed() {
@@ -109,6 +115,10 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 
 extension PlayerControlsViewController: VolumeAdjustmentDelegate {
 	func volumeAdjustmentViewControllerDidUpdateVolume(volume: Float) {
-		dataSource?.update(playerVolume: volume)
+		dataSource?.update(playerVolume: volume, inProgress: true)
+	}
+	
+	func volumeAdjustmentViewControllerFinishedUpdatingVolume(volume: Float) {
+		dataSource?.update(playerVolume: volume, inProgress: false)
 	}
 }

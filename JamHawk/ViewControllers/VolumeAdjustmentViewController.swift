@@ -10,6 +10,7 @@ import UIKit
 
 protocol VolumeAdjustmentDelegate: class {
 	func volumeAdjustmentViewControllerDidUpdateVolume(volume: Float)
+	func volumeAdjustmentViewControllerFinishedUpdatingVolume(volume: Float)
 }
 
 final class VolumeAdjustmentViewController: UIViewController, PlayerStoryboardInstantiable {
@@ -28,6 +29,10 @@ final class VolumeAdjustmentViewController: UIViewController, PlayerStoryboardIn
 		
 		let selector = #selector(VolumeAdjustmentViewController.sliderValueChanged(_:))
 		_volumeSlider.addTarget(self, action: selector, forControlEvents: .ValueChanged)
+		
+		let touchUpSel = #selector(VolumeAdjustmentViewController.sliderTouchUp(_:))
+		_volumeSlider.addTarget(self, action: touchUpSel, forControlEvents: .TouchUpInside)
+		_volumeSlider.addTarget(self, action: touchUpSel, forControlEvents: .TouchUpOutside)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -67,6 +72,10 @@ final class VolumeAdjustmentViewController: UIViewController, PlayerStoryboardIn
 	
 	internal func sliderValueChanged(slider: UISlider) {
 		delegate?.volumeAdjustmentViewControllerDidUpdateVolume(slider.value)
+	}
+	
+	internal func sliderTouchUp(slider: UISlider) {
+		delegate?.volumeAdjustmentViewControllerFinishedUpdatingVolume(slider.value)
 	}
 	
 	func update(volume volume: Float) {

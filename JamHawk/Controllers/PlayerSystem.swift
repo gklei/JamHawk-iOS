@@ -69,31 +69,34 @@ extension PlayerSystem: PlayerDataSource {
 	}
 	
 	var muted: Bool {
-		return _player.muted
+		return _player.muted || _player.volume == 0
 	}
 	
 	var volume: Float {
 		return _player.volume
 	}
 	
-	func register(event event: PlayerControlsEventType) {
-		var didUpdate = true
-		switch event {
-		case .Play: _player.play()
-		case .Pause: _player.pause()
-		case .Mute: _player.muted = true
-		case .Unmute: _player.muted = false
-		case .NextTrack: wantsToAdvance = true
-		case .UserProfile: didUpdate = false
-		}
-		
-		if didUpdate {
-			post(notification: .modelDidUpdate)
-		}
+	func play() {
+		_player.play()
+		post(notification: .modelDidUpdate)
 	}
 	
-	func update(playerVolume volume: Float) {
+	func pause() {
+		_player.pause()
+		post(notification: .modelDidUpdate)
+	}
+	
+	func advanceTrack() {
+		wantsToAdvance = true
+		post(notification: .modelDidUpdate)
+	}
+	
+	func update(playerVolume volume: Float, inProgress: Bool = false) {
 		_player.volume = volume
+		
+		if !inProgress {
+			post(notification: .modelDidUpdate)
+		}
 	}
 }
 
