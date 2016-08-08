@@ -8,16 +8,9 @@
 
 import UIKit
 
-enum ProfileOptionType {
-   case EditProfile
-   case Settings
-   
-   var title: String {
-      switch self {
-         case .EditProfile: return "Edit Profile"
-         case .Settings: return "Settings"
-      }
-   }
+enum ProfileOptionType: String {
+   case EditProfile = "Edit Profile"
+   case Settings = "Settings"
    
    var destinationVC: UIViewController? {
       switch self {
@@ -31,7 +24,6 @@ class ProfileViewController: UIViewController {
 	
    @IBOutlet weak var _profileOptionsCollectionView: UICollectionView!
    private var _profileOptions = [ProfileOptionType.EditProfile, ProfileOptionType.Settings]
-   
    
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -49,14 +41,9 @@ class ProfileViewController: UIViewController {
       _profileOptionsCollectionView.collectionViewLayout = layout
 	}
 	
-   
-   
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
-      
-      let image = UIImage.imageWithColor(UIColor.jmhLightGrayColor())
-      navigationController?.navigationBar.shadowImage = image
 	}
 }
 
@@ -78,7 +65,8 @@ extension ProfileViewController: UICollectionViewDataSource {
    
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileOptionCell", forIndexPath: indexPath) as! ProfileOptionCell
-      cell.titleLabel.text = _profileOptions[indexPath.row].title
+		let option = _profileOptions[indexPath.row]
+      cell.configure(withOption: option)
       return cell
    }
    
@@ -90,10 +78,21 @@ extension ProfileViewController: UICollectionViewDataSource {
 
 class ProfileOptionCell: UICollectionViewCell {
    
-   @IBOutlet var titleLabel: UILabel!
+   @IBOutlet private var _titleLabel: UILabel!
    
    override func awakeFromNib() {
       super.awakeFromNib()
       backgroundColor = .whiteColor()
    }
+	
+	func configure(withOption option: ProfileOptionType) {
+		_titleLabel.text = option.rawValue
+	}
+	
+	override var highlighted: Bool {
+		didSet {
+			let whiteValue: CGFloat = highlighted ? 0.95 : 1
+			backgroundColor = UIColor(white: whiteValue, alpha: 1)
+		}
+	}
 }
