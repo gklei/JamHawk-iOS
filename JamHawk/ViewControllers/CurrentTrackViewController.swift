@@ -93,7 +93,6 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		super.viewDidLoad()
 		
 		_albumArtImageView.backgroundColor = .clearColor()
-		
 		_albumArtContainerView.backgroundColor = .clearColor()
 		
 		_albumArtContainerView.layer.cornerRadius = 3.0
@@ -156,17 +155,6 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 			_currentArtworkImage = _currentAlbumArtImage()
 			_currentFilter = _filter(forImage: _currentArtworkImage)
 		}
-		
-//		let location = recognizer.locationInView(_albumArtImageView)
-//		let xPercentage = location.x / _albumArtImageView.bounds.width
-//		let yPercentage = location.y / _albumArtImageView.bounds.height
-//		
-//		let xPos = _originalImageExtent!.size.width * xPercentage
-//		let yPos = _originalImageExtent!.size.height * (1 - yPercentage)
-//		
-//		let centerPoint = CGPoint(x: xPos, y: yPos)
-//		let inputCenter = CIVector(CGPoint: centerPoint)
-//		_currentFilter?.setValue(inputCenter, forKey: kCIInputCenterKey)
 		
 		_albumArtImageView.crossfadeDuration = 0
 		rippleImage(1.3)
@@ -264,7 +252,6 @@ extension LargeCurrentTrackViewController {
 		
 		if progress >= 1.0 {
 			_duration = 0
-//			_albumArtImageView.crossfadeDuration = 0
 			_albumArtImageView.image = _currentArtworkImage
 			displayLink.invalidate()
 		}
