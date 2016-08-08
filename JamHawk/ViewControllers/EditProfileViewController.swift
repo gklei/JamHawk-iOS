@@ -46,12 +46,19 @@ class EditProfileViewController: UIViewController {
       _editProfileOptionsCollectionView.dataSource = self
       _editProfileOptionsCollectionView.delegate = self
       _editProfileOptionsCollectionView.collectionViewLayout = layout
-      
    }
-   
+	
    override func viewWillAppear(animated: Bool) {
       super.viewWillAppear(true)
+		
+		
+		let sel = #selector(EditProfileViewController.goBack)
+		updateLeftBarButtonItem(withTitle: "  Back", action: sel)
    }
+	
+	internal func goBack() {
+		navigationController?.popViewControllerAnimated(true)
+	}
 }
 
 extension EditProfileViewController: UICollectionViewDelegate {
