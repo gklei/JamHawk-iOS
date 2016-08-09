@@ -11,8 +11,6 @@ import UIKit
 /*
    Prioritized tasks
 	* download media files
-	* automatically play the next song when the current song ends
-	* change the UI for anything that doesn't look right
 	* replace the automatic sign in UI with the actual sign in UI
 */
 
@@ -98,11 +96,6 @@ extension SystemCoordinationController: PlayerSystemDelegate {
 
 extension SystemCoordinationController {
 	
-	/*
-		When something happens that isn't immediate, set up a timer
-		When something more immediate happens, replace the timer
-	*/
-	
 	private func _setupRequestTimer(withInterval seconds: NSTimeInterval) {
 		guard _timer == nil else { return }
 		
@@ -115,12 +108,9 @@ extension SystemCoordinationController {
 	@objc internal func sendRequestToPlayerAPI(timer: NSTimer? = nil) {
 		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
-        let events = eventSystem.dequeueEvents()
-        print("event count: \(events?.count ?? 0)")
-        // add the events to the request
 		
-		// gather events using the event queue (clear queue right after we send)
-		// get song rating information (use request id)
+		let events = eventSystem.dequeueEvents()
+		eventSystem.clearEvents()
 		
 		let updates = PlayerAPIInputUpdates(abandonedRequests: nil,
 		                                    canPlay: true,
@@ -128,10 +118,12 @@ extension SystemCoordinationController {
 		                                    select: next,
 		                                    ratings: nil)
 		
-		_playerAPIService.sendRequest(needNext: (filterSelection != nil) || playerSystem.wantsToAdvance,
+		let needNext = (filterSelection != nil) || playerSystem.wantsToAdvance
+		_playerAPIService.sendRequest(needNext: needNext,
 		                              needMedia: playerSystem.wantsToAdvance,
 		                              needFilters: false,
 		                              updates: updates,
+		                              events: events,
 		                              callback: _handlePlayerAPICallback)
 	}
 	

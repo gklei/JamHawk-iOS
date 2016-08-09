@@ -62,9 +62,23 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 		
 		_media = model
 		_player.replaceCurrentItemWithPlayerItem(updatedItem)
-		_player.play()
 		
+		let center = NSNotificationCenter.defaultCenter()
+		center.removeObserver(self)
+		
+		let selector = #selector(PlayerSystem.itemDidFinishPlaying(_:))
+		center.addObserver(self, selector: selector, name: AVPlayerItemDidPlayToEndTimeNotification, object: updatedItem)
+		
+		_player.play()
 		post(notification: .modelDidUpdate)
+	}
+	
+	@objc internal func itemDidFinishPlaying(notification: NSNotification) {
+		if let mid = delegate?.playerSystemCurrentTrackMID {
+			post(notification: .end, userInfo: [SystemControllerNotificationMIDKey : mid])
+		}
+		
+		advanceTrack()
 	}
 }
 
