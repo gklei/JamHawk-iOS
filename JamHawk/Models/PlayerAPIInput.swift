@@ -20,12 +20,12 @@ private let PlayerAPIInputEventLimit = 16
 
 extension PlayerAPIInput: JSONEncodable {
 	func toJSON() -> JSON {
-		let inputEvents = events?.dropLast(PlayerAPIInputEventLimit).flatMap({ $0 })
+		let inputEvents = Array(events?.prefix(PlayerAPIInputEventLimit) ?? [])
 		let dictionary: [String : JSON] = [
 			"instance" : instance?.toJSON() ?? JSON.Null,
 			"status" : status.toJSON(),
 			"updates" : updates?.toJSON() ?? JSON.Null,
-			"events" : inputEvents?.toJSON() ?? JSON.Null
+			"events" : inputEvents.toJSON() ?? JSON.Null
 		]
 		return JSON.withoutNullValues(dictionary)
 	}

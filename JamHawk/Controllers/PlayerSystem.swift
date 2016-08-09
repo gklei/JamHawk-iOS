@@ -9,8 +9,9 @@
 import Foundation
 import AVFoundation
 
-// TODO:
-// Pull the event queue/system out of here!
+enum PlayerControlsEventType {
+	case Play, Pause, Skip, Resume
+}
 
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
@@ -78,7 +79,8 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 			post(notification: .end, userInfo: [SystemControllerNotificationMIDKey : mid])
 		}
 		
-		advanceTrack()
+		wantsToAdvance = true
+		post(notification: .modelDidUpdate)
 	}
 }
 
@@ -98,16 +100,19 @@ extension PlayerSystem: PlayerDataSource {
 	func play() {
 		_player.play()
 		post(notification: .modelDidUpdate)
+		register(event: .Resume)
 	}
 	
 	func pause() {
 		_player.pause()
 		post(notification: .modelDidUpdate)
+		register(event: .Pause)
 	}
 	
 	func advanceTrack() {
 		wantsToAdvance = true
 		post(notification: .modelDidUpdate)
+		register(event: .Skip)
 	}
 	
 	func update(playerVolume volume: Float, inProgress: Bool = false) {
@@ -123,17 +128,14 @@ extension PlayerSystem: PlayerDataSource {
 		
 		switch event {
 		case .Play:
-			_player.play()
 			notification = .play
 		case .Pause:
-			_player.pause()
 			notification = .pause
-		case .NextTrack:
-			wantsToAdvance = true
+		case .Skip:
 			notification = .skip
+		case .Resume:
+			notification = .resume
 		}
-
-		post(notification: .modelDidUpdate)
 		
 		guard let mid = delegate?.playerSystemCurrentTrackMID, note = notification else { return }
 		post(notification: note, userInfo: [SystemControllerNotificationMIDKey : mid])

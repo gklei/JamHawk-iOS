@@ -21,7 +21,9 @@ final class EventSystem: SystemController<EventSystemNotificationModel> {
 		let notificationCenter = NSNotificationCenter.defaultCenter()
 		notificationCenter.removeObserver(self)
 		for notificationName in model.keys {
-			notificationCenter.addObserver(self, selector: #selector(EventSystem.eventNotification), name: notificationName, object: nil)
+			
+			let sel = #selector(EventSystem.eventNotification(_:))
+			notificationCenter.addObserver(self, selector: sel, name: notificationName, object: nil)
 		}
 		
 		post(notification: .modelDidUpdate)
@@ -37,11 +39,10 @@ final class EventSystem: SystemController<EventSystemNotificationModel> {
 			post(notification: .didQueueEvent)
 		}
 	}
-	func dequeueEvents(max: Int? = nil) -> [PlayerAPIInputEvent]? {
+	func dequeueEvents() -> [PlayerAPIInputEvent]? {
 		post(notification: .willEmptyEventQueue)
 	
-		let total = max ?? queue.count
-		let events = queue.dropLast(total).flatMap({ $0 })
+		let events = queue
 		return events.isEmpty ? nil : events
 	}
 	
