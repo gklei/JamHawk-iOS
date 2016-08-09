@@ -75,9 +75,10 @@ class SystemCoordinationController {
 }
 
 extension SystemCoordinationController: PlayerSystemDelegate {
-    func playerSystemCurrentTrackMID() -> Int? {
-        return currentTrackSystem.currentMID
-    }
+	
+	var playerSystemCurrentTrackMID: PlayerAPIMediaID? {
+		return currentTrackSystem.currentMID
+	}
 }
 
 extension SystemCoordinationController {

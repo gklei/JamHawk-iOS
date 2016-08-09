@@ -15,7 +15,7 @@ import AVFoundation
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
 
 protocol PlayerSystemDelegate: class {
-	func playerSystemCurrentTrackMID() -> Int?
+	var playerSystemCurrentTrackMID: PlayerAPIMediaID? { get }
 }
 
 final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
@@ -108,8 +108,9 @@ extension PlayerSystem: PlayerDataSource {
 		var didUpdate = true
 		switch event {
 		case .Play:
-            _player.play()
-            post(notification: .play, userInfo: [SystemControllerNotificationMIDKey : delegate!.playerSystemCurrentTrackMID()!])
+			_player.play()
+			guard let mid = delegate?.playerSystemCurrentTrackMID else { break }
+			post(notification: .play, userInfo: [SystemControllerNotificationMIDKey : mid])
 		case .Pause: _player.pause()
 		case .Mute: _player.muted = true
 		case .Unmute: _player.muted = false
