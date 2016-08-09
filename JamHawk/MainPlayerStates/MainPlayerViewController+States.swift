@@ -34,7 +34,7 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	}
 	
 	var middleContainer: UIView! {
-		return _middleContainer
+		return _largeCurrentTrackContainer
 	}
 	
 	var currentState: MainPlayerState {

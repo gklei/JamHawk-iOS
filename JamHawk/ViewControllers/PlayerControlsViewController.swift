@@ -8,14 +8,16 @@
 
 import UIKit
 
-enum PlayerControlsEventType {
-	case UserProfile, Play, Pause, NextTrack, Mute, Unmute
-}
-
 protocol PlayerDataSource: class {
 	var paused: Bool { get }
 	var muted: Bool { get }
-	func register(event event: PlayerControlsEventType)
+	var volume: Float { get }
+	
+	func play()
+	func pause()
+	func advanceTrack()
+	
+	func update(playerVolume volume: Float, inProgress: Bool)
 }
 
 protocol PlayerControlsDelegate: class {
@@ -37,6 +39,7 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	weak var delegate: PlayerControlsDelegate?
 	
 	private var _playerProgressVC: PlayerProgressViewController?
+	private let _volumeAdjustmentVC = VolumeAdjustmentViewController.create()
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -50,6 +53,8 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 		_bottomPaddingView.backgroundColor = color
 		
 		_toggleMuteItem.tintColor = .whiteColor()
+		
+		_volumeAdjustmentVC.delegate = self
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -62,24 +67,26 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	
 	// MARK: - Private
 	internal func _profileButtonPressed() {
-		dataSource?.register(event: .UserProfile)
 		delegate?.playerControlsProfileButtonPressed()
 	}
 	
 	@IBAction private func _playPauseButtonPressed() {
 		guard let dataSource = dataSource else { return }
-		let event: PlayerControlsEventType = dataSource.paused ? .Play : .Pause
-		dataSource.register(event: event)
+		
+		if dataSource.paused {
+			dataSource.play()
+		} else {
+			dataSource.pause()
+		}
 	}
 	
 	@IBAction private func _nextTrackButtonPressed() {
-		dataSource?.register(event: .NextTrack)
+		dataSource?.advanceTrack()
 	}
 	
-	@IBAction private func _toggleMuteButtonPressed() {
-		guard let dataSource = dataSource else { return }
-		let event: PlayerControlsEventType = dataSource.muted ? .Unmute : .Mute
-		dataSource.register(event: event)
+	@IBAction private func _volumeButtonPressed() {
+		_volumeAdjustmentVC.update(volume: dataSource?.volume ?? 0)
+		presentViewController(_volumeAdjustmentVC, animated: true, completion: nil)
 	}
 	
 	private func _updateBarButtonItems() {
@@ -99,5 +106,15 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	
 	func updateProgress(progress: CGFloat) {
 		_playerProgressVC?.updateProgress(progress)
+	}
+}
+
+extension PlayerControlsViewController: VolumeAdjustmentDelegate {
+	func volumeAdjustmentViewControllerDidUpdateVolume(volume: Float) {
+		dataSource?.update(playerVolume: volume, inProgress: true)
+	}
+	
+	func volumeAdjustmentViewControllerFinishedUpdatingVolume(volume: Float) {
+		dataSource?.update(playerVolume: volume, inProgress: false)
 	}
 }
