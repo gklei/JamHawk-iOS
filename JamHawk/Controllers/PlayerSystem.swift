@@ -128,6 +128,6 @@ extension PlayerSystem: Notifier {
 	enum Notification: String {
 		case modelDidUpdate
 		case progressDidUpdate
-        case play
+		case play
 	}
 }
