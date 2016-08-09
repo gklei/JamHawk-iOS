@@ -108,12 +108,8 @@ extension SystemCoordinationController {
 	@objc internal func sendRequestToPlayerAPI(timer: NSTimer? = nil) {
 		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
-		
-		let events = eventSystem.dequeueEvents()
-		eventSystem.clearEvents()
-		
 		let ratings = ratingSystem.currentRatings
-		ratingSystem.clearRatings()
+		let events = eventSystem.dequeueEvents()
 		
 		let updates = PlayerAPIInputUpdates(abandonedRequests: nil,
 		                                    canPlay: true,
@@ -128,6 +124,8 @@ extension SystemCoordinationController {
 		                              updates: updates,
 		                              events: events,
 		                              callback: _handlePlayerAPICallback)
+		
+		eventSystem.clearEvents()
 	}
 	
 	private func _generateFilterSelectionIfChanged() -> PlayerAPIInputFilterSelection? {
