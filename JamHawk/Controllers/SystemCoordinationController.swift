@@ -27,7 +27,7 @@ class SystemCoordinationController {
 	let currentTrackSystem = CurrentTrackSystem()
 	let nextAvailableSystem = NextAvailableMediaSystem()
 	let ratingSystem = TrackRatingSystem()
-    let eventSystem = EventSystem()
+	let eventSystem = EventSystem()
 	
 	private var _timer: NSTimer?
 	private let _playerAPIService: PlayerAPIService
@@ -38,8 +38,23 @@ class SystemCoordinationController {
 	
 	init(apiService: PlayerAPIService) {
 		_playerAPIService = apiService
+		
 		let sel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
 		PlayerSystem.addObserver(self, selector: sel, notification: .modelDidUpdate)
+		
+		playerSystem.delegate = self
+		
+		let eventModel: EventSystemNotificationModel = [
+			PlayerSystem.nameFor(.play) : .Play,
+			PlayerSystem.nameFor(.pause) : .Pause,
+			PlayerSystem.nameFor(.resume) : .Resume,
+			PlayerSystem.nameFor(.skip) : .Skip,
+			PlayerSystem.nameFor(.end) : .End,
+			PlayerSystem.nameFor(.preloadedSkip) : .PreloadedSkip,
+			PlayerSystem.nameFor(.error) : .Error,
+			PlayerSystem.nameFor(.warning) : .Warning,
+		]
+		eventSystem.update(withModel: eventModel)
 	}
 	
 	private func _handlePlayerAPICallback(error: NSError?, output: PlayerAPIOutput?) {

@@ -106,15 +106,22 @@ extension PlayerSystem: PlayerDataSource {
 	
 	func register(event event: PlayerControlsEventType) {
 		var didUpdate = true
+		
 		switch event {
 		case .Play:
 			_player.play()
 			guard let mid = delegate?.playerSystemCurrentTrackMID else { break }
 			post(notification: .play, userInfo: [SystemControllerNotificationMIDKey : mid])
-		case .Pause: _player.pause()
+		case .Pause:
+			_player.pause()
+			guard let mid = delegate?.playerSystemCurrentTrackMID else { break }
+			post(notification: .pause, userInfo: [SystemControllerNotificationMIDKey : mid])
 		case .Mute: _player.muted = true
 		case .Unmute: _player.muted = false
-		case .NextTrack: wantsToAdvance = true
+		case .NextTrack:
+			wantsToAdvance = true
+			guard let mid = delegate?.playerSystemCurrentTrackMID else { break }
+			post(notification: .skip, userInfo: [SystemControllerNotificationMIDKey : mid])
 		case .UserProfile: didUpdate = false
 		}
 		
@@ -129,5 +136,12 @@ extension PlayerSystem: Notifier {
 		case modelDidUpdate
 		case progressDidUpdate
 		case play
+		case pause
+		case resume
+		case skip
+		case preloadedSkip
+		case end
+		case error
+		case warning
 	}
 }
