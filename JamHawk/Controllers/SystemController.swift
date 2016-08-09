@@ -9,7 +9,7 @@
 import Foundation
 
 let SystemControllerNotificationMIDKey = "SystemControllerNotificationMIDKey"
-let SystemControllerNotificationDescriptionKey = "SystemControllerNotificationMIDKey"
+let SystemControllerNotificationDescriptionKey = "SystemControllerNotificationDescriptionKey"
 
 class SystemController<Model> {
 	func update(withModel model: Model) {
