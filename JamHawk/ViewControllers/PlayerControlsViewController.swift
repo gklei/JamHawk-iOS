@@ -9,7 +9,7 @@
 import UIKit
 
 enum PlayerControlsEventType {
-	case UserProfile, Play, Pause, NextTrack, Mute, Unmute
+	case Play, Pause, NextTrack
 }
 
 protocol PlayerDataSource: class {
