@@ -112,11 +112,14 @@ extension SystemCoordinationController {
 		let events = eventSystem.dequeueEvents()
 		eventSystem.clearEvents()
 		
+		let ratings = ratingSystem.currentRatings
+		ratingSystem.clearRatings()
+		
 		let updates = PlayerAPIInputUpdates(abandonedRequests: nil,
 		                                    canPlay: true,
 		                                    filter: filterSelection,
 		                                    select: next,
-		                                    ratings: nil)
+		                                    ratings: ratings)
 		
 		let needNext = (filterSelection != nil) || playerSystem.wantsToAdvance
 		_playerAPIService.sendRequest(needNext: needNext,

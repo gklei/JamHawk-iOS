@@ -22,6 +22,8 @@ final class TrackRatingSystem: SystemController<PlayerAPIOutputMetadata> {
 		
 		post(notification: .modelDidUpdate)
 	}
+	
+	var currentRatings: PlayerAPIMediaRatings = [:]
 }
 
 extension TrackRatingSystem: TrackRatingDataSource {
@@ -38,7 +40,14 @@ extension TrackRatingSystem: TrackRatingDataSource {
 		guard let current = _track else { return }
 		_track = current.copy(withRating: rating)
 		
+		if let mid = current.mid {
+			currentRatings[mid] = rating
+		}
 		post(notification: .modelDidUpdate)
+	}
+	
+	func clearRatings() {
+		currentRatings = [:]
 	}
 }
 
