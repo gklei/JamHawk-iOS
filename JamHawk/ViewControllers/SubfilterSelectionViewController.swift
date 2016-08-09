@@ -20,6 +20,7 @@ class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!
+	@IBOutlet private var _shadowView: UIView!
 	@IBOutlet private var _collectionViewHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
@@ -39,6 +40,11 @@ class SubfilterSelectionViewController: UIViewController {
 		_collectionView.backgroundColor = .whiteColor()
 		_collectionView.layer.masksToBounds = true
 		
+		_shadowView.layer.shadowRadius = 12
+		_shadowView.layer.shadowOpacity = 0.3
+		_shadowView.layer.shadowOffset = CGSize(width: 0, height: 4)
+		_shadowView.layer.shadowColor = UIColor.blackColor().CGColor
+		
 		_registerCollectionViewCells()
 		_setupCollectionViewLayout()
 	}
@@ -46,6 +52,10 @@ class SubfilterSelectionViewController: UIViewController {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		_updateCollectionViewHeight()
+		
+		let height = _collectionViewHeightConstraint.constant
+		let rect = CGRect(x: 0, y: 0, width: _collectionView.bounds.width, height: height)
+		_shadowView.layer.shadowPath = UIBezierPath(rect: rect).CGPath
 	}
 	
 	// MARK: - Setup

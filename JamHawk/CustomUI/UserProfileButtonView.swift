@@ -10,6 +10,16 @@ import UIKit
 
 class UserProfileButtonView: UIButton {
 	private let _imageView = UIImageView(image: UIImage(named: "headphones"))
+	private var _strokeColor = UIColor.whiteColor()
+	private var _fillColor = UIColor.clearColor()
+	
+	var active: Bool = false {
+		didSet {
+			_imageView.tintColor = active ? .whiteColor() : .jmhTurquoiseColor()
+			_fillColor = active ? .jmhTurquoiseColor() : .clearColor()
+			setNeedsDisplay()
+		}
+	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -39,10 +49,12 @@ class UserProfileButtonView: UIButton {
 	}
 	
 	override func drawRect(rect: CGRect) {
-		UIColor.whiteColor().setFill()
 		let context = UIGraphicsGetCurrentContext()
 		
-		UIColor.whiteColor().setStroke()
+		_fillColor.setFill()
+		CGContextFillEllipseInRect(context, rect);
+		
+		_strokeColor.setStroke()
 		CGContextSetLineWidth(context, 2)
 		CGContextStrokeEllipseInRect(context, rect.insetBy(dx: 1, dy: 1))
 	}

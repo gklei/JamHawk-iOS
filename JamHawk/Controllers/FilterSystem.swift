@@ -1,5 +1,5 @@
 //
-//  FilterSystemController.swift
+//  FilterSystem.swift
 //  JamHawk
 //
 //  Created by Gregory Klein on 7/25/16.
@@ -8,13 +8,10 @@
 
 import Foundation
 
-final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
-	private var _filters: PlayerAPIOutputFilters?
+final class FilterSystem: SystemController<PlayerAPIOutputFilters> {
 	
-	// MARK: - Closurees
-	var didUpdateModel: (controller: FilterSystemController) -> Void = {_ in}
-	var didUpdateParentFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
-	var didUpdateSubfilterFilterSelection: (controller: FilterSystemController) -> Void = {_ in}
+	// MARK: - Properties
+	private var _filters: PlayerAPIOutputFilters?
 	
 	internal(set) var selectedParentFilter: PlayerAPIOutputFilter?
 	
@@ -45,7 +42,7 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 		_filters = model
 		
 		_generateSubfilterViewModels()
-		didUpdateModel(controller: self)
+		post(notification: .modelDidUpdate)
 	}
 	
 	private func _generateSubfilterViewModels() {
@@ -65,7 +62,7 @@ final class FilterSystemController: SystemController<PlayerAPIOutputFilters> {
 	}
 }
 
-extension FilterSystemController: ParentFilterSelectionDataSource {
+extension FilterSystem: ParentFilterSelectionDataSource {
 	var selectedParentFilterIndex: Int? {
 		guard let available = _filters?.available else { return nil }
 		guard let filter = selectedParentFilter else { return nil }
@@ -89,19 +86,16 @@ extension FilterSystemController: ParentFilterSelectionDataSource {
 		
 		let filter = available[index]
 		selectedParentFilter = filter
-		
-		dispatch_async(dispatch_get_main_queue()) {
-			self.didUpdateParentFilterSelection(controller: self)
-		}
+		post(notification: .parentFilterSelectionDidUpdate)
 	}
 	
 	func resetParentFilterSelection() {
 		selectedParentFilter = nil
-		didUpdateParentFilterSelection(controller: self)
+		post(notification: .parentFilterSelectionDidUpdate)
 	}
 }
 
-extension FilterSystemController: SubfilterSelectionDataSource {
+extension FilterSystem: SubfilterSelectionDataSource {
 	var subfilterViewModels: [SubfilterViewModel] {
 		guard let parent = selectedParentFilter else { return [] }
 		return _subfilterViewModelsDictionary[parent.category] ?? []
@@ -120,9 +114,8 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 		} else {
 			_selectedSubfilterViewModelsDictionary[vm.category] = [vm]
 		}
-		didUpdateSubfilterFilterSelection(controller: self)
 		
-		// Sends notification about subfilters changing
+		post(notification: .subfilterSelectionDidUpdate)
 	}
 	
 	func deselectSubfilter(atIndex index: Int) {
@@ -132,6 +125,15 @@ extension FilterSystemController: SubfilterSelectionDataSource {
 		if let index = _selectedSubfilterViewModelsDictionary[vm.category]?.indexOf(vm) {
 			_selectedSubfilterViewModelsDictionary[vm.category]?.removeAtIndex(index)
 		}
-		didUpdateSubfilterFilterSelection(controller: self)
+		
+		post(notification: .subfilterSelectionDidUpdate)
+	}
+}
+
+extension FilterSystem: Notifier {
+	enum Notification: String {
+		case modelDidUpdate
+		case parentFilterSelectionDidUpdate
+		case subfilterSelectionDidUpdate
 	}
 }
