@@ -46,10 +46,12 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 		_timeObserver = _player.addPeriodicTimeObserverForInterval(k60FramesPerSec, queue: nil) {
 			[weak self] time in
 			
-			let totalDuration = 180
-			let seconds = CMTimeGetSeconds(time)
-			self?.playerProgress = CGFloat(seconds) / CGFloat(totalDuration)
-			self?.post(notification: .progressDidUpdate)
+			if let asset = self?._player.currentItem?.asset {
+				let duration = CMTimeGetSeconds(asset.duration)
+				let seconds = CMTimeGetSeconds(time)
+				self?.playerProgress = CGFloat(seconds) / CGFloat(duration)
+				self?.post(notification: .progressDidUpdate)
+			}
 		}
 	}
 	
