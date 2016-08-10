@@ -71,6 +71,9 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 		center.addObserver(self, selector: selector, name: AVPlayerItemDidPlayToEndTimeNotification, object: updatedItem)
 		
 		_player.play()
+        if let mid = delegate?.playerSystemCurrentTrackMID {
+            post(notification: .play, userInfo: [SystemControllerNotificationMIDKey : mid])
+        }
 		post(notification: .modelDidUpdate)
 	}
 	

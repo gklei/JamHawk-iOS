@@ -61,13 +61,13 @@ class SystemCoordinationController {
 		}
 		
 		guard let output = output else { return }
+        currentTrackSystem.update(withModel: output.track)
+        
 		playerSystem.update(withModel: output.media)
 		
 		if output.filters != nil {
 			filterSystem.update(withModel: output.filters)
 		}
-		
-		currentTrackSystem.update(withModel: output.track)
 		
 		if output.next != nil {
 			nextAvailableSystem.update(withModel: output.next)
