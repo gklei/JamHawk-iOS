@@ -9,10 +9,15 @@
 import Foundation
 import AVFoundation
 
-// TODO:
-// Pull the event queue/system out of here!
+enum PlayerControlsEventType {
+	case Play, Pause, Skip, Resume
+}
 
 private let k60FramesPerSec = CMTimeMakeWithSeconds(1.0 / 60.0, Int32(NSEC_PER_SEC))
+
+protocol PlayerSystemDelegate: class {
+	var playerSystemCurrentTrackMID: PlayerAPIMediaID? { get }
+}
 
 final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	
@@ -21,6 +26,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 	private var _timeObserver: AnyObject?
 	private let _player = AVPlayer()
 	
+	weak var delegate: PlayerSystemDelegate?
 	var wantsToAdvance = false
 	internal(set) var playerProgress: CGFloat = 0
 	
@@ -57,8 +63,23 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 		
 		_media = model
 		_player.replaceCurrentItemWithPlayerItem(updatedItem)
-		_player.play()
 		
+		let center = NSNotificationCenter.defaultCenter()
+		center.removeObserver(self)
+		
+		let selector = #selector(PlayerSystem.itemDidFinishPlaying(_:))
+		center.addObserver(self, selector: selector, name: AVPlayerItemDidPlayToEndTimeNotification, object: updatedItem)
+		
+		_player.play()
+		post(notification: .modelDidUpdate)
+	}
+	
+	@objc internal func itemDidFinishPlaying(notification: NSNotification) {
+		if let mid = delegate?.playerSystemCurrentTrackMID {
+			post(notification: .end, userInfo: [SystemControllerNotificationMIDKey : mid])
+		}
+		
+		wantsToAdvance = true
 		post(notification: .modelDidUpdate)
 	}
 }
@@ -79,16 +100,19 @@ extension PlayerSystem: PlayerDataSource {
 	func play() {
 		_player.play()
 		post(notification: .modelDidUpdate)
+		register(event: .Resume)
 	}
 	
 	func pause() {
 		_player.pause()
 		post(notification: .modelDidUpdate)
+		register(event: .Pause)
 	}
 	
 	func advanceTrack() {
 		wantsToAdvance = true
 		post(notification: .modelDidUpdate)
+		register(event: .Skip)
 	}
 	
 	func update(playerVolume volume: Float, inProgress: Bool = false) {
@@ -98,11 +122,37 @@ extension PlayerSystem: PlayerDataSource {
 			post(notification: .modelDidUpdate)
 		}
 	}
+	
+	func register(event event: PlayerControlsEventType) {
+		var notification: Notification?
+		
+		switch event {
+		case .Play:
+			notification = .play
+		case .Pause:
+			notification = .pause
+		case .Skip:
+			notification = .skip
+		case .Resume:
+			notification = .resume
+		}
+		
+		guard let mid = delegate?.playerSystemCurrentTrackMID, note = notification else { return }
+		post(notification: note, userInfo: [SystemControllerNotificationMIDKey : mid])
+	}
 }
 
 extension PlayerSystem: Notifier {
 	enum Notification: String {
 		case modelDidUpdate
 		case progressDidUpdate
+		case play
+		case pause
+		case resume
+		case skip
+		case preloadedSkip
+		case end
+		case error
+		case warning
 	}
 }

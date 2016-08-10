@@ -8,6 +8,9 @@
 
 import Foundation
 
+let SystemControllerNotificationMIDKey = "SystemControllerNotificationMIDKey"
+let SystemControllerNotificationDescriptionKey = "SystemControllerNotificationDescriptionKey"
+
 class SystemController<Model> {
 	func update(withModel model: Model) {
 	}
@@ -20,7 +23,7 @@ public protocol Notifier {
 public extension Notifier where Notification.RawValue == String, Self: AnyObject {
 	
 	// MARK: - Static Computed Variables
-	private static func nameFor(notification: Notification) -> String {
+	static func nameFor(notification: Notification) -> String {
 		return "\(self).\(notification.rawValue)"
 	}
 	

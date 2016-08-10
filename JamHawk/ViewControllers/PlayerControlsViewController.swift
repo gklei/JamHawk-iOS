@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum PlayerControlsEventType {
-	case UserProfile, Play, Pause, NextTrack, Mute, Unmute
-}
-
 protocol PlayerDataSource: class {
 	var paused: Bool { get }
 	var muted: Bool { get }
