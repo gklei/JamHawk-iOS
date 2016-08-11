@@ -47,7 +47,7 @@ class JHSignInViewController: UIViewController {
    }
    
    // MARK: - Class Methods
-   
+	
    @IBAction func continueButtonPressed(sender: AnyObject) {
       guard let email = emailTextField.text else { return }
       guard let password = passwordTextField.text else { return }
