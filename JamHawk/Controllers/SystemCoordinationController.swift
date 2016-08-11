@@ -8,12 +8,6 @@
 
 import UIKit
 
-/*
-   Prioritized tasks
-	* download media files
-	* replace the automatic sign in UI with the actual sign in UI
-*/
-
 class SystemCoordinationController {
 	
 	// deals with the relationships between system controllers
@@ -61,13 +55,12 @@ class SystemCoordinationController {
 		}
 		
 		guard let output = output else { return }
+		currentTrackSystem.update(withModel: output.track)
 		playerSystem.update(withModel: output.media)
 		
 		if output.filters != nil {
 			filterSystem.update(withModel: output.filters)
 		}
-		
-		currentTrackSystem.update(withModel: output.track)
 		
 		if output.next != nil {
 			nextAvailableSystem.update(withModel: output.next)
@@ -124,8 +117,6 @@ extension SystemCoordinationController {
 		                              updates: updates,
 		                              events: events,
 		                              callback: _handlePlayerAPICallback)
-		
-		eventSystem.clearEvents()
 	}
 	
 	private func _generateFilterSelectionIfChanged() -> PlayerAPIInputFilterSelection? {

@@ -72,6 +72,7 @@ final class PlayerSystem: SystemController<PlayerAPIOutputMedia> {
 		
 		_player.play()
 		post(notification: .modelDidUpdate)
+		register(event: .Play)
 	}
 	
 	@objc internal func itemDidFinishPlaying(notification: NSNotification) {
