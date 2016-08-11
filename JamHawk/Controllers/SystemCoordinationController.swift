@@ -8,12 +8,6 @@
 
 import UIKit
 
-/*
-Prioritized tasks
-* download media files
-* replace the automatic sign in UI with the actual sign in UI
-*/
-
 class SystemCoordinationController {
 	
 	// deals with the relationships between system controllers
