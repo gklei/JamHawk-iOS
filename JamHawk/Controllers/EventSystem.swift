@@ -43,11 +43,8 @@ final class EventSystem: SystemController<EventSystemNotificationModel> {
 		post(notification: .willEmptyEventQueue)
 	
 		let events = queue
+        queue.removeAll()
 		return events.isEmpty ? nil : events
-	}
-	
-	func clearEvents() {
-		queue.removeAll()
 	}
 }
 

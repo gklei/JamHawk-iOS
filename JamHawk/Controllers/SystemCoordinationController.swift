@@ -124,8 +124,6 @@ extension SystemCoordinationController {
 		                              updates: updates,
 		                              events: events,
 		                              callback: _handlePlayerAPICallback)
-		
-		eventSystem.clearEvents()
 	}
 	
 	private func _generateFilterSelectionIfChanged() -> PlayerAPIInputFilterSelection? {
