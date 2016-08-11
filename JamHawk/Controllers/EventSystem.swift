@@ -34,16 +34,16 @@ final class EventSystem: SystemController<EventSystemNotificationModel> {
 			let mid = notification.userInfo?[SystemControllerNotificationMIDKey] as? PlayerAPIMediaID
 			let description = notification.userInfo?[SystemControllerNotificationDescriptionKey] as? String
 			let event = PlayerAPIInputEvent(name: eventName, timestamp: timestamp, mid: mid, description: description)
-
+			
 			queue.append(event)
 			post(notification: .didQueueEvent)
 		}
 	}
 	func dequeueEvents() -> [PlayerAPIInputEvent]? {
 		post(notification: .willEmptyEventQueue)
-	
+		
 		let events = queue
-        queue.removeAll()
+		queue.removeAll()
 		return events.isEmpty ? nil : events
 	}
 }

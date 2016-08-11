@@ -9,9 +9,9 @@
 import UIKit
 
 /*
-   Prioritized tasks
-	* download media files
-	* replace the automatic sign in UI with the actual sign in UI
+Prioritized tasks
+* download media files
+* replace the automatic sign in UI with the actual sign in UI
 */
 
 class SystemCoordinationController {
@@ -61,8 +61,7 @@ class SystemCoordinationController {
 		}
 		
 		guard let output = output else { return }
-        currentTrackSystem.update(withModel: output.track)
-        
+		currentTrackSystem.update(withModel: output.track)
 		playerSystem.update(withModel: output.media)
 		
 		if output.filters != nil {
