@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		
 		let attrs: [String : AnyObject] = [
 			NSForegroundColorAttributeName : UIColor.jmhTurquoiseColor(),
-			NSFontAttributeName : UIFont.systemFontOfSize(14)
+			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!,
+			NSKernAttributeName : 0.7
 		]
 		appearance.setTitleTextAttributes(attrs, forState: .Normal)
 	}

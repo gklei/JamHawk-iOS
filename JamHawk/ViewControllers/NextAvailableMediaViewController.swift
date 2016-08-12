@@ -75,7 +75,26 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		guard let viewModel = dataSource?.nextAvailableMediaViewModels[index] else { return }
 		guard let artistAndSongTitle = viewModel.artistAndSongTitle else { return }
 		
-		_nextSongInfoLabel.text = "Next Song: \(artistAndSongTitle)"
+		let nextSongText = "Next Song: "
+		
+		let regularAttrs: [String : AnyObject] = [
+			NSForegroundColorAttributeName : UIColor.whiteColor(),
+			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!
+		]
+		let boldAttrs: [String : AnyObject] = [
+			NSForegroundColorAttributeName : UIColor.whiteColor(),
+			NSFontAttributeName : UIFont(name: "OpenSans-SemiBold", size: 14)!
+		]
+		
+		let nextSongAttributedString = NSAttributedString(string: nextSongText, attributes: regularAttrs)
+		let artistAndSongAttributedString = NSAttributedString(string: artistAndSongTitle, attributes: boldAttrs)
+		
+		let attributedString = NSMutableAttributedString()
+		attributedString.appendAttributedString(nextSongAttributedString)
+		attributedString.appendAttributedString(artistAndSongAttributedString)
+		
+		_nextSongInfoLabel.attributedText = attributedString
+		_nextSongInfoLabel.kerning = 1.2
 		_nextSongInfoLabel.restartLabel()
 	}
 }
