@@ -41,13 +41,5 @@ class ProfileNavigationController: UINavigationController {
 		
 		let image = UIImage.imageWithColor(UIColor.jmhLightGrayColor())
 		navigationBar.shadowImage = image
-		
-		let appearance = UIBarButtonItem.appearance()
-		
-		let attrs: [String : AnyObject] = [
-			NSForegroundColorAttributeName : UIColor.jmhTurquoiseColor(),
-			NSFontAttributeName : UIFont.systemFontOfSize(14)
-		]
-		appearance.setTitleTextAttributes(attrs, forState: .Normal)
 	}
 }

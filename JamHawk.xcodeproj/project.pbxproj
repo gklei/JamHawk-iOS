@@ -18,6 +18,7 @@
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
 		CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */; };
+		CE24F08A1D5E0C5F009B1E2E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */; };
 		CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2B69031D2C97EE00EAFF16 /* Player.storyboard */; };
 		CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */; };
 		CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69381D2EC39C00EAFF16 /* UserAccessAPIInput.swift */; };
@@ -111,6 +112,7 @@
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
 		CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsViewController.swift; path = JamHawk/ViewControllers/PlayerControlsViewController.swift; sourceTree = "<group>"; };
+		CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = JamHawk/ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE2B69041D2C97EE00EAFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Player.storyboard; sourceTree = "<group>"; };
 		CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendProtocols.swift; path = JamHawk/Backend/BackendProtocols.swift; sourceTree = "<group>"; };
 		CE2B69381D2EC39C00EAFF16 /* UserAccessAPIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInput.swift; path = JamHawk/Models/UserAccessAPIInput.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */,
 				C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */,
 				CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */,
+				CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */,
 			);
 			name = "Sign In & Up";
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */,
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
 				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,
+				CE24F08A1D5E0C5F009B1E2E /* WelcomeViewController.swift in Sources */,
 				CEF9E48E1D53CB9100DB6B2C /* VolumeSlider.swift in Sources */,
 				CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
@@ -916,6 +920,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.JamHawk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -930,6 +935,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.JamHawk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

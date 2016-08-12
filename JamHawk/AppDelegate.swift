@@ -17,19 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	let session = JamHawkSession()
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		
 		window = UIWindow()
 		router = AppRouter(window: window!, session: session)
-		
-//      let signInVC = JHSignInViewController.instantiate(fromStoryboard: "SignIn")
-//      signInVC.session = session
-//      window?.rootViewController = signInVC
-      
-//        let signUpVC = JHSignUpViewController.instantiate(fromStoryboard: "SignIn")
-//        signUpVC.session = session
-//        window?.rootViewController = signUpVC
-//        window?.makeKeyAndVisible()
+		_setupBarButtonItemAppearance()
 		
 		return true
+	}
+	
+	private func _setupBarButtonItemAppearance() {
+		let appearance = UIBarButtonItem.appearance()
+		
+		let attrs: [String : AnyObject] = [
+			NSForegroundColorAttributeName : UIColor.jmhTurquoiseColor(),
+			NSFontAttributeName : UIFont.systemFontOfSize(14)
+		]
+		appearance.setTitleTextAttributes(attrs, forState: .Normal)
 	}
 	
 	private func _tryToUpdateStatusBar(color color: UIColor, withApplication application: UIApplication) {

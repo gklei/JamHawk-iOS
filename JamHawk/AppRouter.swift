@@ -15,25 +15,23 @@ class AppRouter {
 	
 	let rootNavController = JamHawkNavigationController()
 	
-	private let _tempInitialVC = TemporaryInitialViewController.instantiate(fromStoryboard: "SignIn")
 	private let _mainPlayerVC = MainPlayerViewController.create()
+	private let _welcomeVC = WelcomeViewController.instantiate(fromStoryboard: "SignIn")
+	private let _signInVC = JHSignInViewController.instantiate(fromStoryboard: "SignIn")
 	
 	init(window: UIWindow, session: JamHawkSession) {
 		self.window = window
 		self.session = session
 		
 		_coordinationController = SystemCoordinationController(apiService: session)
-		_coordinationController?.errorPresentationContext = _tempInitialVC
 		
 		_mainPlayerVC.setupSystems(withCoordinationController: _coordinationController!)
 		
-		_setupWindow(withRootVC: _tempInitialVC)
-		_tempInitialVC.update(.SigningIn)
+		_welcomeVC.signUpClosure = _showSignInUI
+		_welcomeVC.getStartedClosure = _showGetStartedUI
+		_signInVC.continueClosure = _trySignIn
 		
-		session.signInWithTestCreds { (error, output) in
-			self._tempInitialVC.update(.InstantiatingPlayer)
-			self._handleUserAccessCallback(error, output: output, context: self._tempInitialVC)
-		}
+		_setupWindow(withRootVC: _welcomeVC)
 	}
 	
 	private func _setupWindow(withRootVC rootVC: UIViewController) {
@@ -45,6 +43,21 @@ class AppRouter {
 
 // MARK: - Signing In & Up
 extension AppRouter {
+	
+	private func _showSignInUI() {
+		rootNavController.pushViewController(_signInVC, animated: true)
+	}
+	
+	private func _showGetStartedUI() {
+	}
+	
+	@objc internal func popNavigationStack() {
+		rootNavController.popViewControllerAnimated(true)
+	}
+	
+	private func _trySignIn() {
+	}
+	
 	private func _signUp(email: String, password: String, context: UIViewController) {
 		if email == "" && password == "" {
 			session.signInWithTestCreds { (error, output) in
