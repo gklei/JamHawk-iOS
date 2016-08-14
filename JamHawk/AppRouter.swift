@@ -32,10 +32,6 @@ class AppRouter {
 		_signInVC.continueClosure = _trySignIn
 		
 		_setupWindow(withRootVC: _welcomeVC)
-		
-		session.signInWithTestCreds { (error, output) in
-			self._handleUserAccessCallback(error, output: output, context: self._welcomeVC)
-		}
 	}
 	
 	private func _setupWindow(withRootVC rootVC: UIViewController) {
@@ -53,6 +49,9 @@ extension AppRouter {
 	}
 	
 	private func _showGetStartedUI() {
+		session.signInWithTestCreds { (error, output) in
+			self._handleUserAccessCallback(error, output: output, context: self._welcomeVC)
+		}
 	}
 	
 	@objc internal func popNavigationStack() {
