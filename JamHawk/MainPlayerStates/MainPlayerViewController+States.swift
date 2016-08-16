@@ -34,7 +34,7 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 	}
 	
 	var middleContainer: UIView! {
-		return _middleContainer
+		return _largeCurrentTrackContainer
 	}
 	
 	var currentState: MainPlayerState {
@@ -50,6 +50,14 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 			} else {
 				self._largeCurrentTrackVC.setRatingViewControllerHidden(false)
 			}
+		}
+		
+		switch to {
+		case to as ShowProfileState:
+			_playerControlsVC.setProfileButtonActive(true)
+		case to as DefaultMainPlayerState:
+			_playerControlsVC.setProfileButtonActive(false)
+		default: break
 		}
 		
 		_statusBarStyle = to.isKindOfClass(ShowProfileState) ? .Default : .LightContent

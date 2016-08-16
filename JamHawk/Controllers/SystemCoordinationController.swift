@@ -8,25 +8,18 @@
 
 import UIKit
 
-/*
-   Prioritized tasks
-	* download media files
-	* automatically play the next song when the current song ends
-	* change the UI for anything that doesn't look right
-	* replace the automatic sign in UI with the actual sign in UI
-*/
-
 class SystemCoordinationController {
 	
 	// deals with the relationships between system controllers
 	// talks to JamhawkSession layer
 	// handle the API response, feed each respective part to system controllers
 	
-	let playerSystem = PlayerSystemController()
-	let filterSystem = FilterSystemController()
-	let currentTrackSystem = CurrentTrackSystemController()
-	let nextAvailableSystem = NextAvailableMediaSystemController()
-	let ratingSystem = TrackRatingSystemController()
+	let playerSystem = PlayerSystem()
+	let filterSystem = FilterSystem()
+	let currentTrackSystem = CurrentTrackSystem()
+	let nextAvailableSystem = NextAvailableMediaSystem()
+	let ratingSystem = TrackRatingSystem()
+	let eventSystem = EventSystem()
 	
 	private var _timer: NSTimer?
 	private let _playerAPIService: PlayerAPIService
@@ -37,7 +30,28 @@ class SystemCoordinationController {
 	
 	init(apiService: PlayerAPIService) {
 		_playerAPIService = apiService
+		
+		let sel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
+		PlayerSystem.addObserver(self, selector: sel, notification: .modelDidUpdate)
+		
+		let dataExistsSel = #selector(SystemCoordinationController.dataExistsForAPI(_:))
+		EventSystem.addObserver(self, selector: dataExistsSel, notification: .didQueueEvent)
+		FilterSystem.addObserver(self, selector: dataExistsSel, notification: .subfilterSelectionDidUpdate)
+		TrackRatingSystem.addObserver(self, selector: dataExistsSel, notification: .modelDidUpdate)
+		
 		playerSystem.delegate = self
+		
+		let eventModel: EventSystemNotificationModel = [
+			PlayerSystem.nameFor(.play) : .Play,
+			PlayerSystem.nameFor(.pause) : .Pause,
+			PlayerSystem.nameFor(.resume) : .Resume,
+			PlayerSystem.nameFor(.skip) : .Skip,
+			PlayerSystem.nameFor(.end) : .End,
+			PlayerSystem.nameFor(.preloadedSkip) : .PreloadedSkip,
+			PlayerSystem.nameFor(.error) : .Error,
+			PlayerSystem.nameFor(.warning) : .Warning,
+		]
+		eventSystem.update(withModel: eventModel)
 	}
 	
 	private func _handlePlayerAPICallback(error: NSError?, output: PlayerAPIOutput?) {
@@ -46,14 +60,12 @@ class SystemCoordinationController {
 		}
 		
 		guard let output = output else { return }
+		currentTrackSystem.update(withModel: output.track)
 		playerSystem.update(withModel: output.media)
 		
 		if output.filters != nil {
-			print(output.filters!)
 			filterSystem.update(withModel: output.filters)
 		}
-		
-		currentTrackSystem.update(withModel: output.track)
 		
 		if output.next != nil {
 			nextAvailableSystem.update(withModel: output.next)
@@ -68,55 +80,46 @@ class SystemCoordinationController {
 			self._handlePlayerAPICallback(error, output: output)
 			
 			completion?(error: error)
-			self._setupRequestTimer(withInterval: 3)
 		}
 	}
 }
 
 extension SystemCoordinationController: PlayerSystemDelegate {
-	func playerSystemNextTrackRequested(system: PlayerSystemController) {
-		guard let next = nextAvailableSystem.currentNextTrackSelection else { return }
-		
-		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: nil, select: next.mid, ratings: nil)
-		_playerAPIService.requestNextTrack(withUpdates: updates, callback: _handlePlayerAPICallback)
+	
+	var playerSystemCurrentTrackMID: PlayerAPIMediaID? {
+		return currentTrackSystem.currentMID
 	}
 }
 
 extension SystemCoordinationController {
 	
-	/*
-		When something happens that isn't immediate, set up a timer
-		When something more immediate happens, replace the timer
-	*/
-	
-	private func _setupRequestTimer(withInterval seconds: NSTimeInterval) {
-		guard _timer == nil else { return }
-		
-		let fireDate = NSDate(timeIntervalSinceNow: 3)
-		let selector = #selector(_sendRequestToPlayerAPI(_:))
-		_timer = NSTimer(fireDate: fireDate, interval: seconds, target: self, selector: selector, userInfo: nil, repeats: true)
+	private func _startRequestTimer(withDelay seconds: NSTimeInterval) {
+		let fireDate = NSDate(timeIntervalSinceNow: seconds)
+		let selector = #selector(sendRequestToPlayerAPI(_:))
+		_timer = NSTimer(fireDate: fireDate, interval: seconds, target: self, selector: selector, userInfo: nil, repeats: false)
 		NSRunLoop.mainRunLoop().addTimer(_timer!, forMode: NSDefaultRunLoopMode)
 	}
 	
-	@objc internal func _sendRequestToPlayerAPI(timer: NSTimer) {
-		
+	@objc internal func sendRequestToPlayerAPI(timer: NSTimer? = nil) {
 		let filterSelection = _generateFilterSelectionIfChanged()
 		let next = nextAvailableSystem.currentNextTrackSelection?.mid
-		
-		// gather events using the event queue (clear queue right after we send)
-		// get song rating information (use request id)
+		let ratings = ratingSystem.currentRatings
+		let events = eventSystem.dequeueEvents()
 		
 		let updates = PlayerAPIInputUpdates(abandonedRequests: nil,
 		                                    canPlay: true,
 		                                    filter: filterSelection,
 		                                    select: next,
-		                                    ratings: nil)
+		                                    ratings: ratings)
 		
-		_playerAPIService.sendRequest(needNext: (filterSelection != nil),
-		                              needMedia: false,
+		let needNext = (filterSelection != nil) || playerSystem.wantsToAdvance
+		_playerAPIService.sendRequest(needNext: needNext,
+		                              needMedia: playerSystem.wantsToAdvance,
 		                              needFilters: false,
 		                              updates: updates,
+		                              events: events,
 		                              callback: _handlePlayerAPICallback)
+		_killRequestTimer()
 	}
 	
 	private func _generateFilterSelectionIfChanged() -> PlayerAPIInputFilterSelection? {
@@ -130,5 +133,25 @@ extension SystemCoordinationController {
 			selection = PlayerAPIInputFilterSelection(selection: filterSystem.filterSelection)
 		}
 		return selection
+	}
+}
+
+extension SystemCoordinationController {
+	@objc func playerSystemUpdated(notification: NSNotification) {
+		if playerSystem.wantsToAdvance {
+			_killRequestTimer()
+			sendRequestToPlayerAPI()
+			playerSystem.wantsToAdvance = false
+		}
+	}
+	
+	@objc func dataExistsForAPI(notification: NSNotification) {
+		guard _timer == nil else { return }
+		_startRequestTimer(withDelay: 3.0)
+	}
+	
+	private func _killRequestTimer() {
+		_timer?.invalidate()
+		_timer = nil
 	}
 }

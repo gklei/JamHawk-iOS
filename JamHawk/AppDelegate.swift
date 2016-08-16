@@ -9,6 +9,17 @@
 import UIKit
 import IncipiaKit
 
+public func updateNavigationBarItemColor(color: UIColor) {
+	let appearance = UIBarButtonItem.appearance()
+	
+	let attrs: [String : AnyObject] = [
+		NSForegroundColorAttributeName : color,
+		NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!,
+		NSKernAttributeName : 0.7
+	]
+	appearance.setTitleTextAttributes(attrs, forState: .Normal)
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
@@ -17,17 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	let session = JamHawkSession()
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		
 		window = UIWindow()
 		router = AppRouter(window: window!, session: session)
-		
-//      let signInVC = JHSignInViewController.instantiate(fromStoryboard: "SignIn")
-//      signInVC.session = session
-//      window?.rootViewController = signInVC
-      
-//        let signUpVC = JHSignUpViewController.instantiate(fromStoryboard: "SignIn")
-//        signUpVC.session = session
-//        window?.rootViewController = signUpVC
-//        window?.makeKeyAndVisible()
 		
 		return true
 	}

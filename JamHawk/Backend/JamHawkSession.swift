@@ -10,8 +10,7 @@ import Foundation
 
 protocol PlayerAPIService {
 	func instantiatePlayer(callback: PlayerAPICallback)
-	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates?, callback: PlayerAPICallback)
-	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, callback: PlayerAPICallback)
+	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, events: [PlayerAPIInputEvent]?,  callback: PlayerAPICallback)
 }
 
 class JamHawkSession: PlayerAPIService {
@@ -60,13 +59,8 @@ class JamHawkSession: PlayerAPIService {
 		requestID = requestID + 1
 	}
 	
-	func requestNextTrack(withUpdates updates: PlayerAPIInputUpdates? = nil, callback: PlayerAPICallback) {
-		_playerSession.requestNextTrack(withUpdates: updates, callback: callback, requestID: requestID)
-		requestID = requestID + 1
-	}
-	
-	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, callback: PlayerAPICallback) {
-		_playerSession.sendRequest(needNext: needNext, needMedia: needMedia, needFilters: needFilters, updates: updates, requestID: requestID, callback: callback)
+	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, events: [PlayerAPIInputEvent]? = nil, callback: PlayerAPICallback) {
+		_playerSession.sendRequest(needNext: needNext, needMedia: needMedia, needFilters: needFilters, updates: updates, events: events, requestID: requestID, callback: callback)
 		requestID = requestID + 1
 	}
 }
