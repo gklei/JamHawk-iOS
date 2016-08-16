@@ -1,5 +1,5 @@
 //
-//  JHSignUpViewController.swift
+//  SignUpViewController.swift
 //  JamHawk
 //
 //  Created by Brendan Lau on 7/20/16.
@@ -9,7 +9,7 @@
 import UIKit
 import IncipiaKit
 
-class JHSignUpViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
    // MARK: - IBOutlets
    @IBOutlet private var _containerView: UIView!

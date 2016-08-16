@@ -9,6 +9,17 @@
 import UIKit
 import IncipiaKit
 
+public func updateNavigationBarItemColor(color: UIColor) {
+	let appearance = UIBarButtonItem.appearance()
+	
+	let attrs: [String : AnyObject] = [
+		NSForegroundColorAttributeName : color,
+		NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!,
+		NSKernAttributeName : 0.7
+	]
+	appearance.setTitleTextAttributes(attrs, forState: .Normal)
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
@@ -20,20 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		
 		window = UIWindow()
 		router = AppRouter(window: window!, session: session)
-		_setupBarButtonItemAppearance()
 		
 		return true
-	}
-	
-	private func _setupBarButtonItemAppearance() {
-		let appearance = UIBarButtonItem.appearance()
-		
-		let attrs: [String : AnyObject] = [
-			NSForegroundColorAttributeName : UIColor.jmhTurquoiseColor(),
-			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!,
-			NSKernAttributeName : 0.7
-		]
-		appearance.setTitleTextAttributes(attrs, forState: .Normal)
 	}
 	
 	private func _tryToUpdateStatusBar(color color: UIColor, withApplication application: UIApplication) {

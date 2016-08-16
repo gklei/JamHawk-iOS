@@ -1,5 +1,5 @@
 //
-//  JHSignInViewController.swift
+//  SignInViewController.swift
 //  JamHawk
 //
 //  Created by Brendan Lau on 7/19/16.
@@ -9,7 +9,7 @@
 import UIKit
 import IncipiaKit
 
-class JHSignInViewController: UIViewController {
+class SignInViewController: UIViewController {
    
    // MARK: - IBOutlets
    @IBOutlet private var containerView: UIView!
@@ -39,8 +39,8 @@ class JHSignInViewController: UIViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		let backSel = #selector(JHSignInViewController.backItemPressed)
-		let continueSel = #selector(JHSignInViewController.continueItemPressed)
+		let backSel = #selector(SignInViewController.backItemPressed)
+		let continueSel = #selector(SignInViewController.continueItemPressed)
 		
 		updateLeftBarButtonItem(withTitle: "   Back", action: backSel)
 		updateRightBarButtonItem(withTitle: "Continue   ", action: continueSel)

@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension UIButton {
+	public override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+		let inside = super.pointInside(point, withEvent: event)
+		if inside != highlighted && event?.type == .Touches {
+			highlighted = inside
+		}
+		return inside
+	}
+}
+
 class WelcomeViewController: UIViewController {
 	
 	var signUpClosure: () -> Void = {}
