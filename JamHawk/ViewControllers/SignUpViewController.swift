@@ -23,6 +23,14 @@ class SignUpViewController: UIViewController {
    // MARK: - Properties
 	var backClosure: () -> Void = {}
 	var continueClosure: () -> Void = {}
+	
+	var emailText: String {
+		return _emailTextField.text ?? ""
+	}
+	
+	var passwordText: String {
+		return _passwordTextField.text ?? ""
+	}
    
    // MARK: - Lifecycle
    override func viewDidLoad() {
@@ -66,7 +74,7 @@ class SignUpViewController: UIViewController {
    }
    
    // MARK: - Private Methods
-   private func _passwordsMatch() -> Bool {
+   func passwordsMatch() -> Bool {
       guard let password = _passwordTextField.text?.trimmed where password != "" else { return false }
       guard let confirmedPassword = _confirmPasswordTextField.text?.trimmed where confirmedPassword != "" else { return false }
       return password == confirmedPassword
@@ -74,6 +82,6 @@ class SignUpViewController: UIViewController {
    
    private func _credentialsAreValid() -> Bool {
       guard let email = _emailTextField.text where email.isValidEmail else { return false }
-      return _passwordsMatch()
+      return passwordsMatch()
    }
 }

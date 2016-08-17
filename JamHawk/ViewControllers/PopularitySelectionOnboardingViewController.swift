@@ -15,7 +15,11 @@ class PopularitySelectionOnboardingViewController: UIViewController {
 	@IBOutlet var filterViews: [OnboardingFilterView]!
 	@IBOutlet private var _popularitySelectedLabel: UILabel!
 	
-	private let _filterTypes: [OnboardingFilterType] = [.Mainstream, .Discovery, .Rising]
+	private let _filterTypes: [OnboardingFilterType] = [.Mainstream, .Discoveries, .Rising]
+	
+	var selectedFilterTypes: [OnboardingFilterType] {
+		return filterViews.filter({$0.selected}).flatMap({$0.type})
+	}
 	
 	// MARK: - Properties
 	var backClosure: () -> Void = {}

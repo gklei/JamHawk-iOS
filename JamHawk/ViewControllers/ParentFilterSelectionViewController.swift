@@ -14,6 +14,7 @@ protocol ParentFilterSelectionDataSource: class {
 	
 	var selectedSubfilterViewModels: [SubfilterViewModel] { get }
 	
+	func selectedSubfilers(atParentIndex index: Int) -> [SubfilterViewModel]
 	func selectFilter(atIndex index: Int)
 	func resetParentFilterSelection()
 }
@@ -54,12 +55,13 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 		if let selectedIndex = dataSource?.selectedParentFilterIndex {
 			let ip = NSIndexPath(forRow: selectedIndex, inSection: 0)
 			_collectionView.selectItemAtIndexPath(ip, animated: true, scrollPosition: .CenteredHorizontally)
-			
-			guard let cell = _collectionView.cellForItemAtIndexPath(ip) as? ParentFilterCell else { return }
-			guard let subfilterViewModels = dataSource?.selectedSubfilterViewModels else { return }
-			cell.update(viewSubfilterViewModles: subfilterViewModels)
+			_updateCell(atIndexPath: ip)
 		} else {
 			_collectionView.deselectAllItems()
+			let ips = _collectionView.indexPathsForVisibleItems()
+			ips.forEach {
+				_updateCell(atIndexPath: $0)
+			}
 		}
 	}
 	
@@ -74,6 +76,12 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 		} else {
 			_collectionView.reloadData()
 		}
+	}
+	
+	private func _updateCell(atIndexPath ip: NSIndexPath) {
+		guard let cell = _collectionView.cellForItemAtIndexPath(ip) as? ParentFilterCell else { return }
+		guard let subfilterViewModels = dataSource?.selectedSubfilers(atParentIndex: ip.row) else { return }
+		cell.update(viewSubfilterViewModles: subfilterViewModels)
 	}
 }
 
@@ -100,6 +108,10 @@ extension ParentFilterSelectionViewController: UICollectionViewDataSource {
 				cell.showLeftBorder = true
 				cell.showRightBorder = true
 			}
+		}
+		
+		if let selectedSubfilterVMs = dataSource?.selectedSubfilers(atParentIndex: indexPath.row) {
+			cell.update(viewSubfilterViewModles: selectedSubfilterVMs)
 		}
 		
 		return cell

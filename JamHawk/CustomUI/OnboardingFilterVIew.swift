@@ -9,14 +9,39 @@
 import UIKit
 
 enum OnboardingFilterType: String {
-	case Discovery
+	case Discoveries
 	case Mainstream
 	case Rising
 	case Blues
 	case HipHop = "Hip Hop"
 	case AlternativeRock = "Alternative Rock"
 	case RnB = "R&B"
-	case Country
+	case Pop
+	case Rock
+}
+
+extension OnboardingFilterType {
+	var category: PlayerAPIFilterCategory {
+		switch self {
+		case .Discoveries, .Mainstream, .Rising: return "region"
+		case .HipHop, .Pop, .Rock: return "genre"
+		default: return "sub_genre"
+		}
+	}
+	
+	var filterID: PlayerAPIFilterID {
+		switch self {
+		case .Discoveries: return "9"
+		case .Mainstream: return "3"
+		case .Rising: return "2"
+		case .Blues: return "15"
+		case .HipHop: return "1"
+		case .AlternativeRock: return "18"
+		case .RnB: return "19"
+		case .Pop: return "8"
+		case .Rock: return "5"
+		}
+	}
 }
 
 protocol OnboardingFilterViewDelegate: class {
@@ -26,7 +51,7 @@ protocol OnboardingFilterViewDelegate: class {
 
 class OnboardingFilterView: UIButton {
 	
-	var type: OnboardingFilterType = .Discovery {
+	var type: OnboardingFilterType = .Discoveries {
 		didSet {
 			_label.text = type.rawValue
 		}

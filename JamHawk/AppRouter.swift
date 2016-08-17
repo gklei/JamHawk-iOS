@@ -44,6 +44,7 @@ class AppRouter: NSObject {
 		_popularitySelectionVC.continueClosure = _showOnboardingCompletionUI
 		_onboardingCompletionVC.signUpButtonClosure = _showSignUpUI
 		_signInVC.continueClosure = _trySignIn
+		_signUpVC.continueClosure = _trySignUp
 	}
 	
 	private func _setupPlayerAndSystems() {
@@ -93,6 +94,15 @@ extension AppRouter {
 		_signIn(email, password: password, context: _signInVC)
 	}
 	
+	private func _trySignUp() {
+		guard _signUpVC.passwordsMatch() else { return }
+		
+		let email = _signUpVC.emailText
+		let password = _signUpVC.passwordText
+		
+		_signUp(email, password: password, context: _signUpVC)
+	}
+	
 	private func _signUp(email: String, password: String, context: UIViewController) {
 		if email == "" && password == "" {
 			session.signInWithTestCreds { (error, output) in
@@ -127,8 +137,25 @@ extension AppRouter {
 			context.presentMessage(message)
 		}
 		if output.success {
-			_coordinationController?.instantiatePlayer(_playerInstantiationCallback)
+			let selection = _generateFilterSelection()
+			let completion = _playerInstantiationCallback
+			_coordinationController?.instantiatePlayer(filterSelection: selection, completion: completion)
 		}
+	}
+	
+	private func _generateFilterSelection() -> PlayerAPIInputFilterSelection? {
+		var selectedTypes = _genreSelectionVC.selectedFilterTypes
+		selectedTypes.appendContentsOf(_popularitySelectionVC.selectedFilterTypes)
+		
+		var selection: PlayerAPIFilterSelection = [:]
+		for type in selectedTypes {
+			if selection.keys.contains(type.category) {
+				selection[type.category]?.append(type.filterID)
+			} else {
+				selection[type.category] = [type.filterID]
+			}
+		}
+		return PlayerAPIInputFilterSelection(selection: selection)
 	}
 	
 	private func _playerInstantiationCallback(error: NSError?) {

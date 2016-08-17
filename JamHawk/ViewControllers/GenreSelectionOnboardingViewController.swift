@@ -14,7 +14,11 @@ class GenreSelectionOnboardingViewController: UIViewController {
 	@IBOutlet var filterViews: [OnboardingFilterView]!
 	@IBOutlet private var _genresSelectedLabel: UILabel!
 
-	private let _filterTypes: [OnboardingFilterType] = [.Blues, .HipHop, .AlternativeRock, .Country, .RnB]
+	private let _filterTypes: [OnboardingFilterType] = [.Blues, .HipHop, .AlternativeRock, .Pop, .RnB]
+	
+	var selectedFilterTypes: [OnboardingFilterType] {
+		return filterViews.filter({$0.selected}).flatMap({$0.type})
+	}
 	
 	// MARK: - Properties
 	var backClosure: () -> Void = {}

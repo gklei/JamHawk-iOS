@@ -24,6 +24,7 @@ class SystemCoordinationController {
 	private var _timer: NSTimer?
 	private let _playerAPIService: PlayerAPIService
 	
+	private var _playerInstantiationFilterSelection: PlayerAPIFilterSelection?
 	private var _subfilterIDsSinceLastRequest: [PlayerAPIFilterID] = []
 	
 	var errorPresentationContext: UIViewController?
@@ -78,10 +79,14 @@ class SystemCoordinationController {
 		ratingSystem.update(withModel: output.track)
 	}
 	
-	func instantiatePlayer(completion: ((error: NSError?) -> Void)?) {
-		_playerAPIService.instantiatePlayer { (error, output) in
+	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection? = nil,
+	                                       completion: ((error: NSError?) -> Void)?) {
+		
+		let ids = filterSelection?.selection.values.flatten().flatMap({$0})
+		filterSystem.initialSelection = ids
+		
+		_playerAPIService.instantiatePlayer(filterSelection: filterSelection) { (error, output) in
 			self._handlePlayerAPICallback(error, output: output)
-			
 			completion?(error: error)
 		}
 	}
