@@ -11,6 +11,10 @@ import UIKit
 class GenreSelectionOnboardingViewController: UIViewController {
 	
 	@IBOutlet private var container: UIView!
+	@IBOutlet var filterViews: [OnboardingFilterView]!
+	@IBOutlet private var _genresSelectedLabel: UILabel!
+
+	private let _filterTypes: [OnboardingFilterType] = [.Blues, .HipHop, .AlternativeRock, .Country, .RnB]
 	
 	// MARK: - Properties
 	var backClosure: () -> Void = {}
@@ -24,6 +28,11 @@ class GenreSelectionOnboardingViewController: UIViewController {
 			self.navigationController?.popViewControllerAnimated(true)
 		}
 		
+		for index in 0..<filterViews.count {
+			let filterView = filterViews[index]
+			filterView.delegate = self
+			filterView.type = _filterTypes[index]
+		}
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -46,5 +55,25 @@ class GenreSelectionOnboardingViewController: UIViewController {
 	
 	internal func backItemPressed() {
 		backClosure()
+	}
+	
+	private func _updateGenresSelectedLabel() {
+		var text = "Selected a Genre"
+		let count = filterViews.filter({$0.selected}).count
+		if count > 0 {
+			let genreWord = count == 1 ? "Genre" : "Genres"
+			text = "\(count) \(genreWord) Selected"
+		}
+		_genresSelectedLabel.text = text
+	}
+}
+
+extension GenreSelectionOnboardingViewController: OnboardingFilterViewDelegate {
+	func filterViewSelected(view: OnboardingFilterView) {
+		_updateGenresSelectedLabel()
+	}
+	
+	func filterViewDeselected(view: OnboardingFilterView) {
+		_updateGenresSelectedLabel()
 	}
 }

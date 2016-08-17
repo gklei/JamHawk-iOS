@@ -39,7 +39,6 @@ class AppRouter: NSObject {
 		_welcomeVC.signUpClosure = _showSignInUI
 		_welcomeVC.getStartedClosure = _showGenreSelectionUI
 		_genreSelectionVC.continueClosure = _showPopularitySelectionUI
-		
 		_signInVC.continueClosure = _trySignIn
 	}
 	
@@ -76,10 +75,6 @@ extension AppRouter {
 	private func _showPopularitySelectionUI() {
 		updateNavigationBarItemColor(.whiteColor())
 		rootNavController.pushViewController(_popularitySelectionVC, animated: true)
-	}
-	
-	@objc internal func popNavigationStack() {
-		rootNavController.popViewControllerAnimated(true)
 	}
 	
 	private func _trySignIn() {
@@ -119,11 +114,13 @@ extension AppRouter {
 			context.presentMessage(message)
 		}
 		if output.success {
-			self._coordinationController?.instantiatePlayer { error in
-				self._coordinationController?.errorPresentationContext = self._mainPlayerVC
-				self.rootNavController.pushViewController(self._mainPlayerVC, animated: true)
-			}
+			_coordinationController?.instantiatePlayer(_playerInstantiationCallback)
 		}
+	}
+	
+	private func _playerInstantiationCallback(error: NSError?) {
+		_coordinationController?.errorPresentationContext = self._mainPlayerVC
+		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}
 }
 
