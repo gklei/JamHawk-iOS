@@ -85,3 +85,20 @@ class SignUpViewController: UIViewController {
       return passwordsMatch()
    }
 }
+
+extension SignUpViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		switch textField {
+		case _emailTextField:
+			_passwordTextField.becomeFirstResponder()
+			return false
+		case _passwordTextField:
+			_confirmPasswordTextField.becomeFirstResponder()
+			return false
+		case _confirmPasswordTextField:
+			_confirmPasswordTextField.resignFirstResponder()
+			return true
+		default: return true
+		}
+	}
+}
