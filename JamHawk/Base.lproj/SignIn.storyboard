@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -13,8 +12,10 @@
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
+            <string>OpenSans-Light</string>
         </mutableArray>
         <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
@@ -335,7 +336,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bF-sV-1uJ">
-                                <rect key="frame" x="0.0" y="194.5" width="600" height="212"/>
+                                <rect key="frame" x="0.0" y="194" width="600" height="212"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYx-n9-Ify">
                                         <rect key="frame" x="0.0" y="58" width="600" height="154"/>
@@ -402,15 +403,9 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3bF-sV-1uJ" firstAttribute="centerY" secondItem="qhS-hU-BPe" secondAttribute="centerY" id="BhJ-NG-E1b"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3bF-sV-1uJ" secondAttribute="trailing" constant="-20" id="XKy-Js-7Q4"/>
-                            <constraint firstItem="3bF-sV-1uJ" firstAttribute="leading" secondItem="qhS-hU-BPe" secondAttribute="leadingMargin" constant="-20" id="bdk-23-mws"/>
-                            <constraint firstItem="3bF-sV-1uJ" firstAttribute="centerY" secondItem="qhS-hU-BPe" secondAttribute="centerY" id="kBZ-2k-urW"/>
+                            <constraint firstItem="3bF-sV-1uJ" firstAttribute="leading" secondItem="qhS-hU-BPe" secondAttribute="leading" id="Tqd-HA-E2W"/>
+                            <constraint firstAttribute="trailing" secondItem="3bF-sV-1uJ" secondAttribute="trailing" id="XRH-Mu-8Hd"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="kBZ-2k-urW"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="bAx-Vz-xDC" appends="YES" id="Bns-wI-ycJ"/>
                         </connections>
@@ -451,6 +446,12 @@
                                 <color key="textColor" red="0.97254902119999997" green="0.52941179279999995" blue="0.180392161" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-1G-Ifj">
+                                <rect key="frame" x="20" y="611" width="335" height="35.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0m-Fa-hDl">
                                 <rect key="frame" x="0.0" y="64" width="375" height="498"/>
                                 <subviews>
@@ -485,12 +486,6 @@
                                     <constraint firstItem="XQf-YU-bJD" firstAttribute="width" secondItem="Tpg-kN-CB2" secondAttribute="width" id="xhe-tg-ifS"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-1G-Ifj">
-                                <rect key="frame" x="20" y="611" width="335" height="35.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -519,6 +514,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVd-nA-ZxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129.5" y="270.5"/>
+        </scene>
+        <!--Onboarding Completion View Controller-->
+        <scene sceneID="Q8j-6V-CaZ">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingCompletionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9AG-hg-nVb" customClass="OnboardingCompletionViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zMN-sf-lXd"/>
+                        <viewControllerLayoutGuide type="bottom" id="DId-iL-JQK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1fB-El-pg7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're all set" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMt-bS-zch">
+                                <rect key="frame" x="20" y="146" width="335" height="41"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
+                                <color key="textColor" red="0.97254902119999997" green="0.52941179279999995" blue="0.180392161" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMV-yf-8wR">
+                                <rect key="frame" x="20" y="195" width="335" height="35.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-C8-xkD">
+                                <rect key="frame" x="19.5" y="260.5" width="335" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lbG-kb-bv2"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sign up with Email">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="OpenSans-Semibold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <state key="highlighted">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sign up with Email">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="OpenSans-Semibold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="_signUpButtonPressed" destination="9AG-hg-nVb" eventType="touchUpInside" id="pg8-vq-ge8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MMt-bS-zch" firstAttribute="leading" secondItem="1fB-El-pg7" secondAttribute="leading" constant="20" id="2qc-cX-mGa"/>
+                            <constraint firstItem="wPc-C8-xkD" firstAttribute="centerX" secondItem="dMV-yf-8wR" secondAttribute="centerX" id="6YS-5f-83A"/>
+                            <constraint firstItem="wPc-C8-xkD" firstAttribute="width" secondItem="dMV-yf-8wR" secondAttribute="width" id="EB1-hn-XJQ"/>
+                            <constraint firstItem="MMt-bS-zch" firstAttribute="centerY" secondItem="1fB-El-pg7" secondAttribute="centerY" multiplier="0.5" id="JSL-Vj-DYd"/>
+                            <constraint firstItem="wPc-C8-xkD" firstAttribute="top" secondItem="dMV-yf-8wR" secondAttribute="bottom" constant="30" id="M7Q-bd-s6r"/>
+                            <constraint firstAttribute="trailing" secondItem="MMt-bS-zch" secondAttribute="trailing" constant="20" id="RXv-qn-KbR"/>
+                            <constraint firstItem="dMV-yf-8wR" firstAttribute="centerX" secondItem="MMt-bS-zch" secondAttribute="centerX" id="VYH-vS-6tM"/>
+                            <constraint firstItem="dMV-yf-8wR" firstAttribute="width" secondItem="MMt-bS-zch" secondAttribute="width" id="ajZ-U9-f1K"/>
+                            <constraint firstItem="dMV-yf-8wR" firstAttribute="top" secondItem="MMt-bS-zch" secondAttribute="bottom" constant="8" id="uoM-Dd-dsZ"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="_signUpButton" destination="wPc-C8-xkD" id="D9m-y9-lGZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AG-Mu-5ZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1656.5" y="270.5"/>
         </scene>
     </scenes>
     <resources>

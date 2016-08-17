@@ -86,6 +86,7 @@
 		CED3AC781D4D676D001E488D /* SubfilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AC771D4D676D001E488D /* SubfilterViewModel.swift */; };
 		CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E31D26E6350083365F /* BottomBorderTextField.swift */; };
 		CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404EB1D26F20E0083365F /* JamHawkSession.swift */; };
+		CEE35F171D64C970007785F6 /* OnboardingCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE35F161D64C970007785F6 /* OnboardingCompletionViewController.swift */; };
 		CEF9E48C1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */; };
 		CEF9E48E1D53CB9100DB6B2C /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */; };
 		CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD86991D300F34005313AD /* AppRouter.swift */; };
@@ -193,6 +194,7 @@
 		CED3AC771D4D676D001E488D /* SubfilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubfilterViewModel.swift; path = JamHawk/ViewModels/SubfilterViewModel.swift; sourceTree = "<group>"; };
 		CED404E31D26E6350083365F /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = JamHawk/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
 		CED404EB1D26F20E0083365F /* JamHawkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkSession.swift; path = JamHawk/Backend/JamHawkSession.swift; sourceTree = "<group>"; };
+		CEE35F161D64C970007785F6 /* OnboardingCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingCompletionViewController.swift; path = JamHawk/ViewControllers/OnboardingCompletionViewController.swift; sourceTree = "<group>"; };
 		CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeAdjustmentViewController.swift; path = JamHawk/ViewControllers/VolumeAdjustmentViewController.swift; sourceTree = "<group>"; };
 		CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeSlider.swift; path = JamHawk/CustomUI/VolumeSlider.swift; sourceTree = "<group>"; };
 		CEFD86991D300F34005313AD /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				CE3203D11D61454F00746B03 /* WelcomeBackgroundViewController.swift */,
 				CE3203D31D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift */,
 				CE3203D71D61507600746B03 /* PopularitySelectionOnboardingViewController.swift */,
+				CEE35F161D64C970007785F6 /* OnboardingCompletionViewController.swift */,
 			);
 			name = "Sign In & Up";
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE35F171D64C970007785F6 /* OnboardingCompletionViewController.swift in Sources */,
 				CE2B693F1D2EE04400EAFF16 /* PlayerAPIOutputModels.swift in Sources */,
 				CE7E68301D3427E000516570 /* PlayerSession.swift in Sources */,
 				CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */,

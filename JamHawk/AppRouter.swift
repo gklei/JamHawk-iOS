@@ -19,11 +19,13 @@ class AppRouter: NSObject {
 	private let _mainPlayerVC = MainPlayerViewController.create()
 	private let _welcomeVC = WelcomeViewController.instantiate(fromStoryboard: "SignIn")
 	private let _signInVC = SignInViewController.instantiate(fromStoryboard: "SignIn")
+	private let _signUpVC = SignUpViewController.instantiate(fromStoryboard: "SignIn")
 	private let _welcomeBackgroundVC = WelcomeBackgroundViewController()
 	
 	// MARK: - Onboarding View Controllers
 	private let _genreSelectionVC = GenreSelectionOnboardingViewController.instantiate(fromStoryboard: "SignIn")
 	private let _popularitySelectionVC = PopularitySelectionOnboardingViewController.instantiate(fromStoryboard: "SignIn")
+	private let _onboardingCompletionVC = OnboardingCompletionViewController.instantiate(fromStoryboard: "SignIn")
 	
 	init(window: UIWindow, session: JamHawkSession) {
 		self.window = window
@@ -39,6 +41,8 @@ class AppRouter: NSObject {
 		_welcomeVC.signUpClosure = _showSignInUI
 		_welcomeVC.getStartedClosure = _showGenreSelectionUI
 		_genreSelectionVC.continueClosure = _showPopularitySelectionUI
+		_popularitySelectionVC.continueClosure = _showOnboardingCompletionUI
+		_onboardingCompletionVC.signUpButtonClosure = _showSignUpUI
 		_signInVC.continueClosure = _trySignIn
 	}
 	
@@ -67,6 +71,11 @@ extension AppRouter {
 		rootNavController.pushViewController(_signInVC, animated: true)
 	}
 	
+	private func _showSignUpUI() {
+		updateNavigationBarItemColor(.jmhTurquoiseColor())
+		rootNavController.pushViewController(_signUpVC, animated: true)
+	}
+	
 	private func _showGenreSelectionUI() {
 		updateNavigationBarItemColor(.whiteColor())
 		rootNavController.pushViewController(_genreSelectionVC, animated: true)
@@ -75,6 +84,11 @@ extension AppRouter {
 	private func _showPopularitySelectionUI() {
 		updateNavigationBarItemColor(.whiteColor())
 		rootNavController.pushViewController(_popularitySelectionVC, animated: true)
+	}
+	
+	private func _showOnboardingCompletionUI() {
+		updateNavigationBarItemColor(.whiteColor())
+		rootNavController.pushViewController(_onboardingCompletionVC, animated: true)
 	}
 	
 	private func _trySignIn() {
@@ -130,7 +144,8 @@ extension AppRouter: UINavigationControllerDelegate {
 		_navigationAnimator.reverse = operation == .Pop
 		
 		switch toVC {
-		case _signInVC: return nil
+		case _signInVC, _signUpVC: return nil
+		case _onboardingCompletionVC: return fromVC == _signUpVC ? nil : _navigationAnimator
 		case _welcomeVC: return fromVC == _signInVC ? nil : _navigationAnimator
 		default: return _navigationAnimator
 		}
@@ -142,6 +157,7 @@ extension AppRouter: UINavigationControllerDelegate {
 			switch viewController {
 			case _genreSelectionVC: alpha = 0.3
 			case _welcomeVC: alpha = 0.5
+			case _onboardingCompletionVC: updateNavigationBarItemColor(.whiteColor())
 			default: break
 			}
 			

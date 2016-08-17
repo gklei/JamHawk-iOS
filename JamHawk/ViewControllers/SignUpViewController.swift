@@ -21,20 +21,39 @@ class SignUpViewController: UIViewController {
    @IBOutlet private var _confirmPasswordTextField: JHSignInSignUpTextField!
    
    // MARK: - Properties
-   var session: JamHawkSession?
+	var backClosure: () -> Void = {}
+	var continueClosure: () -> Void = {}
    
    // MARK: - Lifecycle
    override func viewDidLoad() {
         super.viewDidLoad()
         _setupOutlets()
+		
+		backClosure = {
+			self.navigationController?.popViewControllerAnimated(true)
+		}
     }
    
-   override func viewDidAppear(animated: Bool) {
-      super.viewDidAppear(animated)
+   override func viewWillAppear(animated: Bool) {
+      super.viewWillAppear(animated)
       _centerYConstraint.constant = UIScreen.mainScreen().bounds.height * -0.1
-   }
-   
-   // MARK: - Setup 
+		
+		let backSel = #selector(SignUpViewController.backItemPressed)
+		let continueSel = #selector(SignUpViewController.continueItemPressed)
+		
+		updateLeftBarButtonItem(withTitle: "   Back", action: backSel)
+		updateRightBarButtonItem(withTitle: "Continue   ", action: continueSel)
+	}
+	
+	internal func continueItemPressed() {
+		continueClosure()
+	}
+	
+	internal func backItemPressed() {
+		backClosure()
+	}
+	
+   // MARK: - Setup
    private func _setupOutlets() {
       _signUpLabel.kerning = 1.7
       _passwordTextField.secureTextEntry = true
@@ -44,30 +63,6 @@ class SignUpViewController: UIViewController {
    // MARK: - Actions
    @IBAction func _viewTapped(sender: AnyObject) {
       view.endEditing(true)
-   }
-   
-   // test credentials: brendan@incipia.co / hello1
-   @IBAction func _continueButtonDidPress(sender: AnyObject) {
-      guard let inputEmail = _emailTextField.text else { return }
-      guard let inputPassword = _passwordTextField.text else { return }
-      
-      guard _credentialsAreValid() else {
-         presentMessage("Sign Up Failed: Invalid Credentials Provided")
-         return
-      }
-      session?.signUp(email: inputEmail, password: inputPassword, callback: { (error, output) in
-         if let error = error {
-            self.present(error)
-         } else {
-            guard let output = output else { return }
-            
-            if output.success == true {
-               self.presentMessage("Success logging up")
-            } else {
-               self.presentMessage(output.message ?? "Failure logging up")
-            }
-         }
-      })
    }
    
    // MARK: - Private Methods
