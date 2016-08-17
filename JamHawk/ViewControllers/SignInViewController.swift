@@ -20,6 +20,14 @@ class SignInViewController: UIViewController {
    
    @IBOutlet private var emailTextField: JHSignInSignUpTextField!
    @IBOutlet private var passwordTextField: JHSignInSignUpTextField!
+	
+	var emailText: String {
+		return emailTextField.text ?? ""
+	}
+	
+	var passwordText: String {
+		return passwordTextField.text ?? ""
+	}
    
    // MARK: - Properties
 	var backClosure: () -> Void = {}
@@ -28,7 +36,6 @@ class SignInViewController: UIViewController {
    // MARK: - Lifecycle
    override func viewDidLoad() {
       super.viewDidLoad()
-		centerYConstraint.constant = UIScreen.mainScreen().bounds.height * -0.1
       _setupOutlets()
 		
 		backClosure = {
@@ -55,8 +62,9 @@ class SignInViewController: UIViewController {
 	}
    
    // MARK: - Setup
-   private func _setupOutlets() {
-      signInLabel.kerning = 1.7
+	private func _setupOutlets() {
+		signInLabel.kerning = 1.7
+		centerYConstraint.constant = UIScreen.mainScreen().bounds.height * -0.1
    }
    
    // MARK: - Actions

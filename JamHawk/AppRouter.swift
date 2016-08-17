@@ -67,31 +67,30 @@ class AppRouter: NSObject {
 extension AppRouter {
 	
 	private func _showSignInUI() {
-		updateNavigationBarItemColor(.jmhTurquoiseColor())
 		rootNavController.pushViewController(_signInVC, animated: true)
 	}
 	
 	private func _showSignUpUI() {
-		updateNavigationBarItemColor(.jmhTurquoiseColor())
 		rootNavController.pushViewController(_signUpVC, animated: true)
 	}
 	
 	private func _showGenreSelectionUI() {
-		updateNavigationBarItemColor(.whiteColor())
 		rootNavController.pushViewController(_genreSelectionVC, animated: true)
 	}
 	
 	private func _showPopularitySelectionUI() {
-		updateNavigationBarItemColor(.whiteColor())
 		rootNavController.pushViewController(_popularitySelectionVC, animated: true)
 	}
 	
 	private func _showOnboardingCompletionUI() {
-		updateNavigationBarItemColor(.whiteColor())
 		rootNavController.pushViewController(_onboardingCompletionVC, animated: true)
 	}
 	
 	private func _trySignIn() {
+		let email = _signInVC.emailText
+		let password = _signInVC.passwordText
+		
+		_signIn(email, password: password, context: _signInVC)
 	}
 	
 	private func _signUp(email: String, password: String, context: UIViewController) {
@@ -147,6 +146,7 @@ extension AppRouter: UINavigationControllerDelegate {
 		case _signInVC, _signUpVC: return nil
 		case _onboardingCompletionVC: return fromVC == _signUpVC ? nil : _navigationAnimator
 		case _welcomeVC: return fromVC == _signInVC ? nil : _navigationAnimator
+		case _mainPlayerVC: return nil
 		default: return _navigationAnimator
 		}
 	}
@@ -154,10 +154,19 @@ extension AppRouter: UINavigationControllerDelegate {
 	func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
 		if animated {
 			var alpha: CGFloat?
+			var barItemColor = UIColor.jmhTurquoiseColor()
 			switch viewController {
-			case _genreSelectionVC: alpha = 0.3
-			case _welcomeVC: alpha = 0.5
-			case _onboardingCompletionVC: updateNavigationBarItemColor(.whiteColor())
+			case _genreSelectionVC:
+				barItemColor = .whiteColor()
+				alpha = 0.3
+			case _popularitySelectionVC:
+				barItemColor = .whiteColor()
+			case _signInVC, _signUpVC:
+				barItemColor = .jmhTurquoiseColor()
+			case _welcomeVC:
+				alpha = 0.5
+			case _onboardingCompletionVC:
+				barItemColor = .whiteColor()
 			default: break
 			}
 			
@@ -166,6 +175,7 @@ extension AppRouter: UINavigationControllerDelegate {
 					self._welcomeBackgroundVC.imageView.alpha = a
 				})
 			}
+			updateNavigationBarItemColor(barItemColor)
 		}
 	}
 }
