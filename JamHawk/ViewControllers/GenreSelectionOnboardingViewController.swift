@@ -17,6 +17,7 @@ class GenreSelectionOnboardingViewController: UIViewController {
 	private let _filterTypes: [OnboardingFilterType] = [.Blues, .HipHop, .AlternativeRock, .Pop, .RnB]
 	
 	var selectedFilterTypes: [OnboardingFilterType] {
+		guard isViewLoaded() else { return [] }
 		return filterViews.filter({$0.selected}).flatMap({$0.type})
 	}
 	

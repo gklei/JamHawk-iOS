@@ -18,6 +18,7 @@ class PopularitySelectionOnboardingViewController: UIViewController {
 	private let _filterTypes: [OnboardingFilterType] = [.Mainstream, .Discoveries, .Rising]
 	
 	var selectedFilterTypes: [OnboardingFilterType] {
+		guard isViewLoaded() else { return [] }
 		return filterViews.filter({$0.selected}).flatMap({$0.type})
 	}
 	

@@ -91,39 +91,19 @@ extension AppRouter {
 		let email = _signInVC.emailText
 		let password = _signInVC.passwordText
 		
-		_signIn(email, password: password, context: _signInVC)
-	}
-	
-	private func _trySignUp() {
-		guard _signUpVC.passwordsMatch() else { return }
-		
-		let email = _signUpVC.emailText
-		let password = _signUpVC.passwordText
-		
-		_signUp(email, password: password, context: _signUpVC)
-	}
-	
-	private func _signUp(email: String, password: String, context: UIViewController) {
-		if email == "" && password == "" {
-			session.signInWithTestCreds { (error, output) in
-				self._handleUserAccessCallback(error, output: output, context: context)
-			}
-		} else {
-			session.signUp(email: email, password: password) { (error, output) in
-				self._handleUserAccessCallback(error, output: output, context: context)
-			}
+		session.signIn(email: email, password: password) { (error, output) in
+			self._handleUserAccessCallback(error, output: output, context: self._signInVC)
 		}
 	}
 	
-	private func _signIn(email: String, password: String, context: UIViewController) {
-		if email == "" && password == "" {
-			session.signInWithTestCreds { (error, output) in
-				self._handleUserAccessCallback(error, output: output, context: context)
-			}
-		} else {
-			session.signIn(email: email, password: password) { (error, output) in
-				self._handleUserAccessCallback(error, output: output, context: context)
-			}
+	private func _trySignUp() {
+		guard _signUpVC.passwordsMatch() else {
+			_signUpVC.presentMessage("The passwords do not match.")
+			return
+		}
+		
+		session.signUp(email: _signUpVC.emailText, password: _signUpVC.passwordText) { (error, output) in
+			self._handleUserAccessCallback(error, output: output, context: self._signUpVC)
 		}
 	}
 	
@@ -137,13 +117,13 @@ extension AppRouter {
 			context.presentMessage(message)
 		}
 		if output.success {
-			let selection = _generateFilterSelection()
+			let selection = _generateFilterSelectionFromOnboarding()
 			let completion = _playerInstantiationCallback
 			_coordinationController?.instantiatePlayer(filterSelection: selection, completion: completion)
 		}
 	}
 	
-	private func _generateFilterSelection() -> PlayerAPIInputFilterSelection? {
+	private func _generateFilterSelectionFromOnboarding() -> PlayerAPIInputFilterSelection? {
 		var selectedTypes = _genreSelectionVC.selectedFilterTypes
 		selectedTypes.appendContentsOf(_popularitySelectionVC.selectedFilterTypes)
 		
