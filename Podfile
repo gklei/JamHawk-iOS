@@ -8,5 +8,6 @@ target 'JamHawk' do
   pod 'IncipiaKit'
   pod 'AsyncImageView'
   pod 'MarqueeLabel'
+  pod 'SwiftSpinner'
 
 end

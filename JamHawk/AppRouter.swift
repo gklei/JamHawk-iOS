@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class AppRouter: NSObject {
 	let window: UIWindow
@@ -91,7 +92,9 @@ extension AppRouter {
 		let email = _signInVC.emailText
 		let password = _signInVC.passwordText
 		
+		SwiftSpinner.show("Signing In...")
 		session.signIn(email: email, password: password) { (error, output) in
+			SwiftSpinner.hide()
 			self._handleUserAccessCallback(error, output: output, context: self._signInVC)
 		}
 	}
@@ -102,7 +105,9 @@ extension AppRouter {
 			return
 		}
 		
+		SwiftSpinner.show("Signing Up...")
 		session.signUp(email: _signUpVC.emailText, password: _signUpVC.passwordText) { (error, output) in
+			SwiftSpinner.hide()
 			self._handleUserAccessCallback(error, output: output, context: self._signUpVC)
 		}
 	}
@@ -119,6 +124,8 @@ extension AppRouter {
 		if output.success {
 			let selection = _generateFilterSelectionFromOnboarding()
 			let completion = _playerInstantiationCallback
+			
+			SwiftSpinner.show("Setting up Player...")
 			_coordinationController?.instantiatePlayer(filterSelection: selection, completion: completion)
 		}
 	}
@@ -139,6 +146,7 @@ extension AppRouter {
 	}
 	
 	private func _playerInstantiationCallback(error: NSError?) {
+		SwiftSpinner.hide()
 		_coordinationController?.errorPresentationContext = self._mainPlayerVC
 		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}
