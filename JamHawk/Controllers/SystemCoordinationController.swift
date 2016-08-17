@@ -82,8 +82,10 @@ class SystemCoordinationController {
 	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection? = nil,
 	                                       completion: ((error: NSError?) -> Void)?) {
 		
-		let ids = filterSelection?.selection.values.flatten().flatMap({$0})
-		filterSystem.initialSelection = ids
+		if let ids = filterSelection?.selection.values.flatten().flatMap({$0}) {
+			filterSystem.initialSelection = ids
+			_subfilterIDsSinceLastRequest = ids
+		}
 		
 		_playerAPIService.instantiatePlayer(filterSelection: filterSelection) { (error, output) in
 			self._handlePlayerAPICallback(error, output: output)
