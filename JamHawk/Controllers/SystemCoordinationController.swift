@@ -31,8 +31,11 @@ class SystemCoordinationController {
 	init(apiService: PlayerAPIService) {
 		_playerAPIService = apiService
 		
-		let sel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
-		PlayerSystem.addObserver(self, selector: sel, notification: .modelDidUpdate)
+		let playerUpdatedSel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
+		PlayerSystem.addObserver(self, selector: playerUpdatedSel, notification: .modelDidUpdate)
+		
+		let parentFilterSelectedChangedSel = #selector(SystemCoordinationController.parentFilterChanged(_:))
+		FilterSystem.addObserver(self, selector: parentFilterSelectedChangedSel, notification: .parentFilterSelectionDidUpdate)
 		
 		let dataExistsSel = #selector(SystemCoordinationController.dataExistsForAPI(_:))
 		EventSystem.addObserver(self, selector: dataExistsSel, notification: .didQueueEvent)
@@ -143,6 +146,11 @@ extension SystemCoordinationController {
 			sendRequestToPlayerAPI()
 			playerSystem.wantsToAdvance = false
 		}
+	}
+	
+	@objc func parentFilterChanged(notification: NSNotification) {
+		_killRequestTimer()
+		sendRequestToPlayerAPI()
 	}
 	
 	@objc func dataExistsForAPI(notification: NSNotification) {
