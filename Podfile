@@ -9,5 +9,6 @@ target 'JamHawk' do
   pod 'AsyncImageView'
   pod 'MarqueeLabel'
   pod 'SwiftSpinner'
+  pod 'SwiftyUserDefaults'
 
 end
