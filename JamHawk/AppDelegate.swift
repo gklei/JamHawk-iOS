@@ -64,6 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		} catch {
 			print("Something went wrong with AVFoundation")
 		}
+		
+		application.beginReceivingRemoteControlEvents()
 	}
 	
 	func applicationWillTerminate(application: UIApplication) {
