@@ -36,6 +36,36 @@ class AppRouter: NSObject {
 		_setupNavigationClosures()
 		_setupPlayerAndSystems()
 		_setupWindow()
+		
+		if let credentials = JamhawkStorage.lastUsedCredentials {
+			SwiftSpinner.show("Signing In...")
+			session.signIn(email: credentials.email, password: credentials.password) { (error, output) in
+				SwiftSpinner.hide()
+				self._handleUserAccessCallback(error, output: output, credentials: credentials, context: self._welcomeVC)
+			}
+		}
+		
+		ProfileViewController.addObserver(self, selector: #selector(AppRouter.signOut), notification: .signOut)
+	}
+	
+	func signOut() {
+		guard let creds = JamhawkStorage.lastUsedCredentials else { return }
+		
+		_coordinationController?.killPlayer()
+		rootNavController.navigationBarHidden = false
+		rootNavController.popToRootViewControllerAnimated(true)
+		
+		session.signOut(email: creds.email, password: creds.password) { (error, output) in
+			if let error = error {
+				self.rootNavController.present(error)
+			}
+			
+			guard let output = output else { return }
+			if let message = output.message where !output.success {
+				self.rootNavController.presentMessage(message)
+			}
+			JamhawkStorage.lastUsedCredentials = nil
+		}
 	}
 	
 	private func _setupNavigationClosures() {
@@ -89,13 +119,12 @@ extension AppRouter {
 	}
 	
 	private func _trySignIn() {
-		let email = _signInVC.emailText
-		let password = _signInVC.passwordText
-		
 		SwiftSpinner.show("Signing In...")
-		session.signIn(email: email, password: password) { (error, output) in
+		
+		let creds = (email: _signInVC.emailText, password: _signInVC.passwordText)
+		session.signIn(email: creds.email, password: creds.password) { (error, output) in
 			SwiftSpinner.hide()
-			self._handleUserAccessCallback(error, output: output, context: self._signInVC)
+			self._handleUserAccessCallback(error, output: output, credentials: creds, context: self._signInVC)
 		}
 	}
 	
@@ -106,13 +135,18 @@ extension AppRouter {
 		}
 		
 		SwiftSpinner.show("Signing Up...")
-		session.signUp(email: _signUpVC.emailText, password: _signUpVC.passwordText) { (error, output) in
+		
+		let creds = (email: _signUpVC.emailText, password: _signUpVC.passwordText)
+		session.signUp(email: creds.email, password: creds.password) { (error, output) in
 			SwiftSpinner.hide()
-			self._handleUserAccessCallback(error, output: output, context: self._signUpVC)
+			self._handleUserAccessCallback(error, output: output, credentials: creds, context: self._signUpVC)
 		}
 	}
 	
-	private func _handleUserAccessCallback(error: NSError?, output: UserAccessAPIOutput?, context: UIViewController) {
+	private func _handleUserAccessCallback(error: NSError?,
+	                                       output: UserAccessAPIOutput?,
+	                                       credentials: (email: String, password: String),
+	                                       context: UIViewController) {
 		if let error = error {
 			context.present(error)
 		}
@@ -122,6 +156,7 @@ extension AppRouter {
 			context.presentMessage(message)
 		}
 		if output.success {
+			JamhawkStorage.lastUsedCredentials = credentials
 			let selection = _generateFilterSelectionFromOnboarding()
 			let completion = _playerInstantiationCallback
 			
@@ -135,11 +170,11 @@ extension AppRouter {
 		selectedTypes.appendContentsOf(_popularitySelectionVC.selectedFilterTypes)
 		
 		var selection: PlayerAPIFilterSelection = [:]
-		for type in selectedTypes {
-			if selection.keys.contains(type.category) {
-				selection[type.category]?.append(type.filterID)
+		selectedTypes.forEach {
+			if selection.keys.contains($0.category) {
+				selection[$0.category]?.append($0.filterID)
 			} else {
-				selection[type.category] = [type.filterID]
+				selection[$0.category] = [$0.filterID]
 			}
 		}
 		return PlayerAPIInputFilterSelection(selection: selection)
@@ -147,6 +182,7 @@ extension AppRouter {
 	
 	private func _playerInstantiationCallback(error: NSError?) {
 		SwiftSpinner.hide()
+		_mainPlayerVC.transitionToDefaultState()
 		_coordinationController?.errorPresentationContext = self._mainPlayerVC
 		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}
@@ -160,7 +196,7 @@ extension AppRouter: UINavigationControllerDelegate {
 		switch toVC {
 		case _signInVC, _signUpVC: return nil
 		case _onboardingCompletionVC: return fromVC == _signUpVC ? nil : _navigationAnimator
-		case _welcomeVC: return fromVC == _signInVC ? nil : _navigationAnimator
+		case _welcomeVC: return fromVC == _signInVC || fromVC == _mainPlayerVC ? nil : _navigationAnimator
 		case _mainPlayerVC: return nil
 		default: return _navigationAnimator
 		}

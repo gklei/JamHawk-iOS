@@ -6,6 +6,7 @@ PODS:
     - MarqueeLabel/ObjC (= 2.7.8)
   - MarqueeLabel/ObjC (2.7.8)
   - SwiftSpinner (0.9.5)
+  - SwiftyUserDefaults (2.2.1)
 
 DEPENDENCIES:
   - AsyncImageView
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - IncipiaKit
   - MarqueeLabel
   - SwiftSpinner
+  - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
@@ -20,7 +22,8 @@ SPEC CHECKSUMS:
   IncipiaKit: c4e741526ff20af3ffc3d4798b01f70dfcf5a635
   MarqueeLabel: 6fff28d8c12f30b4a8d01a9f5992b4924a857f2b
   SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
+  SwiftyUserDefaults: 7abdba50a50ea0c18ee8903af3c88e4c1cb8448d
 
-PODFILE CHECKSUM: 3ee95d04ecc8f5bd5e769f046d2e5cc59dabb984
+PODFILE CHECKSUM: 622527fbcbe416679f4b27ae1926599253416b75
 
 COCOAPODS: 1.0.0

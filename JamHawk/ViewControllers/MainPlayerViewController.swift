@@ -69,6 +69,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
 		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
 		
+		_backgroundImageView.layer.masksToBounds = true
 		_profileNavController.viewControllers = [_profileViewController]
 		_playerControlsVC.delegate = self
 		
@@ -76,8 +77,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_compactCurrentTrackVC.swipeUpClosure = _compactCurrentTrackSwipedUp
 		
 		// A little hacky..
-		_currentState = DefaultMainPlayerState(delegate: self)
-		_transition(toState: _currentState, duration: 0)
+		transitionToDefaultState()
 		
 		FilterSystem.addObserver(self, selector: .filterUpdated, notification: .modelDidUpdate)
 		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .parentFilterSelectionDidUpdate)
@@ -87,11 +87,10 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		PlayerSystem.addObserver(self, selector: .playerProgressUpdated, notification: .progressDidUpdate)
 		
 		CurrentTrackSystem.addObserver(self, selector: .currentTrackUpdated, notification: .modelDidUpdate)
+		TrackRatingSystem.addObserver(self, selector: .currentTrackRatingUpdated, notification: .modelDidUpdate)
 		
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaUpdated, notification: .modelDidUpdate)
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaSelectionUpdated, notification: .selectionDidUpdate)
-		
-		TrackRatingSystem.addObserver(self, selector: .currentTrackRatingUpdated, notification: .modelDidUpdate)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -140,6 +139,11 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_nextAvailableMediaVC.dataSource = controller.nextAvailableSystem
 		_largeCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
 		_compactCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
+	}
+	
+	func transitionToDefaultState() {
+		_currentState = DefaultMainPlayerState(delegate: self)
+		_transition(toState: _currentState, duration: 0)
 	}
 }
 

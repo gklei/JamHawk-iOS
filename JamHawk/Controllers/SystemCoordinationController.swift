@@ -95,6 +95,11 @@ class SystemCoordinationController {
 			completion?(error: error)
 		}
 	}
+	
+	func killPlayer() {
+		_killRequestTimer()
+		playerSystem.pause()
+	}
 }
 
 extension SystemCoordinationController: PlayerSystemDelegate {

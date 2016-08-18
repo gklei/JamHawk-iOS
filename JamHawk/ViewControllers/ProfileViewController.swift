@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MarqueeLabel
 
 enum ProfileOptionType: String {
    case EditProfile = "Edit Profile"
@@ -22,7 +23,9 @@ enum ProfileOptionType: String {
 
 class ProfileViewController: UIViewController {
 	
+	@IBOutlet private var _profileNameLabel: UILabel!
    @IBOutlet weak var _profileOptionsCollectionView: UICollectionView!
+	
    private var _profileOptions = [ProfileOptionType.EditProfile, ProfileOptionType.Settings]
    
 	// MARK: - Overridden
@@ -39,11 +42,28 @@ class ProfileViewController: UIViewController {
       _profileOptionsCollectionView.delegate = self
       
       _profileOptionsCollectionView.collectionViewLayout = layout
+		
+		_profileOptionsCollectionView.registerClass(ProfileHeaderViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeaderViewCell")
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		let signOutSel = #selector(ProfileViewController.signOut)
+		updateRightBarButtonItem(withTitle: "Sign Out   ", action: signOutSel)
 		removeLeftBarItem()
+		
+		_profileOptionsCollectionView.reloadData()
+	}
+	
+	internal func signOut() {
+		post(notification: .signOut)
+	}
+}
+
+extension ProfileViewController: Notifier {
+	enum Notification: String {
+		case signOut
 	}
 }
 
@@ -71,9 +91,27 @@ extension ProfileViewController: UICollectionViewDataSource {
    }
    
    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-      let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ProfileHeaderView", forIndexPath: indexPath)
+      let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ProfileHeaderView", forIndexPath: indexPath) as! ProfileHeaderViewCell
+		
+		if let creds = JamhawkStorage.lastUsedCredentials {
+			header.update(creds.email)
+		}
       return header
    }
+}
+
+class ProfileHeaderViewCell: UICollectionReusableView {
+	
+	@IBOutlet private var _nameLabel: MarqueeLabel!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		_nameLabel.fadeLength = 10
+	}
+	
+	func update(name: String) {
+		_nameLabel.text = name
+	}
 }
 
 class ProfileOptionCell: UICollectionViewCell {

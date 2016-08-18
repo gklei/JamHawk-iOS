@@ -28,7 +28,7 @@ class UserAccessSession {
 	func signUp(email email: String, password: String, callback: UserAccessCallback) {
 		
 		let creds = UserAccessCredentials(email: email, password: password)
-		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken, email: nil, password: nil)
 		guard let request = input.generateRequest() else { return }
 		
 		_signUpDataTask?.cancel()
@@ -44,7 +44,7 @@ class UserAccessSession {
 	
 	func signIn(email email: String, password: String, callback: UserAccessCallback) {
 		let creds = UserAccessCredentials(email: email, password: password)
-		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignIn, token: kUserAccessTestToken, email: nil, password: nil)
 		guard let request = input.generateRequest() else { return }
 		
 		_signInDataTask?.cancel()
@@ -60,7 +60,7 @@ class UserAccessSession {
 	
 	func signOut(email email: String, password: String, callback: UserAccessCallback) {
 		let creds = UserAccessCredentials(email: email, password: password)
-		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: kUserAccessTestToken)
+		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: nil, email: nil, password: nil)
 		guard let request = input.generateRequest() else { return }
 		
 		_signOutDataTask?.cancel()
