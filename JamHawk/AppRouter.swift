@@ -36,6 +36,36 @@ class AppRouter: NSObject {
 		_setupNavigationClosures()
 		_setupPlayerAndSystems()
 		_setupWindow()
+		
+		if let credentials = JamhawkStorage.lastUsedCredentials {
+			SwiftSpinner.show("Signing In...")
+			session.signIn(email: credentials.email, password: credentials.password) { (error, output) in
+				SwiftSpinner.hide()
+				self._handleUserAccessCallback(error, output: output, credentials: credentials, context: self._welcomeVC)
+			}
+		}
+		
+		ProfileViewController.addObserver(self, selector: #selector(AppRouter.signOut), notification: .signOut)
+	}
+	
+	func signOut() {
+		guard let creds = JamhawkStorage.lastUsedCredentials else { return }
+		
+		_coordinationController?.killPlayer()
+		rootNavController.navigationBarHidden = false
+		rootNavController.popToRootViewControllerAnimated(true)
+		
+		session.signOut(email: creds.email, password: creds.password) { (error, output) in
+			if let error = error {
+				self.rootNavController.present(error)
+			}
+			
+			guard let output = output else { return }
+			if let message = output.message where !output.success {
+				self.rootNavController.presentMessage(message)
+			}
+			JamhawkStorage.lastUsedCredentials = nil
+		}
 	}
 	
 	private func _setupNavigationClosures() {
@@ -126,6 +156,7 @@ extension AppRouter {
 			context.presentMessage(message)
 		}
 		if output.success {
+			JamhawkStorage.lastUsedCredentials = credentials
 			let selection = _generateFilterSelectionFromOnboarding()
 			let completion = _playerInstantiationCallback
 			
@@ -151,6 +182,7 @@ extension AppRouter {
 	
 	private func _playerInstantiationCallback(error: NSError?) {
 		SwiftSpinner.hide()
+		_mainPlayerVC.transitionToDefaultState()
 		_coordinationController?.errorPresentationContext = self._mainPlayerVC
 		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}
@@ -164,7 +196,7 @@ extension AppRouter: UINavigationControllerDelegate {
 		switch toVC {
 		case _signInVC, _signUpVC: return nil
 		case _onboardingCompletionVC: return fromVC == _signUpVC ? nil : _navigationAnimator
-		case _welcomeVC: return fromVC == _signInVC ? nil : _navigationAnimator
+		case _welcomeVC: return fromVC == _signInVC || fromVC == _mainPlayerVC ? nil : _navigationAnimator
 		case _mainPlayerVC: return nil
 		default: return _navigationAnimator
 		}
