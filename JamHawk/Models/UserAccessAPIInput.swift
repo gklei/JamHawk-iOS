@@ -12,17 +12,21 @@ import Freddy
 struct UserAccessAPIInput {
 	let credentials: UserAccessCredentials
 	let action: UserAccessAction
-	let token: String
+	let token: String?
+	let email: String?
+	let password: String?
 }
 
 extension UserAccessAPIInput: JSONEncodable {
 	func toJSON() -> JSON {
-		let json = JSON.Dictionary([
+		let json: [String : JSON] = [
 			"credentials" : credentials.toJSON(),
 			"action" : action.toJSON(),
-			"token" : .String(token)
-			])
-		return json
+			"token" : token?.toJSON() ?? JSON.Null,
+			"email" : email?.toJSON() ?? JSON.Null,
+			"pass" : password?.toJSON() ?? JSON.Null
+		]
+		return JSON.withoutNullValues(json)
 	}
 }
 
