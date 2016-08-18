@@ -608,6 +608,11 @@
 					CE9B94821D26B67600B0F53D = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 49BYD5B64K;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					CE9B94961D26B67700B0F53D = {
 						CreatedOnToolsVersion = 7.3.1;
