@@ -44,15 +44,6 @@ class JamHawkSession: PlayerAPIService {
 		_userSession.signOut(email: email, password: password, callback: callback)
 	}
 	
-	// MARK: - Testing
-	func signInWithTestCreds(callback: UserAccessCallback) {
-		_userSession.signInWithTestCreds(callback)
-	}
-	
-	func signOutWithTestCreds(callback: UserAccessCallback) {
-		_userSession.signOutWithTestCreds(callback)
-	}
-	
 	// MARK: - Public: Player
 	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection? = nil, callback: PlayerAPICallback) {
 		_playerSession.instantiatePlayer(filterSelection, callback: callback)
