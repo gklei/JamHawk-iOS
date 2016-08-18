@@ -43,6 +43,9 @@ class SystemCoordinationController {
 		FilterSystem.addObserver(self, selector: dataExistsSel, notification: .subfilterSelectionDidUpdate)
 		TrackRatingSystem.addObserver(self, selector: dataExistsSel, notification: .modelDidUpdate)
 		
+		let ratingSystemUpdatedSel = #selector(SystemCoordinationController.ratingSystemUpdated(_:))
+		TrackRatingSystem.addObserver(self, selector: ratingSystemUpdatedSel, notification: .modelDidUpdate)
+		
 		playerSystem.delegate = self
 		
 		let eventModel: EventSystemNotificationModel = [
@@ -163,6 +166,15 @@ extension SystemCoordinationController {
 	@objc func dataExistsForAPI(notification: NSNotification) {
 		guard _timer == nil else { return }
 		_startRequestTimer(withDelay: 3.0)
+	}
+	
+	@objc func ratingSystemUpdated(notification: NSNotification) {
+		if let rating = ratingSystem.currentTrackRating where rating == .Negative {
+			playerSystem.wantsToAdvance = true
+			_killRequestTimer()
+			sendRequestToPlayerAPI()
+			playerSystem.wantsToAdvance = false
+		}
 	}
 	
 	private func _killRequestTimer() {
