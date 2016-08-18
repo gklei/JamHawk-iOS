@@ -89,13 +89,12 @@ extension AppRouter {
 	}
 	
 	private func _trySignIn() {
-		let email = _signInVC.emailText
-		let password = _signInVC.passwordText
-		
 		SwiftSpinner.show("Signing In...")
-		session.signIn(email: email, password: password) { (error, output) in
+		
+		let creds = (email: _signInVC.emailText, password: _signInVC.passwordText)
+		session.signIn(email: creds.email, password: creds.password) { (error, output) in
 			SwiftSpinner.hide()
-			self._handleUserAccessCallback(error, output: output, context: self._signInVC)
+			self._handleUserAccessCallback(error, output: output, credentials: creds, context: self._signInVC)
 		}
 	}
 	
@@ -106,13 +105,18 @@ extension AppRouter {
 		}
 		
 		SwiftSpinner.show("Signing Up...")
-		session.signUp(email: _signUpVC.emailText, password: _signUpVC.passwordText) { (error, output) in
+		
+		let creds = (email: _signUpVC.emailText, password: _signUpVC.passwordText)
+		session.signUp(email: creds.email, password: creds.password) { (error, output) in
 			SwiftSpinner.hide()
-			self._handleUserAccessCallback(error, output: output, context: self._signUpVC)
+			self._handleUserAccessCallback(error, output: output, credentials: creds, context: self._signUpVC)
 		}
 	}
 	
-	private func _handleUserAccessCallback(error: NSError?, output: UserAccessAPIOutput?, context: UIViewController) {
+	private func _handleUserAccessCallback(error: NSError?,
+	                                       output: UserAccessAPIOutput?,
+	                                       credentials: (email: String, password: String),
+	                                       context: UIViewController) {
 		if let error = error {
 			context.present(error)
 		}
@@ -135,11 +139,11 @@ extension AppRouter {
 		selectedTypes.appendContentsOf(_popularitySelectionVC.selectedFilterTypes)
 		
 		var selection: PlayerAPIFilterSelection = [:]
-		for type in selectedTypes {
-			if selection.keys.contains(type.category) {
-				selection[type.category]?.append(type.filterID)
+		selectedTypes.forEach {
+			if selection.keys.contains($0.category) {
+				selection[$0.category]?.append($0.filterID)
 			} else {
-				selection[type.category] = [type.filterID]
+				selection[$0.category] = [$0.filterID]
 			}
 		}
 		return PlayerAPIInputFilterSelection(selection: selection)
