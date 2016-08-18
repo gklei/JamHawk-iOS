@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PlayerAPIService {
-	func instantiatePlayer(callback: PlayerAPICallback)
+	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection?, callback: PlayerAPICallback)
 	func sendRequest(needNext needNext: Bool, needMedia: Bool, needFilters: Bool, updates: PlayerAPIInputUpdates, events: [PlayerAPIInputEvent]?,  callback: PlayerAPICallback)
 }
 
@@ -54,8 +54,8 @@ class JamHawkSession: PlayerAPIService {
 	}
 	
 	// MARK: - Public: Player
-	func instantiatePlayer(callback: PlayerAPICallback) {
-		_playerSession.instantiatePlayer(callback)
+	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection? = nil, callback: PlayerAPICallback) {
+		_playerSession.instantiatePlayer(filterSelection, callback: callback)
 		requestID = requestID + 1
 	}
 	

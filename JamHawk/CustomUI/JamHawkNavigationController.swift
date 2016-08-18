@@ -36,7 +36,10 @@ class ProfileNavigationController: UINavigationController {
 		
 		navigationBar.titleTextAttributes = [
 			NSForegroundColorAttributeName : UIColor(white: 129.0 / 255.0, alpha: 1),
-			NSFontAttributeName : UIFont.systemFontOfSize(14)
+			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!
 		]
+		
+		let image = UIImage.imageWithColor(UIColor.jmhLightGrayColor())
+		navigationBar.shadowImage = image
 	}
 }

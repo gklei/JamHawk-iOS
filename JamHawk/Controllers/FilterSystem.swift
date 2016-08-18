@@ -14,6 +14,7 @@ final class FilterSystem: SystemController<PlayerAPIOutputFilters> {
 	private var _filters: PlayerAPIOutputFilters?
 	
 	internal(set) var selectedParentFilter: PlayerAPIOutputFilter?
+	var initialSelection: [PlayerAPIFilterID]?
 	
 	var selectedSubfilterIDs: [PlayerAPIFilterID] {
 		return _selectedSubfilterViewModelsDictionary.values.flatMap({ $0.flatMap({ $0.id }) })
@@ -42,6 +43,12 @@ final class FilterSystem: SystemController<PlayerAPIOutputFilters> {
 		_filters = model
 		
 		_generateSubfilterViewModels()
+		
+		if let selection = initialSelection {
+			_selectSubfilters(withIDs: selection)
+			initialSelection = nil
+		}
+		
 		post(notification: .modelDidUpdate)
 	}
 	
@@ -78,6 +85,14 @@ extension FilterSystem: ParentFilterSelectionDataSource {
 		guard let parentFilters = _filters?.available else { return [] }
 		let selectedIDs = _filters?.selected ?? []
 		return parentFilters.flatMap({ PlayerAPIOutputFilterViewModel(filter: $0, selectedSubfilterIDs: selectedIDs) })
+	}
+	
+	func selectedSubfilers(atParentIndex index: Int) -> [SubfilterViewModel] {
+		guard let available = _filters?.available else { return [] }
+		guard available.count > index else { return [] }
+		
+		let filter = available[index]
+		return _selectedSubfilterViewModelsDictionary[filter.category] ?? []
 	}
 	
 	func selectFilter(atIndex index: Int) {
@@ -127,6 +142,18 @@ extension FilterSystem: SubfilterSelectionDataSource {
 		}
 		
 		post(notification: .subfilterSelectionDidUpdate)
+	}
+	
+	private func _selectSubfilters(withIDs ids: [PlayerAPIFilterID]) {
+		let allSubfilterVMs = _subfilterViewModelsDictionary.values.flatten().flatMap({$0})
+		let vms = allSubfilterVMs.filter({ ids.contains($0.id) })
+		vms.forEach {
+			if _selectedSubfilterViewModelsDictionary[$0.category] != nil {
+				_selectedSubfilterViewModelsDictionary[$0.category]?.append($0)
+			} else {
+				_selectedSubfilterViewModelsDictionary[$0.category] = [$0]
+			}
+		}
 	}
 }
 

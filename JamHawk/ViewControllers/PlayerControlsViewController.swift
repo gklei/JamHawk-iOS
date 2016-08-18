@@ -40,13 +40,15 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	
 	private var _playerProgressVC: PlayerProgressViewController?
 	private let _volumeAdjustmentVC = VolumeAdjustmentViewController.create()
+	private var _profileButtonView: UserProfileButtonView?
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		let selector = #selector(PlayerControlsViewController._profileButtonPressed)
-		_profileItem.customView = UserProfileButtonView(target: self, selector: selector)
+		_profileButtonView = UserProfileButtonView(target: self, selector: selector)
+		_profileItem.customView = _profileButtonView
 		
 		let color = UIColor(white: 0, alpha: 0.5)
 		_topPaddingView.backgroundColor = color
@@ -106,6 +108,10 @@ final class PlayerControlsViewController: UIViewController, PlayerStoryboardInst
 	
 	func updateProgress(progress: CGFloat) {
 		_playerProgressVC?.updateProgress(progress)
+	}
+	
+	func setProfileButtonActive(active: Bool) {
+		_profileButtonView?.active = active
 	}
 }
 

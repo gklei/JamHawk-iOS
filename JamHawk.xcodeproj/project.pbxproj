@@ -8,14 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		C3EBD7C5DF4FF8C4768928A1 /* Pods_JamHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */; };
+		C65061F11D492A5100897A5B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65061F01D492A5100897A5B /* EditProfileViewController.swift */; };
+		C6606DF11D49475500834754 /* SettingsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6606DF01D49475500834754 /* SettingsProfileViewController.swift */; };
 		C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A52CC1D36F42900A5C150 /* PlayheadView.swift */; };
 		C67E317E1D4005D200D140D2 /* JHSignInSignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */; };
-		C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */; };
-		C6EFB1EA1D3ECE1000B57397 /* JHSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */; };
+		C67E31801D4010B300D140D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E317F1D4010B300D140D2 /* SignUpViewController.swift */; };
+		C6EFB1EA1D3ECE1000B57397 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFB1E91D3ECE1000B57397 /* SignInViewController.swift */; };
 		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
+		CE08AB491D5E1D45006AD83A /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE08AB441D5E1D45006AD83A /* OpenSans-Bold.ttf */; };
+		CE08AB4A1D5E1D45006AD83A /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE08AB451D5E1D45006AD83A /* OpenSans-ExtraBold.ttf */; };
+		CE08AB4B1D5E1D45006AD83A /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE08AB461D5E1D45006AD83A /* OpenSans-Light.ttf */; };
+		CE08AB4C1D5E1D45006AD83A /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE08AB471D5E1D45006AD83A /* OpenSans-Regular.ttf */; };
+		CE08AB4D1D5E1D45006AD83A /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE08AB481D5E1D45006AD83A /* OpenSans-Semibold.ttf */; };
 		CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */; };
+		CE24F08A1D5E0C5F009B1E2E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */; };
 		CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2B69031D2C97EE00EAFF16 /* Player.storyboard */; };
 		CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */; };
 		CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69381D2EC39C00EAFF16 /* UserAccessAPIInput.swift */; };
@@ -24,6 +32,11 @@
 		CE2B69411D2EE1FD00EAFF16 /* PlayerAPITypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69401D2EE1FD00EAFF16 /* PlayerAPITypes.swift */; };
 		CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69451D2EF05500EAFF16 /* Freddy+Extensions.swift */; };
 		CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */; };
+		CE3203D21D61454F00746B03 /* WelcomeBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203D11D61454F00746B03 /* WelcomeBackgroundViewController.swift */; };
+		CE3203D41D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203D31D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift */; };
+		CE3203D61D614EDC00746B03 /* OnboardingNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203D51D614EDC00746B03 /* OnboardingNavigationAnimator.swift */; };
+		CE3203D81D61507600746B03 /* PopularitySelectionOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203D71D61507600746B03 /* PopularitySelectionOnboardingViewController.swift */; };
+		CE3203DF1D62C88400746B03 /* OnboardingFilterVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203DE1D62C88400746B03 /* OnboardingFilterVIew.swift */; };
 		CE32971B1D49DDB7001CF512 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32971A1D49DDB7001CF512 /* QuartzCore.framework */; };
 		CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */; };
 		CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */; };
@@ -59,7 +72,6 @@
 		CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C041D3885900006D1B6 /* NextAvailableMediaCell.xib */; };
 		CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */; };
 		CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE747C0B1D38920C0006D1B6 /* ParentFilterCell.xib */; };
-		CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */; };
 		CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */; };
 		CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E682D1D34251400516570 /* UserAccessSession.swift */; };
 		CE7E68301D3427E000516570 /* PlayerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E682F1D3427E000516570 /* PlayerSession.swift */; };
@@ -72,9 +84,9 @@
 		CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9B948F1D26B67600B0F53D /* LaunchScreen.storyboard */; };
 		CE9B949C1D26B67700B0F53D /* JamHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */; };
 		CED3AC781D4D676D001E488D /* SubfilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AC771D4D676D001E488D /* SubfilterViewModel.swift */; };
-		CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E01D26D49B0083365F /* SignInViewController.swift */; };
 		CED404E41D26E6350083365F /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404E31D26E6350083365F /* BottomBorderTextField.swift */; };
 		CED404EC1D26F20E0083365F /* JamHawkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED404EB1D26F20E0083365F /* JamHawkSession.swift */; };
+		CEE35F171D64C970007785F6 /* OnboardingCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE35F161D64C970007785F6 /* OnboardingCompletionViewController.swift */; };
 		CEF9E48C1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */; };
 		CEF9E48E1D53CB9100DB6B2C /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */; };
 		CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD86991D300F34005313AD /* AppRouter.swift */; };
@@ -100,14 +112,22 @@
 /* Begin PBXFileReference section */
 		395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk.release.xcconfig"; sourceTree = "<group>"; };
 		B9C661686CA68F67961AA7A0 /* Pods_JamHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C65061F01D492A5100897A5B /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = JamHawk/ViewControllers/EditProfileViewController.swift; sourceTree = "<group>"; };
+		C6606DF01D49475500834754 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsProfileViewController.swift; path = JamHawk/ViewControllers/SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		C67A52CC1D36F42900A5C150 /* PlayheadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayheadView.swift; path = JamHawk/CustomUI/PlayheadView.swift; sourceTree = "<group>"; };
 		C67E317D1D4005D200D140D2 /* JHSignInSignUpTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignInSignUpTextField.swift; path = JamHawk/CustomUI/JHSignInSignUpTextField.swift; sourceTree = "<group>"; };
-		C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignUpViewController.swift; path = JamHawk/ViewControllers/JHSignUpViewController.swift; sourceTree = "<group>"; };
-		C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JHSignInViewController.swift; path = JamHawk/ViewControllers/JHSignInViewController.swift; sourceTree = "<group>"; };
+		C67E317F1D4010B300D140D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = JamHawk/ViewControllers/SignUpViewController.swift; sourceTree = "<group>"; };
+		C6EFB1E91D3ECE1000B57397 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
+		CE08AB441D5E1D45006AD83A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "JamHawk/Fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		CE08AB451D5E1D45006AD83A /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "JamHawk/Fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CE08AB461D5E1D45006AD83A /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "JamHawk/Fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		CE08AB471D5E1D45006AD83A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "JamHawk/Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		CE08AB481D5E1D45006AD83A /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "JamHawk/Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsViewController.swift; path = JamHawk/ViewControllers/PlayerControlsViewController.swift; sourceTree = "<group>"; };
+		CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = JamHawk/ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE2B69041D2C97EE00EAFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Player.storyboard; sourceTree = "<group>"; };
 		CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendProtocols.swift; path = JamHawk/Backend/BackendProtocols.swift; sourceTree = "<group>"; };
 		CE2B69381D2EC39C00EAFF16 /* UserAccessAPIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInput.swift; path = JamHawk/Models/UserAccessAPIInput.swift; sourceTree = "<group>"; };
@@ -116,6 +136,11 @@
 		CE2B69401D2EE1FD00EAFF16 /* PlayerAPITypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPITypes.swift; path = JamHawk/Models/PlayerAPITypes.swift; sourceTree = "<group>"; };
 		CE2B69451D2EF05500EAFF16 /* Freddy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Freddy+Extensions.swift"; path = "JamHawk/Extensions/Freddy+Extensions.swift"; sourceTree = "<group>"; };
 		CE2B69481D2F118100EAFF16 /* PlayerAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIOutput.swift; path = JamHawk/Models/PlayerAPIOutput.swift; sourceTree = "<group>"; };
+		CE3203D11D61454F00746B03 /* WelcomeBackgroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeBackgroundViewController.swift; path = JamHawk/ViewControllers/WelcomeBackgroundViewController.swift; sourceTree = "<group>"; };
+		CE3203D31D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenreSelectionOnboardingViewController.swift; path = JamHawk/ViewControllers/GenreSelectionOnboardingViewController.swift; sourceTree = "<group>"; };
+		CE3203D51D614EDC00746B03 /* OnboardingNavigationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingNavigationAnimator.swift; path = JamHawk/CustomUI/OnboardingNavigationAnimator.swift; sourceTree = "<group>"; };
+		CE3203D71D61507600746B03 /* PopularitySelectionOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularitySelectionOnboardingViewController.swift; path = JamHawk/ViewControllers/PopularitySelectionOnboardingViewController.swift; sourceTree = "<group>"; };
+		CE3203DE1D62C88400746B03 /* OnboardingFilterVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingFilterVIew.swift; path = JamHawk/CustomUI/OnboardingFilterVIew.swift; sourceTree = "<group>"; };
 		CE32971A1D49DDB7001CF512 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputModels.swift; path = JamHawk/Models/PlayerAPIInputModels.swift; sourceTree = "<group>"; };
 		CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Jamhawk.swift"; path = "JamHawk/Extensions/UIColor+Jamhawk.swift"; sourceTree = "<group>"; };
@@ -151,7 +176,6 @@
 		CE747C051D3885900006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/NextAvailableMediaCell.xib; sourceTree = "<group>"; };
 		CE747C071D3891F90006D1B6 /* ParentFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentFilterCell.swift; path = JamHawk/CustomUI/ParentFilterCell.swift; sourceTree = "<group>"; };
 		CE747C0C1D38920C0006D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = JamHawk/Base.lproj/ParentFilterCell.xib; sourceTree = "<group>"; };
-		CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemporaryInitialViewController.swift; path = JamHawk/ViewControllers/TemporaryInitialViewController.swift; sourceTree = "<group>"; };
 		CE7B0FF61D340846003CC52A /* NextAvailableMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextAvailableMediaCell.swift; path = JamHawk/CustomUI/NextAvailableMediaCell.swift; sourceTree = "<group>"; };
 		CE7E682D1D34251400516570 /* UserAccessSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessSession.swift; path = JamHawk/Backend/UserAccessSession.swift; sourceTree = "<group>"; };
 		CE7E682F1D3427E000516570 /* PlayerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSession.swift; path = JamHawk/Backend/PlayerSession.swift; sourceTree = "<group>"; };
@@ -168,9 +192,9 @@
 		CE9B949B1D26B67700B0F53D /* JamHawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHawkTests.swift; sourceTree = "<group>"; };
 		CE9B949D1D26B67700B0F53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED3AC771D4D676D001E488D /* SubfilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubfilterViewModel.swift; path = JamHawk/ViewModels/SubfilterViewModel.swift; sourceTree = "<group>"; };
-		CED404E01D26D49B0083365F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CED404E31D26E6350083365F /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = JamHawk/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
 		CED404EB1D26F20E0083365F /* JamHawkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkSession.swift; path = JamHawk/Backend/JamHawkSession.swift; sourceTree = "<group>"; };
+		CEE35F161D64C970007785F6 /* OnboardingCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingCompletionViewController.swift; path = JamHawk/ViewControllers/OnboardingCompletionViewController.swift; sourceTree = "<group>"; };
 		CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeAdjustmentViewController.swift; path = JamHawk/ViewControllers/VolumeAdjustmentViewController.swift; sourceTree = "<group>"; };
 		CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeSlider.swift; path = JamHawk/CustomUI/VolumeSlider.swift; sourceTree = "<group>"; };
 		CEFD86991D300F34005313AD /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -211,6 +235,18 @@
 				395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CE08AB431D5E1D2E006AD83A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE08AB441D5E1D45006AD83A /* OpenSans-Bold.ttf */,
+				CE08AB451D5E1D45006AD83A /* OpenSans-ExtraBold.ttf */,
+				CE08AB461D5E1D45006AD83A /* OpenSans-Light.ttf */,
+				CE08AB471D5E1D45006AD83A /* OpenSans-Regular.ttf */,
+				CE08AB481D5E1D45006AD83A /* OpenSans-Semibold.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		CE2B693C1D2EE02600EAFF16 /* User */ = {
@@ -278,10 +314,13 @@
 		CE5DA0F81D469A5100025C17 /* Sign In & Up */ = {
 			isa = PBXGroup;
 			children = (
-				CED404E01D26D49B0083365F /* SignInViewController.swift */,
-				C6EFB1E91D3ECE1000B57397 /* JHSignInViewController.swift */,
-				C67E317F1D4010B300D140D2 /* JHSignUpViewController.swift */,
-				CE7B0FF11D33F4E8003CC52A /* TemporaryInitialViewController.swift */,
+				C6EFB1E91D3ECE1000B57397 /* SignInViewController.swift */,
+				C67E317F1D4010B300D140D2 /* SignUpViewController.swift */,
+				CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */,
+				CE3203D11D61454F00746B03 /* WelcomeBackgroundViewController.swift */,
+				CE3203D31D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift */,
+				CE3203D71D61507600746B03 /* PopularitySelectionOnboardingViewController.swift */,
+				CEE35F161D64C970007785F6 /* OnboardingCompletionViewController.swift */,
 			);
 			name = "Sign In & Up";
 			sourceTree = "<group>";
@@ -309,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				CE5DA0D71D44861D00025C17 /* ProfileViewController.swift */,
+				C65061F01D492A5100897A5B /* EditProfileViewController.swift */,
+				C6606DF01D49475500834754 /* SettingsProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -350,19 +391,20 @@
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
-				CE5DA0E71D455F5A00025C17 /* Systems */,
-				CE6CE9A21D3D67670029659F /* Main View Controller States */,
+				CE08AB431D5E1D2E006AD83A /* Resources */,
 				CED404ED1D26F7500083365F /* Backend */,
 				CED404E21D26E6210083365F /* Custom UI */,
 				CEC91F971D26D3180006B657 /* Extensions */,
 				E51EB60DCDCD65CE4B97C96B /* Frameworks */,
 				CE9B94851D26B67600B0F53D /* JamHawk */,
 				CE9B949A1D26B67700B0F53D /* JamHawkTests */,
+				CE6CE9A21D3D67670029659F /* Main View Controller States */,
 				CED404EF1D2713840083365F /* Models */,
 				CED404EE1D26F7880083365F /* Operations */,
 				B0F71CD2A8DA061C8C833267 /* Pods */,
 				CE9B94841D26B67600B0F53D /* Products */,
 				CED404DE1D26D44B0083365F /* Storyboards & Xibs */,
+				CE5DA0E71D455F5A00025C17 /* Systems */,
 				CED404DF1D26D45F0083365F /* View Controllers */,
 				CEFFF7941D358D8800D083F1 /* View Models */,
 			);
@@ -451,6 +493,8 @@
 				CE5DA0B01D400C8E00025C17 /* UserProfileButtonView.swift */,
 				CE5DA1011D47F06400025C17 /* TrackRatingCell.swift */,
 				CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */,
+				CE3203D51D614EDC00746B03 /* OnboardingNavigationAnimator.swift */,
+				CE3203DE1D62C88400746B03 /* OnboardingFilterVIew.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -596,13 +640,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9B94911D26B67600B0F53D /* LaunchScreen.storyboard in Resources */,
+				CE08AB4A1D5E1D45006AD83A /* OpenSans-ExtraBold.ttf in Resources */,
 				CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */,
 				CE747C061D3885900006D1B6 /* NextAvailableMediaCell.xib in Resources */,
 				CE6CE9A11D3D262F0029659F /* SubfilterCell.xib in Resources */,
 				CE6CE9971D3C15C40029659F /* SubfilterSelectionViewController.xib in Resources */,
+				CE08AB4B1D5E1D45006AD83A /* OpenSans-Light.ttf in Resources */,
 				CE747C0D1D38920C0006D1B6 /* ParentFilterCell.xib in Resources */,
 				CE5DA0D61D44854C00025C17 /* Profile.storyboard in Resources */,
 				CE9B948E1D26B67600B0F53D /* Assets.xcassets in Resources */,
+				CE08AB491D5E1D45006AD83A /* OpenSans-Bold.ttf in Resources */,
+				CE08AB4C1D5E1D45006AD83A /* OpenSans-Regular.ttf in Resources */,
+				CE08AB4D1D5E1D45006AD83A /* OpenSans-Semibold.ttf in Resources */,
 				CE9B948C1D26B67600B0F53D /* SignIn.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,13 +718,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE35F171D64C970007785F6 /* OnboardingCompletionViewController.swift in Sources */,
 				CE2B693F1D2EE04400EAFF16 /* PlayerAPIOutputModels.swift in Sources */,
 				CE7E68301D3427E000516570 /* PlayerSession.swift in Sources */,
 				CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */,
 				CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */,
 				CEFD869E1D304CFC005313AD /* MainPlayerViewController.swift in Sources */,
+				CE24F08A1D5E0C5F009B1E2E /* WelcomeViewController.swift in Sources */,
 				CEF9E48E1D53CB9100DB6B2C /* VolumeSlider.swift in Sources */,
+				CE3203D21D61454F00746B03 /* WelcomeBackgroundViewController.swift in Sources */,
 				CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */,
+				CE3203DF1D62C88400746B03 /* OnboardingFilterVIew.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
 				CE9347891D39892B0090A58C /* CurrentTrackViewController.swift in Sources */,
@@ -686,7 +739,6 @@
 				CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */,
 				CE6CE9A01D3D262F0029659F /* PlayerSubfilterCell.swift in Sources */,
 				CE5DA0F11D46843000025C17 /* NextAvailableMediaSystem.swift in Sources */,
-				CE7B0FF21D33F4E8003CC52A /* TemporaryInitialViewController.swift in Sources */,
 				CE5DA0E01D44946900025C17 /* VolumeAdjustmentMainPlayerState.swift in Sources */,
 				CE5DA0EB1D4677D800025C17 /* FilterSystem.swift in Sources */,
 				CED3AC781D4D676D001E488D /* SubfilterViewModel.swift in Sources */,
@@ -694,12 +746,14 @@
 				CE5DA1041D4882C100025C17 /* ViewTransformer.swift in Sources */,
 				CE6CE9931D3C15B10029659F /* SubfilterSelectionViewController.swift in Sources */,
 				CE5DA0E41D455EAA00025C17 /* JamhawkRequestController.swift in Sources */,
+				C6606DF11D49475500834754 /* SettingsProfileViewController.swift in Sources */,
 				CE5DA0B11D400C8E00025C17 /* UserProfileButtonView.swift in Sources */,
 				CE2B69411D2EE1FD00EAFF16 /* PlayerAPITypes.swift in Sources */,
 				CEFD869C1D3019D2005313AD /* JamHawkNavigationController.swift in Sources */,
 				CE5DA0E21D4494AE00025C17 /* ShowTrackDetailsState.swift in Sources */,
 				CE5DA0F51D46847C00025C17 /* SystemCoordinationController.swift in Sources */,
 				C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */,
+				CE3203D81D61507600746B03 /* PopularitySelectionOnboardingViewController.swift in Sources */,
 				CE5DA0DA1D44936B00025C17 /* DefaultMainPlayerState.swift in Sources */,
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
 				CE5DA0FE1D47B8A300025C17 /* TrackRatingViewController.swift in Sources */,
@@ -709,7 +763,7 @@
 				CE747BFC1D3839BB0006D1B6 /* ParentFilterSelectionViewController.swift in Sources */,
 				CEF9E48C1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift in Sources */,
 				CE5DA0ED1D4683EE00025C17 /* PlayerSystem.swift in Sources */,
-				C67E31801D4010B300D140D2 /* JHSignUpViewController.swift in Sources */,
+				C67E31801D4010B300D140D2 /* SignUpViewController.swift in Sources */,
 				CEFFF7961D358DC500D083F1 /* PlayerAPIOutputViewModel.swift in Sources */,
 				CE5DA0DE1D44940200025C17 /* ShowProfileMainPlayerState.swift in Sources */,
 				C67E317E1D4005D200D140D2 /* JHSignInSignUpTextField.swift in Sources */,
@@ -717,17 +771,18 @@
 				CE7E682E1D34251400516570 /* UserAccessSession.swift in Sources */,
 				CE5DA0D81D44861D00025C17 /* ProfileViewController.swift in Sources */,
 				CE5DA0E91D455F8800025C17 /* SystemController.swift in Sources */,
-				C6EFB1EA1D3ECE1000B57397 /* JHSignInViewController.swift in Sources */,
+				C6EFB1EA1D3ECE1000B57397 /* SignInViewController.swift in Sources */,
 				CE2B69391D2EC39C00EAFF16 /* UserAccessAPIInput.swift in Sources */,
 				CEFEAD901D3D7EDD004D3CFC /* MainPlayerViewController+States.swift in Sources */,
 				CE747BF81D382B0F0006D1B6 /* PlayerControlsToolbar.swift in Sources */,
-				CED404E11D26D49B0083365F /* SignInViewController.swift in Sources */,
 				E9F41F0C1D52982A00F28D1B /* EventSystem.swift in Sources */,
 				CE5DA0B51D41A52900025C17 /* UpdatesTracker.swift in Sources */,
 				CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */,
 				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */,
 				CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */,
 				CE2B693B1D2EC92700EAFF16 /* PlayerAPIInput.swift in Sources */,
+				CE3203D41D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift in Sources */,
+				CE3203D61D614EDC00746B03 /* OnboardingNavigationAnimator.swift in Sources */,
 				CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */,
 				CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */,
 				CE6CE9A41D3D67D50029659F /* MainPlayerState.swift in Sources */,
@@ -735,6 +790,7 @@
 				CE5DA1021D47F06400025C17 /* TrackRatingCell.swift in Sources */,
 				CE7E68321D342EB900516570 /* PlayerAPIInputStatus.swift in Sources */,
 				CE9B94871D26B67600B0F53D /* AppDelegate.swift in Sources */,
+				C65061F11D492A5100897A5B /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +968,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.JamHawk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -926,6 +983,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.JamHawk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

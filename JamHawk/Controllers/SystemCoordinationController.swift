@@ -24,6 +24,7 @@ class SystemCoordinationController {
 	private var _timer: NSTimer?
 	private let _playerAPIService: PlayerAPIService
 	
+	private var _playerInstantiationFilterSelection: PlayerAPIFilterSelection?
 	private var _subfilterIDsSinceLastRequest: [PlayerAPIFilterID] = []
 	
 	var errorPresentationContext: UIViewController?
@@ -31,8 +32,16 @@ class SystemCoordinationController {
 	init(apiService: PlayerAPIService) {
 		_playerAPIService = apiService
 		
-		let sel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
-		PlayerSystem.addObserver(self, selector: sel, notification: .modelDidUpdate)
+		let playerUpdatedSel = #selector(SystemCoordinationController.playerSystemUpdated(_:))
+		PlayerSystem.addObserver(self, selector: playerUpdatedSel, notification: .modelDidUpdate)
+		
+		let parentFilterSelectedChangedSel = #selector(SystemCoordinationController.parentFilterChanged(_:))
+		FilterSystem.addObserver(self, selector: parentFilterSelectedChangedSel, notification: .parentFilterSelectionDidUpdate)
+		
+		let dataExistsSel = #selector(SystemCoordinationController.dataExistsForAPI(_:))
+		EventSystem.addObserver(self, selector: dataExistsSel, notification: .didQueueEvent)
+		FilterSystem.addObserver(self, selector: dataExistsSel, notification: .subfilterSelectionDidUpdate)
+		TrackRatingSystem.addObserver(self, selector: dataExistsSel, notification: .modelDidUpdate)
 		
 		playerSystem.delegate = self
 		
@@ -70,12 +79,17 @@ class SystemCoordinationController {
 		ratingSystem.update(withModel: output.track)
 	}
 	
-	func instantiatePlayer(completion: ((error: NSError?) -> Void)?) {
-		_playerAPIService.instantiatePlayer { (error, output) in
+	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection? = nil,
+	                                       completion: ((error: NSError?) -> Void)?) {
+		
+		if let ids = filterSelection?.selection.values.flatten().flatMap({$0}) {
+			filterSystem.initialSelection = ids
+			_subfilterIDsSinceLastRequest = ids
+		}
+		
+		_playerAPIService.instantiatePlayer(filterSelection: filterSelection) { (error, output) in
 			self._handlePlayerAPICallback(error, output: output)
-			
 			completion?(error: error)
-			self._setupRequestTimer(withInterval: 3)
 		}
 	}
 }
@@ -89,12 +103,10 @@ extension SystemCoordinationController: PlayerSystemDelegate {
 
 extension SystemCoordinationController {
 	
-	private func _setupRequestTimer(withInterval seconds: NSTimeInterval) {
-		guard _timer == nil else { return }
-		
-		let fireDate = NSDate(timeIntervalSinceNow: 3)
+	private func _startRequestTimer(withDelay seconds: NSTimeInterval) {
+		let fireDate = NSDate(timeIntervalSinceNow: seconds)
 		let selector = #selector(sendRequestToPlayerAPI(_:))
-		_timer = NSTimer(fireDate: fireDate, interval: seconds, target: self, selector: selector, userInfo: nil, repeats: true)
+		_timer = NSTimer(fireDate: fireDate, interval: seconds, target: self, selector: selector, userInfo: nil, repeats: false)
 		NSRunLoop.mainRunLoop().addTimer(_timer!, forMode: NSDefaultRunLoopMode)
 	}
 	
@@ -117,6 +129,7 @@ extension SystemCoordinationController {
 		                              updates: updates,
 		                              events: events,
 		                              callback: _handlePlayerAPICallback)
+		_killRequestTimer()
 	}
 	
 	private func _generateFilterSelectionIfChanged() -> PlayerAPIInputFilterSelection? {
@@ -139,8 +152,17 @@ extension SystemCoordinationController {
 			_killRequestTimer()
 			sendRequestToPlayerAPI()
 			playerSystem.wantsToAdvance = false
-			_setupRequestTimer(withInterval: 3.0)
 		}
+	}
+	
+	@objc func parentFilterChanged(notification: NSNotification) {
+		_killRequestTimer()
+		sendRequestToPlayerAPI()
+	}
+	
+	@objc func dataExistsForAPI(notification: NSNotification) {
+		guard _timer == nil else { return }
+		_startRequestTimer(withDelay: 3.0)
 	}
 	
 	private func _killRequestTimer() {

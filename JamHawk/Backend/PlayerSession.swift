@@ -21,10 +21,12 @@ class PlayerSession {
 	}
 	
 	// MARK: - Public
-	func instantiatePlayer(callback: PlayerAPICallback) {
+	func instantiatePlayer(filterSelection: PlayerAPIInputFilterSelection? = nil, callback: PlayerAPICallback) {
 		let instanceInput = PlayerAPIInputInstance(token: nil, needPlayerID: true, needOptions: true, isMobile: true, preloadSync: nil)
 		let statusInput = PlayerAPIInputStatus.instanceRequestStatus()
-		let input = PlayerAPIInput(instance: instanceInput, status: statusInput, updates: nil, events: nil)
+		let updates = PlayerAPIInputUpdates(abandonedRequests: nil, canPlay: true, filter: filterSelection, select: nil, ratings: nil)
+		
+		let input = PlayerAPIInput(instance: instanceInput, status: statusInput, updates: updates, events: nil)
 		guard let request = input.generateRequest() else { return }
 		
 		_playerDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in

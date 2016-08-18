@@ -9,7 +9,7 @@
 import Foundation
 
 private let kUserAPIURLString = "https://feat3.clashauddevelop.com/clazha/access/api/user"
-private let kPlayerAPIURLString = "https://feat3.clashauddevelop.com/clazha/player/media-list"
+private let kPlayerAPIURLString = "https://feat3.clashauddevelop.com/clazha/player/api/player"
 
 class JamHawkAPIURLProvider
 {

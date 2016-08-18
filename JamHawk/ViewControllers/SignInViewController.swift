@@ -1,53 +1,88 @@
 //
-//  ViewController.swift
+//  SignInViewController.swift
 //  JamHawk
 //
-//  Created by Gregory Klein on 7/1/16.
+//  Created by Brendan Lau on 7/19/16.
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
 import UIKit
 import IncipiaKit
 
-class SignInViewController: UIViewController
-{
-	// MARK: - Outlets
-	@IBOutlet private var _emailTextField: BottomBorderTextField!
-	@IBOutlet private var _passwordTextField: BottomBorderTextField!
+class SignInViewController: UIViewController {
+   
+   // MARK: - IBOutlets
+   @IBOutlet private var containerView: UIView!
+   @IBOutlet private var centerYConstraint: NSLayoutConstraint!
+   
+   @IBOutlet private var signInLabel: UILabel!
+   @IBOutlet private var forgotPasswordButton: UIButton!
+   
+   @IBOutlet private var emailTextField: JHSignInSignUpTextField!
+   @IBOutlet private var passwordTextField: JHSignInSignUpTextField!
 	
 	var emailText: String {
-		return _emailTextField.text ?? ""
+		return emailTextField.text ?? ""
 	}
 	
 	var passwordText: String {
-		return _passwordTextField.text ?? ""
+		return passwordTextField.text ?? ""
 	}
-	
-	var signInButtonPressed: (email: String, password: String, context: UIViewController) -> Void = { _, _, _ in }
-	var signUpButtonPressed: (email: String, password: String, context: UIViewController) -> Void = { _, _, _ in }
-
-	// MARK: - Overridden
-	override func viewDidLoad() {
-		super.viewDidLoad()
+   
+   // MARK: - Properties
+	var backClosure: () -> Void = {}
+	var continueClosure: () -> Void = {}
+   
+   // MARK: - Lifecycle
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      _setupOutlets()
 		
-		_emailTextField.update(placeholderColor: UIColor(white: 1, alpha: 0.75))
-		_passwordTextField.update(placeholderColor: UIColor(white: 1, alpha: 0.75))
+		backClosure = {
+			self.navigationController?.popViewControllerAnimated(true)
+		}
+   }
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		let backSel = #selector(SignInViewController.backItemPressed)
+		let continueSel = #selector(SignInViewController.continueItemPressed)
+		
+		updateLeftBarButtonItem(withTitle: "   Back", action: backSel)
+		updateRightBarButtonItem(withTitle: "Continue   ", action: continueSel)
 	}
 	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
+	internal func continueItemPressed() {
+		continueClosure()
 	}
 	
-	// MARK: - Actions
-	@IBAction func _viewTapped(recognizer: UITapGestureRecognizer) {
-		view.endEditing(true)
+	internal func backItemPressed() {
+		backClosure()
 	}
-	
-	@IBAction private func _signInButtonPressed() {
-		signInButtonPressed(email: emailText, password: passwordText, context: self)
-	}
-	
-	@IBAction private func _signUpButtonPressed() {
-		signUpButtonPressed(email: emailText, password: passwordText, context: self)
+   
+   // MARK: - Setup
+	private func _setupOutlets() {
+		signInLabel.kerning = 1.7
+		centerYConstraint.constant = UIScreen.mainScreen().bounds.height * -0.1
+   }
+   
+   // MARK: - Actions
+   @IBAction private func _viewTapped(recognizer: UIGestureRecognizer) {
+      view.endEditing(true)
+   }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		switch textField {
+		case emailTextField:
+			passwordTextField.becomeFirstResponder()
+			return false
+		case passwordTextField:
+			passwordTextField.resignFirstResponder()
+			return true
+		default: return true
+		}
 	}
 }

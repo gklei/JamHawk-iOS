@@ -237,7 +237,7 @@ struct PlayerAPIOutputCommand: JSONDecodable, JSONEncodable {
 
 struct PlayerAPIOutputFilters: JSONDecodable, JSONEncodable {
 	let available: [PlayerAPIOutputFilter]?
-	let selected: [PlayerAPIFilterID]?
+	var selected: [PlayerAPIFilterID]?
 	
 	init(json: JSON) throws {
 		available = try json.arrayOf("available", alongPath: .MissingKeyBecomesNil, type: PlayerAPIOutputFilter.self)
