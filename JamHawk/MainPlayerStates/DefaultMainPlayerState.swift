@@ -20,6 +20,7 @@ class DefaultMainPlayerState: MainPlayerState {
 		UIView.animateWithDuration(duration, animations: {
 			self._delegate.view.layoutIfNeeded()
 			self._delegate.nextAvailablMediaContainer.alpha = 1
+			self._delegate.longPressInfoContainer.alpha = 0
 			self._delegate.subfilterSelectionContainer.alpha = 0
 			self._delegate.profileNavigationContainer.alpha = 0
 			self._delegate.compactCurrentTrackContainer.alpha = 0

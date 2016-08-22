@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 import AsyncImageView
 import IncipiaKit
 
@@ -33,6 +32,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	@IBOutlet internal var _compactCurrentTrackContainer: UIView!
 	@IBOutlet internal var _nextAvailableMediaContainer: UIView!
+	@IBOutlet internal var _longPressInfoContainer: UIView!
 	
 	@IBOutlet internal var _playerControlsContainer: UIView!
 	@IBOutlet internal var _subfilterSelectionContainer: UIView!
@@ -57,6 +57,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
 	internal let _profileNavController = ProfileNavigationController()
 	
+	internal let _longPressInfoController = LongPressTrackInfoController.create()
+	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -68,10 +70,12 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
 		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
+		add(childViewController: _longPressInfoController, toContainer: _longPressInfoContainer)
 		
 		_backgroundImageView.layer.masksToBounds = true
 		_profileNavController.viewControllers = [_profileViewController]
 		_playerControlsVC.delegate = self
+		_nextAvailableMediaVC.delegate = self
 		
 		// TODO: put the swipe recognizer on the container view -- the view controller should know nothing about it
 		_compactCurrentTrackVC.swipeUpClosure = _compactCurrentTrackSwipedUp
@@ -216,7 +220,24 @@ extension MainPlayerViewController {
 	}
 }
 
+extension MainPlayerViewController: NextAvailableMediaViewControllerDelegate {
+
+	func nextAvailableMediaLongPressDidStart(viewModel: PlayerAPIOutputMetadataViewModel, targetRect: CGRect, controller: NextAvailableMediaViewController) {
+		let thumbnailRect = controller.view.convertRect(targetRect, toView: nil)
+		_longPressInfoController.update(withViewModel: viewModel, thumbnailRect: thumbnailRect)
+		
+		let state = ShowTrackDetailsState(delegate: self)
+		_transition(toState: state, duration: 0.5)
+	}
+	
+	func nextAvailableMediaLongPressDidEnd(viewModel: PlayerAPIOutputMetadataViewModel, controller: NextAvailableMediaViewController) {
+		let state = DefaultMainPlayerState(delegate: self)
+		_transition(toState: state, duration: 0.3)
+	}
+}
+
 extension MainPlayerViewController: PlayerControlsDelegate {
+	
 	func playerControlsProfileButtonPressed() {
 		if _currentState.isKindOfClass(FilterSelectionMainPlayerState) {
 			_stateAfterNextModelUpdate = ShowProfileState(delegate: self)

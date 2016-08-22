@@ -29,6 +29,10 @@ extension MainPlayerViewController: MainPlayerStateDelegate {
 		return _nextAvailableMediaContainer
 	}
 	
+	var longPressInfoContainer: UIView! {
+		return _longPressInfoContainer
+	}
+	
 	var profileNavigationContainer: UIView! {
 		return _profileNavigationContainer
 	}
