@@ -79,6 +79,8 @@ class SubfilterSelectionViewController: UIViewController {
 	
 	// MARK: - Public
 	func syncData() {
+		guard dataSource?.subfilterViewModels.count > 0 else { return }
+		
 		dispatch_async(dispatch_get_main_queue()) {
 			self._collectionView.reloadData()
 			self.dataSource?.selectedSubfilterIndicies.forEach {

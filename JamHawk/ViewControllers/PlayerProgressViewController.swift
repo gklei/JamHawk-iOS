@@ -21,6 +21,7 @@ class PlayerProgressViewController: UIViewController {
 	
 	// MARK: - Public
 	func updateProgress(zeroToOneValue: CGFloat) {
+		guard !zeroToOneValue.isNaN else { return }
 		let trailingSpaceConstant = view.bounds.width * (1 - zeroToOneValue)
 		_trailingSpaceProgressConstraint.constant = trailingSpaceConstant
 	}

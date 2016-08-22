@@ -23,6 +23,7 @@
 		CE08AB4C1D5E1D45006AD83A /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE08AB471D5E1D45006AD83A /* OpenSans-Regular.ttf */; };
 		CE08AB4D1D5E1D45006AD83A /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE08AB481D5E1D45006AD83A /* OpenSans-Semibold.ttf */; };
 		CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */; };
+		CE1F19771D6AB106003210D9 /* LongPressTrackInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F19761D6AB106003210D9 /* LongPressTrackInfoViewController.swift */; };
 		CE24F08A1D5E0C5F009B1E2E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */; };
 		CE2B69051D2C97EE00EAFF16 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2B69031D2C97EE00EAFF16 /* Player.storyboard */; };
 		CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */; };
@@ -128,6 +129,7 @@
 		CE08AB471D5E1D45006AD83A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "JamHawk/Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		CE08AB481D5E1D45006AD83A /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "JamHawk/Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		CE10F12C1D381E2200D69682 /* PlayerControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerControlsViewController.swift; path = JamHawk/ViewControllers/PlayerControlsViewController.swift; sourceTree = "<group>"; };
+		CE1F19761D6AB106003210D9 /* LongPressTrackInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressTrackInfoViewController.swift; path = JamHawk/ViewControllers/LongPressTrackInfoViewController.swift; sourceTree = "<group>"; };
 		CE24F0891D5E0C5F009B1E2E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = JamHawk/ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE2B69041D2C97EE00EAFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JamHawk/Base.lproj/Player.storyboard; sourceTree = "<group>"; };
 		CE2B69341D2EB8EE00EAFF16 /* BackendProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendProtocols.swift; path = JamHawk/Backend/BackendProtocols.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				CE5DA0F61D469A3F00025C17 /* Filters */,
 				CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */,
 				CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */,
+				CE1F19761D6AB106003210D9 /* LongPressTrackInfoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */,
 				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */,
 				CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */,
+				CE1F19771D6AB106003210D9 /* LongPressTrackInfoViewController.swift in Sources */,
 				CE2B693B1D2EC92700EAFF16 /* PlayerAPIInput.swift in Sources */,
 				CE3203D41D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift in Sources */,
 				CE3203D61D614EDC00746B03 /* OnboardingNavigationAnimator.swift in Sources */,
