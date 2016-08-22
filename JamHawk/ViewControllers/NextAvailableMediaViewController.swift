@@ -17,6 +17,15 @@ protocol NextAvailableMediaSelectionDataSource: class {
 	func selectMedia(atIndex index: Int)
 }
 
+protocol NextAvailableMediaViewControllerDelegate: class {
+	func nextAvailableMediaLongPressDidStart(viewModel: PlayerAPIOutputMetadataViewModel,
+	                                         targetRect: CGRect,
+	                                         controller: NextAvailableMediaViewController)
+	
+	func nextAvailableMediaLongPressDidEnd(viewModel: PlayerAPIOutputMetadataViewModel,
+	                                       controller: NextAvailableMediaViewController)
+}
+
 final class NextAvailableMediaViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
@@ -25,6 +34,9 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 	
 	// MARK: - Properties
 	weak var dataSource: NextAvailableMediaSelectionDataSource?
+	weak var delegate: NextAvailableMediaViewControllerDelegate?
+	
+	private var _lastLongPressedTrack: PlayerAPIOutputMetadataViewModel?
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -98,6 +110,24 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		_nextSongInfoLabel.attributedText = attributedString
 		_nextSongInfoLabel.kerning = 1.2
 		_nextSongInfoLabel.restartLabel()
+	}
+	
+	@IBAction private func _longPressedRecognized(recognizer: UIGestureRecognizer) {
+		switch recognizer.state {
+		case .Began:
+			let p = recognizer.locationInView(_collectionView)
+			guard let indexPath = _collectionView.indexPathForItemAtPoint(p) else { return }
+			guard let cellFrame = _collectionView.cellForItemAtIndexPath(indexPath)?.frame else { return }
+			let targetFrame = _collectionView.convertRect(cellFrame, toView: view)
+			guard let vm = dataSource?.viewModel(atIndex: indexPath.row) else { return }
+			_lastLongPressedTrack = vm
+			delegate?.nextAvailableMediaLongPressDidStart(vm, targetRect: targetFrame, controller: self)
+		case .Ended:
+			guard let vm = _lastLongPressedTrack else { return }
+			_lastLongPressedTrack = nil
+			delegate?.nextAvailableMediaLongPressDidEnd(vm, controller: self)
+		default: break
+		}
 	}
 }
 
