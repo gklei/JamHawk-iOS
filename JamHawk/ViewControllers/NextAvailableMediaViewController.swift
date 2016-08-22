@@ -12,6 +12,8 @@ import MarqueeLabel
 protocol NextAvailableMediaSelectionDataSource: class {
 	var selectedMediaIndex: Int? { get }
 	var nextAvailableMediaViewModels: [PlayerAPIOutputMetadataViewModel] { get }
+	
+	func viewModel(atIndex index: Int) -> PlayerAPIOutputMetadataViewModel?
 	func selectMedia(atIndex index: Int)
 }
 
