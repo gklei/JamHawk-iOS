@@ -157,7 +157,7 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		}
 		
 		_albumArtImageView.crossfadeDuration = 0
-		rippleImage(1.3)
+		rippleImage(1.2)
 	}
 }
 
@@ -172,7 +172,7 @@ extension LargeCurrentTrackViewController {
 		
 		guard let point = touches.first?.locationInView(_albumArtShadowView) else { return }
 		guard _albumArtShadowView.bounds.contains(point) else {
-			_viewTransformer.resetViewWithDuration(0.5)
+			_viewTransformer.resetViewWithDuration(0.4)
 			return
 		}
 		
@@ -181,12 +181,12 @@ extension LargeCurrentTrackViewController {
 	
 	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		super.touchesEnded(touches, withEvent: event)
-		_viewTransformer.resetViewWithDuration(0.5)
+		_viewTransformer.resetViewWithDuration(0.4)
 	}
 	
 	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
 		super.touchesCancelled(touches, withEvent: event)
-		_viewTransformer.resetViewWithDuration(0.5)
+		_viewTransformer.resetViewWithDuration(0.4)
 	}
 }
 
