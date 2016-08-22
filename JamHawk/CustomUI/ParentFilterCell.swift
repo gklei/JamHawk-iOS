@@ -118,7 +118,7 @@ extension ParentFilterCell {
 			_downArrowImageView.tintColor = selected ? .jmhTurquoiseColor() : .whiteColor()
 			
 			let t = selected ? CGAffineTransformMakeRotation(CGFloat(M_PI)) : CGAffineTransformIdentity
-			UIView.animateWithDuration(0.3) {
+			UIView.animateWithDuration(0.2) {
 				self._downArrowImageView.transform = t
 			}
 		}
