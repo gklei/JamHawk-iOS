@@ -182,7 +182,6 @@ extension AppRouter {
 	
 	private func _playerInstantiationCallback(error: NSError?) {
 		SwiftSpinner.hide()
-		_mainPlayerVC.transitionToDefaultState()
 		_coordinationController?.errorPresentationContext = self._mainPlayerVC
 		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}

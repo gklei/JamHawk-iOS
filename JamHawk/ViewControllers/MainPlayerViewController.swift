@@ -82,8 +82,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		// TODO: put the swipe recognizer on the container view -- the view controller should know nothing about it
 		_compactCurrentTrackVC.swipeUpClosure = _compactCurrentTrackSwipedUp
 		
-		// A little hacky..
-		transitionToDefaultState()
+		_currentState = DefaultMainPlayerState(delegate: self)
+		_transition(toState: _currentState, duration: 0)
 		
 		FilterSystem.addObserver(self, selector: .filterUpdated, notification: .modelDidUpdate)
 		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .parentFilterSelectionDidUpdate)
@@ -119,7 +119,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	private func _transition(toState state: MainPlayerState, duration: Double) {
-		guard _currentState.dynamicType != state.dynamicType else { return }
 		_currentState = state.transition(duration: duration)
 	}
 	
@@ -145,11 +144,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_nextAvailableMediaVC.dataSource = controller.nextAvailableSystem
 		_largeCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
 		_compactCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
-	}
-	
-	func transitionToDefaultState() {
-		_currentState = DefaultMainPlayerState(delegate: self)
-		_transition(toState: _currentState, duration: 0)
 	}
 }
 

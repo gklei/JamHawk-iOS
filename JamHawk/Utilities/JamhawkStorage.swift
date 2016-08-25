@@ -10,7 +10,6 @@ import Foundation
 import SwiftyUserDefaults
 
 struct JamhawkStorage {
-	
 	private static var lastUsedEmail: String? {
 		get {
 			return Defaults[.loginEmail]
