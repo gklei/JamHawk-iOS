@@ -111,11 +111,11 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	// MARK: - Private
-	private func _updateUI(withCurrentTrackViewModel vm: PlayerAPIOutputMediaViewModel) {
+	private func _updateUI(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
 		let loadImageSelector = #selector(MainPlayerViewController._imageFinishedLoading(_:url:))
 		let loader = AsyncImageLoader.sharedLoader()
 		loader.cancelLoadingImagesForTarget(_backgroundImageView)
-		loader.loadImageWithURL(vm.posterURL, target: self, action: loadImageSelector)
+		loader.loadImageWithURL(vm.albumArtworkURL, target: self, action: loadImageSelector)
 	}
 	
 	private func _transition(toState state: MainPlayerState, duration: Double) {
@@ -159,10 +159,6 @@ extension MainPlayerViewController {
 	
 	// MARK: - Player System
 	internal func _playerModelUpdated(notification: NSNotification) {
-		guard let system = notification.object as? PlayerSystem else { return }
-		guard let vm = system.currentMediaViewModel else { return }
-		
-		_updateUI(withCurrentTrackViewModel: vm)
 		_playerControlsVC.syncUI()
 	}
 	
@@ -207,6 +203,16 @@ extension MainPlayerViewController {
 	internal func _currentTrackUpdated(notification: NSNotification) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
+		
+		guard let system = notification.object as? CurrentTrackSystem else { return }
+		guard let vm = system.currentTrackViewModel else { return }
+		
+		let sharedLoader = AsyncImageLoader.sharedLoader()
+		if let image = sharedLoader.cache?.objectForKey(vm.albumArtworkURL!) as? UIImage {
+			_backgroundImageView.image = image.applyBlur(withRadius: 2.5, tintColor: nil, saturationDeltaFactor: 2)
+		} else {
+			_updateUI(withViewModel: vm)
+		}
 	}
 	
 	// MARK: - Current Track Rating System
