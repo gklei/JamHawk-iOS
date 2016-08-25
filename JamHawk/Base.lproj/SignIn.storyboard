@@ -13,8 +13,11 @@
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
+            <string>OpenSans-Light</string>
         </mutableArray>
         <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
@@ -451,6 +454,85 @@
             </objects>
             <point key="canvasLocation" x="694" y="957"/>
         </scene>
+        <!--30 sec setup-->
+        <scene sceneID="8La-4j-I8F">
+            <objects>
+                <viewController storyboardIdentifier="CoachingTipsViewController" title="30 sec setup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E42-Or-XQZ" customClass="CoachingTipsViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DTI-RL-Kmz"/>
+                        <viewControllerLayoutGuide type="bottom" id="a6n-yh-c38"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hhz-uQ-8JV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlQ-8V-q3U">
+                                <rect key="frame" x="30" y="283" width="315" height="53.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQF-YX-ErH">
+                                <rect key="frame" x="30" y="186" width="315" height="82"/>
+                                <string key="text">Welcome to your
+Jamhawk Dashboard</string>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
+                                <color key="textColor" red="0.97254902124404907" green="0.52941179275512695" blue="0.18039216101169586" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coaching_tips_jamhawk" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-dZ-FQv">
+                                <rect key="frame" x="30" y="114" width="65" height="64"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oH-gf-Ix2" customClass="WhiteRoundedJamhawkButton" customModule="JamHawk" customModuleProvider="target">
+                                <rect key="frame" x="30" y="352" width="155" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="0R7-5n-fa8"/>
+                                    <constraint firstAttribute="height" constant="40" id="5I3-fT-aIY"/>
+                                </constraints>
+                                <state key="normal" title="Next Tip">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="_buttonPressed" destination="E42-Or-XQZ" eventType="touchUpInside" id="uDf-MU-rDk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrV-WX-PJC">
+                                <rect key="frame" x="30" y="425" width="103" height="30"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                <state key="normal" title="Skip All Help Tips">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LrV-WX-PJC" firstAttribute="leading" secondItem="4oH-gf-Ix2" secondAttribute="leading" id="2Ty-up-Va3"/>
+                            <constraint firstItem="4oH-gf-Ix2" firstAttribute="leading" secondItem="vlQ-8V-q3U" secondAttribute="leading" id="7CA-cf-UNd"/>
+                            <constraint firstItem="iQF-YX-ErH" firstAttribute="leading" secondItem="vlQ-8V-q3U" secondAttribute="leading" id="8Wm-Rt-N3L"/>
+                            <constraint firstItem="vlQ-8V-q3U" firstAttribute="top" secondItem="iQF-YX-ErH" secondAttribute="bottom" constant="15" id="9EE-Wb-HUO"/>
+                            <constraint firstItem="B8F-dZ-FQv" firstAttribute="leading" secondItem="iQF-YX-ErH" secondAttribute="leading" id="D05-0f-zry"/>
+                            <constraint firstItem="iQF-YX-ErH" firstAttribute="top" secondItem="B8F-dZ-FQv" secondAttribute="bottom" constant="8.5" id="EQs-Iv-ocP"/>
+                            <constraint firstAttribute="trailing" secondItem="vlQ-8V-q3U" secondAttribute="trailing" constant="30" id="Es3-r7-H6i"/>
+                            <constraint firstItem="iQF-YX-ErH" firstAttribute="width" secondItem="vlQ-8V-q3U" secondAttribute="width" id="Gja-ZC-d77"/>
+                            <constraint firstItem="vlQ-8V-q3U" firstAttribute="centerY" secondItem="hhz-uQ-8JV" secondAttribute="centerY" multiplier="0.93" id="MIG-rM-Z6V"/>
+                            <constraint firstItem="4oH-gf-Ix2" firstAttribute="top" secondItem="vlQ-8V-q3U" secondAttribute="bottom" constant="16" id="kwP-jB-CUY"/>
+                            <constraint firstItem="vlQ-8V-q3U" firstAttribute="leading" secondItem="hhz-uQ-8JV" secondAttribute="leading" constant="30" id="udq-PZ-f0C"/>
+                            <constraint firstItem="LrV-WX-PJC" firstAttribute="top" secondItem="4oH-gf-Ix2" secondAttribute="bottom" constant="32.5" id="wL6-Vc-Hmg"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="_iconImageView" destination="B8F-dZ-FQv" id="cpe-0C-0YL"/>
+                        <outlet property="_mainTitleLabel" destination="iQF-YX-ErH" id="1Ti-7A-KvQ"/>
+                        <outlet property="_nextButton" destination="4oH-gf-Ix2" id="fsM-oA-uEv"/>
+                        <outlet property="_subtitleLabel" destination="vlQ-8V-q3U" id="hEM-ox-D2E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sO-eU-Jgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1412.5" y="987.5"/>
+        </scene>
         <!--Popularity Selection Onboarding View Controller-->
         <scene sceneID="mPj-ee-RY6">
             <objects>
@@ -562,7 +644,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-C8-xkD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-C8-xkD" customClass="WhiteRoundedJamhawkButton" customModule="JamHawk" customModuleProvider="target">
                                 <rect key="frame" x="19.5" y="260.5" width="335" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -620,6 +702,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="coaching_tips_jamhawk" width="65" height="64"/>
         <image name="jamhawk_logo_welcome" width="141" height="168"/>
     </resources>
 </document>

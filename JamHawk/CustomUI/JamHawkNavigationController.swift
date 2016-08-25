@@ -18,7 +18,7 @@ class JamHawkNavigationController: UINavigationController {
 		
 		navigationBar.titleTextAttributes = [
 			NSForegroundColorAttributeName : UIColor.whiteColor(),
-			NSFontAttributeName : UIFont.boldSystemFontOfSize(13)
+			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!
 		]
 	}
 	

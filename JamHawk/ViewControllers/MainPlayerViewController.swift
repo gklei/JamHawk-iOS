@@ -41,7 +41,11 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	@IBOutlet internal var _profileNavigationContainer: UIView!
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
-	// MARK: - Properties
+	// MARK: - Public Properties
+	var showCoachingTips: Bool = false
+	let coachingTipsController = CoachingTipsViewController.instantiate(fromStoryboard: "SignIn")
+	
+	// MARK: - Internal Properties
 	internal var _currentState: MainPlayerState!
 	internal var _stateAfterNextModelUpdate: MainPlayerState?
 	
@@ -97,13 +101,26 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaUpdated, notification: .modelDidUpdate)
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaSelectionUpdated, notification: .selectionDidUpdate)
+		
+		coachingTipsController.delegate = self
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
 		removeRightBarItem()
-		navigationController?.setNavigationBarHidden(true, animated: false)
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if showCoachingTips {
+			let navController = JamHawkNavigationController(rootViewController: coachingTipsController)
+			navController.modalPresentationStyle = .OverCurrentContext
+			navController.modalTransitionStyle = .CrossDissolve
+			
+			presentViewController(navController, animated: true, completion: nil)
+		}
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -247,6 +264,60 @@ extension MainPlayerViewController: PlayerControlsDelegate {
 		} else {
 			let state = ShowProfileState(delegate: self)
 			_transition(toState: state, duration: kDefaultTransitionDuration)
+		}
+	}
+}
+
+extension MainPlayerViewController: CoachingTipsViewControllerDelegate {
+	
+	func focusRect(forState state: CoachingTipsState) -> CGRect {
+		switch state {
+		case .Welcome: return CGRect.zero
+		case .NextSong: return _parentFilterSelectionContainer.frame
+		case .Filters: return _nextAvailableMediaContainer.frame
+		}
+	}
+	
+	func mainTitleText(forState state: CoachingTipsState) -> String {
+		switch state {
+		case .Welcome: return "Welcome to your\rJamhawk Dashboard"
+		case .NextSong: return "Choose your\r next song"
+		case .Filters: return "Your filters,\ryour way"
+		}
+	}
+	
+	func subtitleText(forState state: CoachingTipsState) -> String {
+		return "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis."
+//		switch state {
+//		case .Welcome: return ""
+//		case .NextSong: return ""
+//		case .Filters: return ""
+//		}
+	}
+	
+	func buttonTitleText(forState state: CoachingTipsState) -> String {
+		switch state {
+		case .Welcome: return "First Tip"
+		case .NextSong: return "Next Tip"
+		case .Filters: return "I Got It"
+		}
+	}
+	
+	func icon(forState state: CoachingTipsState) -> UIImage? {
+		switch state {
+		case .Welcome: return UIImage(named: "coaching_tips_jamhawk")
+		case .NextSong: return UIImage(named: "coaching_tips_next_song")
+		case .Filters: return UIImage(named: "coaching_tips_filters")
+		}
+	}
+	
+	func nextButtonPressed(forCurrentState state: CoachingTipsState) {
+		switch state {
+		case .Welcome: coachingTipsController.currentState = .NextSong
+		case .NextSong: coachingTipsController.currentState = .Filters
+		case .Filters:
+			navigationController?.setNavigationBarHidden(true, animated: true)
+			coachingTipsController.navigationController?.dismissViewControllerAnimated(true, completion: nil)
 		}
 	}
 }

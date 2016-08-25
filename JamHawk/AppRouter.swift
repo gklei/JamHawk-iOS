@@ -183,6 +183,16 @@ extension AppRouter {
 	private func _playerInstantiationCallback(error: NSError?) {
 		SwiftSpinner.hide()
 		_coordinationController?.errorPresentationContext = self._mainPlayerVC
+		
+		let showCoachingTips = !JamhawkStorage.userHasSeenCoachingTips
+		_mainPlayerVC.showCoachingTips = showCoachingTips
+		
+		if !showCoachingTips {
+			rootNavController.setNavigationBarHidden(true, animated: true)
+		} else {
+			_mainPlayerVC.title = "30 sec setup"
+		}
+		
 		rootNavController.pushViewController(_mainPlayerVC, animated: true)
 	}
 }
