@@ -8,7 +8,7 @@
 
 import UIKit
 
-private extension CoachingTipsState {
+extension CoachingTipsState {
 	var mainTitleText: String {
 		switch self {
 		case .Welcome: return "Welcome to your\rJamhawk Dashboard"
