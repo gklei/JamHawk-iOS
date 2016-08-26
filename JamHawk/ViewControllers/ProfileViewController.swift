@@ -9,16 +9,13 @@
 import UIKit
 import MarqueeLabel
 
+protocol ProfileViewControllerDelegate: class {
+	func profileViewController(controller: ProfileViewController, optionSelected option: ProfileOptionType)
+}
+
 enum ProfileOptionType: String {
    case EditProfile = "Edit Profile"
    case Settings = "Settings"
-   
-   var destinationVC: UIViewController? {
-      switch self {
-         case .EditProfile: return EditProfileViewController.instantiate(fromStoryboard: "Profile")
-         case .Settings: return SettingsProfileViewController.instantiate(fromStoryboard: "Profile")
-      }
-   }
 }
 
 class ProfileViewController: UIViewController {
@@ -26,6 +23,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet private var _profileNameLabel: UILabel!
    @IBOutlet weak var _profileOptionsCollectionView: UICollectionView!
 	
+	weak var delegate: ProfileViewControllerDelegate?
    private var _profileOptions = [ProfileOptionType.EditProfile, ProfileOptionType.Settings]
    
 	// MARK: - Overridden
@@ -73,8 +71,8 @@ extension ProfileViewController: UICollectionViewDelegate {
    }
    
    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-      guard let vc = _profileOptions[indexPath.row].destinationVC else { return }
-      navigationController?.pushViewController(vc, animated: true)
+		let option = _profileOptions[indexPath.row]
+		delegate?.profileViewController(self, optionSelected: option)
    }
 }
 

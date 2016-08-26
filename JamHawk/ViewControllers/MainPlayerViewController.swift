@@ -58,12 +58,10 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal let _largeCurrentTrackVC = LargeCurrentTrackViewController.create()
 	
 	internal let _nextAvailableMediaVC = NextAvailableMediaViewController.create()
+	internal let _longPressInfoController = LongPressTrackInfoController.create()
 	internal let _playerControlsVC = PlayerControlsViewController.create()
 	
-	internal let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
-	internal let _profileNavController = ProfileNavigationController()
-	
-	internal let _longPressInfoController = LongPressTrackInfoController.create()
+	internal var _settingsRouter: SettingsRouter!
 	
 	// MARK: - Overridden
 	override func viewDidLoad() {
@@ -75,11 +73,13 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _compactCurrentTrackVC, toContainer: _compactCurrentTrackContainer)
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
-		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
 		add(childViewController: _longPressInfoController, toContainer: _longPressInfoContainer)
 		
+		let profileNavController = ProfileNavigationController()
+		_settingsRouter = SettingsRouter(rootNavigationController: profileNavController)
+		add(childViewController: profileNavController, toContainer: _profileNavigationContainer)
+		
 		_backgroundImageView.layer.masksToBounds = true
-		_profileNavController.viewControllers = [_profileViewController]
 		_playerControlsVC.delegate = self
 		_nextAvailableMediaVC.delegate = self
 		

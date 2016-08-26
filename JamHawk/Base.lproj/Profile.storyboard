@@ -251,7 +251,7 @@
         <!--Settings-->
         <scene sceneID="55Z-WG-Vmc">
             <objects>
-                <viewController storyboardIdentifier="SettingsProfileViewController" title="Settings" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="axE-RW-cS1" customClass="SettingsProfileViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileSettingsViewController" title="Settings" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="axE-RW-cS1" customClass="ProfileSettingsViewController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z8c-wA-FgR"/>
                         <viewControllerLayoutGuide type="bottom" id="Qs1-B7-yL4"/>
