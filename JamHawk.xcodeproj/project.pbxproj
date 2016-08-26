@@ -16,6 +16,7 @@
 		C6EFB1EA1D3ECE1000B57397 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFB1E91D3ECE1000B57397 /* SignInViewController.swift */; };
 		CE06D3101D6F9D1C003BF9DA /* CoachingTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D30F1D6F9D1C003BF9DA /* CoachingTipsViewController.swift */; };
 		CE06D3121D6FA3DE003BF9DA /* WhiteRoundedJamhawkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3111D6FA3DE003BF9DA /* WhiteRoundedJamhawkButton.swift */; };
+		CE06D3141D70C923003BF9DA /* CoachingTipsState+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3131D70C923003BF9DA /* CoachingTipsState+Extensions.swift */; };
 		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
@@ -124,6 +125,7 @@
 		C6EFB1E91D3ECE1000B57397 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = JamHawk/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CE06D30F1D6F9D1C003BF9DA /* CoachingTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachingTipsViewController.swift; path = JamHawk/ViewControllers/CoachingTipsViewController.swift; sourceTree = "<group>"; };
 		CE06D3111D6FA3DE003BF9DA /* WhiteRoundedJamhawkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteRoundedJamhawkButton.swift; path = JamHawk/CustomUI/WhiteRoundedJamhawkButton.swift; sourceTree = "<group>"; };
+		CE06D3131D70C923003BF9DA /* CoachingTipsState+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoachingTipsState+Extensions.swift"; path = "JamHawk/ViewControllers/CoachingTipsState+Extensions.swift"; sourceTree = "<group>"; };
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				CE747BF91D382F3F0006D1B6 /* NextAvailableMediaViewController.swift */,
 				CE1F19761D6AB106003210D9 /* LongPressTrackInfoViewController.swift */,
 				CE06D30F1D6F9D1C003BF9DA /* CoachingTipsViewController.swift */,
+				CE06D3131D70C923003BF9DA /* CoachingTipsState+Extensions.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				CEFD869A1D300F34005313AD /* AppRouter.swift in Sources */,
 				CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */,
 				CE747C091D3891F90006D1B6 /* ParentFilterCell.swift in Sources */,
+				CE06D3141D70C923003BF9DA /* CoachingTipsState+Extensions.swift in Sources */,
 				CE1F19771D6AB106003210D9 /* LongPressTrackInfoViewController.swift in Sources */,
 				CE2B693B1D2EC92700EAFF16 /* PlayerAPIInput.swift in Sources */,
 				CE3203D41D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift in Sources */,
