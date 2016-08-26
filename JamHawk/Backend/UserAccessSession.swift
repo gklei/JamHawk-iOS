@@ -9,8 +9,6 @@
 import Foundation
 
 private let kUserAccessTestToken = "apptesttoken"
-private let kTestEmail = "hello@incipia.co"
-private let kTestPassword = "helloo"
 
 class UserAccessSession {
 	// MARK: - Properties: Private
@@ -72,13 +70,5 @@ class UserAccessSession {
 			}
 		}
 		_signOutDataTask?.resume()
-	}
-	
-	func signInWithTestCreds(callback: UserAccessCallback) {
-		signIn(email: kTestEmail, password: kTestPassword, callback: callback)
-	}
-	
-	func signOutWithTestCreds(callback: UserAccessCallback) {
-		signOut(email: kTestEmail, password: kTestPassword, callback: callback)
 	}
 }
