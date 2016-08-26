@@ -42,6 +42,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Public Properties
+	var session: JamHawkSession!
 	var showCoachingTips: Bool = false
 	let coachingTipsController = CoachingTipsViewController.instantiate(fromStoryboard: "SignIn")
 	
@@ -76,7 +77,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _longPressInfoController, toContainer: _longPressInfoContainer)
 		
 		let profileNavController = ProfileNavigationController()
-		_settingsRouter = SettingsRouter(rootNavigationController: profileNavController)
+		_settingsRouter = SettingsRouter(rootNavigationController: profileNavController, session: session)
 		add(childViewController: profileNavController, toContainer: _profileNavigationContainer)
 		
 		_backgroundImageView.layer.masksToBounds = true
@@ -103,6 +104,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaSelectionUpdated, notification: .selectionDidUpdate)
 		
 		coachingTipsController.delegate = self
+		
+		ProfileViewController.addObserver(self, selector: #selector(MainPlayerViewController.prepareForSignOut), notification: .signOut)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -125,6 +128,11 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return _statusBarStyle
+	}
+	
+	func prepareForSignOut() {
+		let state = DefaultMainPlayerState(delegate: self)
+		_transition(toState: state, duration: kDefaultTransitionDuration)
 	}
 	
 	// MARK: - Private

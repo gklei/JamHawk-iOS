@@ -12,20 +12,23 @@ class SettingsRouter: NSObject {
 	
 	// MARK: - Properties
 	let rootNavigationController: UINavigationController
+	let session: JamHawkSession
 	
 	private let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
 	private let _editProfileViewController = EditProfileViewController.instantiate(fromStoryboard: "Profile")
 	private let _ProfileSettingsViewController = ProfileSettingsViewController.instantiate(fromStoryboard: "Profile")
 	
-	init(rootNavigationController: UINavigationController) {
+	init(rootNavigationController: UINavigationController, session: JamHawkSession) {
 		self.rootNavigationController = rootNavigationController
-		self.rootNavigationController.viewControllers = [_profileViewController]
+		self.session = session
 		
 		super.init()
 		
 		_profileViewController.delegate = self
 		_editProfileViewController.delegate = self
 		_ProfileSettingsViewController.delegate = self
+		
+		self.rootNavigationController.viewControllers = [_profileViewController]
 	}
 }
 
@@ -43,8 +46,8 @@ extension SettingsRouter: ProfileViewControllerDelegate {
 extension SettingsRouter: EditProfileViewControllerDelegate {
 	func editProfileViewController(controller: EditProfileViewController, optionSelected option: EditProfileOptionType) {
 		switch option {
-		case .Email: print("Edit email!")
-		case .Password: print("Edit password!")
+		case .Email: print("Edit email")
+		case .Password: print("Edit password")
 		}
 	}
 }
@@ -52,8 +55,8 @@ extension SettingsRouter: EditProfileViewControllerDelegate {
 extension SettingsRouter: ProfileSettingsViewControllerDelegate {
 	func profileSettingsViewController(controller: ProfileSettingsViewController, optionSelected option: ProfileSettingsOptionType) {
 		switch option {
-		case .Share: print("Share!")
-		case .TermsAndConditions: print("Show terms and conditions!")
+		case .Share: print("Share")
+		case .TermsAndConditions: print("Show terms and conditions")
 		}
 	}
 }

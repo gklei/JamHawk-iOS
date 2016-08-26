@@ -37,6 +37,11 @@ class AppRouter: NSObject {
 		_setupPlayerAndSystems()
 		_setupWindow()
 		
+		ProfileViewController.addObserver(self, selector: #selector(AppRouter.signOut), notification: .signOut)
+		_signInIfCredentialsPresent()
+	}
+	
+	private func _signInIfCredentialsPresent() {
 		if let credentials = JamhawkStorage.lastUsedCredentials {
 			SwiftSpinner.show("Signing In...")
 			session.signIn(email: credentials.email, password: credentials.password) { (error, output) in
@@ -44,8 +49,6 @@ class AppRouter: NSObject {
 				self._handleUserAccessCallback(error, output: output, credentials: credentials, context: self._welcomeVC)
 			}
 		}
-		
-		ProfileViewController.addObserver(self, selector: #selector(AppRouter.signOut), notification: .signOut)
 	}
 	
 	func signOut() {
@@ -80,6 +83,8 @@ class AppRouter: NSObject {
 	
 	private func _setupPlayerAndSystems() {
 		_coordinationController = SystemCoordinationController(apiService: session)
+		
+		_mainPlayerVC.session = session
 		_mainPlayerVC.setupSystems(withCoordinationController: _coordinationController!)
 	}
 	
