@@ -25,7 +25,8 @@ extension JamHawkJSONDecodable where Self: JSONDecodable {
 			let json = try JSON(data: data)
 			try self.init(json: json)
 		} catch let error {
-			print("Error: \(error), decoding JSON data in class: \(Self.self)")
+			let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+			print("Error: \(error), decoding JSON data in class: \(Self.self), data: \(dataString)")
 			return nil
 		}
 	}
