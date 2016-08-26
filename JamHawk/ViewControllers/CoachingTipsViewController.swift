@@ -21,6 +21,7 @@ protocol CoachingTipsViewControllerDelegate: class {
 	func icon(forState state: CoachingTipsState) -> UIImage?
 	
 	func nextButtonPressed(forCurrentState state: CoachingTipsState)
+	func skipAllButtonPressed(forCurrentState state: CoachingTipsState)
 }
 
 class CoachingTipsViewController: UIViewController {
@@ -75,6 +76,10 @@ class CoachingTipsViewController: UIViewController {
 	
 	@IBAction private func _buttonPressed() {
 		delegate?.nextButtonPressed(forCurrentState: currentState)
+	}
+	
+	@IBAction private func _skipAllTipsButtonPressed() {
+		delegate?.skipAllButtonPressed(forCurrentState: currentState)
 	}
 	
 	private func _updateUI() {

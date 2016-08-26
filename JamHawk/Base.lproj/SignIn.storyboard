@@ -502,6 +502,9 @@ Jamhawk Dashboard</string>
                                 <state key="normal" title="Skip All Help Tips">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="_skipAllTipsButtonPressed" destination="E42-Or-XQZ" eventType="touchUpInside" id="Wft-Xd-QAp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>

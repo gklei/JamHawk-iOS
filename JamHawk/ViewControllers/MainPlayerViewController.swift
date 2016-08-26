@@ -273,42 +273,25 @@ extension MainPlayerViewController: CoachingTipsViewControllerDelegate {
 	func focusRect(forState state: CoachingTipsState) -> CGRect {
 		switch state {
 		case .Welcome: return CGRect.zero
-		case .NextSong: return _parentFilterSelectionContainer.frame
-		case .Filters: return _nextAvailableMediaContainer.frame
+		case .NextSong: return _nextAvailableMediaContainer.frame
+		case .Filters: return _parentFilterSelectionContainer.frame
 		}
 	}
 	
 	func mainTitleText(forState state: CoachingTipsState) -> String {
-		switch state {
-		case .Welcome: return "Welcome to your\rJamhawk Dashboard"
-		case .NextSong: return "Choose your\r next song"
-		case .Filters: return "Your filters,\ryour way"
-		}
+		return state.mainTitleText
 	}
 	
 	func subtitleText(forState state: CoachingTipsState) -> String {
-		return "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis."
-//		switch state {
-//		case .Welcome: return ""
-//		case .NextSong: return ""
-//		case .Filters: return ""
-//		}
+		return state.subtitleText
 	}
 	
 	func buttonTitleText(forState state: CoachingTipsState) -> String {
-		switch state {
-		case .Welcome: return "First Tip"
-		case .NextSong: return "Next Tip"
-		case .Filters: return "I Got It"
-		}
+		return state.buttonTitleText
 	}
 	
 	func icon(forState state: CoachingTipsState) -> UIImage? {
-		switch state {
-		case .Welcome: return UIImage(named: "coaching_tips_jamhawk")
-		case .NextSong: return UIImage(named: "coaching_tips_next_song")
-		case .Filters: return UIImage(named: "coaching_tips_filters")
-		}
+		return state.iconImage
 	}
 	
 	func nextButtonPressed(forCurrentState state: CoachingTipsState) {
@@ -318,6 +301,13 @@ extension MainPlayerViewController: CoachingTipsViewControllerDelegate {
 		case .Filters:
 			navigationController?.setNavigationBarHidden(true, animated: true)
 			coachingTipsController.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+			JamhawkStorage.userHasSeenCoachingTips = true
 		}
+	}
+	
+	func skipAllButtonPressed(forCurrentState state: CoachingTipsState) {
+		navigationController?.setNavigationBarHidden(true, animated: true)
+		coachingTipsController.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+		JamhawkStorage.userHasSeenCoachingTips = true
 	}
 }
