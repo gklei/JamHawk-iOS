@@ -20,6 +20,7 @@ class FilterSelectionMainPlayerState: MainPlayerState {
 		UIView.animateWithDuration(duration, animations: {
 			self._delegate.view.layoutIfNeeded()
 			self._delegate.nextAvailablMediaContainer.alpha = 0
+			self._delegate.longPressInfoContainer.alpha = 0
 			self._delegate.compactCurrentTrackContainer.alpha = 1
 			self._delegate.subfilterSelectionContainer.alpha = 1
 			}) { finished in

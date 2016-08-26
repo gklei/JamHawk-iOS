@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import AVFoundation
 import AsyncImageView
 import IncipiaKit
+
+private let kDefaultTransitionDuration: Double = 0.2
 
 extension Selector {
 	static let filterUpdated = #selector(MainPlayerViewController._filterModelUpdated(_:))
@@ -33,13 +34,18 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	
 	@IBOutlet internal var _compactCurrentTrackContainer: UIView!
 	@IBOutlet internal var _nextAvailableMediaContainer: UIView!
+	@IBOutlet internal var _longPressInfoContainer: UIView!
 	
 	@IBOutlet internal var _playerControlsContainer: UIView!
 	@IBOutlet internal var _subfilterSelectionContainer: UIView!
 	@IBOutlet internal var _profileNavigationContainer: UIView!
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
 	
-	// MARK: - Properties
+	// MARK: - Public Properties
+	var showCoachingTips: Bool = false
+	let coachingTipsController = CoachingTipsViewController.instantiate(fromStoryboard: "SignIn")
+	
+	// MARK: - Internal Properties
 	internal var _currentState: MainPlayerState!
 	internal var _stateAfterNextModelUpdate: MainPlayerState?
 	
@@ -57,6 +63,8 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	internal let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
 	internal let _profileNavController = ProfileNavigationController()
 	
+	internal let _longPressInfoController = LongPressTrackInfoController.create()
+	
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -68,16 +76,18 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		add(childViewController: _playerControlsVC, toContainer: _playerControlsContainer)
 		add(childViewController: _subfilterSelectionVC, toContainer: _subfilterSelectionContainer)
 		add(childViewController: _profileNavController, toContainer: _profileNavigationContainer)
+		add(childViewController: _longPressInfoController, toContainer: _longPressInfoContainer)
 		
 		_backgroundImageView.layer.masksToBounds = true
 		_profileNavController.viewControllers = [_profileViewController]
 		_playerControlsVC.delegate = self
+		_nextAvailableMediaVC.delegate = self
 		
 		// TODO: put the swipe recognizer on the container view -- the view controller should know nothing about it
 		_compactCurrentTrackVC.swipeUpClosure = _compactCurrentTrackSwipedUp
 		
-		// A little hacky..
-		transitionToDefaultState()
+		_currentState = DefaultMainPlayerState(delegate: self)
+		_transition(toState: _currentState, duration: 0)
 		
 		FilterSystem.addObserver(self, selector: .filterUpdated, notification: .modelDidUpdate)
 		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .parentFilterSelectionDidUpdate)
@@ -91,13 +101,26 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaUpdated, notification: .modelDidUpdate)
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaSelectionUpdated, notification: .selectionDidUpdate)
+		
+		coachingTipsController.delegate = self
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		removeLeftBarItem()
 		removeRightBarItem()
-		navigationController?.setNavigationBarHidden(true, animated: false)
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if showCoachingTips {
+			let navController = JamHawkNavigationController(rootViewController: coachingTipsController)
+			navController.modalPresentationStyle = .OverCurrentContext
+			navController.modalTransitionStyle = .CrossDissolve
+			
+			presentViewController(navController, animated: true, completion: nil)
+		}
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -105,15 +128,14 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	}
 	
 	// MARK: - Private
-	private func _updateUI(withCurrentTrackViewModel vm: PlayerAPIOutputMediaViewModel) {
+	private func _updateUI(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
 		let loadImageSelector = #selector(MainPlayerViewController._imageFinishedLoading(_:url:))
 		let loader = AsyncImageLoader.sharedLoader()
 		loader.cancelLoadingImagesForTarget(_backgroundImageView)
-		loader.loadImageWithURL(vm.posterURL, target: self, action: loadImageSelector)
+		loader.loadImageWithURL(vm.albumArtworkURL, target: self, action: loadImageSelector)
 	}
 	
 	private func _transition(toState state: MainPlayerState, duration: Double) {
-		guard _currentState.dynamicType != state.dynamicType else { return }
 		_currentState = state.transition(duration: duration)
 	}
 	
@@ -122,7 +144,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
 		} else {
 			let state = DefaultMainPlayerState(delegate: self)
-			_transition(toState: state, duration: 0.3)
+			_transition(toState: state, duration: kDefaultTransitionDuration)
 		}
 	}
 	
@@ -140,11 +162,6 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		_largeCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
 		_compactCurrentTrackVC.trackRatingDataSource = controller.ratingSystem
 	}
-	
-	func transitionToDefaultState() {
-		_currentState = DefaultMainPlayerState(delegate: self)
-		_transition(toState: _currentState, duration: 0)
-	}
 }
 
 // MARK: - Async Image Downloading
@@ -159,10 +176,6 @@ extension MainPlayerViewController {
 	
 	// MARK: - Player System
 	internal func _playerModelUpdated(notification: NSNotification) {
-		guard let system = notification.object as? PlayerSystem else { return }
-		guard let vm = system.currentMediaViewModel else { return }
-		
-		_updateUI(withCurrentTrackViewModel: vm)
 		_playerControlsVC.syncUI()
 	}
 	
@@ -187,7 +200,7 @@ extension MainPlayerViewController {
 		
 		_subfilterSelectionVC.syncData()
 		_parentFilterSelectionVC.syncUI()
-		_transition(toState: state, duration: 0.3)
+		_transition(toState: state, duration: kDefaultTransitionDuration)
 	}
 	
 	internal func _subfilterSelectionUpdated(notification: NSNotification) {
@@ -207,6 +220,16 @@ extension MainPlayerViewController {
 	internal func _currentTrackUpdated(notification: NSNotification) {
 		_largeCurrentTrackVC.syncUI()
 		_compactCurrentTrackVC.syncUI()
+		
+		guard let system = notification.object as? CurrentTrackSystem else { return }
+		guard let vm = system.currentTrackViewModel else { return }
+		
+		let sharedLoader = AsyncImageLoader.sharedLoader()
+		if let image = sharedLoader.cache?.objectForKey(vm.albumArtworkURL!) as? UIImage {
+			_backgroundImageView.image = image.applyBlur(withRadius: 2.5, tintColor: nil, saturationDeltaFactor: 2)
+		} else {
+			_updateUI(withViewModel: vm)
+		}
 	}
 	
 	// MARK: - Current Track Rating System
@@ -216,14 +239,75 @@ extension MainPlayerViewController {
 	}
 }
 
+extension MainPlayerViewController: NextAvailableMediaViewControllerDelegate {
+
+	func nextAvailableMediaLongPressDidStart(viewModel: PlayerAPIOutputMetadataViewModel, targetRect: CGRect, controller: NextAvailableMediaViewController) {
+		let thumbnailRect = controller.view.convertRect(targetRect, toView: nil)
+		_longPressInfoController.update(withViewModel: viewModel, thumbnailRect: thumbnailRect)
+		
+		let state = ShowTrackDetailsState(delegate: self)
+		_transition(toState: state, duration: 0.4)
+	}
+	
+	func nextAvailableMediaLongPressDidEnd(viewModel: PlayerAPIOutputMetadataViewModel, controller: NextAvailableMediaViewController) {
+		let state = DefaultMainPlayerState(delegate: self)
+		_transition(toState: state, duration: kDefaultTransitionDuration)
+	}
+}
+
 extension MainPlayerViewController: PlayerControlsDelegate {
+	
 	func playerControlsProfileButtonPressed() {
 		if _currentState.isKindOfClass(FilterSelectionMainPlayerState) {
 			_stateAfterNextModelUpdate = ShowProfileState(delegate: self)
 			_parentFilterSelectionVC.dataSource?.resetParentFilterSelection()
 		} else {
 			let state = ShowProfileState(delegate: self)
-			_transition(toState: state, duration: 0.3)
+			_transition(toState: state, duration: kDefaultTransitionDuration)
 		}
+	}
+}
+
+extension MainPlayerViewController: CoachingTipsViewControllerDelegate {
+	
+	func focusRect(forState state: CoachingTipsState) -> CGRect {
+		switch state {
+		case .Welcome: return CGRect.zero
+		case .NextSong: return _nextAvailableMediaContainer.frame
+		case .Filters: return _parentFilterSelectionContainer.frame
+		}
+	}
+	
+	func mainTitleText(forState state: CoachingTipsState) -> String {
+		return state.mainTitleText
+	}
+	
+	func subtitleText(forState state: CoachingTipsState) -> String {
+		return state.subtitleText
+	}
+	
+	func buttonTitleText(forState state: CoachingTipsState) -> String {
+		return state.buttonTitleText
+	}
+	
+	func icon(forState state: CoachingTipsState) -> UIImage? {
+		return state.iconImage
+	}
+	
+	func nextButtonPressed(forCurrentState state: CoachingTipsState) {
+		switch state {
+		case .Welcome: coachingTipsController.currentState = .NextSong
+		case .NextSong: coachingTipsController.currentState = .Filters
+		case .Filters:
+			navigationController?.setNavigationBarHidden(true, animated: true)
+			coachingTipsController.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+			JamhawkStorage.userHasSeenCoachingTips = true
+		}
+	}
+	
+	func skipAllButtonPressed(forCurrentState state: CoachingTipsState) {
+		navigationController?.setNavigationBarHidden(true, animated: true)
+		coachingTipsController.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+		JamhawkStorage.userHasSeenCoachingTips = true
 	}
 }

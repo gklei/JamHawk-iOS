@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MarqueeLabel
 
 class ParentFilterCell: UICollectionViewCell {
 	
 	// MARK: - Outlets
 	@IBOutlet private var _filterNameLabel: UILabel!
-	@IBOutlet private var _filterSelectionLabel: UILabel!
+	@IBOutlet private var _filterSelectionLabel: MarqueeLabel!
 	@IBOutlet private var _downArrowImageView: UIImageView!
 	
 	private let _leftBorder = UIView()
@@ -42,6 +43,8 @@ class ParentFilterCell: UICollectionViewCell {
 		backgroundColor = .clearColor()
 		_downArrowImageView.tintColor = .whiteColor()
 		_setupBorders()
+		
+		_filterSelectionLabel.fadeLength = 2
 	}
 	
 	// MARK: - Public
@@ -118,7 +121,7 @@ extension ParentFilterCell {
 			_downArrowImageView.tintColor = selected ? .jmhTurquoiseColor() : .whiteColor()
 			
 			let t = selected ? CGAffineTransformMakeRotation(CGFloat(M_PI)) : CGAffineTransformIdentity
-			UIView.animateWithDuration(0.3) {
+			UIView.animateWithDuration(0.2) {
 				self._downArrowImageView.transform = t
 			}
 		}

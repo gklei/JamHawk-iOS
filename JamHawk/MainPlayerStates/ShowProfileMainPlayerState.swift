@@ -24,6 +24,7 @@ class ShowProfileState: MainPlayerState {
 		_delegate.bottomContainerHeightConstraint.constant = 80.0
 		UIView.animateWithDuration(duration, animations: {
 			self._delegate.nextAvailablMediaContainer.alpha = 0
+			self._delegate.longPressInfoContainer.alpha = 0
 			self._delegate.compactCurrentTrackContainer.alpha = 1
 			self._delegate.profileNavigationContainer.alpha = 1
 			self._delegate.view.layoutIfNeeded()

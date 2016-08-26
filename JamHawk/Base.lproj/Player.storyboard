@@ -13,8 +13,77 @@
             <string>OpenSans</string>
             <string>OpenSans</string>
         </mutableArray>
+        <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+        </mutableArray>
     </customFonts>
     <scenes>
+        <!--Long Press Track Info Controller-->
+        <scene sceneID="ujr-mp-d9Q">
+            <objects>
+                <viewController storyboardIdentifier="LongPressTrackInfoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QFw-rt-CxV" customClass="LongPressTrackInfoController" customModule="JamHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0gj-Y9-H4w"/>
+                        <viewControllerLayoutGuide type="bottom" id="TM0-fi-cqq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zd3-44-Vot">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYU-Iz-NaS" customClass="AsyncImageView">
+                                <rect key="frame" x="27" y="174" width="319" height="319"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fYU-Iz-NaS" secondAttribute="height" multiplier="1:1" id="Cvr-hj-YTF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tS3-Mn-U7D" customClass="MarqueeLabel">
+                                <rect key="frame" x="28" y="142.5" width="319.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2q-Kd-cpG" customClass="MarqueeLabel">
+                                <rect key="frame" x="28" y="117" width="319.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fYU-Iz-NaS" firstAttribute="top" secondItem="tS3-Mn-U7D" secondAttribute="bottom" constant="12" id="6bf-dQ-pzg"/>
+                            <constraint firstItem="tS3-Mn-U7D" firstAttribute="top" secondItem="h2q-Kd-cpG" secondAttribute="bottom" constant="6" id="Pis-ZV-OVY"/>
+                            <constraint firstItem="h2q-Kd-cpG" firstAttribute="width" secondItem="tS3-Mn-U7D" secondAttribute="width" id="Pix-RA-fzW"/>
+                            <constraint firstItem="fYU-Iz-NaS" firstAttribute="width" secondItem="zd3-44-Vot" secondAttribute="width" multiplier="0.85" id="V2O-QZ-zE1"/>
+                            <constraint firstItem="tS3-Mn-U7D" firstAttribute="width" secondItem="fYU-Iz-NaS" secondAttribute="width" id="eRM-Gs-Chn"/>
+                            <constraint firstItem="fYU-Iz-NaS" firstAttribute="centerY" secondItem="zd3-44-Vot" secondAttribute="centerY" id="gof-hR-mFC"/>
+                            <constraint firstItem="h2q-Kd-cpG" firstAttribute="centerX" secondItem="tS3-Mn-U7D" secondAttribute="centerX" id="hBY-Ne-rKx"/>
+                            <constraint firstItem="fYU-Iz-NaS" firstAttribute="centerX" secondItem="zd3-44-Vot" secondAttribute="centerX" id="mMO-Yf-fln"/>
+                            <constraint firstItem="tS3-Mn-U7D" firstAttribute="centerX" secondItem="fYU-Iz-NaS" secondAttribute="centerX" id="nCi-Br-9sq"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="_albumNameLabel" destination="tS3-Mn-U7D" id="WjM-3f-D7H"/>
+                        <outlet property="_mainImageView" destination="fYU-Iz-NaS" id="ESP-fL-DXb"/>
+                        <outlet property="_songAndArtistNameLabel" destination="h2q-Kd-cpG" id="bvr-lf-gAA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wIO-GR-apH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-283.5" y="216.5"/>
+        </scene>
         <!--Main Player View Controller-->
         <scene sceneID="xiB-Lx-30A">
             <objects>
@@ -64,6 +133,9 @@
                                     <constraint firstAttribute="height" constant="53" id="EWV-0X-QHY"/>
                                 </constraints>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFo-eL-40V" userLabel="Long Press Info Container">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -75,15 +147,19 @@
                             <constraint firstItem="0Hh-7i-2we" firstAttribute="centerX" secondItem="Sx4-ve-drH" secondAttribute="centerX" id="8a0-dc-G2c"/>
                             <constraint firstItem="0Hh-7i-2we" firstAttribute="centerY" secondItem="Sx4-ve-drH" secondAttribute="centerY" id="9OT-hf-Upz"/>
                             <constraint firstItem="Sx4-ve-drH" firstAttribute="top" secondItem="4rB-2F-63i" secondAttribute="bottom" id="Dp2-XO-s9l"/>
+                            <constraint firstItem="2Ww-DI-mLh" firstAttribute="top" secondItem="OFo-eL-40V" secondAttribute="bottom" id="Efe-0f-5rr"/>
                             <constraint firstItem="tZr-Io-xNp" firstAttribute="top" secondItem="6qq-VQ-SyG" secondAttribute="top" id="FnV-U9-nTB"/>
                             <constraint firstAttribute="trailing" secondItem="Sx4-ve-drH" secondAttribute="trailing" id="Rer-HN-BS3"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ffU-sH-OeD" secondAttribute="bottom" id="Tms-aM-h5d"/>
+                            <constraint firstAttribute="trailing" secondItem="OFo-eL-40V" secondAttribute="trailing" id="VIy-2p-m9r"/>
                             <constraint firstAttribute="trailing" secondItem="igk-xx-ASo" secondAttribute="trailing" id="Zg5-hn-BtH"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="2Ww-DI-mLh" secondAttribute="bottom" id="dw0-V2-Cmf"/>
                             <constraint firstItem="ffU-sH-OeD" firstAttribute="top" secondItem="6qq-VQ-SyG" secondAttribute="top" id="fUf-va-Wgo"/>
                             <constraint firstItem="Sx4-ve-drH" firstAttribute="top" secondItem="tZr-Io-xNp" secondAttribute="bottom" id="fkI-JZ-usL"/>
                             <constraint firstAttribute="trailing" secondItem="2Ww-DI-mLh" secondAttribute="trailing" id="gPh-Gm-nWa"/>
+                            <constraint firstItem="OFo-eL-40V" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="jJ4-K7-jIg"/>
                             <constraint firstAttribute="trailing" secondItem="ffU-sH-OeD" secondAttribute="trailing" id="k46-pI-Efb"/>
+                            <constraint firstItem="OFo-eL-40V" firstAttribute="top" secondItem="6qq-VQ-SyG" secondAttribute="top" id="lGT-3f-rsq"/>
                             <constraint firstItem="mlp-ow-Z27" firstAttribute="top" secondItem="SJ7-tw-lQE" secondAttribute="bottom" id="m95-5n-V0t"/>
                             <constraint firstItem="Sx4-ve-drH" firstAttribute="leading" secondItem="6qq-VQ-SyG" secondAttribute="leading" id="mhA-7X-cte"/>
                             <constraint firstItem="4rB-2F-63i" firstAttribute="top" secondItem="mlp-ow-Z27" secondAttribute="bottom" id="mlH-WX-fMj"/>
@@ -106,6 +182,7 @@
                         <outlet property="_bottomContainerHeightConstraint" destination="1K6-M2-aqZ" id="vGL-bi-2K7"/>
                         <outlet property="_compactCurrentTrackContainer" destination="Sx4-ve-drH" id="Pl1-bS-OpZ"/>
                         <outlet property="_largeCurrentTrackContainer" destination="4rB-2F-63i" id="VI4-Yw-sie"/>
+                        <outlet property="_longPressInfoContainer" destination="OFo-eL-40V" id="cOv-jz-JhA"/>
                         <outlet property="_nextAvailableMediaContainer" destination="0Hh-7i-2we" id="Qe6-OX-fks"/>
                         <outlet property="_parentFilterSelectionContainer" destination="mlp-ow-Z27" id="KSe-bH-FDW"/>
                         <outlet property="_playerControlsContainer" destination="2Ww-DI-mLh" id="Anb-6a-F58"/>
@@ -132,6 +209,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="miX-FT-dVr">
                                 <rect key="frame" x="0.0" y="58" width="414" height="60"/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.0" colorSpace="deviceRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="TNd-s1-rxH"/>
                                 </constraints>
@@ -155,6 +233,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="Nxo-Wo-CjF" id="O4A-jc-azf"/>
                                     <outlet property="delegate" destination="Nxo-Wo-CjF" id="3aR-KB-17s"/>
+                                    <outletCollection property="gestureRecognizers" destination="jbn-3A-4lB" appends="YES" id="tuK-OV-p1X"/>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm" customClass="MarqueeLabel">
@@ -184,6 +263,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAu-Qb-NW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer delaysTouchesBegan="YES" allowableMovement="10" minimumPressDuration="0.29999999999999999" id="jbn-3A-4lB">
+                    <connections>
+                        <action selector="_longPressedRecognized:" destination="Nxo-Wo-CjF" id="xyW-gv-t6k"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="481" y="760"/>
         </scene>
@@ -402,7 +486,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8a-IC-bDc">
                                 <rect key="frame" x="20" y="19.5" width="272" height="16.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -650,7 +734,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUl-iN-34d" customClass="MarqueeLabel">
                                         <rect key="frame" x="20" y="310.5" width="374" height="22"/>
-                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

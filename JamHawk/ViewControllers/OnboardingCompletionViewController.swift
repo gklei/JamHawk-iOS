@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardingCompletionViewController: UIViewController {
 	
-	@IBOutlet private var _signUpButton: UIButton!
+	@IBOutlet private var _signUpButton: WhiteRoundedJamhawkButton!
 	
 	var backClosure: () -> Void = {}
 	var signUpButtonClosure: () -> Void = {}
@@ -22,26 +22,7 @@ class OnboardingCompletionViewController: UIViewController {
 			self.navigationController?.popViewControllerAnimated(true)
 		}
 		
-		_signUpButton.layer.cornerRadius = 2.0
-		_signUpButton.layer.borderWidth = 2.0
-		_signUpButton.layer.borderColor = UIColor.whiteColor().CGColor
-		
-		let attrs: [String : AnyObject] = [
-			NSFontAttributeName : UIFont(name: "OpenSans-Semibold", size: 14)!,
-			NSForegroundColorAttributeName : UIColor.whiteColor()
-		]
-		
-		let highlightedAttrs: [String : AnyObject] = [
-			NSFontAttributeName : UIFont(name: "OpenSans-Semibold", size: 14)!,
-			NSForegroundColorAttributeName : UIColor(white: 1, alpha: 0.7)
-		]
-		
-		let normalAttrTitle = NSAttributedString(string: "Sign up with Email", attributes: attrs)
-		let highlightedAttrTitle = NSAttributedString(string: "Sign up with Email", attributes: highlightedAttrs)
-		
-		_signUpButton.setAttributedTitle(normalAttrTitle, forState: .Normal)
-		_signUpButton.setAttributedTitle(highlightedAttrTitle, forState: .Highlighted)
-		_signUpButton.setBackgroundImage(UIImage.imageWithColor(UIColor(white: 1, alpha: 0.2)), forState: .Highlighted)
+		_signUpButton.update(title: "Sign Up With Email")
 	}
 	
 	override func viewWillAppear(animated: Bool) {

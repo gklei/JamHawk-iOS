@@ -20,6 +20,7 @@ protocol MainPlayerStateDelegate: class {
 	
 	var compactCurrentTrackContainer: UIView! { get }
 	var nextAvailablMediaContainer: UIView! { get }
+	var longPressInfoContainer: UIView! { get }
 	
 	var currentState: MainPlayerState { get }
 	

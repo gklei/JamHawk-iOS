@@ -33,6 +33,12 @@ extension NextAvailableMediaSystem: NextAvailableMediaSelectionDataSource {
 		return next.indexOf(track)
 	}
 	
+	func viewModel(atIndex index: Int) -> PlayerAPIOutputMetadataViewModel? {
+		let vms = nextAvailableMediaViewModels
+		guard index < vms.count else { return nil }
+		return vms[index]
+	}
+	
 	func selectMedia(atIndex index: Int) {
 		guard let next = _next where next.count > index else { return }
 		
