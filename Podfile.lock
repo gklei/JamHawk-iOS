@@ -1,5 +1,10 @@
 PODS:
   - AsyncImageView (1.6)
+  - Branch (0.12.5):
+    - Branch/Core (= 0.12.5)
+    - Branch/without-IDFA (= 0.12.5)
+  - Branch/Core (0.12.5)
+  - Branch/without-IDFA (0.12.5)
   - Freddy (2.1.0)
   - IncipiaKit (0.0.12)
   - MarqueeLabel (2.7.8):
@@ -10,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - AsyncImageView
+  - Branch
   - Freddy
   - IncipiaKit
   - MarqueeLabel
@@ -18,12 +24,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AsyncImageView: 416e99402e5b1f20571de70ad619ced90f56a7d9
+  Branch: 42307809efa9f23a55f40d8375ef8193bfe62b7c
   Freddy: bbdca013977db29638b24baf6572ce94452bec29
   IncipiaKit: c4e741526ff20af3ffc3d4798b01f70dfcf5a635
   MarqueeLabel: 6fff28d8c12f30b4a8d01a9f5992b4924a857f2b
   SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
   SwiftyUserDefaults: 7abdba50a50ea0c18ee8903af3c88e4c1cb8448d
 
-PODFILE CHECKSUM: 622527fbcbe416679f4b27ae1926599253416b75
+PODFILE CHECKSUM: b4c1f40734af6c370a034b44441a1202fad71d50
 
 COCOAPODS: 1.0.0

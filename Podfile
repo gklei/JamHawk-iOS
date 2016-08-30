@@ -10,5 +10,6 @@ target 'JamHawk' do
   pod 'MarqueeLabel'
   pod 'SwiftSpinner'
   pod 'SwiftyUserDefaults'
+  pod 'Branch'
 
 end
