@@ -12,7 +12,7 @@ extension CoachingTipsState {
 	var mainTitleText: String {
 		switch self {
 		case .Welcome: return "Welcome to your\rJamhawk Dashboard"
-		case .NextSong: return "Choose your\r next song"
+		case .NextSong: return "Choose your\rnext song"
 		case .Filters: return "Your filters,\ryour way"
 		}
 	}
