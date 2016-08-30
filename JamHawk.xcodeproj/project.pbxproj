@@ -18,6 +18,9 @@
 		CE06D3121D6FA3DE003BF9DA /* WhiteRoundedJamhawkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3111D6FA3DE003BF9DA /* WhiteRoundedJamhawkButton.swift */; };
 		CE06D3141D70C923003BF9DA /* CoachingTipsState+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3131D70C923003BF9DA /* CoachingTipsState+Extensions.swift */; };
 		CE06D3161D70D341003BF9DA /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3151D70D341003BF9DA /* SettingsRouter.swift */; };
+		CE06D3181D760987003BF9DA /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3171D760987003BF9DA /* BaseOperation.swift */; };
+		CE06D31A1D7609E8003BF9DA /* ChangeEmailLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3191D7609E8003BF9DA /* ChangeEmailLoginOperation.swift */; };
+		CE06D31D1D761019003BF9DA /* ChangePasswordOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D31C1D761019003BF9DA /* ChangePasswordOperation.swift */; };
 		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
@@ -127,7 +130,10 @@
 		CE06D30F1D6F9D1C003BF9DA /* CoachingTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachingTipsViewController.swift; path = JamHawk/ViewControllers/CoachingTipsViewController.swift; sourceTree = "<group>"; };
 		CE06D3111D6FA3DE003BF9DA /* WhiteRoundedJamhawkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteRoundedJamhawkButton.swift; path = JamHawk/CustomUI/WhiteRoundedJamhawkButton.swift; sourceTree = "<group>"; };
 		CE06D3131D70C923003BF9DA /* CoachingTipsState+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoachingTipsState+Extensions.swift"; path = "JamHawk/ViewControllers/CoachingTipsState+Extensions.swift"; sourceTree = "<group>"; };
-		CE06D3151D70D341003BF9DA /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		CE06D3151D70D341003BF9DA /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsRouter.swift; path = JamHawk/SettingsRouter.swift; sourceTree = "<group>"; };
+		CE06D3171D760987003BF9DA /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseOperation.swift; path = JamHawk/Operations/BaseOperation.swift; sourceTree = "<group>"; };
+		CE06D3191D7609E8003BF9DA /* ChangeEmailLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangeEmailLoginOperation.swift; path = JamHawk/Operations/ChangeEmailLoginOperation.swift; sourceTree = "<group>"; };
+		CE06D31C1D761019003BF9DA /* ChangePasswordOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordOperation.swift; path = JamHawk/Operations/ChangePasswordOperation.swift; sourceTree = "<group>"; };
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
@@ -209,7 +215,7 @@
 		CEE35F181D663928007785F6 /* JamhawkStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamhawkStorage.swift; path = Utilities/JamhawkStorage.swift; sourceTree = "<group>"; };
 		CEF9E48B1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeAdjustmentViewController.swift; path = JamHawk/ViewControllers/VolumeAdjustmentViewController.swift; sourceTree = "<group>"; };
 		CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeSlider.swift; path = JamHawk/CustomUI/VolumeSlider.swift; sourceTree = "<group>"; };
-		CEFD86991D300F34005313AD /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		CEFD86991D300F34005313AD /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRouter.swift; path = JamHawk/AppRouter.swift; sourceTree = "<group>"; };
 		CEFD869B1D3019D2005313AD /* JamHawkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkNavigationController.swift; path = JamHawk/CustomUI/JamHawkNavigationController.swift; sourceTree = "<group>"; };
 		CEFD869D1D304CFC005313AD /* MainPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPlayerViewController.swift; path = JamHawk/ViewControllers/MainPlayerViewController.swift; sourceTree = "<group>"; };
 		CEFEAD8F1D3D7EDD004D3CFC /* MainPlayerViewController+States.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MainPlayerViewController+States.swift"; path = "JamHawk/MainPlayerStates/MainPlayerViewController+States.swift"; sourceTree = "<group>"; };
@@ -247,6 +253,15 @@
 				395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CE06D31B1D7609FC003BF9DA /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				CEFD86991D300F34005313AD /* AppRouter.swift */,
+				CE06D3151D70D341003BF9DA /* SettingsRouter.swift */,
+			);
+			name = Routers;
 			sourceTree = "<group>";
 		};
 		CE08AB431D5E1D2E006AD83A /* Resources */ = {
@@ -403,6 +418,7 @@
 		CE9B947A1D26B67600B0F53D = {
 			isa = PBXGroup;
 			children = (
+				CE06D31B1D7609FC003BF9DA /* Routers */,
 				CE08AB431D5E1D2E006AD83A /* Resources */,
 				CED404ED1D26F7500083365F /* Backend */,
 				CED404E21D26E6210083365F /* Custom UI */,
@@ -437,9 +453,7 @@
 				CE9B94861D26B67600B0F53D /* AppDelegate.swift */,
 				CE9B948D1D26B67600B0F53D /* Assets.xcassets */,
 				CE9B94921D26B67600B0F53D /* Info.plist */,
-				CEFD86991D300F34005313AD /* AppRouter.swift */,
 				CEE35F181D663928007785F6 /* JamhawkStorage.swift */,
-				CE06D3151D70D341003BF9DA /* SettingsRouter.swift */,
 			);
 			path = JamHawk;
 			sourceTree = "<group>";
@@ -534,6 +548,9 @@
 		CED404EE1D26F7880083365F /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				CE06D3171D760987003BF9DA /* BaseOperation.swift */,
+				CE06D3191D7609E8003BF9DA /* ChangeEmailLoginOperation.swift */,
+				CE06D31C1D761019003BF9DA /* ChangePasswordOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -761,6 +778,7 @@
 				CE7E68361D342F3300516570 /* PlayerAPIInputUpdates.swift in Sources */,
 				CEFFF79C1D359A1500D083F1 /* AVPlayer+Extensions.swift in Sources */,
 				CE2B69491D2F118100EAFF16 /* PlayerAPIOutput.swift in Sources */,
+				CE06D31D1D761019003BF9DA /* ChangePasswordOperation.swift in Sources */,
 				CE6CE9A01D3D262F0029659F /* PlayerSubfilterCell.swift in Sources */,
 				CE5DA0F11D46843000025C17 /* NextAvailableMediaSystem.swift in Sources */,
 				CE06D3161D70D341003BF9DA /* SettingsRouter.swift in Sources */,
@@ -778,6 +796,7 @@
 				CE5DA0E21D4494AE00025C17 /* ShowTrackDetailsState.swift in Sources */,
 				CE5DA0F51D46847C00025C17 /* SystemCoordinationController.swift in Sources */,
 				C67A52CD1D36F42900A5C150 /* PlayheadView.swift in Sources */,
+				CE06D31A1D7609E8003BF9DA /* ChangeEmailLoginOperation.swift in Sources */,
 				CE3203D81D61507600746B03 /* PopularitySelectionOnboardingViewController.swift in Sources */,
 				CE5DA0DA1D44936B00025C17 /* DefaultMainPlayerState.swift in Sources */,
 				CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */,
@@ -815,6 +834,7 @@
 				CE7B0FF81D340846003CC52A /* NextAvailableMediaCell.swift in Sources */,
 				CEFFF79A1D35930800D083F1 /* PlayerProgressViewController.swift in Sources */,
 				CE6CE9A41D3D67D50029659F /* MainPlayerState.swift in Sources */,
+				CE06D3181D760987003BF9DA /* BaseOperation.swift in Sources */,
 				CE5DA0E61D455EC500025C17 /* UIViewController+Extensions.swift in Sources */,
 				CE5DA1021D47F06400025C17 /* TrackRatingCell.swift in Sources */,
 				CE7E68321D342EB900516570 /* PlayerAPIInputStatus.swift in Sources */,
