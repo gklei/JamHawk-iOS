@@ -451,9 +451,9 @@
 			isa = PBXGroup;
 			children = (
 				CE9B94861D26B67600B0F53D /* AppDelegate.swift */,
+				CEE35F181D663928007785F6 /* JamhawkStorage.swift */,
 				CE9B948D1D26B67600B0F53D /* Assets.xcassets */,
 				CE9B94921D26B67600B0F53D /* Info.plist */,
-				CEE35F181D663928007785F6 /* JamhawkStorage.swift */,
 			);
 			path = JamHawk;
 			sourceTree = "<group>";
