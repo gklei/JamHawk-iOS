@@ -134,6 +134,7 @@
 		CE06D3171D760987003BF9DA /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseOperation.swift; path = JamHawk/Operations/BaseOperation.swift; sourceTree = "<group>"; };
 		CE06D3191D7609E8003BF9DA /* ChangeEmailLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangeEmailLoginOperation.swift; path = JamHawk/Operations/ChangeEmailLoginOperation.swift; sourceTree = "<group>"; };
 		CE06D31C1D761019003BF9DA /* ChangePasswordOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordOperation.swift; path = JamHawk/Operations/ChangePasswordOperation.swift; sourceTree = "<group>"; };
+		CE06D31E1D761777003BF9DA /* JamHawk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JamHawk.entitlements; sourceTree = "<group>"; };
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
@@ -450,6 +451,7 @@
 		CE9B94851D26B67600B0F53D /* JamHawk */ = {
 			isa = PBXGroup;
 			children = (
+				CE06D31E1D761777003BF9DA /* JamHawk.entitlements */,
 				CE9B94861D26B67600B0F53D /* AppDelegate.swift */,
 				CEE35F181D663928007785F6 /* JamhawkStorage.swift */,
 				CE9B948D1D26B67600B0F53D /* Assets.xcassets */,
@@ -645,6 +647,9 @@
 						DevelopmentTeam = 49BYD5B64K;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
@@ -1011,6 +1016,7 @@
 			baseConfigurationReference = E592439B1455DC1E38511EB4 /* Pods-JamHawk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JamHawk/JamHawk.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JamHawk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1026,6 +1032,7 @@
 			baseConfigurationReference = 395FFD5335C4D154675B20A1 /* Pods-JamHawk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JamHawk/JamHawk.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JamHawk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

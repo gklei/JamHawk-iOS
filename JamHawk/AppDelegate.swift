@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Branch
 
 public func updateNavigationBarItemColor(color: UIColor) {
 	let appearance = UIBarButtonItem.appearance()
@@ -29,10 +30,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
+		let branch = Branch.getInstance()
+		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
+			guard branchLinkProperties != nil else { return }
+			guard branchUniversalObject != nil else { return }
+			
+//			print(branchLinkProperties)
+//			print(branchUniversalObject)
+		}
+		
 		window = UIWindow()
 		router = AppRouter(window: window!, session: session)
 		
 		return true
+	}
+	
+	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+		return Branch.getInstance().handleDeepLink(url)
+	}
+	
+	func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+		return Branch.getInstance().continueUserActivity(userActivity)
 	}
 	
 	private func _tryToUpdateStatusBar(color color: UIColor, withApplication application: UIApplication) {
