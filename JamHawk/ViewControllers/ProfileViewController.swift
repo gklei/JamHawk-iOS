@@ -92,7 +92,7 @@ extension ProfileViewController: UICollectionViewDataSource {
       let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ProfileHeaderView", forIndexPath: indexPath) as! ProfileHeaderViewCell
 		
 		if let creds = JamhawkStorage.lastUsedCredentials {
-			header.update(creds.email)
+			header.update(name: creds.email)
 		}
       return header
    }
@@ -107,7 +107,7 @@ class ProfileHeaderViewCell: UICollectionReusableView {
 		_nameLabel.fadeLength = 10
 	}
 	
-	func update(name: String) {
+	func update(name name: String) {
 		_nameLabel.text = name
 	}
 }
