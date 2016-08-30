@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Branch
 
 class SettingsRouter: NSObject {
 	
@@ -16,7 +17,7 @@ class SettingsRouter: NSObject {
 	
 	private let _profileViewController = ProfileViewController.instantiate(fromStoryboard: "Profile")
 	private let _editProfileViewController = EditProfileViewController.instantiate(fromStoryboard: "Profile")
-	private let _ProfileSettingsViewController = ProfileSettingsViewController.instantiate(fromStoryboard: "Profile")
+	private let _profileSettingsViewController = ProfileSettingsViewController.instantiate(fromStoryboard: "Profile")
 	
 	init(rootNavigationController: UINavigationController, session: JamHawkSession) {
 		self.rootNavigationController = rootNavigationController
@@ -26,7 +27,7 @@ class SettingsRouter: NSObject {
 		
 		_profileViewController.delegate = self
 		_editProfileViewController.delegate = self
-		_ProfileSettingsViewController.delegate = self
+		_profileSettingsViewController.delegate = self
 		
 		self.rootNavigationController.viewControllers = [_profileViewController]
 	}
@@ -34,12 +35,12 @@ class SettingsRouter: NSObject {
 
 extension SettingsRouter: ProfileViewControllerDelegate {
 	func profileViewController(controller: ProfileViewController, optionSelected option: ProfileOptionType) {
+		var presentationController: UIViewController!
 		switch option {
-		case .EditProfile:
-			rootNavigationController.pushViewController(_editProfileViewController, animated: true)
-		case .Settings:
-			rootNavigationController.pushViewController(_ProfileSettingsViewController, animated: true)
+		case .EditProfile: presentationController = _editProfileViewController
+		case .Settings: presentationController = _profileSettingsViewController
 		}
+		rootNavigationController.pushViewController(presentationController, animated: true)
 	}
 }
 
@@ -65,8 +66,15 @@ extension SettingsRouter: EditProfileViewControllerDelegate {
 extension SettingsRouter: ProfileSettingsViewControllerDelegate {
 	func profileSettingsViewController(controller: ProfileSettingsViewController, optionSelected option: ProfileSettingsOptionType) {
 		switch option {
-		case .Share: print("Share")
+		case .Share: _showShareSheetForDownloadingJamhawk(presentationContext: controller)
 		case .TermsAndConditions: print("Show terms and conditions")
 		}
+	}
+	
+	private func _showShareSheetForDownloadingJamhawk(presentationContext context: UIViewController) {
+		let linkProperties: BranchLinkProperties = BranchLinkProperties()
+		linkProperties.feature = "sharing"
+		let universalObject = BranchUniversalObject(title: "Share Jamhawk")
+		universalObject.showShareSheetWithLinkProperties(linkProperties, andShareText: "Download Jamhawk!", fromViewController: context, completion: nil)
 	}
 }
