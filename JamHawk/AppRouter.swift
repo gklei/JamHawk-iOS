@@ -79,6 +79,8 @@ class AppRouter: NSObject {
 		_onboardingCompletionVC.signUpButtonClosure = _showSignUpUI
 		_signInVC.continueClosure = _trySignIn
 		_signUpVC.continueClosure = _trySignUp
+		
+		_signInVC.forgotPasswordClosure = _resetPassword
 	}
 	
 	private func _setupPlayerAndSystems() {
@@ -146,6 +148,10 @@ extension AppRouter {
 			SwiftSpinner.hide()
 			self._handleUserAccessCallback(error, output: output, credentials: creds, context: self._signUpVC)
 		}
+	}
+	
+	private func _resetPassword() {
+		print("Reset password!")
 	}
 	
 	private func _handleUserAccessCallback(error: NSError?,

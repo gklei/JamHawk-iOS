@@ -32,6 +32,7 @@ class SignInViewController: UIViewController {
    // MARK: - Properties
 	var backClosure: () -> Void = {}
 	var continueClosure: () -> Void = {}
+	var forgotPasswordClosure: () -> Void = {}
    
    // MARK: - Lifecycle
    override func viewDidLoad() {
@@ -71,6 +72,10 @@ class SignInViewController: UIViewController {
    @IBAction private func _viewTapped(recognizer: UIGestureRecognizer) {
       view.endEditing(true)
    }
+	
+	@IBAction private func _forgotPasswordButtonPressed() {
+		forgotPasswordClosure()
+	}
 }
 
 extension SignInViewController: UITextFieldDelegate {

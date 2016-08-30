@@ -159,6 +159,9 @@
                                         <state key="normal" title="forgot password">
                                             <color key="titleColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="_forgotPasswordButtonPressed" destination="dOE-fG-Mm9" eventType="touchUpInside" id="0Vi-u3-QdD"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqF-2w-N0Z">
                                         <rect key="frame" x="20" y="0.0" width="90" height="41"/>

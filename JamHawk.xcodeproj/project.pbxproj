@@ -21,6 +21,7 @@
 		CE06D3181D760987003BF9DA /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3171D760987003BF9DA /* BaseOperation.swift */; };
 		CE06D31A1D7609E8003BF9DA /* ChangeEmailLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D3191D7609E8003BF9DA /* ChangeEmailLoginOperation.swift */; };
 		CE06D31D1D761019003BF9DA /* ChangePasswordOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D31C1D761019003BF9DA /* ChangePasswordOperation.swift */; };
+		CE06D3201D762454003BF9DA /* ResetPasswordOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06D31F1D762454003BF9DA /* ResetPasswordOperation.swift */; };
 		CE07AC791D2C3A1700524005 /* JamHawkAPIURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */; };
 		CE07AC7B1D2C3EA600524005 /* UserAccessAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */; };
 		CE07AC7D1D2C3EB600524005 /* UserAccessAPIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */; };
@@ -135,6 +136,7 @@
 		CE06D3191D7609E8003BF9DA /* ChangeEmailLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangeEmailLoginOperation.swift; path = JamHawk/Operations/ChangeEmailLoginOperation.swift; sourceTree = "<group>"; };
 		CE06D31C1D761019003BF9DA /* ChangePasswordOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordOperation.swift; path = JamHawk/Operations/ChangePasswordOperation.swift; sourceTree = "<group>"; };
 		CE06D31E1D761777003BF9DA /* JamHawk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JamHawk.entitlements; sourceTree = "<group>"; };
+		CE06D31F1D762454003BF9DA /* ResetPasswordOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordOperation.swift; path = JamHawk/Operations/ResetPasswordOperation.swift; sourceTree = "<group>"; };
 		CE07AC781D2C3A1700524005 /* JamHawkAPIURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JamHawkAPIURLProvider.swift; path = JamHawk/Backend/JamHawkAPIURLProvider.swift; sourceTree = "<group>"; };
 		CE07AC7A1D2C3EA600524005 /* UserAccessAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIInputModels.swift; path = JamHawk/Models/UserAccessAPIInputModels.swift; sourceTree = "<group>"; };
 		CE07AC7C1D2C3EB600524005 /* UserAccessAPIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccessAPIOutput.swift; path = JamHawk/Models/UserAccessAPIOutput.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 				CE06D3171D760987003BF9DA /* BaseOperation.swift */,
 				CE06D3191D7609E8003BF9DA /* ChangeEmailLoginOperation.swift */,
 				CE06D31C1D761019003BF9DA /* ChangePasswordOperation.swift */,
+				CE06D31F1D762454003BF9DA /* ResetPasswordOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				CE5DA0FE1D47B8A300025C17 /* TrackRatingViewController.swift in Sources */,
 				CE10F12D1D381E2200D69682 /* PlayerControlsViewController.swift in Sources */,
 				CE5DA0DC1D4493D700025C17 /* FilterSelectionMainPlayerState.swift in Sources */,
+				CE06D3201D762454003BF9DA /* ResetPasswordOperation.swift in Sources */,
 				CE5DA0EF1D46841300025C17 /* CurrentTrackSystem.swift in Sources */,
 				CE747BFC1D3839BB0006D1B6 /* ParentFilterSelectionViewController.swift in Sources */,
 				CEF9E48C1D53C8F500DB6B2C /* VolumeAdjustmentViewController.swift in Sources */,
