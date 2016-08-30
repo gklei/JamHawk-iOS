@@ -46,9 +46,19 @@ extension SettingsRouter: ProfileViewControllerDelegate {
 extension SettingsRouter: EditProfileViewControllerDelegate {
 	func editProfileViewController(controller: EditProfileViewController, optionSelected option: EditProfileOptionType) {
 		switch option {
-		case .Email: print("Edit email")
-		case .Password: print("Edit password")
+		case .Email: _startChangeEmailOperation(presentationContext: controller)
+		case .Password: _startChangePasswordOperation(presentationContext: controller)
 		}
+	}
+	
+	private func _startChangeEmailOperation(presentationContext context: UIViewController) {
+		let changeEmailOp = ChangeEmailLoginOperation(currentEmail: "current", newEmail: "newEmail", password: "pass", session: session, presentationContext: context)
+		changeEmailOp.start()
+	}
+	
+	private func _startChangePasswordOperation(presentationContext context: UIViewController) {
+		let changePasswordOp = ChangePasswordOperation(currentPassword: "current", newPassword: "new", session: session, presentationContext: context)
+		changePasswordOp.start()
 	}
 }
 
