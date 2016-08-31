@@ -10,7 +10,7 @@ import Foundation
 import Freddy
 
 struct UserAccessAPIInput {
-	let credentials: UserAccessCredentials
+	let credentials: UserAccessCredentials?
 	let action: UserAccessAction
 	let token: String?
 	let email: String?
@@ -20,7 +20,7 @@ struct UserAccessAPIInput {
 extension UserAccessAPIInput: JSONEncodable {
 	func toJSON() -> JSON {
 		let json: [String : JSON] = [
-			"credentials" : credentials.toJSON(),
+			"credentials" : credentials?.toJSON() ?? JSON.Null,
 			"action" : action.toJSON(),
 			"token" : token?.toJSON() ?? JSON.Null,
 			"email" : email?.toJSON() ?? JSON.Null,
