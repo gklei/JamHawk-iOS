@@ -1,5 +1,5 @@
 //
-//  SettingsProfileViewController.swift
+//  ProfileSettingsViewController.swift
 //  JamHawk
 //
 //  Created by Brendan Lau on 7/27/16.
@@ -8,30 +8,35 @@
 
 import UIKit
 
-enum SettingProfileOptionType: String {
+enum ProfileSettingsOptionType: String {
    case Share = "Share Jamhawk"
    case TermsAndConditions = "Terms and Conditions"
 }
 
-enum SettingProfileSectionType {
+enum ProfileSettingsSectionType {
    case Social
    case Legal
    
-   var options: [SettingProfileOptionType] {
+   var options: [ProfileSettingsOptionType] {
       switch self {
       case .Social:
-         return [SettingProfileOptionType.Share]
+         return [ProfileSettingsOptionType.Share]
       case .Legal:
-         return [SettingProfileOptionType.TermsAndConditions]
+         return [ProfileSettingsOptionType.TermsAndConditions]
       }
    }
 }
 
-class SettingsProfileViewController: UIViewController {
+protocol ProfileSettingsViewControllerDelegate: class {
+	func profileSettingsViewController(controller: ProfileSettingsViewController, optionSelected option: ProfileSettingsOptionType)
+}
+
+class ProfileSettingsViewController: UIViewController {
 	
-   let _settingProfileSections: [SettingProfileSectionType] = [.Social, .Legal]
-   
-   @IBOutlet weak var _settingsProfileCollectionView: UICollectionView!
+	@IBOutlet private var _settingsProfileCollectionView: UICollectionView!
+	
+   private let _sections: [ProfileSettingsSectionType] = [.Social, .Legal]
+	weak var delegate: ProfileSettingsViewControllerDelegate?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -44,7 +49,7 @@ class SettingsProfileViewController: UIViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		let sel = #selector(SettingsProfileViewController.goBack)
+		let sel = #selector(ProfileSettingsViewController.goBack)
 		updateLeftBarButtonItem(withTitle: "  Back", action: sel)
 	}
 	
@@ -61,7 +66,7 @@ class SettingsProfileViewController: UIViewController {
 	}
 }
 
-extension SettingsProfileViewController: UICollectionViewDelegate {
+extension ProfileSettingsViewController: UICollectionViewDelegate {
    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
       return CGSize(width: collectionView.bounds.width, height: 50)
    }
@@ -74,23 +79,28 @@ extension SettingsProfileViewController: UICollectionViewDelegate {
 			return CGSize(width: 0, height: 0)
 		}
    }
-   
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		let section = _sections[indexPath.section]
+		let option = section.options[indexPath.row]
+		delegate?.profileSettingsViewController(self, optionSelected: option)
+	}
 }
 
-extension SettingsProfileViewController: UICollectionViewDataSource {
+extension ProfileSettingsViewController: UICollectionViewDataSource {
    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      let settingsSection = _settingProfileSections[section]
+      let settingsSection = _sections[section]
       return settingsSection.options.count
    }
    
    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-      return _settingProfileSections.count
+      return _sections.count
    }
    
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SettingsOptionCell", forIndexPath: indexPath) as! SettingsOptionCell
       
-      let section = _settingProfileSections[indexPath.section]
+      let section = _sections[indexPath.section]
       let option = section.options[indexPath.row]
 		cell.configure(withOption: option)
       return cell
@@ -123,7 +133,7 @@ class SettingsOptionCell: UICollectionViewCell {
 		_bottomBorder = addBorder(withSize: 1, toEdge: .Bottom)
    }
 	
-	func configure(withOption option: SettingProfileOptionType) {
+	func configure(withOption option: ProfileSettingsOptionType) {
 		_label.text = option.rawValue
 		
 		switch option {

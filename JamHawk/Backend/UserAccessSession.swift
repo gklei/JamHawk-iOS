@@ -9,8 +9,6 @@
 import Foundation
 
 private let kUserAccessTestToken = "apptesttoken"
-private let kTestEmail = "hello@incipia.co"
-private let kTestPassword = "helloo"
 
 class UserAccessSession {
 	// MARK: - Properties: Private
@@ -21,12 +19,13 @@ class UserAccessSession {
 	private var _signOutDataTask: NSURLSessionDataTask?
 	private var _signUpDataTask: NSURLSessionDataTask?
 	
+	private var _userAccessDataTask: NSURLSessionDataTask?
+	
 	init(session: NSURLSession) {
 		_session = session
 	}
 	
 	func signUp(email email: String, password: String, callback: UserAccessCallback) {
-		
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken, email: nil, password: nil)
 		guard let request = input.generateRequest() else { return }
@@ -74,11 +73,50 @@ class UserAccessSession {
 		_signOutDataTask?.resume()
 	}
 	
-	func signInWithTestCreds(callback: UserAccessCallback) {
-		signIn(email: kTestEmail, password: kTestPassword, callback: callback)
+	func changeEmail(toNewEmail email: String, usingCredentials credentials: (email: String, password: String), callback: UserAccessCallback) {
+		let creds = UserAccessCredentials(email: credentials.email, password: credentials.password)
+		let input = UserAccessAPIInput(credentials: creds, action: .ChangeEmail, token: nil, email: email, password: nil)
+		guard let request = input.generateRequest() else { return }
+		
+		_userAccessDataTask?.cancel()
+		_userAccessDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			let output = UserAccessAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
+		}
+		_userAccessDataTask?.resume()
 	}
 	
-	func signOutWithTestCreds(callback: UserAccessCallback) {
-		signOut(email: kTestEmail, password: kTestPassword, callback: callback)
+	func changePassword(toNewPassword password: String, usingCredentials credentials: (email: String, password: String), callback: UserAccessCallback) {
+		let creds = UserAccessCredentials(email: credentials.email, password: credentials.password)
+		let input = UserAccessAPIInput(credentials: creds, action: .UpdatePass, token: nil, email: nil, password: password)
+		guard let request = input.generateRequest() else { return }
+		
+		_userAccessDataTask?.cancel()
+		_userAccessDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			let output = UserAccessAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
+		}
+		_userAccessDataTask?.resume()
+	}
+	
+	func sendResetPasswordEmail(toEmail email: String, callback: UserAccessCallback) {
+		let input = UserAccessAPIInput(credentials: nil, action: .ResetPass, token: nil, email: email, password: nil)
+		guard let request = input.generateRequest() else { return }
+		
+		_userAccessDataTask?.cancel()
+		_userAccessDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			let output = UserAccessAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
+		}
+		_userAccessDataTask?.resume()
 	}
 }

@@ -8,15 +8,15 @@
 
 import UIKit
 
-enum EditProfileFieldType {
+enum EditProfileOptionType {
    case Email
-   case ChangePassword
+   case Password
    
    var title: String {
       switch self {
       case .Email:
          return "Email"
-      case .ChangePassword:
+      case .Password:
          return "Change Password"
       }
    }
@@ -24,16 +24,24 @@ enum EditProfileFieldType {
    var placeholderText: String {
       switch self {
       case .Email:
-         return "jdoe@gmail.com"
-      case .ChangePassword:
-         return "*******"
+			return JamhawkStorage.lastUsedCredentials?.email ?? ""
+      case .Password:
+			return JamhawkStorage.lastUsedCredentials?.password ?? ""
       }
    }
 }
 
+protocol EditProfileViewControllerDelegate: class {
+	func editProfileViewController(controller: EditProfileViewController, optionSelected option: EditProfileOptionType)
+}
+
 class EditProfileViewController: UIViewController {
+	
+	// MARK: - Outlets
    @IBOutlet weak var _editProfileOptionsCollectionView: UICollectionView!
-   private var _editProfileOptions = [EditProfileFieldType.Email, EditProfileFieldType.ChangePassword]
+	
+	weak var delegate: EditProfileViewControllerDelegate?
+	private var _options: [EditProfileOptionType] = [.Email, .Password]
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -59,25 +67,34 @@ class EditProfileViewController: UIViewController {
 	internal func goBack() {
 		navigationController?.popViewControllerAnimated(true)
 	}
+	
+	func reloadUI() {
+		_editProfileOptionsCollectionView.reloadData()
+	}
 }
 
 extension EditProfileViewController: UICollectionViewDelegate {
    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
       return CGSize(width: collectionView.bounds.width, height: 50)
    }
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		let option = _options[indexPath.row]
+		delegate?.editProfileViewController(self, optionSelected: option)
+	}
 }
 
 extension EditProfileViewController: UICollectionViewDataSource {
    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      return _editProfileOptions.count
+      return _options.count
    }
    
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier("EditProfileOptionCell", forIndexPath: indexPath) as! EditProfileOptionCell
-      cell._optionLabel.text = _editProfileOptions[indexPath.row].title
-      cell._optionInputTextField.placeholder = _editProfileOptions[indexPath.row].placeholderText
-      cell._optionInputTextField.textColor = UIColor.jmhLightGrayColor()
-      if _editProfileOptions[indexPath.row] == EditProfileFieldType.ChangePassword {
+      cell._optionLabel.text = _options[indexPath.row].title
+      cell._optionInputTextField.text = _options[indexPath.row].placeholderText
+      cell._optionInputTextField.textColor = UIColor.jmhWarmGreyColor()
+      if _options[indexPath.row] == EditProfileOptionType.Password {
          cell._optionInputTextField.secureTextEntry = true
       }
       return cell
@@ -92,4 +109,11 @@ class EditProfileOptionCell: UICollectionViewCell {
       super.awakeFromNib()
       backgroundColor = .whiteColor()
    }
+	
+	override var highlighted: Bool {
+		didSet {
+			let whiteValue: CGFloat = highlighted ? 0.95 : 1
+			backgroundColor = UIColor(white: whiteValue, alpha: 1)
+		}
+	}
 }

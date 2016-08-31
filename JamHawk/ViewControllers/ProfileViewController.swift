@@ -9,16 +9,13 @@
 import UIKit
 import MarqueeLabel
 
+protocol ProfileViewControllerDelegate: class {
+	func profileViewController(controller: ProfileViewController, optionSelected option: ProfileOptionType)
+}
+
 enum ProfileOptionType: String {
    case EditProfile = "Edit Profile"
    case Settings = "Settings"
-   
-   var destinationVC: UIViewController? {
-      switch self {
-         case .EditProfile: return EditProfileViewController.instantiate(fromStoryboard: "Profile")
-         case .Settings: return SettingsProfileViewController.instantiate(fromStoryboard: "Profile")
-      }
-   }
 }
 
 class ProfileViewController: UIViewController {
@@ -26,6 +23,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet private var _profileNameLabel: UILabel!
    @IBOutlet weak var _profileOptionsCollectionView: UICollectionView!
 	
+	weak var delegate: ProfileViewControllerDelegate?
    private var _profileOptions = [ProfileOptionType.EditProfile, ProfileOptionType.Settings]
    
 	// MARK: - Overridden
@@ -59,6 +57,10 @@ class ProfileViewController: UIViewController {
 	internal func signOut() {
 		post(notification: .signOut)
 	}
+	
+	func reloadUI() {
+		_profileOptionsCollectionView.reloadData()
+	}
 }
 
 extension ProfileViewController: Notifier {
@@ -73,8 +75,8 @@ extension ProfileViewController: UICollectionViewDelegate {
    }
    
    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-      guard let vc = _profileOptions[indexPath.row].destinationVC else { return }
-      navigationController?.pushViewController(vc, animated: true)
+		let option = _profileOptions[indexPath.row]
+		delegate?.profileViewController(self, optionSelected: option)
    }
 }
 
@@ -94,7 +96,7 @@ extension ProfileViewController: UICollectionViewDataSource {
       let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ProfileHeaderView", forIndexPath: indexPath) as! ProfileHeaderViewCell
 		
 		if let creds = JamhawkStorage.lastUsedCredentials {
-			header.update(creds.email)
+			header.update(name: creds.email)
 		}
       return header
    }
@@ -109,7 +111,7 @@ class ProfileHeaderViewCell: UICollectionReusableView {
 		_nameLabel.fadeLength = 10
 	}
 	
-	func update(name: String) {
+	func update(name name: String) {
 		_nameLabel.text = name
 	}
 }
