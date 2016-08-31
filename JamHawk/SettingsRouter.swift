@@ -53,12 +53,27 @@ extension SettingsRouter: EditProfileViewControllerDelegate {
 	}
 	
 	private func _startChangeEmailOperation(presentationContext context: UIViewController) {
-		let changeEmailOp = ChangeEmailLoginOperation(currentEmail: "current", newEmail: "newEmail", password: "pass", session: session, presentationContext: context)
+		guard let creds = JamhawkStorage.lastUsedCredentials else { return }
+		let changeEmailOp = ChangeEmailLoginOperation(currentEmail: creds.email, session: session, presentationContext: context)
+		changeEmailOp.completionBlock = {
+			dispatch_async(dispatch_get_main_queue(), { 
+				self._profileViewController.reloadUI()
+				self._editProfileViewController.reloadUI()
+			})
+		}
+		
 		changeEmailOp.start()
 	}
 	
 	private func _startChangePasswordOperation(presentationContext context: UIViewController) {
-		let changePasswordOp = ChangePasswordOperation(currentPassword: "current", newPassword: "new", session: session, presentationContext: context)
+		guard let creds = JamhawkStorage.lastUsedCredentials else { return }
+		let changePasswordOp = ChangePasswordOperation(currentEmail: creds.email, session: session, presentationContext: context)
+		changePasswordOp.completionBlock = {
+			dispatch_async(dispatch_get_main_queue(), {
+				self._profileViewController.reloadUI()
+				self._editProfileViewController.reloadUI()
+			})
+		}
 		changePasswordOp.start()
 	}
 }
