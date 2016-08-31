@@ -24,7 +24,6 @@ class UserAccessSession {
 	}
 	
 	func signUp(email email: String, password: String, callback: UserAccessCallback) {
-		
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignUp, token: kUserAccessTestToken, email: nil, password: nil)
 		guard let request = input.generateRequest() else { return }
@@ -59,6 +58,38 @@ class UserAccessSession {
 	func signOut(email email: String, password: String, callback: UserAccessCallback) {
 		let creds = UserAccessCredentials(email: email, password: password)
 		let input = UserAccessAPIInput(credentials: creds, action: .SignOut, token: nil, email: nil, password: nil)
+		guard let request = input.generateRequest() else { return }
+		
+		_signOutDataTask?.cancel()
+		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			let output = UserAccessAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
+		}
+		_signOutDataTask?.resume()
+	}
+	
+	func changeEmail(toNewEmail email: String, usingCredentials credentials: (email: String, password: String), callback: UserAccessCallback) {
+		let creds = UserAccessCredentials(email: credentials.email, password: credentials.password)
+		let input = UserAccessAPIInput(credentials: creds, action: .ChangeEmail, token: nil, email: email, password: nil)
+		guard let request = input.generateRequest() else { return }
+		
+		_signOutDataTask?.cancel()
+		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			let output = UserAccessAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
+		}
+		_signOutDataTask?.resume()
+	}
+	
+	func changePassword(toNewPassword password: String, usingCredentials credentials: (email: String, password: String), callback: UserAccessCallback) {
+		let creds = UserAccessCredentials(email: credentials.email, password: credentials.password)
+		let input = UserAccessAPIInput(credentials: creds, action: .UpdatePass, token: nil, email: nil, password: password)
 		guard let request = input.generateRequest() else { return }
 		
 		_signOutDataTask?.cancel()

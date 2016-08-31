@@ -44,6 +44,14 @@ class JamHawkSession: PlayerAPIService {
 		_userSession.signOut(email: email, password: password, callback: callback)
 	}
 	
+	func changeEmail(toNewEmail email: String, usingCredentials credentials: (email: String, password: String), callback: UserAccessCallback) {
+		_userSession.changeEmail(toNewEmail: email, usingCredentials: credentials, callback: callback)
+	}
+	
+	func changePassword(toNewPassword password: String, usingCredentials credentials: (email: String, password: String), callback: UserAccessCallback) {
+		_userSession.changePassword(toNewPassword: password, usingCredentials: credentials, callback: callback)
+	}
+	
 	// MARK: - Public: Player
 	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection? = nil, callback: PlayerAPICallback) {
 		_playerSession.instantiatePlayer(filterSelection, callback: callback)
