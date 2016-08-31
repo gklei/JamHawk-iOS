@@ -151,7 +151,8 @@ extension AppRouter {
 	}
 	
 	private func _resetPassword() {
-		print("Reset password!")
+		let resetPasswordOp = ResetPasswordOperation(recoveryEmail: _signInVC.emailText, session: session, presentationContext: _signInVC)
+		resetPasswordOp.start()
 	}
 	
 	private func _handleUserAccessCallback(error: NSError?,

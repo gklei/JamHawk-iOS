@@ -52,6 +52,10 @@ class JamHawkSession: PlayerAPIService {
 		_userSession.changePassword(toNewPassword: password, usingCredentials: credentials, callback: callback)
 	}
 	
+	func sendResetPasswordEmail(toEmail email: String, callback: UserAccessCallback) {
+		_userSession.sendResetPasswordEmail(toEmail: email, callback: callback)
+	}
+	
 	// MARK: - Public: Player
 	func instantiatePlayer(filterSelection filterSelection: PlayerAPIInputFilterSelection? = nil, callback: PlayerAPICallback) {
 		_playerSession.instantiatePlayer(filterSelection, callback: callback)

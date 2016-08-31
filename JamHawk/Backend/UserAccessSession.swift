@@ -19,6 +19,8 @@ class UserAccessSession {
 	private var _signOutDataTask: NSURLSessionDataTask?
 	private var _signUpDataTask: NSURLSessionDataTask?
 	
+	private var _userAccessDataTask: NSURLSessionDataTask?
+	
 	init(session: NSURLSession) {
 		_session = session
 	}
@@ -76,15 +78,15 @@ class UserAccessSession {
 		let input = UserAccessAPIInput(credentials: creds, action: .ChangeEmail, token: nil, email: email, password: nil)
 		guard let request = input.generateRequest() else { return }
 		
-		_signOutDataTask?.cancel()
-		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+		_userAccessDataTask?.cancel()
+		_userAccessDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let output = UserAccessAPIOutput(jsonData: data)
 			dispatch_async(dispatch_get_main_queue()) {
 				callback(error: error, output: output)
 			}
 		}
-		_signOutDataTask?.resume()
+		_userAccessDataTask?.resume()
 	}
 	
 	func changePassword(toNewPassword password: String, usingCredentials credentials: (email: String, password: String), callback: UserAccessCallback) {
@@ -92,14 +94,29 @@ class UserAccessSession {
 		let input = UserAccessAPIInput(credentials: creds, action: .UpdatePass, token: nil, email: nil, password: password)
 		guard let request = input.generateRequest() else { return }
 		
-		_signOutDataTask?.cancel()
-		_signOutDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+		_userAccessDataTask?.cancel()
+		_userAccessDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
 			
 			let output = UserAccessAPIOutput(jsonData: data)
 			dispatch_async(dispatch_get_main_queue()) {
 				callback(error: error, output: output)
 			}
 		}
-		_signOutDataTask?.resume()
+		_userAccessDataTask?.resume()
+	}
+	
+	func sendResetPasswordEmail(toEmail email: String, callback: UserAccessCallback) {
+		let input = UserAccessAPIInput(credentials: nil, action: .ResetPass, token: nil, email: email, password: nil)
+		guard let request = input.generateRequest() else { return }
+		
+		_userAccessDataTask?.cancel()
+		_userAccessDataTask = _session.dataTaskWithRequest(request) { (data, response, error) in
+			
+			let output = UserAccessAPIOutput(jsonData: data)
+			dispatch_async(dispatch_get_main_queue()) {
+				callback(error: error, output: output)
+			}
+		}
+		_userAccessDataTask?.resume()
 	}
 }
