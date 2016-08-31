@@ -22,14 +22,14 @@ struct UserAccessCredentials: JSONEncodable {
 }
 
 enum UserAccessAction: JSONEncodable {
-	case SignUp, SignIn, SignOut, UpdateEmail, UpdatePass, ResetPass
+	case SignUp, SignIn, SignOut, ChangeEmail, UpdatePass, ResetPass
 	
 	private var jsonValue: String {
 		switch self {
 		case .SignUp: return "signup"
 		case .SignIn: return "signin"
 		case .SignOut: return "signout"
-		case .UpdateEmail: return "updateemail"
+		case .ChangeEmail: return "updateemail"
 		case .UpdatePass: return "updatepass"
 		case .ResetPass: return "resetpass"
 		}
