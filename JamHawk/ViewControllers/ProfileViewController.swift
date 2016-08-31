@@ -57,6 +57,10 @@ class ProfileViewController: UIViewController {
 	internal func signOut() {
 		post(notification: .signOut)
 	}
+	
+	func reloadUI() {
+		_profileOptionsCollectionView.reloadData()
+	}
 }
 
 extension ProfileViewController: Notifier {

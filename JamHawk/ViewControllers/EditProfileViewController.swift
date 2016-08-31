@@ -67,6 +67,10 @@ class EditProfileViewController: UIViewController {
 	internal func goBack() {
 		navigationController?.popViewControllerAnimated(true)
 	}
+	
+	func reloadUI() {
+		_editProfileOptionsCollectionView.reloadData()
+	}
 }
 
 extension EditProfileViewController: UICollectionViewDelegate {
