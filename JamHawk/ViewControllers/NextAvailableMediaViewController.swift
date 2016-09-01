@@ -166,7 +166,7 @@ extension NextAvailableMediaViewController: UICollectionViewDataSource {
 extension NextAvailableMediaViewController: UICollectionViewDelegate {
 	
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-		let size = _collectionView.bounds.height - 1
+		let size = _collectionViewHeightConstraint.constant - 1
 		return CGSize(width: size, height: size)
 	}
 	

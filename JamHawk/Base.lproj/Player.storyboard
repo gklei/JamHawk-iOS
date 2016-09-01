@@ -109,6 +109,9 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27" userLabel="Parent Filter Selection Container">
                                 <rect key="frame" x="0.0" y="20" width="414" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="3UH-FH-ZOa"/>
+                                </constraints>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-ve-drH" userLabel="Compact Current Track Container">
                                 <rect key="frame" x="0.0" y="533" width="414" height="150"/>
@@ -145,7 +148,6 @@
                             <constraint firstItem="0Hh-7i-2we" firstAttribute="centerY" secondItem="Sx4-ve-drH" secondAttribute="centerY" id="9OT-hf-Upz"/>
                             <constraint firstItem="Sx4-ve-drH" firstAttribute="top" secondItem="4rB-2F-63i" secondAttribute="bottom" id="Dp2-XO-s9l"/>
                             <constraint firstItem="2Ww-DI-mLh" firstAttribute="top" secondItem="OFo-eL-40V" secondAttribute="bottom" id="Efe-0f-5rr"/>
-                            <constraint firstItem="mlp-ow-Z27" firstAttribute="height" secondItem="6qq-VQ-SyG" secondAttribute="height" multiplier="0.092" id="EmE-Ju-Q58"/>
                             <constraint firstItem="tZr-Io-xNp" firstAttribute="top" secondItem="6qq-VQ-SyG" secondAttribute="top" id="FnV-U9-nTB"/>
                             <constraint firstAttribute="trailing" secondItem="Sx4-ve-drH" secondAttribute="trailing" id="Rer-HN-BS3"/>
                             <constraint firstItem="5JL-SW-YcI" firstAttribute="top" secondItem="ffU-sH-OeD" secondAttribute="bottom" id="Tms-aM-h5d"/>
@@ -183,6 +185,7 @@
                         <outlet property="_longPressInfoContainer" destination="OFo-eL-40V" id="cOv-jz-JhA"/>
                         <outlet property="_nextAvailableMediaContainer" destination="0Hh-7i-2we" id="Qe6-OX-fks"/>
                         <outlet property="_parentFilterSelectionContainer" destination="mlp-ow-Z27" id="KSe-bH-FDW"/>
+                        <outlet property="_parentFilterSelectionHeightConstraint" destination="3UH-FH-ZOa" id="K2q-4U-Pgo"/>
                         <outlet property="_playerControlsContainer" destination="2Ww-DI-mLh" id="Anb-6a-F58"/>
                         <outlet property="_profileNavigationContainer" destination="tZr-Io-xNp" id="rP5-aa-r5K"/>
                         <outlet property="_subfilterSelectionContainer" destination="igk-xx-ASo" id="Pmh-RN-zvm"/>

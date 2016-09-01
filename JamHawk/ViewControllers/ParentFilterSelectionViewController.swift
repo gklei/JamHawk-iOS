@@ -47,10 +47,9 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 	
 	private func _setupCollectionViewLayout() {
 		let layout = UICollectionViewFlowLayout()
-		let size = _collectionView.bounds.height
-		layout.itemSize = CGSize(width: 182, height: size)
 		layout.minimumLineSpacing = 0
 		layout.scrollDirection = .Horizontal
+		layout.itemSize = CGSize(width: 182, height: _collectionView.frame.height)
 		_collectionView.collectionViewLayout = layout
 	}
 	

@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Branch
+import IncipiaKit
 
 public func updateNavigationBarItemColor(color: UIColor) {
 	let appearance = UIBarButtonItem.appearance()
@@ -23,9 +24,18 @@ public func updateNavigationBarItemColor(color: UIColor) {
 
 public func adjustedFontSizeForCurrentDevice(proposedSize: CGFloat) -> CGFloat {
 	switch UIDevice.currentDevice().deviceType {
-	case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S:
+	case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S, .Simulator:
 		return max((proposedSize - 2), 0)
 	default: return proposedSize
+	}
+}
+
+extension DeviceType {
+	var hasSmallScreen: Bool {
+		switch self {
+		case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S, .Simulator: return true
+		default: return false
+		}
 	}
 }
 
