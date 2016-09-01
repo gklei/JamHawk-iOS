@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="210" height="66"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="GENRE " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2q-yj-BSU">
-                        <rect key="frame" x="11" y="13" width="153" height="15"/>
+                        <rect key="frame" x="11" y="13.5" width="153" height="15"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5U-Hf-uY5" customClass="MarqueeLabel">
-                        <rect key="frame" x="11" y="32" width="153" height="22"/>
+                        <rect key="frame" x="11" y="33" width="153" height="22"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -48,9 +48,9 @@
             </view>
             <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
+                <constraint firstItem="C2q-yj-BSU" firstAttribute="centerY" secondItem="0G7-Rx-qeW" secondAttribute="centerY" constant="-12" id="Caa-5C-AE3"/>
                 <constraint firstItem="C2q-yj-BSU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="11" id="L1Y-I9-vPc"/>
                 <constraint firstItem="0G7-Rx-qeW" firstAttribute="leading" secondItem="C2q-yj-BSU" secondAttribute="trailing" constant="8" id="N75-on-bmk"/>
-                <constraint firstItem="C2q-yj-BSU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="13" id="NKc-dg-2pZ"/>
                 <constraint firstItem="C5U-Hf-uY5" firstAttribute="top" secondItem="C2q-yj-BSU" secondAttribute="bottom" constant="4" id="QRm-Pm-glC"/>
                 <constraint firstItem="0G7-Rx-qeW" firstAttribute="leading" secondItem="C5U-Hf-uY5" secondAttribute="trailing" constant="8" id="S8c-FK-ITN"/>
                 <constraint firstAttribute="trailing" secondItem="0G7-Rx-qeW" secondAttribute="trailing" constant="22" id="TPP-vd-4sL"/>

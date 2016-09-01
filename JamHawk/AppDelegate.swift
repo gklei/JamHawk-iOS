@@ -34,9 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
 			guard branchLinkProperties != nil else { return }
 			guard branchUniversalObject != nil else { return }
-			
-//			print(branchLinkProperties)
-//			print(branchUniversalObject)
 		}
 		
 		window = UIWindow()

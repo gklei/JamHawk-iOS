@@ -85,7 +85,8 @@ class OnboardingFilterView: UIButton {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		_label.font = UIFont(name: "OpenSans", size: 15)
+		let size: CGFloat = UIDevice.currentDevice().deviceType == .Simulator ? 13 : 15
+		_label.font = UIFont(name: "OpenSans", size: size)
 		_label.textColor = UIColor.whiteColor()
 		_label.textAlignment = .Center
 		_label.numberOfLines = 2

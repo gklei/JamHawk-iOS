@@ -10,7 +10,7 @@ import UIKit
 import AsyncImageView
 import IncipiaKit
 
-private let kDefaultTransitionDuration: Double = 0.2
+private let kDefaultTransitionDuration: Double = 0.3
 
 extension Selector {
 	static let filterUpdated = #selector(MainPlayerViewController._filterModelUpdated(_:))

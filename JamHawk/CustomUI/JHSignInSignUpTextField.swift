@@ -10,9 +10,15 @@ import UIKit
 
 class JHSignInSignUpTextField: UITextField {
    override func textRectForBounds(bounds: CGRect) -> CGRect {
-      return bounds.insetBy(dx: 20, dy: 0)
+		let rect = super.textRectForBounds(bounds)
+      let insetRect = bounds.insetBy(dx: 20, dy: rect.origin.y)
+		let origin = CGPoint(x: insetRect.origin.x, y: rect.origin.y)
+		return CGRect(origin: origin, size: insetRect.size)
    }
    override func editingRectForBounds(bounds: CGRect) -> CGRect {
-      return bounds.insetBy(dx: 20, dy: 0)
+		let rect = super.editingRectForBounds(bounds)
+		let insetRect = bounds.insetBy(dx: 20, dy: rect.origin.y)
+		let origin = CGPoint(x: insetRect.origin.x, y: rect.origin.y)
+		return CGRect(origin: origin, size: insetRect.size)
    }
 }

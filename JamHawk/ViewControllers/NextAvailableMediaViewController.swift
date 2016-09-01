@@ -29,8 +29,11 @@ protocol NextAvailableMediaViewControllerDelegate: class {
 final class NextAvailableMediaViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
+	@IBOutlet private var _collectionViewHeightConstraint: NSLayoutConstraint!
 	@IBOutlet private var _collectionView: UICollectionView!
 	@IBOutlet private var _nextSongInfoLabel: MarqueeLabel!
+	
+	private var _setCollectionViewHeight = false
 	
 	// MARK: - Properties
 	weak var dataSource: NextAvailableMediaSelectionDataSource?
@@ -43,7 +46,6 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		super.viewDidLoad()
 		
 		_registerCollectionViewCells()
-		_setupCollectionViewLayout()
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
@@ -54,12 +56,22 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		topBorder?.backgroundColor = UIColor(white: 1, alpha: 0.4)
 	}
 	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		_setCollectionViewHeightIfNecessary()
+	}
+	
+	private func _setCollectionViewHeightIfNecessary() {
+		if !_setCollectionViewHeight {
+			_collectionViewHeightConstraint.constant = view.frame.height * 0.4
+			_setupCollectionViewLayout()
+			_setCollectionViewHeight = true
+		}
+	}
+	
 	// MARK: - Setup
 	private func _setupCollectionViewLayout() {
 		let layout = UICollectionViewFlowLayout()
-		
-		let size = _collectionView.bounds.height
-		layout.itemSize = CGSize(width: size, height: size)
 		layout.minimumLineSpacing = 28.0
 		layout.scrollDirection = .Horizontal
 		
@@ -151,6 +163,11 @@ extension NextAvailableMediaViewController: UICollectionViewDataSource {
 }
 
 extension NextAvailableMediaViewController: UICollectionViewDelegate {
+	
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+		let size = _collectionView.bounds.height - 1
+		return CGSize(width: size, height: size)
+	}
 	
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		dataSource?.selectMedia(atIndex: indexPath.row)
