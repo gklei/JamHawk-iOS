@@ -23,6 +23,9 @@ class SubfilterCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		backgroundColor = .clearColor()
+		
+		let fontSize = adjustedFontSizeForCurrentDevice(12)
+		_nameLabel.font = UIFont(name: "OpenSans", size: fontSize)
 	}
 	
 	// MARK: - Public

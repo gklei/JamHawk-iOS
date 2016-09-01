@@ -21,6 +21,14 @@ public func updateNavigationBarItemColor(color: UIColor) {
 	appearance.setTitleTextAttributes(attrs, forState: .Normal)
 }
 
+public func adjustedFontSizeForCurrentDevice(proposedSize: CGFloat) -> CGFloat {
+	switch UIDevice.currentDevice().deviceType {
+	case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S:
+		return max((proposedSize - 2), 0)
+	default: return proposedSize
+	}
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {

@@ -101,15 +101,16 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		guard let viewModel = dataSource?.nextAvailableMediaViewModels[index] else { return }
 		guard let artistAndSongTitle = viewModel.artistAndSongTitle else { return }
 		
+		let fontSize: CGFloat = adjustedFontSizeForCurrentDevice(14)
 		let nextSongText = "Next Song: "
 		
 		let regularAttrs: [String : AnyObject] = [
 			NSForegroundColorAttributeName : UIColor.whiteColor(),
-			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!
+			NSFontAttributeName : UIFont(name: "OpenSans", size: fontSize)!
 		]
 		let boldAttrs: [String : AnyObject] = [
 			NSForegroundColorAttributeName : UIColor.whiteColor(),
-			NSFontAttributeName : UIFont(name: "OpenSans-SemiBold", size: 14)!
+			NSFontAttributeName : UIFont(name: "OpenSans-SemiBold", size: fontSize)!
 		]
 		
 		let nextSongAttributedString = NSAttributedString(string: nextSongText, attributes: regularAttrs)

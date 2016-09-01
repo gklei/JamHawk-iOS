@@ -105,6 +105,9 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		
 		_viewTransformer = ViewTransformer(view: _albumArtShadowView)
 		_currentTrackLabel.fadeLength = 10
+		
+		let fontSize = adjustedFontSizeForCurrentDevice(16)
+		_currentTrackLabel.font = UIFont(name: "OpenSans-Semibold", size: fontSize)
 	}
 	
 	override func viewDidLayoutSubviews() {
