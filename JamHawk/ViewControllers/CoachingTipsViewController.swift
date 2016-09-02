@@ -31,6 +31,7 @@ class CoachingTipsViewController: UIViewController {
 	@IBOutlet private var _mainTitleLabel: UILabel!
 	@IBOutlet private var _subtitleLabel: UILabel!
 	@IBOutlet private var _nextButton: WhiteRoundedJamhawkButton!
+	@IBOutlet private var _skipAllTipsButton: UIButton!
 	
 	private let maskLayer = CAShapeLayer()
 	private let underlayView = UIView(frame: CGRect.zero)
@@ -53,6 +54,14 @@ class CoachingTipsViewController: UIViewController {
 		underlayView.clipsToBounds = true
 		underlayView.layer.mask = maskLayer
 		
+		let mainTitleSize: CGFloat = UIDevice.currentDevice().deviceType.hasSmallScreen ? 24 : 30
+		_mainTitleLabel.font = UIFont(name: "OpenSans-Light", size: mainTitleSize)
+		
+		let subtitleSize: CGFloat = adjustedFontSizeForCurrentDevice(13)
+		_subtitleLabel.font = UIFont(name: "OpenSans", size: subtitleSize)
+		
+		_setupSkipAllTipsButton()
+		
 		view.insertSubview(underlayView, atIndex: 0)
 	}
 	
@@ -72,6 +81,27 @@ class CoachingTipsViewController: UIViewController {
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
+	}
+	
+	private func _setupSkipAllTipsButton() {
+		let skipAllSize = adjustedFontSizeForCurrentDevice(13)
+		let skipAllTitle = "Skip All Help Tips"
+		
+		let attrs: [String : AnyObject] = [
+			NSFontAttributeName : UIFont(name: "OpenSans", size: skipAllSize)!,
+			NSForegroundColorAttributeName : UIColor.whiteColor()
+		]
+		
+		let highlightedAttrs: [String : AnyObject] = [
+			NSFontAttributeName : UIFont(name: "OpenSans", size: skipAllSize)!,
+			NSForegroundColorAttributeName : UIColor(white: 1, alpha: 0.7)
+		]
+		
+		let normalAttrTitle = NSAttributedString(string: skipAllTitle, attributes: attrs)
+		let highlightedAttrTitle = NSAttributedString(string: skipAllTitle, attributes: highlightedAttrs)
+		
+		_skipAllTipsButton.setAttributedTitle(normalAttrTitle, forState: .Normal)
+		_skipAllTipsButton.setAttributedTitle(highlightedAttrTitle, forState: .Highlighted)
 	}
 	
 	@IBAction private func _buttonPressed() {

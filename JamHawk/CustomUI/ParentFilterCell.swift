@@ -45,6 +45,9 @@ class ParentFilterCell: UICollectionViewCell {
 		_setupBorders()
 		
 		_filterSelectionLabel.fadeLength = 2
+		
+		let fontSize = adjustedFontSizeForCurrentDevice(16)
+		_filterSelectionLabel.font = UIFont(name: "OpenSans", size: fontSize)
 	}
 	
 	// MARK: - Public
@@ -121,7 +124,7 @@ extension ParentFilterCell {
 			_downArrowImageView.tintColor = selected ? .jmhTurquoiseColor() : .whiteColor()
 			
 			let t = selected ? CGAffineTransformMakeRotation(CGFloat(M_PI)) : CGAffineTransformIdentity
-			UIView.animateWithDuration(0.2) {
+			UIView.animateWithDuration(0.3) {
 				self._downArrowImageView.transform = t
 			}
 		}

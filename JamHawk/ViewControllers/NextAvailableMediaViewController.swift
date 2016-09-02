@@ -29,8 +29,11 @@ protocol NextAvailableMediaViewControllerDelegate: class {
 final class NextAvailableMediaViewController: UIViewController, PlayerStoryboardInstantiable {
 	
 	// MARK: - Outlets
+	@IBOutlet private var _collectionViewHeightConstraint: NSLayoutConstraint!
 	@IBOutlet private var _collectionView: UICollectionView!
 	@IBOutlet private var _nextSongInfoLabel: MarqueeLabel!
+	
+	private var _setCollectionViewHeight = false
 	
 	// MARK: - Properties
 	weak var dataSource: NextAvailableMediaSelectionDataSource?
@@ -43,7 +46,6 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		super.viewDidLoad()
 		
 		_registerCollectionViewCells()
-		_setupCollectionViewLayout()
 		
 		_collectionView.dataSource = self
 		_collectionView.delegate = self
@@ -54,12 +56,22 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		topBorder?.backgroundColor = UIColor(white: 1, alpha: 0.4)
 	}
 	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		_setCollectionViewHeightIfNecessary()
+	}
+	
+	private func _setCollectionViewHeightIfNecessary() {
+		if !_setCollectionViewHeight {
+			_collectionViewHeightConstraint.constant = view.frame.height * 0.4
+			_setupCollectionViewLayout()
+			_setCollectionViewHeight = true
+		}
+	}
+	
 	// MARK: - Setup
 	private func _setupCollectionViewLayout() {
 		let layout = UICollectionViewFlowLayout()
-		
-		let size = _collectionView.bounds.height
-		layout.itemSize = CGSize(width: size, height: size)
 		layout.minimumLineSpacing = 28.0
 		layout.scrollDirection = .Horizontal
 		
@@ -89,15 +101,16 @@ final class NextAvailableMediaViewController: UIViewController, PlayerStoryboard
 		guard let viewModel = dataSource?.nextAvailableMediaViewModels[index] else { return }
 		guard let artistAndSongTitle = viewModel.artistAndSongTitle else { return }
 		
+		let fontSize: CGFloat = adjustedFontSizeForCurrentDevice(14)
 		let nextSongText = "Next Song: "
 		
 		let regularAttrs: [String : AnyObject] = [
 			NSForegroundColorAttributeName : UIColor.whiteColor(),
-			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!
+			NSFontAttributeName : UIFont(name: "OpenSans", size: fontSize)!
 		]
 		let boldAttrs: [String : AnyObject] = [
 			NSForegroundColorAttributeName : UIColor.whiteColor(),
-			NSFontAttributeName : UIFont(name: "OpenSans-SemiBold", size: 14)!
+			NSFontAttributeName : UIFont(name: "OpenSans-SemiBold", size: fontSize)!
 		]
 		
 		let nextSongAttributedString = NSAttributedString(string: nextSongText, attributes: regularAttrs)
@@ -151,6 +164,11 @@ extension NextAvailableMediaViewController: UICollectionViewDataSource {
 }
 
 extension NextAvailableMediaViewController: UICollectionViewDelegate {
+	
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+		let size = _collectionViewHeightConstraint.constant - 1
+		return CGSize(width: size, height: size)
+	}
 	
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		dataSource?.selectMedia(atIndex: indexPath.row)

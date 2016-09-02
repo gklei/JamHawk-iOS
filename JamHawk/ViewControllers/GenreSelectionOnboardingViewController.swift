@@ -48,6 +48,7 @@ class GenreSelectionOnboardingViewController: UIViewController {
 		
 		updateLeftBarButtonItem(withTitle: "   Back", action: backSel)
 		updateRightBarButtonItem(withTitle: "Continue   ", action: continueSel)
+		_updateContinueItemEnabledState()
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -62,6 +63,15 @@ class GenreSelectionOnboardingViewController: UIViewController {
 		backClosure()
 	}
 	
+	@IBAction private func _swipeLeftRecognized() {
+		guard filterViews.filter({$0.selected}).count > 0 else { return }
+		continueClosure()
+	}
+	
+	@IBAction private func _swipeRightRecognized() {
+		backClosure()
+	}
+	
 	private func _updateGenresSelectedLabel() {
 		var text = "Selected a Genre"
 		let count = filterViews.filter({$0.selected}).count
@@ -71,14 +81,21 @@ class GenreSelectionOnboardingViewController: UIViewController {
 		}
 		_genresSelectedLabel.text = text
 	}
+	
+	private func _updateContinueItemEnabledState() {
+		let count = filterViews.filter({$0.selected}).count
+		navigationItem.rightBarButtonItem?.enabled = count > 0
+	}
 }
 
 extension GenreSelectionOnboardingViewController: OnboardingFilterViewDelegate {
 	func filterViewSelected(view: OnboardingFilterView) {
 		_updateGenresSelectedLabel()
+		_updateContinueItemEnabledState()
 	}
 	
 	func filterViewDeselected(view: OnboardingFilterView) {
 		_updateGenresSelectedLabel()
+		_updateContinueItemEnabledState()
 	}
 }

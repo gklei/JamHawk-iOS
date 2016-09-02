@@ -9,16 +9,52 @@
 import UIKit
 import AVFoundation
 import Branch
+import IncipiaKit
 
 public func updateNavigationBarItemColor(color: UIColor) {
 	let appearance = UIBarButtonItem.appearance()
 	
+	let font = UIFont(name: "OpenSans", size: 14)!
+	let kern = 0.7
+	
 	let attrs: [String : AnyObject] = [
 		NSForegroundColorAttributeName : color,
-		NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!,
-		NSKernAttributeName : 0.7
+		NSFontAttributeName : font,
+		NSKernAttributeName : kern
 	]
+	
+	let disabledAttrs: [String : AnyObject] = [
+		NSForegroundColorAttributeName : color.colorWithAlphaComponent(0.3),
+		NSFontAttributeName : font,
+		NSKernAttributeName : kern
+	]
+	
+	let highlightedAttrs: [String : AnyObject] = [
+		NSForegroundColorAttributeName : color.colorWithAlphaComponent(0.7),
+		NSFontAttributeName : font,
+		NSKernAttributeName : kern
+	]
+	
 	appearance.setTitleTextAttributes(attrs, forState: .Normal)
+	appearance.setTitleTextAttributes(disabledAttrs, forState: .Disabled)
+	appearance.setTitleTextAttributes(highlightedAttrs, forState: .Highlighted)
+}
+
+public func adjustedFontSizeForCurrentDevice(proposedSize: CGFloat) -> CGFloat {
+	switch UIDevice.currentDevice().deviceType {
+	case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S, .Simulator:
+		return max((proposedSize - 2), 0)
+	default: return proposedSize
+	}
+}
+
+extension DeviceType {
+	var hasSmallScreen: Bool {
+		switch self {
+		case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S, .Simulator: return true
+		default: return false
+		}
+	}
 }
 
 @UIApplicationMain
@@ -34,9 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
 			guard branchLinkProperties != nil else { return }
 			guard branchUniversalObject != nil else { return }
-			
-//			print(branchLinkProperties)
-//			print(branchUniversalObject)
 		}
 		
 		window = UIWindow()

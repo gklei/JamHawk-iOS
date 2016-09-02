@@ -14,7 +14,8 @@ class ShowTrackDetailsState: MainPlayerState {
 		let previousState = _delegate.currentState
 		_delegate.mainPlayerStateTransitionBegan(from: previousState, to: self, duration: duration)
 		
-		_delegate.bottomContainerHeightConstraint.constant = 150.0
+		let constant = UIScreen.mainScreen().bounds.height * 0.2
+		_delegate.bottomContainerHeightConstraint.constant = ceil(constant)
 		UIView.animateWithDuration(duration, animations: {
 			self._delegate.view.layoutIfNeeded()
 			self._delegate.longPressInfoContainer.alpha = 1

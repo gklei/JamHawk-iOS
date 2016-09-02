@@ -23,6 +23,7 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 	
 	// MARK: - Outlets
 	@IBOutlet private var _collectionView: UICollectionView!
+	private var _collectionViewLayoutSet = false
 	
 	// MARK: - Properties
 	weak var dataSource: ParentFilterSelectionDataSource?
@@ -30,9 +31,12 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 	// MARK: - Overridden
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		_registerCollectionViewCellType()
-		_setupCollectionViewLayout()
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		_setupCollectionViewLayoutIfNecessary()
 	}
 	
 	// MARK: - Private
@@ -43,11 +47,17 @@ final class ParentFilterSelectionViewController: UIViewController, PlayerStorybo
 	
 	private func _setupCollectionViewLayout() {
 		let layout = UICollectionViewFlowLayout()
-		let size = _collectionView.bounds.height
-		layout.itemSize = CGSize(width: 182, height: size)
 		layout.minimumLineSpacing = 0
 		layout.scrollDirection = .Horizontal
+		layout.itemSize = CGSize(width: 182, height: _collectionView.frame.height)
 		_collectionView.collectionViewLayout = layout
+	}
+	
+	private func _setupCollectionViewLayoutIfNecessary() {
+		if !_collectionViewLayoutSet {
+			_setupCollectionViewLayout()
+			_collectionViewLayoutSet = true
+		}
 	}
 	
 	// MARK: - Public

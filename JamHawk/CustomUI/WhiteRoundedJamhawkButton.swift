@@ -27,13 +27,15 @@ class WhiteRoundedJamhawkButton: UIButton {
 	}
 	
 	func update(title title: String) {
+		let fontSize = adjustedFontSizeForCurrentDevice(14)
+		
 		let attrs: [String : AnyObject] = [
-			NSFontAttributeName : UIFont(name: "OpenSans-Semibold", size: 14)!,
+			NSFontAttributeName : UIFont(name: "OpenSans-Semibold", size: fontSize)!,
 			NSForegroundColorAttributeName : UIColor.whiteColor()
 		]
 		
 		let highlightedAttrs: [String : AnyObject] = [
-			NSFontAttributeName : UIFont(name: "OpenSans-Semibold", size: 14)!,
+			NSFontAttributeName : UIFont(name: "OpenSans-Semibold", size: fontSize)!,
 			NSForegroundColorAttributeName : UIColor(white: 1, alpha: 0.7)
 		]
 		

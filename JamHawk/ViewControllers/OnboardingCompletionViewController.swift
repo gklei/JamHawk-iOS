@@ -43,4 +43,8 @@ class OnboardingCompletionViewController: UIViewController {
 	@IBAction private func _signUpButtonPressed() {
 		signUpButtonClosure()
 	}
+	
+	@IBAction private func _swipeRightRecognized() {
+		backClosure()
+	}
 }

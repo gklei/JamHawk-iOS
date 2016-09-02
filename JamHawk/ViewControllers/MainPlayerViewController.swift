@@ -10,7 +10,7 @@ import UIKit
 import AsyncImageView
 import IncipiaKit
 
-private let kDefaultTransitionDuration: Double = 0.2
+private let kDefaultTransitionDuration: Double = 0.3
 
 extension Selector {
 	static let filterUpdated = #selector(MainPlayerViewController._filterModelUpdated(_:))
@@ -40,6 +40,7 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	@IBOutlet internal var _subfilterSelectionContainer: UIView!
 	@IBOutlet internal var _profileNavigationContainer: UIView!
 	@IBOutlet internal var _bottomContainerHeightConstraint: NSLayoutConstraint!
+	@IBOutlet internal var _parentFilterSelectionHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Public Properties
 	var session: JamHawkSession!
@@ -68,6 +69,9 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		let parentFilterHeight = UIScreen.mainScreen().bounds.height * 0.09
+		_parentFilterSelectionHeightConstraint.constant = ceil(parentFilterHeight)
+		
 		add(childViewController: _parentFilterSelectionVC, toContainer: _parentFilterSelectionContainer)
 		add(childViewController: _largeCurrentTrackVC, toContainer: _largeCurrentTrackContainer)
 		add(childViewController: _nextAvailableMediaVC, toContainer: _nextAvailableMediaContainer)
@@ -86,10 +90,43 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		
 		// TODO: put the swipe recognizer on the container view -- the view controller should know nothing about it
 		_compactCurrentTrackVC.swipeUpClosure = _compactCurrentTrackSwipedUp
+		coachingTipsController.delegate = self
 		
 		_currentState = DefaultMainPlayerState(delegate: self)
 		_transition(toState: _currentState, duration: 0)
 		
+		_setupSystemObservation()
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		removeLeftBarItem()
+		removeRightBarItem()
+		
+		if showCoachingTips {
+			let navController = JamHawkNavigationController(rootViewController: coachingTipsController)
+			navController.modalPresentationStyle = .OverCurrentContext
+			navController.modalTransitionStyle = .CrossDissolve
+			
+			parentViewController?.presentViewController(navController, animated: false, completion: nil)
+		}
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+	}
+	
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return _statusBarStyle
+	}
+	
+	func prepareForSignOut() {
+		let state = DefaultMainPlayerState(delegate: self)
+		_transition(toState: state, duration: kDefaultTransitionDuration)
+	}
+	
+	// MARK: - Private
+	private func _setupSystemObservation() {
 		FilterSystem.addObserver(self, selector: .filterUpdated, notification: .modelDidUpdate)
 		FilterSystem.addObserver(self, selector: .parentFilterSelectionUpdated, notification: .parentFilterSelectionDidUpdate)
 		FilterSystem.addObserver(self, selector: .subfilterSelectionUpdated, notification: .subfilterSelectionDidUpdate)
@@ -103,39 +140,9 @@ final class MainPlayerViewController: UIViewController, PlayerStoryboardInstanti
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaUpdated, notification: .modelDidUpdate)
 		NextAvailableMediaSystem.addObserver(self, selector: .nextAvailableMediaSelectionUpdated, notification: .selectionDidUpdate)
 		
-		coachingTipsController.delegate = self
-		
 		ProfileViewController.addObserver(self, selector: #selector(MainPlayerViewController.prepareForSignOut), notification: .signOut)
 	}
 	
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-		removeLeftBarItem()
-		removeRightBarItem()
-	}
-	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		
-		if showCoachingTips {
-			let navController = JamHawkNavigationController(rootViewController: coachingTipsController)
-			navController.modalPresentationStyle = .OverCurrentContext
-			navController.modalTransitionStyle = .CrossDissolve
-			
-			presentViewController(navController, animated: true, completion: nil)
-		}
-	}
-	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return _statusBarStyle
-	}
-	
-	func prepareForSignOut() {
-		let state = DefaultMainPlayerState(delegate: self)
-		_transition(toState: state, duration: kDefaultTransitionDuration)
-	}
-	
-	// MARK: - Private
 	private func _updateUI(withViewModel vm: PlayerAPIOutputMetadataViewModel) {
 		let loadImageSelector = #selector(MainPlayerViewController._imageFinishedLoading(_:url:))
 		let loader = AsyncImageLoader.sharedLoader()
@@ -307,8 +314,8 @@ extension MainPlayerViewController: CoachingTipsViewControllerDelegate {
 		case .Welcome: coachingTipsController.currentState = .NextSong
 		case .NextSong: coachingTipsController.currentState = .Filters
 		case .Filters:
-			navigationController?.setNavigationBarHidden(true, animated: true)
-			coachingTipsController.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+			coachingTipsController.navigationController?.dismissViewControllerAnimated(false, completion: nil)
+			navigationController?.setNavigationBarHidden(true, animated: false)
 			JamhawkStorage.userHasSeenCoachingTips = true
 		}
 	}

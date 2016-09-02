@@ -110,7 +110,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="5lD-EQ-1Ka"/>
+                                    <constraint firstAttribute="height" constant="68" id="3UH-FH-ZOa"/>
                                 </constraints>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-ve-drH" userLabel="Compact Current Track Container">
@@ -185,6 +185,7 @@
                         <outlet property="_longPressInfoContainer" destination="OFo-eL-40V" id="cOv-jz-JhA"/>
                         <outlet property="_nextAvailableMediaContainer" destination="0Hh-7i-2we" id="Qe6-OX-fks"/>
                         <outlet property="_parentFilterSelectionContainer" destination="mlp-ow-Z27" id="KSe-bH-FDW"/>
+                        <outlet property="_parentFilterSelectionHeightConstraint" destination="3UH-FH-ZOa" id="K2q-4U-Pgo"/>
                         <outlet property="_playerControlsContainer" destination="2Ww-DI-mLh" id="Anb-6a-F58"/>
                         <outlet property="_profileNavigationContainer" destination="tZr-Io-xNp" id="rP5-aa-r5K"/>
                         <outlet property="_subfilterSelectionContainer" destination="igk-xx-ASo" id="Pmh-RN-zvm"/>
@@ -206,12 +207,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm" customClass="MarqueeLabel">
+                                <rect key="frame" x="20" y="24.5" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="miX-FT-dVr">
-                                <rect key="frame" x="0.0" y="58" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="60"/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.0" colorSpace="deviceRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="TNd-s1-rxH"/>
+                                    <constraint firstAttribute="height" constant="60" id="VEe-HI-VtH"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="11" minimumInteritemSpacing="0.0" id="Jtm-7Z-KLX">
                                     <size key="itemSize" width="48" height="48"/>
@@ -236,17 +243,11 @@
                                     <outletCollection property="gestureRecognizers" destination="jbn-3A-4lB" appends="YES" id="tuK-OV-p1X"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Song: Beyonce – Lemonade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-Ql-qcm" customClass="MarqueeLabel">
-                                <rect key="frame" x="20" y="22.5" width="374" height="19.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7gg-Ql-qcm" firstAttribute="centerX" secondItem="miX-FT-dVr" secondAttribute="centerX" id="2Yi-3b-Sm4"/>
-                            <constraint firstItem="miX-FT-dVr" firstAttribute="top" secondItem="tsL-o7-uAB" secondAttribute="bottom" constant="58" id="CLb-By-sc5"/>
+                            <constraint firstItem="miX-FT-dVr" firstAttribute="centerY" secondItem="yLV-js-tTd" secondAttribute="centerY" multiplier="1.2" id="2rS-Yv-Jvo"/>
                             <constraint firstItem="miX-FT-dVr" firstAttribute="leading" secondItem="yLV-js-tTd" secondAttribute="leading" id="I2l-Ac-zXv"/>
                             <constraint firstAttribute="trailing" secondItem="7gg-Ql-qcm" secondAttribute="trailing" constant="20" id="MlS-x7-yTp"/>
                             <constraint firstItem="7gg-Ql-qcm" firstAttribute="leading" secondItem="yLV-js-tTd" secondAttribute="leading" constant="20" id="uTl-KC-St2"/>
@@ -259,6 +260,7 @@
                     <size key="freeformSize" width="414" height="150"/>
                     <connections>
                         <outlet property="_collectionView" destination="miX-FT-dVr" id="nK1-aj-29r"/>
+                        <outlet property="_collectionViewHeightConstraint" destination="VEe-HI-VtH" id="8A4-XC-XH8"/>
                         <outlet property="_nextSongInfoLabel" destination="7gg-Ql-qcm" id="sqm-Q6-m6H"/>
                     </connections>
                 </viewController>
@@ -831,6 +833,6 @@
         <image name="play2" width="15" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ma2-9Y-rmW"/>
+        <segue reference="1cG-68-Onq"/>
     </inferredMetricsTieBreakers>
 </document>
