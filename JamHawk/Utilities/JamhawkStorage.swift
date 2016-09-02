@@ -41,8 +41,7 @@ struct JamhawkStorage {
 	
 	static var userHasSeenCoachingTips: Bool {
 		get {
-			return false
-//			return Defaults[.hasSeenCoachingTips]
+			return Defaults[.hasSeenCoachingTips]
 		}
 		set {
 			Defaults[.hasSeenCoachingTips] = newValue

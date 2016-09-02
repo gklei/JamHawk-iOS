@@ -14,12 +14,30 @@ import IncipiaKit
 public func updateNavigationBarItemColor(color: UIColor) {
 	let appearance = UIBarButtonItem.appearance()
 	
+	let font = UIFont(name: "OpenSans", size: 14)!
+	let kern = 0.7
+	
 	let attrs: [String : AnyObject] = [
 		NSForegroundColorAttributeName : color,
-		NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!,
-		NSKernAttributeName : 0.7
+		NSFontAttributeName : font,
+		NSKernAttributeName : kern
 	]
+	
+	let disabledAttrs: [String : AnyObject] = [
+		NSForegroundColorAttributeName : color.colorWithAlphaComponent(0.3),
+		NSFontAttributeName : font,
+		NSKernAttributeName : kern
+	]
+	
+	let highlightedAttrs: [String : AnyObject] = [
+		NSForegroundColorAttributeName : color.colorWithAlphaComponent(0.7),
+		NSFontAttributeName : font,
+		NSKernAttributeName : kern
+	]
+	
 	appearance.setTitleTextAttributes(attrs, forState: .Normal)
+	appearance.setTitleTextAttributes(disabledAttrs, forState: .Disabled)
+	appearance.setTitleTextAttributes(highlightedAttrs, forState: .Highlighted)
 }
 
 public func adjustedFontSizeForCurrentDevice(proposedSize: CGFloat) -> CGFloat {

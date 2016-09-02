@@ -57,14 +57,14 @@ class OnboardingFilterView: UIButton {
 		}
 	}
 	
-	private var _bgColor = UIColor(white: 0, alpha: 0.5)
+	private var _bgColor = UIColor(white: 0, alpha: 0.75)
 	private let _label = UILabel()
 	
 	weak var delegate: OnboardingFilterViewDelegate?
 	
 	override var highlighted: Bool {
 		didSet {
-			var alpha: CGFloat = highlighted ? 0.3 : 0.5
+			var alpha: CGFloat = highlighted ? 0.5 : 0.75
 			if selected {
 				alpha = highlighted ? 0.8 : 1
 			}
@@ -77,7 +77,7 @@ class OnboardingFilterView: UIButton {
 	
 	override var selected: Bool {
 		didSet {
-			_bgColor = selected ? UIColor.jmhTurquoiseColor() : UIColor(white: 0, alpha: 0.5)
+			_bgColor = selected ? UIColor.jmhTurquoiseColor() : UIColor(white: 0, alpha: 0.75)
 			setNeedsDisplay()
 		}
 	}

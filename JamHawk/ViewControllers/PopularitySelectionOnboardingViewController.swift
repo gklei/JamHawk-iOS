@@ -49,6 +49,7 @@ class PopularitySelectionOnboardingViewController: UIViewController {
 		
 		updateLeftBarButtonItem(withTitle: "   Back", action: backSel)
 		updateRightBarButtonItem(withTitle: "Continue   ", action: continueSel)
+		_updateContinueItemEnabledState()
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -63,6 +64,15 @@ class PopularitySelectionOnboardingViewController: UIViewController {
 		backClosure()
 	}
 	
+	@IBAction private func _swipeLeftRecognized() {
+		guard filterViews.filter({$0.selected}).count > 0 else { return }
+		continueClosure()
+	}
+	
+	@IBAction private func _swipeRightRecognized() {
+		backClosure()
+	}
+	
 	private func _updatePopularitySelectedLabel() {
 		var text = "Selected a Popularity"
 		let count = filterViews.filter({$0.selected}).count
@@ -72,14 +82,21 @@ class PopularitySelectionOnboardingViewController: UIViewController {
 		}
 		_popularitySelectedLabel.text = text
 	}
+	
+	private func _updateContinueItemEnabledState() {
+		let count = filterViews.filter({$0.selected}).count
+		navigationItem.rightBarButtonItem?.enabled = count > 0
+	}
 }
 
 extension PopularitySelectionOnboardingViewController: OnboardingFilterViewDelegate {
 	func filterViewSelected(view: OnboardingFilterView) {
 		_updatePopularitySelectedLabel()
+		_updateContinueItemEnabledState()
 	}
 	
 	func filterViewDeselected(view: OnboardingFilterView) {
 		_updatePopularitySelectedLabel()
+		_updateContinueItemEnabledState()
 	}
 }

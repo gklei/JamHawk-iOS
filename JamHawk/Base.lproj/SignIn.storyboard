@@ -281,6 +281,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="AZg-nL-ZmM" firstAttribute="leading" secondItem="K3k-rF-PJk" secondAttribute="leading" constant="50" id="1Eh-bE-qr1"/>
                                     <constraint firstItem="r4Q-OW-Q61" firstAttribute="height" secondItem="A6f-uM-A77" secondAttribute="height" id="4sC-iE-hZB"/>
@@ -311,6 +312,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GBL-6M-c8T" firstAttribute="leading" secondItem="3Wp-qd-ihU" secondAttribute="leading" id="ATZ-16-Nz7"/>
                             <constraint firstItem="s5h-sd-VhY" firstAttribute="leading" secondItem="3Wp-qd-ihU" secondAttribute="leading" constant="20" id="Oi5-aO-dB1"/>
@@ -323,6 +325,10 @@
                             <constraint firstAttribute="trailing" secondItem="GBL-6M-c8T" secondAttribute="trailing" id="sHj-U5-Ih6"/>
                             <constraint firstItem="c8q-OB-WZ6" firstAttribute="leading" secondItem="3Wp-qd-ihU" secondAttribute="leading" constant="20" id="zRu-cv-1tP"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="TWf-Av-U6Q" appends="YES" id="tBA-U4-hYh"/>
+                            <outletCollection property="gestureRecognizers" destination="Muz-QZ-ceZ" appends="YES" id="tRG-bA-qcb"/>
+                        </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -337,6 +343,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xxj-no-tsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="TWf-Av-U6Q">
+                    <connections>
+                        <action selector="_swipeLeftRecognized" destination="YsC-xe-Rib" id="zhH-Un-3wj"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="Muz-QZ-ceZ">
+                    <connections>
+                        <action selector="_swipeRightRecognized" destination="YsC-xe-Rib" id="alc-ZX-4y4"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="678.5" y="270.5"/>
         </scene>
@@ -584,6 +600,7 @@ Jamhawk Dashboard</string>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Tpg-kN-CB2" secondAttribute="trailing" constant="30" id="17g-2Q-j8T"/>
                                     <constraint firstItem="XQf-YU-bJD" firstAttribute="height" secondItem="Tpg-kN-CB2" secondAttribute="height" id="4wP-RN-li0"/>
@@ -600,6 +617,7 @@ Jamhawk Dashboard</string>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EGv-03-4h1" firstAttribute="top" secondItem="G0m-Fa-hDl" secondAttribute="bottom" id="3oD-4H-zJ1"/>
                             <constraint firstItem="ZTx-eu-7tQ" firstAttribute="top" secondItem="4wz-1G-Ifj" secondAttribute="bottom" constant="20" id="4Yj-5Z-LRe"/>
@@ -612,6 +630,10 @@ Jamhawk Dashboard</string>
                             <constraint firstAttribute="trailing" secondItem="EGv-03-4h1" secondAttribute="trailing" constant="20" id="nrX-lC-SI7"/>
                             <constraint firstAttribute="trailing" secondItem="4wz-1G-Ifj" secondAttribute="trailing" constant="20" id="t7x-Vp-t0g"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rJv-MX-Q1Q" appends="YES" id="J6B-Z6-00F"/>
+                            <outletCollection property="gestureRecognizers" destination="5Qw-aD-aZQ" appends="YES" id="DE3-em-sIH"/>
+                        </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -624,6 +646,16 @@ Jamhawk Dashboard</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVd-nA-ZxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="rJv-MX-Q1Q">
+                    <connections>
+                        <action selector="_swipeLeftRecognized" destination="fFz-ty-wKN" id="RNP-tf-ge5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="5Qw-aD-aZQ">
+                    <connections>
+                        <action selector="_swipeRightRecognized" destination="fFz-ty-wKN" id="Apu-VC-hXx"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1129.5" y="270.5"/>
         </scene>
@@ -685,6 +717,7 @@ Jamhawk Dashboard</string>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="MMt-bS-zch" firstAttribute="leading" secondItem="1fB-El-pg7" secondAttribute="leading" constant="20" id="2qc-cX-mGa"/>
                             <constraint firstItem="wPc-C8-xkD" firstAttribute="centerX" secondItem="dMV-yf-8wR" secondAttribute="centerX" id="6YS-5f-83A"/>
@@ -696,6 +729,9 @@ Jamhawk Dashboard</string>
                             <constraint firstItem="dMV-yf-8wR" firstAttribute="width" secondItem="MMt-bS-zch" secondAttribute="width" id="ajZ-U9-f1K"/>
                             <constraint firstItem="dMV-yf-8wR" firstAttribute="top" secondItem="MMt-bS-zch" secondAttribute="bottom" constant="8" id="uoM-Dd-dsZ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nKu-jT-JNQ" appends="YES" id="EQC-xw-E4o"/>
+                        </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -704,6 +740,11 @@ Jamhawk Dashboard</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AG-Mu-5ZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="nKu-jT-JNQ">
+                    <connections>
+                        <action selector="_swipeRightRecognized" destination="9AG-hg-nVb" id="OQ2-1Y-GBO"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1656.5" y="270.5"/>
         </scene>
