@@ -45,7 +45,7 @@
 		CE3203D41D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203D31D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift */; };
 		CE3203D61D614EDC00746B03 /* OnboardingNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203D51D614EDC00746B03 /* OnboardingNavigationAnimator.swift */; };
 		CE3203D81D61507600746B03 /* PopularitySelectionOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203D71D61507600746B03 /* PopularitySelectionOnboardingViewController.swift */; };
-		CE3203DF1D62C88400746B03 /* OnboardingFilterVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203DE1D62C88400746B03 /* OnboardingFilterVIew.swift */; };
+		CE3203DF1D62C88400746B03 /* OnboardingFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203DE1D62C88400746B03 /* OnboardingFilterView.swift */; };
 		CE32971B1D49DDB7001CF512 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32971A1D49DDB7001CF512 /* QuartzCore.framework */; };
 		CE4C48B61D2C5879000EBA35 /* PlayerAPIInputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */; };
 		CE567FA01D38138B00EF33A2 /* UIColor+Jamhawk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */; };
@@ -160,7 +160,7 @@
 		CE3203D31D614AEE00746B03 /* GenreSelectionOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenreSelectionOnboardingViewController.swift; path = JamHawk/ViewControllers/GenreSelectionOnboardingViewController.swift; sourceTree = "<group>"; };
 		CE3203D51D614EDC00746B03 /* OnboardingNavigationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingNavigationAnimator.swift; path = JamHawk/CustomUI/OnboardingNavigationAnimator.swift; sourceTree = "<group>"; };
 		CE3203D71D61507600746B03 /* PopularitySelectionOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularitySelectionOnboardingViewController.swift; path = JamHawk/ViewControllers/PopularitySelectionOnboardingViewController.swift; sourceTree = "<group>"; };
-		CE3203DE1D62C88400746B03 /* OnboardingFilterVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingFilterVIew.swift; path = JamHawk/CustomUI/OnboardingFilterVIew.swift; sourceTree = "<group>"; };
+		CE3203DE1D62C88400746B03 /* OnboardingFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingFilterView.swift; path = JamHawk/CustomUI/OnboardingFilterView.swift; sourceTree = "<group>"; };
 		CE32971A1D49DDB7001CF512 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE4C48B51D2C5879000EBA35 /* PlayerAPIInputModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAPIInputModels.swift; path = JamHawk/Models/PlayerAPIInputModels.swift; sourceTree = "<group>"; };
 		CE567F9F1D38138B00EF33A2 /* UIColor+Jamhawk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Jamhawk.swift"; path = "JamHawk/Extensions/UIColor+Jamhawk.swift"; sourceTree = "<group>"; };
@@ -529,7 +529,7 @@
 				CE5DA1011D47F06400025C17 /* TrackRatingCell.swift */,
 				CEF9E48D1D53CB9100DB6B2C /* VolumeSlider.swift */,
 				CE3203D51D614EDC00746B03 /* OnboardingNavigationAnimator.swift */,
-				CE3203DE1D62C88400746B03 /* OnboardingFilterVIew.swift */,
+				CE3203DE1D62C88400746B03 /* OnboardingFilterView.swift */,
 				CE06D3111D6FA3DE003BF9DA /* WhiteRoundedJamhawkButton.swift */,
 			);
 			name = "Custom UI";
@@ -777,7 +777,7 @@
 				CE06D3101D6F9D1C003BF9DA /* CoachingTipsViewController.swift in Sources */,
 				CE3203D21D61454F00746B03 /* WelcomeBackgroundViewController.swift in Sources */,
 				CE747BFA1D382F3F0006D1B6 /* NextAvailableMediaViewController.swift in Sources */,
-				CE3203DF1D62C88400746B03 /* OnboardingFilterVIew.swift in Sources */,
+				CE3203DF1D62C88400746B03 /* OnboardingFilterView.swift in Sources */,
 				CE2B69351D2EB8EE00EAFF16 /* BackendProtocols.swift in Sources */,
 				CE2B69461D2EF05500EAFF16 /* Freddy+Extensions.swift in Sources */,
 				CE9347891D39892B0090A58C /* CurrentTrackViewController.swift in Sources */,

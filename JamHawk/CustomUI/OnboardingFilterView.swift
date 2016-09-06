@@ -114,6 +114,10 @@ class OnboardingFilterView: UIButton {
 		
 		_bgColor.setFill()
 		CGContextFillEllipseInRect(contextRef, rect)
+		
+		UIColor.whiteColor().setStroke()
+		CGContextSetLineWidth(contextRef, 2)
+		CGContextStrokeEllipseInRect(contextRef, rect.insetBy(dx: 1, dy: 1))
 	}
 	
 	func scaleUp() {
