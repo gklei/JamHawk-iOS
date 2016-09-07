@@ -27,9 +27,10 @@
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
-            <string>OpenSans</string>
         </mutableArray>
         <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
             <string>OpenSans-Semibold</string>
         </mutableArray>
     </customFonts>
@@ -59,7 +60,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XG5-JB-X4n"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -72,12 +73,20 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                 <state key="normal" title="Get Started">
-                                    <color key="titleColor" red="0.97254902124404907" green="0.52941179275512695" blue="0.18039216101169586" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_getStartedButtonPressed" destination="Ooe-bF-NYO" eventType="touchUpInside" id="KI8-2s-Oou"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCi-NL-aR7">
+                                <rect key="frame" x="185.5" y="302" width="229" height="44"/>
+                                <string key="text">Cras justo odio, dapibus ac 
+facilisis in, egestas eget quam</string>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -85,10 +94,12 @@
                             <constraint firstItem="Abs-E2-OnN" firstAttribute="width" secondItem="qYz-BX-mUs" secondAttribute="width" multiplier="0.5" id="AHn-JU-KfX"/>
                             <constraint firstItem="e2z-ZC-c80" firstAttribute="leading" secondItem="Abs-E2-OnN" secondAttribute="trailing" id="KOl-hO-oOh"/>
                             <constraint firstItem="qQR-0V-avc" firstAttribute="top" secondItem="Abs-E2-OnN" secondAttribute="bottom" id="Ow3-Mh-S9T"/>
+                            <constraint firstItem="eCi-NL-aR7" firstAttribute="top" secondItem="Yx7-Qu-Um1" secondAttribute="bottom" constant="20" id="Pu1-iS-maQ"/>
                             <constraint firstItem="e2z-ZC-c80" firstAttribute="width" secondItem="Abs-E2-OnN" secondAttribute="width" id="Ytw-jH-LLF"/>
                             <constraint firstItem="e2z-ZC-c80" firstAttribute="height" secondItem="Abs-E2-OnN" secondAttribute="height" id="ji0-Dv-z8I"/>
                             <constraint firstItem="Abs-E2-OnN" firstAttribute="leading" secondItem="qYz-BX-mUs" secondAttribute="leading" id="kZS-WV-yvh"/>
                             <constraint firstItem="Yx7-Qu-Um1" firstAttribute="centerY" secondItem="qYz-BX-mUs" secondAttribute="centerY" constant="-100" id="pgN-0H-2ot"/>
+                            <constraint firstItem="eCi-NL-aR7" firstAttribute="centerX" secondItem="Yx7-Qu-Um1" secondAttribute="centerX" id="w9x-0W-IyA"/>
                             <constraint firstItem="Yx7-Qu-Um1" firstAttribute="centerX" secondItem="qYz-BX-mUs" secondAttribute="centerX" id="zCd-Go-7O1"/>
                         </constraints>
                     </view>
@@ -166,7 +177,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqF-2w-N0Z">
                                         <rect key="frame" x="20" y="0.0" width="90" height="41"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                        <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -226,7 +237,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8q-OB-WZ6">
                                 <rect key="frame" x="20" y="562" width="335" height="41"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.97254902124404907" green="0.52941179275512695" blue="0.18039216101169586" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBL-6M-c8T">
@@ -430,7 +441,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbd-e5-NjL">
                                         <rect key="frame" x="20" y="0.0" width="104" height="41"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                        <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -496,7 +507,7 @@
                                 <string key="text">Welcome to your
 Jamhawk Dashboard</string>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.97254902124404907" green="0.52941179275512695" blue="0.18039216101169586" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coaching_tips_jamhawk" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-dZ-FQv">
@@ -572,7 +583,7 @@ Jamhawk Dashboard</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Popularity" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGv-03-4h1">
                                 <rect key="frame" x="20" y="562" width="335" height="41"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.97254902119999997" green="0.52941179279999995" blue="0.180392161" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-1G-Ifj">
@@ -675,7 +686,7 @@ Jamhawk Dashboard</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're all set" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMt-bS-zch">
                                 <rect key="frame" x="20" y="146" width="335" height="41"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.97254902119999997" green="0.52941179279999995" blue="0.180392161" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMV-yf-8wR">

@@ -48,6 +48,7 @@ class ParentFilterCell: UICollectionViewCell {
 		
 		let fontSize = adjustedFontSizeForCurrentDevice(16)
 		_filterSelectionLabel.font = UIFont(name: "OpenSans", size: fontSize)
+		_filterSelectionLabel.rate = 30
 	}
 	
 	// MARK: - Public
@@ -77,6 +78,8 @@ class ParentFilterCell: UICollectionViewCell {
 		}
 		
 		filterSelectionText = filterSelectionText == "" ? "No Selection" : filterSelectionText
+		guard _filterSelectionLabel.text != filterSelectionText else { return }
+		
 		_filterSelectionLabel.text = filterSelectionText
  	}
 }

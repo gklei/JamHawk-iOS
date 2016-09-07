@@ -18,7 +18,7 @@ class WelcomeBackgroundViewController: UIViewController {
 		view.backgroundColor = .blackColor()
 		
 		imageView.image = UIImage(named: "welcome_background")
-		imageView.alpha = 0.5
+		imageView.alpha = 0.7
 		imageView.contentMode = .ScaleAspectFill
 		
 		view.addAndFill(subview: imageView)
