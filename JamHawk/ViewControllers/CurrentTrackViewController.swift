@@ -73,6 +73,10 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 	@IBOutlet internal var _albumArtImageView: AsyncImageView!
 	@IBOutlet internal var _albumArtContainerView: UIView!
 	@IBOutlet internal var _albumArtShadowView: UIView!
+	@IBOutlet internal var _votingContainerHeightConstraint: NSLayoutConstraint!
+	
+	@IBOutlet internal var _albumArtWidthConstraint: NSLayoutConstraint!
+	@IBOutlet internal var _currentTrackLabelSpacingConstraint: NSLayoutConstraint!
 	
 	private var _viewTransformer: ViewTransformer!
 	
@@ -108,6 +112,28 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		
 		let fontSize = adjustedFontSizeForCurrentDevice(16)
 		_currentTrackLabel.font = UIFont(name: "OpenSans-Semibold", size: fontSize)
+		
+		_adjustLayoutForCurrentDeviceSize()
+	}
+	
+	private func _adjustLayoutForCurrentDeviceSize() {
+		var albumArtWidthOffset: CGFloat = 0
+		var votingContainerHeight: CGFloat = 44
+		var currentTrackLabelSpacingConstant: CGFloat = 20
+		
+		switch UIDevice.currentDevice().deviceType {
+		case .IPhone4, .IPhone4S:
+			currentTrackLabelSpacingConstant = 10
+			votingContainerHeight = 34
+			albumArtWidthOffset = 40
+		case .IPhone5, .IPhone5C, .IPhone5S:
+			votingContainerHeight = 34
+		default: break
+		}
+		
+		_votingContainerHeightConstraint.constant = votingContainerHeight
+		_albumArtWidthConstraint.constant = -albumArtWidthOffset
+		_currentTrackLabelSpacingConstraint.constant = currentTrackLabelSpacingConstant
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -160,7 +186,7 @@ final class LargeCurrentTrackViewController: CurrentTrackViewController, PlayerS
 		}
 		
 		_albumArtImageView.crossfadeDuration = 0
-		rippleImage(1.2)
+		rippleImage(duration: 1.2)
 	}
 }
 
@@ -222,7 +248,7 @@ extension LargeCurrentTrackViewController {
 		return filter
 	}
 	
-	func rippleImage(duration: Double) {
+	func rippleImage(duration duration: Double) {
 		//Don't forget to keep track of your duration for calculations later.
 		_duration = duration
 		

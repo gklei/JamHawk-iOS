@@ -38,6 +38,9 @@ class GenreSelectionOnboardingViewController: UIViewController {
 			filterView.delegate = self
 			filterView.type = _filterTypes[index]
 		}
+		
+		let size = adjustedFontSizeForCurrentDevice(28)
+		_genresSelectedLabel.font = UIFont(name: "OpenSans-Light", size: size)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -73,7 +76,7 @@ class GenreSelectionOnboardingViewController: UIViewController {
 	}
 	
 	private func _updateGenresSelectedLabel() {
-		var text = "Selected a Genre"
+		var text = "Select a Genre"
 		let count = filterViews.filter({$0.selected}).count
 		if count > 0 {
 			let genreWord = count == 1 ? "Genre" : "Genres"

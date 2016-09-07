@@ -32,6 +32,7 @@ class CoachingTipsViewController: UIViewController {
 	@IBOutlet private var _subtitleLabel: UILabel!
 	@IBOutlet private var _nextButton: WhiteRoundedJamhawkButton!
 	@IBOutlet private var _skipAllTipsButton: UIButton!
+	@IBOutlet private var _subtitleYPositionLayoutConstraint: NSLayoutConstraint!
 	
 	private let maskLayer = CAShapeLayer()
 	private let underlayView = UIView(frame: CGRect.zero)
@@ -54,7 +55,13 @@ class CoachingTipsViewController: UIViewController {
 		underlayView.clipsToBounds = true
 		underlayView.layer.mask = maskLayer
 		
-		let mainTitleSize: CGFloat = UIDevice.currentDevice().deviceType.hasSmallScreen ? 24 : 30
+		var mainTitleSize: CGFloat = 30
+		switch UIDevice.currentDevice().deviceType {
+//		case .Simulator: mainTitleSize = 20
+		case .IPhone4, .IPhone4S: mainTitleSize = 20
+		case .IPhone5, .IPhone5C, .IPhone5S: mainTitleSize = 24
+		default: break
+		}
 		_mainTitleLabel.font = UIFont(name: "OpenSans-Light", size: mainTitleSize)
 		
 		let subtitleSize: CGFloat = adjustedFontSizeForCurrentDevice(13)
@@ -77,6 +84,16 @@ class CoachingTipsViewController: UIViewController {
 		
 		maskLayer.fillRule = kCAFillRuleEvenOdd
 		maskLayer.path = pathRef
+		
+		let jamhawkIconIntersection = _iconImageView.frame.intersect(focusRect).height
+		if jamhawkIconIntersection > 0 {
+			_subtitleYPositionLayoutConstraint.constant = jamhawkIconIntersection + 10
+		}
+		
+		let skipAllButtonIntersection = _skipAllTipsButton.frame.intersect(focusRect).height
+		if skipAllButtonIntersection > 0 {
+			_subtitleYPositionLayoutConstraint.constant = -(skipAllButtonIntersection + 10)
+		}
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {

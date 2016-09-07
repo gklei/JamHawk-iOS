@@ -12,8 +12,14 @@ extension CoachingTipsState {
 	var mainTitleText: String {
 		switch self {
 		case .Welcome: return "Welcome to your\rJamhawk Dashboard"
-		case .NextSong: return "Choose your\rnext song"
-		case .Filters: return "Your filters,\ryour way"
+		case .NextSong:
+			switch UIDevice.currentDevice().deviceType {
+			default: return "Choose your\rnext song"
+			}
+		case .Filters:
+			switch UIDevice.currentDevice().deviceType {
+			default: return "Your filters,\ryour way"
+			}
 		}
 	}
 	

@@ -14,7 +14,7 @@ enum OnboardingFilterType: String {
 	case Rising
 	case Blues
 	case HipHop = "Hip Hop"
-	case AlternativeRock = "Alternative Rock"
+	case AlternativeRock = "Alternative\rRock"
 	case RnB = "R&B"
 	case Pop
 	case Rock
@@ -85,8 +85,8 @@ class OnboardingFilterView: UIButton {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		let size = adjustedFontSizeForCurrentDevice(15)
-		_label.font = UIFont(name: "OpenSans", size: size)
+		let size = adjustedFontSizeForCurrentDevice(16)
+		_label.font = UIFont(name: "OpenSans-Bold", size: size)
 		_label.textColor = UIColor.whiteColor()
 		_label.textAlignment = .Center
 		_label.numberOfLines = 2
@@ -106,18 +106,26 @@ class OnboardingFilterView: UIButton {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
-		_label.frame = bounds.insetBy(dx: 16, dy: 0)
+		_label.frame = bounds.insetBy(dx: 8, dy: 0)
 	}
 	
 	override func drawRect(rect: CGRect) {
-		let contextRef = UIGraphicsGetCurrentContext()
+		let ctx = UIGraphicsGetCurrentContext()
 		
 		_bgColor.setFill()
-		CGContextFillEllipseInRect(contextRef, rect)
+		CGContextFillEllipseInRect(ctx, rect)
 		
+		if !selected {
+			_drawBorder(usingStrokeWidth: 2, context: ctx)
+		}
+	}
+	
+	private func _drawBorder(usingStrokeWidth width: CGFloat, context ctx: CGContext?) {
 		UIColor.whiteColor().setStroke()
-		CGContextSetLineWidth(contextRef, 2)
-		CGContextStrokeEllipseInRect(contextRef, rect.insetBy(dx: 1, dy: 1))
+		CGContextSetLineWidth(ctx, width)
+		
+		let borderRect = bounds.insetBy(dx: width*0.5, dy: width*0.5)
+		CGContextStrokeEllipseInRect(ctx, borderRect)
 	}
 	
 	func scaleUp() {

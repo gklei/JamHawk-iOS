@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -75,6 +75,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="_albumArtWidthConstraint" destination="V2O-QZ-zE1" id="j7t-XQ-T92"/>
                         <outlet property="_albumNameLabel" destination="tS3-Mn-U7D" id="WjM-3f-D7H"/>
                         <outlet property="_mainImageView" destination="fYU-Iz-NaS" id="ESP-fL-DXb"/>
                         <outlet property="_songAndArtistNameLabel" destination="h2q-Kd-cpG" id="bvr-lf-gAA"/>
@@ -106,22 +107,12 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igk-xx-ASo" userLabel="Subfilter Selection Container">
                                 <rect key="frame" x="0.0" y="88" width="414" height="445"/>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27" userLabel="Parent Filter Selection Container">
-                                <rect key="frame" x="0.0" y="20" width="414" height="68"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="3UH-FH-ZOa"/>
-                                </constraints>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-ve-drH" userLabel="Compact Current Track Container">
                                 <rect key="frame" x="0.0" y="533" width="414" height="150"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="1K6-M2-aqZ"/>
                                 </constraints>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZr-Io-xNp" userLabel="Profile Navigation Container">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="533"/>
                             </containerView>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hh-7i-2we" userLabel="Next Available Media Container">
                                 <rect key="frame" x="0.0" y="533" width="414" height="150"/>
@@ -132,6 +123,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="EWV-0X-QHY"/>
                                 </constraints>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-ow-Z27" userLabel="Parent Filter Selection Container">
+                                <rect key="frame" x="0.0" y="20" width="414" height="68"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="3UH-FH-ZOa"/>
+                                </constraints>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZr-Io-xNp" userLabel="Profile Navigation Container">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="533"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFo-eL-40V" userLabel="Long Press Info Container">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
@@ -734,8 +735,8 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QA7-nw-7Aa">
                                 <rect key="frame" x="152" y="373" width="110" height="44"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="QA7-nw-7Aa" secondAttribute="height" multiplier="5:2" id="ew9-L1-FQi"/>
                                     <constraint firstAttribute="height" constant="44" id="vTr-9J-ZgK"/>
-                                    <constraint firstAttribute="width" constant="110" id="yrV-cz-iqs"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="NxN-Ss-Ild" kind="embed" id="1cG-68-Onq"/>
@@ -744,20 +745,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOL-G7-MWg">
                                 <rect key="frame" x="0.0" y="20" width="414" height="333"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUl-iN-34d" customClass="MarqueeLabel">
-                                        <rect key="frame" x="20" y="310.5" width="374" height="22"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnH-51-5eh">
-                                        <rect key="frame" x="83" y="34" width="248" height="248"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VnH-51-5eh">
+                                        <rect key="frame" x="83" y="40" width="248" height="248"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukV-pl-LSO">
-                                                <rect key="frame" x="0.0" y="0.0" width="248" height="248"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ukV-pl-LSO">
+                                                <rect key="frame" x="0.0" y="1" width="248" height="248"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qnm-3a-BXh" customClass="AsyncImageView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="248" height="248"/>
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnm-3a-BXh" customClass="AsyncImageView">
+                                                        <rect key="frame" x="0.0" y="1" width="248" height="248"/>
                                                         <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -783,6 +778,12 @@
                                             <constraint firstAttribute="width" secondItem="VnH-51-5eh" secondAttribute="height" multiplier="1:1" id="hsl-B1-i0B"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUl-iN-34d" customClass="MarqueeLabel">
+                                        <rect key="frame" x="20" y="310.5" width="374" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -811,7 +812,10 @@
                         <outlet property="_albumArtContainerView" destination="ukV-pl-LSO" id="NYE-GF-Udv"/>
                         <outlet property="_albumArtImageView" destination="Qnm-3a-BXh" id="zJO-eV-orA"/>
                         <outlet property="_albumArtShadowView" destination="VnH-51-5eh" id="wPB-Tv-iVt"/>
+                        <outlet property="_albumArtWidthConstraint" destination="nMh-bh-ktP" id="J3F-qs-MgF"/>
                         <outlet property="_currentTrackLabel" destination="IUl-iN-34d" id="pg4-VB-K8e"/>
+                        <outlet property="_currentTrackLabelSpacingConstraint" destination="UVb-0a-5nZ" id="VIY-oB-d6w"/>
+                        <outlet property="_votingContainerHeightConstraint" destination="vTr-9J-ZgK" id="xAI-xg-met"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jc4-ZA-VSg" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
 		updateRightBarButtonItem(withTitle: "Sign Out   ", action: signOutSel)
 		removeLeftBarItem()
 		
-		_profileOptionsCollectionView.reloadData()
+//		reloadUI()
 	}
 	
 	internal func signOut() {

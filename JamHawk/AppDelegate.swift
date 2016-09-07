@@ -42,8 +42,13 @@ public func updateNavigationBarItemColor(color: UIColor) {
 
 public func adjustedFontSizeForCurrentDevice(proposedSize: CGFloat) -> CGFloat {
 	switch UIDevice.currentDevice().deviceType {
-	case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S, .Simulator:
+	case .IPhone5, .IPhone5C, .IPhone5S:
 		return max((proposedSize - 2), 0)
+	case .IPhone4, .IPhone4S:
+		return max((proposedSize - 3), 0)
+//	case .Simulator:
+//		let simulatorOffset: CGFloat = 3
+//		return max((proposedSize - simulatorOffset), 0)
 	default: return proposedSize
 	}
 }
@@ -51,7 +56,8 @@ public func adjustedFontSizeForCurrentDevice(proposedSize: CGFloat) -> CGFloat {
 extension DeviceType {
 	var hasSmallScreen: Bool {
 		switch self {
-		case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S, .Simulator: return true
+//		case .Simulator: return true
+		case .IPhone4, .IPhone4S, .IPhone5, .IPhone5C, .IPhone5S: return true
 		default: return false
 		}
 	}

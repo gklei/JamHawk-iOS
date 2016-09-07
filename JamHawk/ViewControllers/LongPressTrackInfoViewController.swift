@@ -16,6 +16,7 @@ final class LongPressTrackInfoController: UIViewController, PlayerStoryboardInst
 	@IBOutlet private var _mainImageView: AsyncImageView!
 	@IBOutlet private var _songAndArtistNameLabel: MarqueeLabel!
 	@IBOutlet private var _albumNameLabel: MarqueeLabel!
+	@IBOutlet private var _albumArtWidthConstraint: NSLayoutConstraint!
 	
 	private let _thumbnailImageView = AsyncImageView()
 	private let _thumbnailContainer = UIView()
@@ -44,6 +45,12 @@ final class LongPressTrackInfoController: UIViewController, PlayerStoryboardInst
 		
 		_songAndArtistNameLabel.kerning = 1.2
 		_albumNameLabel.kerning = 1.2
+		
+		switch UIDevice.currentDevice().deviceType {
+		case .IPhone4, .IPhone4S:
+			_albumArtWidthConstraint.constant = -40
+		default: break
+		}
 	}
 	
 	func update(withViewModel viewModel: PlayerAPIOutputMetadataViewModel, thumbnailRect: CGRect) {

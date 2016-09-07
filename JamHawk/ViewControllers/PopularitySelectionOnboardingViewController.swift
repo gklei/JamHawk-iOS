@@ -39,6 +39,9 @@ class PopularitySelectionOnboardingViewController: UIViewController {
 			filterView.delegate = self
 			filterView.type = _filterTypes[index]
 		}
+		
+		let size = adjustedFontSizeForCurrentDevice(28)
+		_popularitySelectedLabel.font = UIFont(name: "OpenSans-Light", size: size)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -74,7 +77,7 @@ class PopularitySelectionOnboardingViewController: UIViewController {
 	}
 	
 	private func _updatePopularitySelectedLabel() {
-		var text = "Selected a Popularity"
+		var text = "Select Popularity"
 		let count = filterViews.filter({$0.selected}).count
 		if count > 0 {
 			let popularityWord = count == 1 ? "Popularity" : "Popularities"
