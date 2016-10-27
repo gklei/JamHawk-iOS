@@ -113,7 +113,7 @@ class OnboardingFilterView: UIButton {
 		let ctx = UIGraphicsGetCurrentContext()
 		
 		_bgColor.setFill()
-		CGContextFillEllipseInRect(ctx, rect)
+		CGContextFillEllipseInRect(ctx!, rect)
 		
 		if !selected {
 			_drawBorder(usingStrokeWidth: 2, context: ctx)
@@ -122,10 +122,10 @@ class OnboardingFilterView: UIButton {
 	
 	private func _drawBorder(usingStrokeWidth width: CGFloat, context ctx: CGContext?) {
 		UIColor.whiteColor().setStroke()
-		CGContextSetLineWidth(ctx, width)
+		CGContextSetLineWidth(ctx!, width)
 		
 		let borderRect = bounds.insetBy(dx: width*0.5, dy: width*0.5)
-		CGContextStrokeEllipseInRect(ctx, borderRect)
+		CGContextStrokeEllipseInRect(ctx!, borderRect)
 	}
 	
 	func scaleUp() {

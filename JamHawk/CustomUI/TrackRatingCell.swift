@@ -68,7 +68,7 @@ class TrackRatingCell: UICollectionViewCell {
 		let context = UIGraphicsGetCurrentContext()
 		
 		_iconColor.setStroke()
-		CGContextSetLineWidth(context, 2)
-		CGContextStrokeEllipseInRect(context, rect.insetBy(dx: 1, dy: 1))
+		CGContextSetLineWidth(context!, 2)
+		CGContextStrokeEllipseInRect(context!, rect.insetBy(dx: 1, dy: 1))
 	}
 }

@@ -30,17 +30,17 @@ class OnboardingNavigationAnimator: NSObject, UIViewControllerAnimatedTransition
 		viewFromTransform.m34 = const
 		viewToTransform.m34 = const
 		
-		containerView!.transform = CGAffineTransformMakeTranslation(direction * containerView!.frame.size.width / 2.0, 0)
+		containerView.transform = CGAffineTransformMakeTranslation(direction * containerView.frame.size.width / 2.0, 0)
 		toView.layer.transform = viewToTransform
-		containerView!.addSubview(toView)
+		containerView.addSubview(toView)
 		
 		UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
-			containerView!.transform = CGAffineTransformMakeTranslation(-direction * containerView!.frame.size.width / 2.0, 0)
+			containerView.transform = CGAffineTransformMakeTranslation(-direction * containerView.frame.size.width / 2.0, 0)
 			fromView.layer.transform = viewFromTransform
 			toView.layer.transform = CATransform3DIdentity
 			}, completion: {
 				finished in
-				containerView!.transform = CGAffineTransformIdentity
+				containerView.transform = CGAffineTransformIdentity
 				fromView.layer.transform = CATransform3DIdentity
 				toView.layer.transform = CATransform3DIdentity
 				fromView.layer.anchorPoint = CGPointMake(0.5, 0.5)

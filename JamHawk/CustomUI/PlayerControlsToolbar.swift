@@ -12,9 +12,8 @@ class PlayerControlsToolbar: UIToolbar {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		translucent = false
+		translucent = true
+      barTintColor = UIColor(white: 0, alpha: 0.5)
 		makeShadowTransparent()
-		let color = UIColor(white: 0, alpha: 0.5)
-		update(backgroundColor: color)
 	}
 }

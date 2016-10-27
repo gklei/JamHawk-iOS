@@ -52,10 +52,10 @@ class UserProfileButtonView: UIButton {
 		let context = UIGraphicsGetCurrentContext()
 		
 		_fillColor.setFill()
-		CGContextFillEllipseInRect(context, rect);
+		CGContextFillEllipseInRect(context!, rect);
 		
 		_strokeColor.setStroke()
-		CGContextSetLineWidth(context, 2)
-		CGContextStrokeEllipseInRect(context, rect.insetBy(dx: 1, dy: 1))
+		CGContextSetLineWidth(context!, 2)
+		CGContextStrokeEllipseInRect(context!, rect.insetBy(dx: 1, dy: 1))
 	}
 }

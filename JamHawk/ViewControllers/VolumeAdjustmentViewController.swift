@@ -54,7 +54,7 @@ final class VolumeAdjustmentViewController: UIViewController, PlayerStoryboardIn
 	
 	private func _setupVolumeSlider() {
 		let containerBounds = _sliderContainer.bounds
-		_volumeSlider.frame = CGRect(x: 0, y: 0, width: containerBounds.height, height: containerBounds.width)
+		_volumeSlider.frame = CGRect(x: 0, y: 0, width: 131, height: containerBounds.width)
 		_volumeSlider.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
 		_volumeSlider.translatesAutoresizingMaskIntoConstraints = true
 		_sliderContainer.addSubview(_volumeSlider)

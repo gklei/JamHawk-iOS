@@ -601,12 +601,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9B94A01D26B67700B0F53D /* Build configuration list for PBXNativeTarget "JamHawk" */;
 			buildPhases = (
-				1E621CACDE4E60C03F9C0360 /* 📦 Check Pods Manifest.lock */,
+				1E621CACDE4E60C03F9C0360 /* [CP] Check Pods Manifest.lock */,
 				CE9B947F1D26B67600B0F53D /* Sources */,
 				CE9B94801D26B67600B0F53D /* Frameworks */,
 				CE9B94811D26B67600B0F53D /* Resources */,
-				9ECF74662A84D6615D573F2C /* 📦 Embed Pods Frameworks */,
-				34A1C19572DF12DD9CDB9474 /* 📦 Copy Pods Resources */,
+				9ECF74662A84D6615D573F2C /* [CP] Embed Pods Frameworks */,
+				34A1C19572DF12DD9CDB9474 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -714,29 +714,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E621CACDE4E60C03F9C0360 /* 📦 Check Pods Manifest.lock */ = {
+		1E621CACDE4E60C03F9C0360 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		34A1C19572DF12DD9CDB9474 /* 📦 Copy Pods Resources */ = {
+		34A1C19572DF12DD9CDB9474 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -744,14 +744,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHawk/Pods-JamHawk-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9ECF74662A84D6615D573F2C /* 📦 Embed Pods Frameworks */ = {
+		9ECF74662A84D6615D573F2C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1027,6 +1027,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.JamHawk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1043,6 +1044,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.JamHawk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

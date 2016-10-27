@@ -21,10 +21,6 @@ class JamHawkNavigationController: UINavigationController {
 			NSFontAttributeName : UIFont(name: "OpenSans", size: 14)!
 		]
 	}
-	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return topViewController?.preferredStatusBarStyle() ?? .LightContent
-	}
 }
 
 class ProfileNavigationController: UINavigationController {

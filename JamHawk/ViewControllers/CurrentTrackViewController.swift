@@ -9,6 +9,7 @@
 import UIKit
 import AsyncImageView
 import MarqueeLabel
+import IncipiaKit
 
 protocol CurrentTrackDataSource: class {
 	var currentTrackViewModel: PlayerAPIOutputMetadataViewModel? { get }
@@ -214,7 +215,7 @@ extension LargeCurrentTrackViewController {
 	}
 	
 	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-		super.touchesCancelled(touches, withEvent: event)
+		super.touchesCancelled(touches!, withEvent: event)
 		_viewTransformer.resetViewWithDuration(0.4)
 	}
 }
@@ -277,7 +278,7 @@ extension LargeCurrentTrackViewController {
 		
 		let context = CIContext(options: nil) //You can also create a context from an OpenGL context bee-tee-dubs.
 		let cgImage = context.createCGImage(CIImage, fromRect: extent)
-		_albumArtImageView.image = UIImage(CGImage: cgImage, scale: scale, orientation: .Up)
+		_albumArtImageView.image = UIImage(CGImage: cgImage!, scale: scale, orientation: .Up)
 		
 		if progress >= 1.0 {
 			_duration = 0

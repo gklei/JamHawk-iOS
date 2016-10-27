@@ -91,7 +91,9 @@ class AppRouter: NSObject {
 	}
 	
 	private func _setupWindow() {
-		window.rootViewController = _welcomeBackgroundVC
+      window.rootViewController = _welcomeBackgroundVC
+      _welcomeBackgroundVC.presentingNavController = rootNavController
+      
 		window.makeKeyAndVisible()
 		
 		rootNavController.delegate = self
@@ -250,4 +252,8 @@ extension AppRouter: UINavigationControllerDelegate {
 			updateNavigationBarItemColor(barItemColor)
 		}
 	}
+   
+//   func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+//      _welcomeBackgroundVC.setNeedsStatusBarAppearanceUpdate()
+//   }
 }

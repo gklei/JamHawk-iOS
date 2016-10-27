@@ -68,6 +68,6 @@ extension SubfilterCell {
 		_circleColor.setFill()
 		
 		// Fill the circle with the fill color
-		CGContextFillEllipseInRect(contextRef, rect);
+		CGContextFillEllipseInRect(contextRef!, rect);
 	}
 }

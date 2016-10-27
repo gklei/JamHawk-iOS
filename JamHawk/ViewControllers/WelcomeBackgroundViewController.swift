@@ -8,9 +8,19 @@
 
 import UIKit
 
+extension UINavigationController {
+   public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+      if let rootViewController = self.viewControllers.last {
+         return rootViewController.preferredStatusBarStyle()
+      }
+      return super.preferredStatusBarStyle()
+   }
+}
+
 class WelcomeBackgroundViewController: UIViewController {
 	
 	let imageView = UIImageView()
+   weak var presentingNavController: UINavigationController?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,4 +33,8 @@ class WelcomeBackgroundViewController: UIViewController {
 		
 		view.addAndFill(subview: imageView)
 	}
+   
+   override func preferredStatusBarStyle() -> UIStatusBarStyle {
+      return presentingNavController?.preferredStatusBarStyle() ?? .LightContent
+   }
 }
