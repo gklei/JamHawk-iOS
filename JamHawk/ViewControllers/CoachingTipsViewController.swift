@@ -70,6 +70,7 @@ class CoachingTipsViewController: UIViewController {
 		_setupSkipAllTipsButton()
 		
 		view.insertSubview(underlayView, atIndex: 0)
+      _updateUI()
 	}
 	
 	override func viewDidLayoutSubviews() {

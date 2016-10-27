@@ -25,9 +25,9 @@ extension CoachingTipsState {
 	
 	var subtitleText: String {
 		switch self {
-		case .Welcome: return "This is where you can control the music player, select the next song, and update the filter selection."
-		case .NextSong: return "Tap on one of the next avaialble tracks to queue it up, or long press to see additional information."
-		case .Filters: return "Select multiple filters to get the best possible recommendations for the next track."
+		case .Welcome: return "Simple and intuitive. Unearth the greatest music you never knew existed, by tapping your finger. No more sorting. No more scrolling. Let’s get started!"
+		case .NextSong: return "Our custom recommendation system lets you pick the next song. Tap the icon for what you want. When the current song ends, the highlighted icon will begin playing."
+		case .Filters: return "Want to change your recommendations? Use your filters to select genre, sub-genre and popularity. Tap once on each selection. Select as many as you want."
 		}
 	}
 	

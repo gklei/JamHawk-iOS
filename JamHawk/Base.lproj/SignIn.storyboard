@@ -1,38 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dOE-fG-Mm9">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dOE-fG-Mm9">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="OpenSans-Light.ttf">
+        <array key="OpenSans-Light.ttf">
             <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
-        </mutableArray>
-        <mutableArray key="OpenSans-Regular.ttf">
+        </array>
+        <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-        </mutableArray>
-        <mutableArray key="OpenSans-Semibold.ttf">
+        </array>
+        <array key="OpenSans-Semibold.ttf">
             <string>OpenSans-Semibold</string>
-            <string>OpenSans-Semibold</string>
-            <string>OpenSans-Semibold</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Welcome View Controller-->
@@ -44,57 +28,53 @@
                         <viewControllerLayoutGuide type="bottom" id="qQR-0V-avc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qYz-BX-mUs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jamhawk_logo_welcome" translatesAutoresizingMaskIntoConstraints="NO" id="Yx7-Qu-Um1">
-                                <rect key="frame" x="231" y="118" width="139" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="164" id="Bp2-AT-Jp7"/>
                                     <constraint firstAttribute="width" constant="139" id="HwR-gR-m1C"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abs-E2-OnN">
-                                <rect key="frame" x="0.0" y="550" width="300" height="50"/>
-                                <color key="backgroundColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XG5-JB-X4n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                 <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_signUpButtonPressed" destination="Ooe-bF-NYO" eventType="touchUpInside" id="dF3-Ak-ZVk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2z-ZC-c80">
-                                <rect key="frame" x="300" y="550" width="300" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                 <state key="normal" title="Get Started">
-                                    <color key="titleColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_getStartedButtonPressed" destination="Ooe-bF-NYO" eventType="touchUpInside" id="KI8-2s-Oou"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCi-NL-aR7">
-                                <rect key="frame" x="185.5" y="302" width="229" height="44"/>
-                                <string key="text">Cras justo odio, dapibus ac 
-facilisis in, egestas eget quam</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The first music discovery streaming player based on neuroscience research." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCi-NL-aR7">
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e2z-ZC-c80" firstAttribute="centerY" secondItem="Abs-E2-OnN" secondAttribute="centerY" id="8tP-KQ-7hj"/>
                             <constraint firstItem="Abs-E2-OnN" firstAttribute="width" secondItem="qYz-BX-mUs" secondAttribute="width" multiplier="0.5" id="AHn-JU-KfX"/>
                             <constraint firstItem="e2z-ZC-c80" firstAttribute="leading" secondItem="Abs-E2-OnN" secondAttribute="trailing" id="KOl-hO-oOh"/>
                             <constraint firstItem="qQR-0V-avc" firstAttribute="top" secondItem="Abs-E2-OnN" secondAttribute="bottom" id="Ow3-Mh-S9T"/>
                             <constraint firstItem="eCi-NL-aR7" firstAttribute="top" secondItem="Yx7-Qu-Um1" secondAttribute="bottom" constant="20" id="Pu1-iS-maQ"/>
+                            <constraint firstItem="eCi-NL-aR7" firstAttribute="leading" secondItem="qYz-BX-mUs" secondAttribute="leading" constant="16" id="PwH-Hj-ys5"/>
+                            <constraint firstAttribute="trailing" secondItem="eCi-NL-aR7" secondAttribute="trailing" constant="16" id="VQJ-Nn-isL"/>
                             <constraint firstItem="e2z-ZC-c80" firstAttribute="width" secondItem="Abs-E2-OnN" secondAttribute="width" id="Ytw-jH-LLF"/>
                             <constraint firstItem="e2z-ZC-c80" firstAttribute="height" secondItem="Abs-E2-OnN" secondAttribute="height" id="ji0-Dv-z8I"/>
                             <constraint firstItem="Abs-E2-OnN" firstAttribute="leading" secondItem="qYz-BX-mUs" secondAttribute="leading" id="kZS-WV-yvh"/>
@@ -106,7 +86,7 @@ facilisis in, egestas eget quam</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TH5-bM-sBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="295"/>
+            <point key="canvasLocation" x="0.80000000000000004" y="294.60269865067471"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="wjd-dk-YNZ">
@@ -117,23 +97,20 @@ facilisis in, egestas eget quam</string>
                         <viewControllerLayoutGuide type="bottom" id="KFF-Eb-48j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uv7-qb-f2z">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjw-z5-2Uy">
-                                <rect key="frame" x="0.0" y="193" width="600" height="213"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edw-8e-rbD">
-                                        <rect key="frame" x="0.0" y="58" width="600" height="103"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gtf-jc-YhH" customClass="JHSignInSignUpTextField" customModule="JamHawk" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1" width="600" height="50"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="lGS-FP-qUS"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next"/>
                                                 <connections>
@@ -141,10 +118,9 @@ facilisis in, egestas eget quam</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vyC-j3-MAr" customClass="JHSignInSignUpTextField" customModule="JamHawk" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="52" width="600" height="50"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
                                                 <connections>
@@ -152,7 +128,7 @@ facilisis in, egestas eget quam</string>
                                                 </connections>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.82485945767195767" green="0.82485945767195767" blue="0.82485945767195767" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.82485945767195767" green="0.82485945767195767" blue="0.82485945767195767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="vyC-j3-MAr" firstAttribute="centerX" secondItem="gtf-jc-YhH" secondAttribute="centerX" id="8xP-pP-FX0"/>
                                             <constraint firstItem="gtf-jc-YhH" firstAttribute="leading" secondItem="Edw-8e-rbD" secondAttribute="leading" id="LVd-Be-Mtf"/>
@@ -165,19 +141,17 @@ facilisis in, egestas eget quam</string>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcl-u0-XvS">
-                                        <rect key="frame" x="20" y="181" width="107" height="32"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                         <state key="normal" title="forgot password">
-                                            <color key="titleColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="_forgotPasswordButtonPressed" destination="dOE-fG-Mm9" eventType="touchUpInside" id="0Vi-u3-QdD"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqF-2w-N0Z">
-                                        <rect key="frame" x="20" y="0.0" width="90" height="41"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                        <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -193,7 +167,7 @@ facilisis in, egestas eget quam</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.97265625" green="0.97265625" blue="0.97265625" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97265625" green="0.97265625" blue="0.97265625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bjw-z5-2Uy" firstAttribute="centerY" secondItem="uv7-qb-f2z" secondAttribute="centerY" id="nyX-3b-Liy"/>
@@ -235,17 +209,14 @@ facilisis in, egestas eget quam</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8q-OB-WZ6">
-                                <rect key="frame" x="20" y="562" width="335" height="41"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBL-6M-c8T">
-                                <rect key="frame" x="0.0" y="64" width="375" height="498.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4Q-OW-Q61" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="231" y="306" width="123.5" height="123.5"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="r4Q-OW-Q61" secondAttribute="height" multiplier="97:89" id="X8Y-Me-sFR"/>
                                         </constraints>
@@ -256,15 +227,13 @@ facilisis in, egestas eget quam</string>
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3k-rF-PJk" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="8" width="124" height="124"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="K3k-rF-PJk" secondAttribute="height" multiplier="1:1" id="ONX-yl-5ob"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZg-nL-ZmM" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="84" y="187" width="124" height="124"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="AZg-nL-ZmM" secondAttribute="height" multiplier="97:89" id="4jZ-kq-z6W"/>
                                         </constraints>
@@ -275,8 +244,7 @@ facilisis in, egestas eget quam</string>
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6f-uM-A77" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="358" width="124" height="124"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="A6f-uM-A77" secondAttribute="height" multiplier="97:89" id="5uw-7D-gjh"/>
                                         </constraints>
@@ -287,11 +255,10 @@ facilisis in, egestas eget quam</string>
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bP-My-xLe" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="231" y="92" width="123.5" height="123.5"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="AZg-nL-ZmM" firstAttribute="leading" secondItem="K3k-rF-PJk" secondAttribute="leading" constant="64" id="1Eh-bE-qr1"/>
@@ -315,14 +282,13 @@ facilisis in, egestas eget quam</string>
                                     <constraint firstItem="K3k-rF-PJk" firstAttribute="height" secondItem="AZg-nL-ZmM" secondAttribute="height" id="zwP-sD-bu9"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-sd-VhY">
-                                <rect key="frame" x="20" y="611" width="335" height="35.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap once on the genre/s you like. Select as many as you want." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-sd-VhY">
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GBL-6M-c8T" firstAttribute="leading" secondItem="3Wp-qd-ihU" secondAttribute="leading" id="ATZ-16-Nz7"/>
@@ -342,7 +308,6 @@ facilisis in, egestas eget quam</string>
                         </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_genresSelectedLabel" destination="c8q-OB-WZ6" id="QEU-05-ei8"/>
                         <outlet property="container" destination="GBL-6M-c8T" id="S2H-ba-Tht"/>
@@ -376,23 +341,20 @@ facilisis in, egestas eget quam</string>
                         <viewControllerLayoutGuide type="bottom" id="Nos-iq-t34"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qhS-hU-BPe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bF-sV-1uJ">
-                                <rect key="frame" x="0.0" y="194" width="600" height="212"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYx-n9-Ify">
-                                        <rect key="frame" x="0.0" y="58" width="600" height="154"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xae-4x-g9f" customClass="JHSignInSignUpTextField" customModule="JamHawk" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1" width="600" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="7oX-k9-GTQ"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next"/>
                                                 <connections>
@@ -400,10 +362,9 @@ facilisis in, egestas eget quam</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZMi-fP-21g" customClass="JHSignInSignUpTextField" customModule="JamHawk" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="103" width="600" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
                                                 <connections>
@@ -411,10 +372,9 @@ facilisis in, egestas eget quam</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXa-iB-xp4" customClass="JHSignInSignUpTextField" customModule="JamHawk" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="52" width="600" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.63137257099151611" green="0.63137257099151611" blue="0.63137257099151611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES"/>
                                                 <connections>
@@ -422,7 +382,7 @@ facilisis in, egestas eget quam</string>
                                                 </connections>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.8547475961538461" green="0.8547475961538461" blue="0.8547475961538461" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.8547475961538461" green="0.8547475961538461" blue="0.8547475961538461" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="xae-4x-g9f" secondAttribute="trailing" id="4Ti-ZF-8Sm"/>
                                             <constraint firstItem="fXa-iB-xp4" firstAttribute="centerX" secondItem="xae-4x-g9f" secondAttribute="centerX" id="4mJ-es-S7B"/>
@@ -439,9 +399,8 @@ facilisis in, egestas eget quam</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbd-e5-NjL">
-                                        <rect key="frame" x="20" y="0.0" width="104" height="41"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                        <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -455,7 +414,7 @@ facilisis in, egestas eget quam</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3bF-sV-1uJ" firstAttribute="centerY" secondItem="qhS-hU-BPe" secondAttribute="centerY" id="BhJ-NG-E1b"/>
@@ -497,47 +456,41 @@ facilisis in, egestas eget quam</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlQ-8V-q3U">
-                                <rect key="frame" x="30" y="283.5" width="315" height="53.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQF-YX-ErH">
-                                <rect key="frame" x="30" y="186.5" width="315" height="82"/>
                                 <string key="text">Welcome to your
 Jamhawk Dashboard</string>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coaching_tips_jamhawk" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-dZ-FQv">
-                                <rect key="frame" x="30" y="114.5" width="65" height="64"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coaching_tips_jamhawk" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-dZ-FQv"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oH-gf-Ix2" customClass="WhiteRoundedJamhawkButton" customModule="JamHawk" customModuleProvider="target">
-                                <rect key="frame" x="30" y="352.5" width="155" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="0R7-5n-fa8"/>
                                     <constraint firstAttribute="height" constant="40" id="5I3-fT-aIY"/>
                                 </constraints>
                                 <state key="normal" title="Next Tip">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_buttonPressed" destination="E42-Or-XQZ" eventType="touchUpInside" id="uDf-MU-rDk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrV-WX-PJC">
-                                <rect key="frame" x="30" y="416.5" width="96" height="29"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                 <state key="normal" title="Skip All Help Tips">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_skipAllTipsButtonPressed" destination="E42-Or-XQZ" eventType="touchUpInside" id="Wft-Xd-QAp"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LrV-WX-PJC" firstAttribute="leading" secondItem="4oH-gf-Ix2" secondAttribute="leading" id="2Ty-up-Va3"/>
                             <constraint firstItem="4oH-gf-Ix2" firstAttribute="leading" secondItem="vlQ-8V-q3U" secondAttribute="leading" id="7CA-cf-UNd"/>
@@ -554,7 +507,6 @@ Jamhawk Dashboard</string>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_iconImageView" destination="B8F-dZ-FQv" id="cpe-0C-0YL"/>
                         <outlet property="_mainTitleLabel" destination="iQF-YX-ErH" id="1Ti-7A-KvQ"/>
@@ -581,37 +533,32 @@ Jamhawk Dashboard</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Popularity" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGv-03-4h1">
-                                <rect key="frame" x="20" y="562" width="335" height="41"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-1G-Ifj">
-                                <rect key="frame" x="20" y="611" width="335" height="35.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-1G-Ifj">
+                                <string key="text">Tap once on the level of song popularity you like. Select as many as you want. “Discoveries” are mostly unknown. “Rising” is somewhat popular. “Mainstream” is very popular.</string>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0m-Fa-hDl">
-                                <rect key="frame" x="0.0" y="64" width="375" height="498"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpg-kN-CB2" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="221" y="40" width="124" height="124"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Tpg-kN-CB2" secondAttribute="height" multiplier="1:1" id="aAk-zP-pec"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQf-YU-bJD" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="125" width="124" height="124"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBw-u2-Kys" customClass="OnboardingFilterView" customModule="JamHawk" customModuleProvider="target">
-                                        <rect key="frame" x="174" y="259" width="124" height="124"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Tpg-kN-CB2" secondAttribute="trailing" constant="30" id="17g-2Q-j8T"/>
@@ -628,7 +575,7 @@ Jamhawk Dashboard</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EGv-03-4h1" firstAttribute="top" secondItem="G0m-Fa-hDl" secondAttribute="bottom" id="3oD-4H-zJ1"/>
@@ -648,7 +595,6 @@ Jamhawk Dashboard</string>
                         </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_popularitySelectedLabel" destination="EGv-03-4h1" id="cY5-d3-zoG"/>
                         <outlet property="container" destination="G0m-Fa-hDl" id="JVJ-HO-FE6"/>
@@ -669,7 +615,7 @@ Jamhawk Dashboard</string>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1129.5" y="270.5"/>
+            <point key="canvasLocation" x="1412" y="270"/>
         </scene>
         <!--Onboarding Completion View Controller-->
         <scene sceneID="Q8j-6V-CaZ">
@@ -684,29 +630,26 @@ Jamhawk Dashboard</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're all set" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMt-bS-zch">
-                                <rect key="frame" x="20" y="146" width="335" height="41"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
-                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0039215688593685627" green="0.73333334922790527" blue="0.68235296010971069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMV-yf-8wR">
-                                <rect key="frame" x="20" y="195" width="335" height="35.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wasn’t that easy?! Let’s start hawking some jams!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMV-yf-8wR">
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-C8-xkD" customClass="WhiteRoundedJamhawkButton" customModule="JamHawk" customModuleProvider="target">
-                                <rect key="frame" x="19.5" y="260.5" width="335" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lbG-kb-bv2"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Sign up with Email">
                                             <attributes>
-                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="14" name="OpenSans-Semibold"/>
                                             </attributes>
                                         </fragment>
@@ -716,7 +659,7 @@ Jamhawk Dashboard</string>
                                     <attributedString key="attributedTitle">
                                         <fragment content="Sign up with Email">
                                             <attributes>
-                                                <color key="NSColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="14" name="OpenSans-Semibold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
@@ -728,7 +671,7 @@ Jamhawk Dashboard</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="MMt-bS-zch" firstAttribute="leading" secondItem="1fB-El-pg7" secondAttribute="leading" constant="20" id="2qc-cX-mGa"/>
@@ -746,7 +689,6 @@ Jamhawk Dashboard</string>
                         </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_signUpButton" destination="wPc-C8-xkD" id="D9m-y9-lGZ"/>
                     </connections>
@@ -758,7 +700,7 @@ Jamhawk Dashboard</string>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1656.5" y="270.5"/>
+            <point key="canvasLocation" x="2100" y="270"/>
         </scene>
     </scenes>
     <resources>
